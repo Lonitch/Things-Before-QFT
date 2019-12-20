@@ -1,0 +1,64 @@
+\documentclass[12pt,titlepage]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,graphicx,mathtools,tikz,hyperref}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\newcommand{\redp}[1]{\textcolor{red}{#1}}
+\newcommand{\bluep}[1]{\textcolor{blue}{#1}}
+\newcommand{\tealp}[1]{\textcolor{teal}{#1}}
+\usetikzlibrary{patterns,hobby}
+\numberwithin{equation}{section}
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\RaggedRightParindent = 24 pt
+\setlength{\parskip}{0.8em}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage[noline]{algorithm2e}
+\SetAlFnt{\footnotesize}
+\usepackage{graphicx}
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{tocloft}
+\renewcommand\cftsecafterpnum{\vskip6pt}
+\usepackage{makeidx}
+\makeindex
+\usepackage{mdframed}
+\newenvironment{que}
+    { \begin{mdframed}[backgroundcolor=green!20] \textbf{$\Delta$ Question} \\}
+    {  \end{mdframed}}
+\newenvironment{thm}
+    { \begin{mdframed}[backgroundcolor=orange!20] \textbf{$\Delta$ Theorem} \\}
+    {  \end{mdframed}}
+\newenvironment{defi}
+    { \begin{mdframed}[backgroundcolor=red!10] \textbf{$\Delta$ Definition} \\}
+    {  \end{mdframed}}
+\newenvironment{lemma}
+    { \begin{mdframed}[backgroundcolor=gray!10] \textbf{$\cdot$ Lemma} \\}
+    {  \end{mdframed}}
+\newenvironment{example}
+    { \begin{mdframed}[backgroundcolor=blue!10] \textbf{$\cdot$ Example} \\}
+    {  \end{mdframed}}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable}
+
+
+\title{Things Before QFT for Sloppy Engineers}
+\author{Sizhe Liu\\University of Illinois at Urbana-Champaign }
+\date{Version 1.0}
+
+\pgfplotsset{compat=1.15}
+\begin{document}
+
+\maketitle
+\newpage
+\input{sections/classic_mechanics.tex}
+\input{sections/special_relativity.tex}
+\input{sections/electromagnetism.tex}
+\input{sections/math.tex}
+
+
+\printindex
+\end{document}
