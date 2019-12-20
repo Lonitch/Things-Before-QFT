@@ -1,3 +1,17 @@
 \section{Some Not-so-crazy Math}
 
 \subsection{Total and Partial Derivatives}
+To understand the different kinds of derivatives, let's say we have a function $\rho(t, x(t), p(t))$ which, in general, depends on the location $x(t)$ and momentum $p(t)$ plus the time $t.$ A key observation is that the location $x(t)$ and momentum $p(t)$ are functions of $t$ too. Therefore, we need to be extremely careful what we mean when we calculate the derivative with respect to the time $t .$
+$$
+\frac{d \rho}{d t}=\lim _{\Delta t \rightarrow 0} \frac{\rho(t+\Delta t, x(t+\Delta t), p(t+\Delta t))-\rho(t, x(t), p(t))}{\Delta t}
+$$
+\textbf{The result is the total rate of change of $\rho$}.
+$$
+\frac{\partial \rho}{\partial t}=\lim _{\Delta t \rightarrow 0} \frac{\rho(t+\Delta t, x(t), p(t))-\rho(t, x(t), p(t))}{\Delta t}
+$$
+The key difference is that we only vary $t$ if it appears explicitly
+in $\rho$ but not if it only appears implicitly because $x(t)$ and $p(t)$
+also depend on $t .$ Thus
+$$
+\frac{d \rho}{d t}=\frac{\partial \rho}{\partial x} \frac{d x}{d t}+\frac{\partial \rho}{\partial p} \frac{d p}{d t}+\frac{\partial \rho}{\partial t}
+$$
