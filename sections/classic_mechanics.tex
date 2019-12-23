@@ -115,3 +115,80 @@ While (linear) momentum tells us how hard it
 is to stop an object using a specific force, angular momentum tells us how hard it is to stop it spinning.
 
 \textbf{Momentum and angular momentum are conserved.}
+
+\subsection{Configuration Space}
+In a physical space, we use one function $f(x)$ to describe each object in the system separately. In configuration space, we use a vector of functions $\mathbf{r}=[f(x),g(x),h(x)...]$ to describe the system as a whole. \textbf{Using the idea of gluing the
+spaces together, we always only need one vector which lives in an an $\mathbb{R}^{N}$ -dimensional space. If the objects are allowed to move freely in three dimensions, our vector $\vec{r}$ lives in $\mathbb{R}^{3 N}$ since we are gluing $ N$ times $\mathbb{R}^{3}$ together.}
+
+In configuration space, we can imagine the whole system as just one point that moves through this higher-dimensional space. Each point in configuration space corresponds to one specific configuration the system can be in.
+
+To summarize: while individual objects move in the three dimensional physical space, the time evolution of a system as a whole takes place in a higher-dimensional configuration space. A single trajectory in configuration space describes the evolution of a system as a whole.
+
+\subsection{Phase Space}
+\textbf{Configuration space only keeps track of the locations of the various objects.} But in addition to a vector that keeps track of the locations, we need a vector that keeps track of the momenta.
+
+This motivates the construction of the  \textbf{phase space} which works completely analogously to how we constructed configuration space. However, this time we also act as if \textbf{the momenta live in a different space and then glue the momentum spaces to our location spaces}. As a result, we can describe the complete state (not just the configuration) of our system with a single vector.
+
+\begin{itemize}
+    \item Classical mechanics in physical space is what we call the Newtonian formulation.
+    \item Classical mechanics in configuration space is what we call the Lagrangian formulation.
+    \item Classical mechanics in phase space is what we call the Hamiltonian formulation.
+\end{itemize}
+
+\subsection{Lagrangian Mechanics}
+\begin{quote}
+    Any system evolves in such a way that the action required is minimal.
+\end{quote}
+A path in configuration space between two fixed points $X$ and $Y$ corresponds to one specific possibility for how our system evolves between two fixed configurations. \textbf{We denote the action by $S[q(t)]$ for path the path $q(t)$ from $X$ to $Y$.} And it is calculated as:
+$$
+\operatorname{action}[q(t)]=S[q(t)]=\int_{t_{i}}^{t_{f}} d t L=\int_{t_{i}}^{t_{f}} d t(T-V)
+$$
+\subsubsection{Action and Lagrangian}
+\textbf{Question: why we integrate over $L$ to get the action?}
+
+\textbf{Answer:}
+
+Kinetic energy is a measure for how much is going on in our system.
+
+Potential energy is a measure for how much could happen, but isn’t.
+
+The Lagrangian is therefore a direct measure for the "liveliness" within a system at a specific moment in time. A high kinetic energy implies a large Lagrangian and that our system is extremely lively. A high potential energy implies a small Lagrangian and a less lively system.
+
+\redp{The action $S[q(t)]$ is not a function but a functional.}
+
+\textbf{A function eats a number $x$ and spits out a number $f(x)$. Specifically, the action functional $S[q(t)]$ yields a number for each path $q(t) .$ We call this number the action of the path.}
+
+\redp{The Lagrangian is a function of the location $q$ and the velocity $\frac{d q}{d t}:$ ' $L=L(q, \dot{q}) .$ This means that the Lagrangian does not depend on the
+acceleration $\frac{d^{2} q}{d t^{2}}$ or even higher derivatives.}
+
+\subsubsection{Variational Calculus}
+For an ordinary function $f(x),$ we can find the minimum by
+calculating the zeroes of its derivative:
+$$
+\frac{d f(x)}{d x} \stackrel{!}{=} 0
+$$
+
+\redp{A minimum is characterized by its neighborhood. If all neighboring points lie higher, the point in question is a minimum.}
+
+\textbf{Let's use this idea to once more find the minimum of the function $f(x)=3 x^{2}+x$.}
+
+We now pick one specific location $x=a$ and start investigating its neighborhood $a \rightarrow a+\epsilon,$ where $\epsilon$ is an infinitesimally small (positive or negative) number. In general, we call $\epsilon$ \textbf{a variation.}
+
+Putting this into the function yields
+$$
+\begin{aligned} f(a+\epsilon) &=3(a+\epsilon)^{2}+(a+\epsilon) \\ &=3\left(a^{2}+2 a \epsilon+\epsilon^{2}\right)+a+\epsilon \end{aligned}
+$$
+
+If the location $a$ is a minimum, we can't get lower by going in any direction $\epsilon .$ Mathematically, this implies: 
+
+\redp{All terms first order in $\epsilon$ must vanish.} Otherwise, for a negative $\epsilon$ the function value $f(a+\epsilon)$ would be smaller than $f(a)$ and therefore, $a$ wouldn't be a minimum.
+
+If we collect all terms linear in $\epsilon$ and demand that they vanish,
+$$
+\begin{array}{l}{3 \cdot 2 a \epsilon+\epsilon \stackrel{!}{=} 0} \\ {\therefore \quad 6 a+1 \stackrel{!}{=} 0}\end{array}
+$$
+we find
+$$
+a=\frac{-1}{6}
+$$
+The variational method of finding minima can also be applied to functionals like the action $S[q(t)],$ not just functions. Take note that for functionals, our goal isn't to find a location like $a$ which is the minimum of a function but instead, to find a function $q(t)$ which is the minimum of a function.
