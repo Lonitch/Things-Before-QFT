@@ -1,5 +1,5 @@
-\section{Classic Mechanics}
-\subsection{Formulations}
+\chapter{Classic Mechanics}
+\section{Formulations}
 we call the description of a given theory in a particular mathematical arena a formulation of the theory.
 
 \textbf{Lagrangian}
@@ -25,10 +25,9 @@ $$
 \begin{array}{l}{\frac{d p}{d t}=-\frac{\partial H}{\partial q}} \\ {\frac{d q}{d t}=\frac{\partial H}{\partial p}}\end{array}
 $$
 
-\textbf{Summary}
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
+\begin{qt}
+\begin{center}
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 
@@ -94,8 +93,12 @@ $$
 
 
 \end{tikzpicture}
+\end{center}
 
-\subsection{Basic quantities}
+\end{qt}
+
+
+\section{Basic quantities}
 \textbf{Momentum} is the velocity of an object times its mass
 $$
 \vec{p}(t) \equiv m \dot{\vec{q}}(t)
@@ -116,7 +119,7 @@ is to stop an object using a specific force, angular momentum tells us how hard 
 
 \textbf{Momentum and angular momentum are conserved.}
 
-\subsection{Configuration Space}
+\section{Configuration Space}
 In a physical space, we use one function $f(x)$ to describe each object in the system separately. In configuration space, we use a vector of functions $\mathbf{r}=[f(x),g(x),h(x)...]$ to describe the system as a whole. \textbf{Using the idea of gluing the
 spaces together, we always only need one vector which lives in an an $\mathbb{R}^{N}$ -dimensional space. If the objects are allowed to move freely in three dimensions, our vector $\vec{r}$ lives in $\mathbb{R}^{3 N}$ since we are gluing $ N$ times $\mathbb{R}^{3}$ together.}
 
@@ -124,18 +127,20 @@ In configuration space, we can imagine the whole system as just one point that m
 
 To summarize: while individual objects move in the three dimensional physical space, the time evolution of a system as a whole takes place in a higher-dimensional configuration space. A single trajectory in configuration space describes the evolution of a system as a whole.
 
-\subsection{Phase Space}
+\section{Phase Space}
 \textbf{Configuration space only keeps track of the locations of the various objects.} But in addition to a vector that keeps track of the locations, we need a vector that keeps track of the momenta.
 
 This motivates the construction of the  \textbf{phase space} which works completely analogously to how we constructed configuration space. However, this time we also act as if \textbf{the momenta live in a different space and then glue the momentum spaces to our location spaces}. As a result, we can describe the complete state (not just the configuration) of our system with a single vector.
-
+\begin{qt}
 \begin{itemize}
     \item Classical mechanics in physical space is what we call the Newtonian formulation.
     \item Classical mechanics in configuration space is what we call the Lagrangian formulation.
     \item Classical mechanics in phase space is what we call the Hamiltonian formulation.
 \end{itemize}
+\end{qt}
 
-\subsection{Lagrangian Mechanics}
+
+\section{Lagrangian Mechanics}
 \begin{quote}
     Any system evolves in such a way that the action required is minimal.
 \end{quote}
@@ -143,16 +148,18 @@ A path in configuration space between two fixed points $X$ and $Y$ corresponds t
 $$
 \operatorname{action}[q(t)]=S[q(t)]=\int_{t_{i}}^{t_{f}} d t L=\int_{t_{i}}^{t_{f}} d t(T-V)
 $$
-\subsubsection{Action and Lagrangian}
-\textbf{Question: why we integrate over $L$ to get the action?}
+\subsection{Action and Lagrangian}
+\begin{mybox}
+why we integrate over $L$ to get the action?
+\end{mybox}
 
-\textbf{Answer:}
-
+\begin{mybox2}
 Kinetic energy is a measure for how much is going on in our system.
 
 Potential energy is a measure for how much could happen, but isn’t.
 
 The Lagrangian is therefore a direct measure for the "liveliness" within a system at a specific moment in time. A high kinetic energy implies a large Lagrangian and that our system is extremely lively. A high potential energy implies a small Lagrangian and a less lively system.
+\end{mybox2}
 
 \redp{The action $S[q(t)]$ is not a function but a functional.}
 
@@ -161,7 +168,7 @@ The Lagrangian is therefore a direct measure for the "liveliness" within a syste
 \redp{The Lagrangian is a function of the location $q$ and the velocity $\frac{d q}{d t}:$ ' $L=L(q, \dot{q}) .$ This means that the Lagrangian does not depend on the
 acceleration $\frac{d^{2} q}{d t^{2}}$ or even higher derivatives.}
 
-\subsubsection{Variational Calculus}
+\subsection{Variational Calculus}
 For an ordinary function $f(x),$ we can find the minimum by
 calculating the zeroes of its derivative:
 $$
@@ -192,3 +199,616 @@ $$
 a=\frac{-1}{6}
 $$
 The variational method of finding minima can also be applied to functionals like the action $S[q(t)],$ not just functions. Take note that for functionals, our goal isn't to find a location like $a$ which is the minimum of a function but instead, to find a function $q(t)$ which is the minimum of a function.
+
+\subsection{The Euler-Lagrange Equation}
+Our task now is to find a method which allows us to calculate
+the path $q_m(t)$ for which the action functional is a minimum.
+
+We start again with a concrete choice $q(t)$ and consider small variations around this specific path
+\[
+q(t) \rightarrow q(t)+\epsilon(t)
+\]
+$$
+\dot{q}(t) \rightarrow \dot{q}(t)+\dot{\epsilon}(t)
+$$
+where $\epsilon$ is again an infinitesimally small variation.
+
+We consider variations between two fixed configurations $\left(q_{i}\left(t_{i}\right)\right.$ $\left.q_{f}\left(t_{f}\right)\right) .$ Therefore, the variation $\epsilon$ has to vanish at $t_{i}$ and $t_{f}:$
+$$
+0=\epsilon\left(t_{i}\right)=\epsilon\left(t_{f}\right)
+$$
+$$
+S=\int_{t_{i}}^{t_{f}} d t L(q(t)+\epsilon(t), \dot{q}(t)+\dot{\epsilon}(t))
+$$
+According to the Taylor expansion,
+$$
+L(q+\epsilon, \dot{q}+\dot{\epsilon})=L(q, \dot{q})+\epsilon \frac{\partial L}{\partial q}+\dot{\epsilon} \frac{\partial L}{\partial \dot{q}}+\ldots
+$$
+$$
+\begin{aligned}
+S &=\int_{t_{i}}^{t_{f}} d t L(a(t)+\epsilon(t), \dot{a}(t)+\dot{\epsilon}(t)) \\
+&=\int_{t_{i}}^{t_{f}} d t\left(L(a, \dot{a})+\epsilon \frac{\partial L}{\partial a}+\dot{\epsilon} \frac{\partial L}{\partial \dot{a}}+\ldots\right)
+\end{aligned}
+$$
+\redp{Minima are characterized by vanishing first oerder variations,} so again:
+$$
+\int_{t_{i}}^{t_{f}} d t\left[\epsilon \frac{\partial L}{\partial q}+\dot{\epsilon} \frac{\partial L}{\partial \dot{q}}\right] \stackrel{!}{=} 0
+$$
+So, first of all, we integrate by parts the second term on the right-hand side:
+$$
+\begin{aligned}
+\int_{t_{i}}^{t_{f}} d t \dot{\epsilon} \frac{\partial L}{\partial \dot{q}} &=\int_{t_{i}}^{t_{f}} d t\left(\frac{d}{d t} \epsilon\right) \frac{\partial L}{\partial \dot{q}} \\
+&=\left.\epsilon \frac{\partial L}{\partial \dot{q}}\right|_{t_{1}} ^{t_{2}}-\int_{t_{i}}^{t_{f}} d t \epsilon \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}}\right)
+\end{aligned}
+$$
+since the variation $\epsilon(t)$ vanishes for $t=t_{i}$ and $t=t_{f}$, we have
+$$
+\begin{aligned}
+& \int_{t_{i}}^{t_{f}} d t\left[\epsilon \frac{\partial L}{\partial q}+\dot{\epsilon} \frac{\partial L}{\partial \dot{q}}\right] \stackrel{!}{=} 0 \\
+\therefore & \int_{t_{i}}^{t_{f}} d t\left[\epsilon \frac{\partial L}{\partial q}-\epsilon \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}}\right)\right] \stackrel{!}{=} 0 \\
+\therefore & \int_{t_{i}}^{t_{f}} d t \epsilon\left[\frac{\partial L}{\partial q}-\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}}\right)\right] \stackrel{!}{=} 0
+\end{aligned}
+$$
+Now we recall that if $q(t)$ is indeed the path of least action that we are looking for, the condition must be correct for any possible variation $\epsilon=\epsilon(t)$. This can only be correct if:
+\begin{qt}
+\begin{equation}
+\frac{\partial L}{\partial q}-\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}}\right) \stackrel{!}{=} 0
+\end{equation}
+\end{qt}
+In particular, for a general potential $V=V(q)$, the first term on LHS yields \textbf{generalized force}:
+$$
+\frac{\partial L}{\partial q}=\frac{\partial(T(\dot{q})-V(q))}{\partial q}=-\frac{\partial V(q)}{\partial q} \equiv F
+$$
+In general, the \textbf{conjugate momentum} is:
+\begin{equation}
+   p \equiv \frac{\partial L}{\partial \dot{q}} 
+   \label{conjugate-momentum}
+\end{equation}
+
+Therefore, the Euler-Lagrange equation says:
+\begin{qt}
+\begin{center}
+    \textbf{\redp{The rate of change of the momentum equals the force.}}
+\end{center}
+\end{qt}
+
+
+In eqn\ref{conjugate-momentum} we call the momentum "\textbf{conjugate momentum}" because it is related to a specific variable $q$. For example, if we describe our system using angles instead of Cartesian coordinates, the corresponding conjugate momenta would be angular momenta.
+
+\section{Hamiltonian Mechanics}
+\subsection{Hamilton's Equations}
+To derive the equations, the first key idea is that we act as if $q_{i}$ and $p_{i}$ are completely independent variables. We recall the definition of the momentum as:
+\begin{equation}
+p \equiv \frac{\partial L}{\partial \dot{q}}
+\label{ham0}
+\end{equation}
+According to the Euler-Lagrange equation, we have
+\begin{equation}
+\frac{d p}{d t}=\frac{\partial L}{\partial q}
+\label{ham1}
+\end{equation}
+Moreover, the definition of the velocity is:
+\begin{equation}
+\frac{d q}{d t}=\dot{q}
+\label{ham2}
+\end{equation}
+\textbf{Our goal is to rewrite the equations (\ref{ham1}),(\ref{ham2}) in such a way that they only depend on $p$ and no longer on $\dot{q}$.}
+
+First of all we invert eqn(\ref{ham0}) to get $\dot{q}=\dot{q}(q, p)$, from which we get new function:
+\begin{equation}
+    \tilde{L}(q, p) \equiv L(q, \dot{q}(q, p))
+\end{equation}
+In words, $\tilde{L}(q, p)$ is the function that we get if we use the formula $\dot{q}=\dot{q}(q, p)$ to eliminate $\dot{q}$ from $L(q, \dot{q}) .$ In particular, take note that, in general,
+\begin{equation}
+\tilde{L}(q, p) \neq L(q, p)
+\end{equation}
+For example, for the free Lagrangian
+$$
+\begin{aligned}
+\tilde{L}(q, p) & \stackrel{(1.6)}{=} L(q, \dot{q}(q, p)) \\
+&=\frac{m(\dot{q}(q, p))^{2}}{2} \\
+&=\frac{m\left(\frac{p}{m}\right)^{2}}{2} \\
+&=\frac{p^{2}}{2 m}
+\end{aligned}
+$$
+Therefore
+$$
+L(q, p)=\frac{m p^{2}}{2} \neq \frac{p^{2}}{2 m}=\tilde{L}(q, p)
+$$
+Now when we calculate the derivative, we find:
+$$
+\begin{aligned}
+&\frac{\partial \tilde{L}(q, p)}{\partial q} \stackrel{(1.6)}{=} \frac{\partial L(q, \dot{q}(q, p))}{\partial q}\\
+&\frac{\partial \tilde{L}(q, p)}{\partial q}=\frac{\partial L(q, \dot{q})}{\partial q}+\frac{\partial L(q, \dot{q})}{\partial \dot{q}} \frac{\partial \dot{q}(q, p)}{\partial q}\\
+&\frac{\partial \tilde{L}(q, p)}{\partial q}=\frac{\partial L(q, \dot{q})}{\partial q}+p \frac{\partial \dot{q}(q, p)}{\partial q}
+\end{aligned}
+$$
+Since $\frac{\partial}{\partial q} p q=p \frac{\partial}{\partial q} q$ because $\frac{\partial}{\partial q} p=0$, we have
+$$
+\begin{aligned}
+&\frac{\partial L(q, \dot{q})}{\partial q}=\frac{\partial \tilde{L}(q, p)}{\partial q}-p \frac{\partial \dot{q}(q, p)}{\partial q}\\
+&\frac{\partial L(q, \dot{q})}{\partial q}=\frac{\partial}{\partial q}(\tilde{L}(q, p)-p \dot{q}(q, p))
+\end{aligned}
+$$
+From eqn.(\ref{ham1}), we have
+\begin{equation}
+\begin{aligned}
+\frac{d p}{d t} &=\frac{\partial L}{\partial q} \\
+&=\frac{\partial}{\partial q}(L(q, p)-p \dot{q}(q, p)) \\
+&=-\frac{\partial H}{\partial q}
+\end{aligned}
+\end{equation}
+where we define \textbf{the Hamiltonian as}
+\begin{equation}
+H \equiv p \dot{q}(q, p)-\tilde{L}(q, p)
+\end{equation}
+Similarly, we calculate the derivative of $\tilde{L}(q,p)$ with respect to $p$:
+$$
+\begin{aligned}
+&\frac{\partial \tilde{L}(q, p)}{\partial p} \stackrel{(1.6)}{=} \frac{\partial L(q, \dot{q}(q, p))}{\partial p}\\
+&\frac{\partial \tilde{L}(q, p)}{\partial p}=\frac{\partial L(q, \dot{q})}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial p}\\
+&\frac{\partial \tilde{L}(q, p)}{\partial p}=p \frac{\partial \dot{q}}{\partial p}\\
+&\frac{\partial \tilde{L}(q, p)}{\partial p}=\frac{\partial}{\partial p}(p \dot{q})-\dot{q}
+\end{aligned}
+$$
+Rearrange terms, we obtain
+\begin{equation}
+\frac{\partial H}{\partial p}=\dot{q}
+\end{equation}
+In summary, the \textbf{Hamilton's equations} are simply:
+\begin{equation}
+\begin{aligned}
+&\frac{d p}{d t}=-\frac{\partial H}{\partial q}\\
+&\frac{d q}{d t}=\frac{\partial H}{\partial p}
+\end{aligned}
+\end{equation}
+As before, if there are multiple objects in the system moving in three dimensions, we need to take all their locations and momenta into account. Hamilton's equations then read
+\begin{equation}
+\begin{aligned}
+&\frac{d p_{i}}{d t}=-\frac{\partial H}{\partial q_{i}}\\
+&\frac{d q_{i}}{d t}=\frac{\partial H}{\partial p_{i}}
+\end{aligned}
+\end{equation}
+
+\subsection{Alternative way to derive Hamilton's equation}
+From the definition of action and Hamilton, we have:
+$$
+\begin{aligned}
+S &=\int_{t_{\mathrm{i}}}^{t} d t L \\
+&=\int_{t_{\mathrm{i}}}^{t} d t(p \dot{q}-H)
+\end{aligned}
+$$
+Now we can once more use the least action princople to derive the correct equations of motion. \textbf{We are searching a path in phase space that minimize the $S$}:
+$$
+\begin{aligned}
+&S=\int_{t_{i}}^{t_{f}} d t(p \dot{q}-H(q, p))=\int_{t_{i}}^{t_{f}} d t\left(p \frac{d}{d t} q-H(q, p)\right)\\
+&S=\int_{t_{i}}^{t_{f}} d t\left(((p+\tilde{\epsilon})) \frac{d}{d t}(q+\epsilon)-H(q+\epsilon, p+\tilde{\epsilon})\right)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+=\int_{t_{\mathrm{i}}}^{t_{f}} d t &\left((p+\tilde{\epsilon}) \frac{d}{d t}(q+\epsilon)\right.\\
+&\left.-H(q, p)-\epsilon \frac{\partial H(q, p)}{\partial q}-\tilde{\epsilon} \frac{\partial H(q, p)}{\partial p}-\cdots\right) \\
+=\int_{t_{\mathrm{i}}}^{t_{\mathrm{f}}} d t &\left(p \frac{d q}{d t}-H+\tilde{\epsilon}\left(\frac{d}{d t} q-\frac{\partial H}{\partial p}\right)+\ldots\right.\\
+&\left.-\epsilon \frac{\partial H}{\partial q}+p \frac{d \epsilon}{d t}+\tilde{\epsilon} \frac{d \epsilon}{d t}\right)
+\end{aligned}
+$$
+In the last line we have a term proportional to $\frac{d\epsilon}{dt}$, but we can turn it into a term proportional to $\epsilon$ by integrating by parts:
+$$
+\begin{aligned}
+\int_{t_{\mathrm{i}}}^{t_{f}} d t p \frac{d \epsilon}{d t} &=\left.\epsilon p\right|_{t_{\mathrm{i}}} ^{t_{f}}-\int_{t_{\mathrm{i}}}^{t_{f}} d t \frac{d p}{d t} \epsilon \\
+&=-\int_{t_{\mathrm{i}}}^{t_{f}} d t \frac{d p}{d t} \epsilon
+\end{aligned}
+$$
+because $\epsilon\left(t_{i}\right)=\epsilon\left(t_{f}\right)=0$. By using this, we can factor out $\epsilon$:
+$$
+\begin{aligned}
+S=\int_{t_{i}}^{t_{f}} d t &\left(p \frac{d q}{d t}-H+\tilde{\epsilon}\left(\frac{d}{d t} q-\frac{\partial H}{\partial p}\right)+\ldots\right.\\
+&\left.-\epsilon \frac{\partial H}{\partial q}+p \frac{d \epsilon}{d t}+\tilde{\epsilon} \frac{d \epsilon}{d t}\right)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+=\int_{t_{\mathrm{i}}}^{t} d t &\left(p \frac{d q}{d t}-H+\tilde{\epsilon}\left(\frac{d}{d t} q-\frac{\partial H}{\partial p}\right)+\ldots\right.\\
+&\left.-\epsilon \frac{\partial H}{\partial q}-\frac{d p}{d t} \epsilon+\tilde{\epsilon} \frac{d \epsilon}{d t}\right) \\
+=\int_{t_{\mathrm{i}}}^{t} d t &\left(p \frac{d q}{d t}-H+\tilde{\epsilon}\left(\frac{d}{d t} q-\frac{\partial H}{\partial p}\right)+\ldots\right.\\
+&\left.-\epsilon\left(\frac{\partial H}{\partial q}+\frac{d p}{d t}\right)+\tilde{\epsilon} \frac{d \epsilon}{d t}\right)
+\end{aligned}
+$$
+This means that the terms linear in $\epsilon$ and $\tilde{\epsilon}$ only vanish, in general, if the following two conditions are fulfilled:
+\begin{equation}
+\begin{aligned}
+&\frac{\partial H}{\partial q}+\frac{d}{d t} p \stackrel{!}{=} 0\\
+&\frac{\partial H}{\partial p}-\frac{d}{d t} q \stackrel{!}{=} 0
+\end{aligned}
+\end{equation}
+The path $(q(t), p(t))$ which fulfills these two conditions is the correct path which minimizes the action and therefore describes the evolution of our system.
+
+The following diagram illustrates the relationship between the derivations discussed above:
+\begin{qt}
+\begin{center}
+    
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da8998412978689948] 
+\draw    (199.17,49.47) -- (329.17,49.47) ;
+\draw [shift={(331.17,49.47)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Straight Lines [id:da28118020162887525] 
+\draw    (99.17,71.47) -- (99.17,177.47) ;
+\draw [shift={(99.17,179.47)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Straight Lines [id:da2698264444244326] 
+\draw    (201.17,190.47) -- (391.17,190.47) ;
+\draw [shift={(393.17,190.47)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Straight Lines [id:da134942784322725] 
+\draw    (471.17,71.47) -- (471.17,175.47) ;
+\draw [shift={(471.17,177.47)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw    (11,28.5) -- (199,28.5) -- (199,71.5) -- (11,71.5) -- cycle  ;
+\draw (105,50) node    {$Action:\ S[ q( t)] =\int ^{t_{f}}_{t_{i}} dt\ L$};
+% Text Node
+\draw (274,37) node    {$\dot{q}\rightarrow p$};
+% Text Node
+\draw    (334,28.5) -- (576,28.5) -- (576,71.5) -- (334,71.5) -- cycle  ;
+\draw (455,50) node    {$Action:\ S[ Q( t)] =\int ^{t_{f}}_{t_{i}} dt\ ( p\dot{q} -H)$};
+% Text Node
+\draw    (7.5,178) -- (200.5,178) -- (200.5,202) -- (7.5,202) -- cycle  ;
+\draw (104,190) node    {$Euler-Lagrange\ Equation$};
+% Text Node
+\draw    (394.5,177) -- (545.5,177) -- (545.5,201) -- (394.5,201) -- cycle  ;
+\draw (470,189) node    {$Hamilton's\ Equation$};
+% Text Node
+\draw (93,117) node    {$Variational\ Calculus$};
+% Text Node
+\draw (300,178) node    {$\dot{q}\rightarrow p$};
+% Text Node
+\draw (463,120) node    {$Variational\ Calculus$};
+
+
+\end{tikzpicture}
+
+\end{center}
+\end{qt}
+
+
+\subsection{Meaning of Hamilton's Equation}
+First of all, \textbf{we need to calculate the momentum explicitly:}
+$$
+\begin{aligned}
+p & \equiv \frac{\partial L}{\partial \dot{q}} \\
+&=\frac{\partial\left(\frac{1}{2} m \dot{q}^{2}-V(q)\right)}{\partial \dot{q}} \\
+&=m \dot{q}
+\end{aligned}
+$$
+Using this result, we ca derive the Hamiltonian:
+$$
+\begin{aligned}
+H &=p \dot{q}-L \\
+&=p \dot{q}-\left(\frac{1}{2} m \dot{q}^{2}-V(q)\right) \\
+&=p \frac{p}{m}-\left(\frac{1}{2} m\left(\frac{p}{m}\right)^{2}-V(q)\right) \\
+&=\frac{p^{2}}{2 m}+V(q)
+\end{aligned}
+$$
+This is exactly the total energy of the object.\redp{The Hamiltonian represents the total energy.}
+
+From the first Hamilton's equation, we have
+$$
+\begin{aligned}
+\frac{d p}{d t} &=-\frac{\partial H}{\partial q} \\
+&=-\frac{\partial\left(\frac{p^{2}}{2 m}+V(q)\right)}{\partial q} \\
+&=-\frac{\partial V(q)}{\partial q}
+\end{aligned}
+$$
+That is, \redp{The rate of change of momentum equals the force}.
+
+Hamilton's second equation reads:
+$$
+\begin{aligned}
+\frac{d q}{d t} &=\frac{\partial H}{\partial p} \\
+&=\frac{\partial\left(\frac{1}{2} \frac{p^{2}}{m}+V(q)\right)}{\partial p} \\
+&=\frac{p}{m}
+\end{aligned}
+$$
+Therefore, we can now understand that \redp{the purpose of Hamilton’s second law is to establish a relationship between the momentum and the rate of change of the position}.
+
+\subsection{Hamilton's General Equation}
+First of all, we can imagine that sometimes we are not only interested in the locations and momenta of the various objects in
+the system but other quantities too. For instance, the temperature or how the kinetic energy evolves as time passes can be interesting things to investigate. \redp{In phase space, the quantities like the temperature or kinetic energy are functions of $q_i$ and $p_i$.}
+
+\begin{mybox}
+But how can we calculate the time evolution of such functions depending on the locations $q_{i}(t)$ and momenta $p_{i}(t) ?$
+\end{mybox}
+For simplicity, let's restrict ourselves to one object moving in one dimension. Then the total rate of change of a function $F=$ $F(q(t), p(t))$ along a single object's trajectory reads:
+$$
+\frac{d}{d t} F(q, p)=\frac{\partial F(q, p)}{\partial q} \frac{d q}{d t}+\frac{\partial F(q, p)}{\partial p} \frac{d p}{d t}
+$$
+Using Hamilton's equations, we can write:
+$$
+\begin{aligned}
+\frac{d}{d t} F(q, p) &=\frac{\partial F(q, p)}{\partial q} \frac{d q}{d t}+\frac{\partial F(q, p)}{\partial p} \frac{d p}{d t} \\
+&=\frac{\partial F(q, p)}{\partial q} \frac{\partial H(q, p)}{\partial p}-\frac{\partial F(q, p)}{\partial p} \frac{\partial H(q, p)}{\partial q}
+\end{aligned}
+$$
+since the structure that appears on the right-hand side here is so important, it is conventional to introduce a more compact notation. We therefore introduce the \textbf{Poisson bracket $\{,\}$ of two phase space functions $A(q, p), B(q, p)$ by defining}:
+\begin{qt}
+    \begin{equation}
+        \{A, B\} \equiv \frac{\partial A}{\partial q} \frac{\partial B}{\partial p}-\frac{\partial A}{\partial p} \frac{\partial B}{\partial q}
+    \end{equation}
+\end{qt}
+This means that you can’t combine two functions in phase space which describe properties of our system arbitrarily and expect to get something that describes another useful property of
+the system. But \textbf{if you calculate the Poisson bracket of the two functions, you’ll get something sensible.} 
+
+Thus, the equation
+\begin{qt}
+    \begin{equation}
+\frac{d}{d t} F=\{F, H\}
+\end{equation}
+\end{qt}
+describes the time evolution of a general phase spack function and we call it \textbf{Hamilton's equation of motion.}
+
+Notice that
+\begin{qt}
+    $$
+\begin{aligned}
+\frac{d}{d t} q &=\{q, H\} \\
+&=\frac{\partial q}{\partial q} \frac{\partial H}{\partial p}-\frac{\partial q}{\partial p} \frac{\partial H}{\partial q} \\
+&=\frac{\partial H}{\partial p}
+\end{aligned}
+$$
+\end{qt}
+and
+\begin{qt}
+    $$
+\begin{aligned}
+\frac{d}{d t} p &=\{p, H\} \\
+&=\frac{\partial p}{\partial q} \frac{\partial H}{\partial p}-\frac{\partial p}{\partial p} \frac{\partial H}{\partial q} \\
+&=-\frac{\partial H}{\partial q}
+\end{aligned}
+$$
+\end{qt}
+\redp{\textbf{So one way to understand Hamilton's general equation of motion is by imagining that we have a new kind of object $\{, H\}$ (an operator) which eats any function $F$ on phase space $(\{F, H\})$ and spits out the correct time evolution of $F$.}}
+\begin{qt}
+\begin{center}
+    \textbf{The Hamiltonian generates time evolution in phase space.}
+\end{center}
+\end{qt}
+Sometimes we are déaling with a function in phase space which not only depends on $q$ and $p,$ but also explicitly on $t .$ For example, this is necessarily the case if there is a time-dependent potential $V=V(q, t) .$ The total rate of change then reads:
+\begin{equation}
+\frac{d}{d t} F(q, p, t)=\frac{d q}{d t} \frac{\partial F}{\partial q}+\frac{d p}{d t} \frac{\partial F}{\partial p}+\frac{\partial F}{\partial t}
+\end{equation}
+In other words,
+\begin{qt}
+\begin{equation}
+\frac{d}{d t} F(q, p, t)=\{F, H\}+\frac{\partial F}{\partial t}
+\end{equation}
+\end{qt}
+
+\section{The Newtonian Algorithm}
+\begin{mybox}
+We stand at the top of the Leaning Tower of Pisa and let a ball fall to the ground. How is the ball moving?
+\end{mybox}
+$$
+\vec{F}=\left(\begin{array}{r}
+{0} \\
+{0} \\
+{-m g}
+\end{array}\right)
+$$
+Newton's second law tells us
+$$
+\begin{aligned}
+\frac{d \vec{p}}{d t} &=\vec{F} \\
+\frac{d(m \vec{v})}{d t} &=\left(\begin{array}{r}
+{0} \\
+{0} \\
+{-m g}
+\end{array}\right) \\
+m \frac{d}{d t}\left(\begin{array}{l}
+{v_{x}} \\
+{v_{z}}
+\end{array}\right) &=\left(\begin{array}{r}
+{0} \\
+{-m g}
+\end{array}\right) \\
+\frac{d}{d t}\left(\begin{array}{l}
+{v_{x}} \\
+{v_{z}}
+\end{array}\right) &=\left(\begin{array}{r}
+{0} \\
+{-g}
+\end{array}\right)
+\end{aligned}
+$$
+Our task is to solve these three equations of motion. Luckily, we can simply integrate the equations twice since gravity is constant:
+$$
+\begin{aligned}
+\frac{d}{d t}\left(\begin{array}{c}
+{v_{x}} \\
+{v_{y}} \\
+{v_{z}}
+\end{array}\right) &=\left(\begin{array}{c}
+{0} \\
+{0} \\
+{-g}
+\end{array}\right) \\
+\int_{0}^{t} d t^{\prime} \frac{d}{d t^{\prime}}\left(\begin{array}{c}
+{v_{x}} \\
+{v_{y}} \\
+{v_{z}}
+\end{array}\right) &=\int_{0}^{t} d t^{\prime}\left(\begin{array}{c}
+{0} \\
+{-g}
+\end{array}\right) \\
+\left(\begin{array}{c}
+{v_{x}(t)} \\
+{v_{z}(t)}
+\end{array}\right)-\left(\begin{array}{c}
+{v_{x}(0)} \\
+{v_{z}(0)}
+\end{array}\right)=\left(\begin{array}{c}
+{0} \\
+{0} \\
+{-g t}
+\end{array}\right)
+\end{aligned}
+$$
+$\int_{0}^{t} d t^{\prime}\left(\begin{array}{l}{v_{x}\left(t^{\prime}\right)} \\ {v_{y}\left(t^{\prime}\right)} \\ {v_{z}\left(t^{\prime}\right)}\end{array}\right)-\int_{0}^{t} d t^{\prime}\left(\begin{array}{l}{v_{x}(0)} \\ {v_{y}(0)} \\ {v_{z}(0)}\end{array}\right)=\int_{0}^{t} d t^{\prime}\left(\begin{array}{c}{0} \\ {0} \\ {-g t}\end{array}\right)$
+$$
+\left(\begin{array}{l}
+{x(t)} \\
+{y(t)} \\
+{z(t)}
+\end{array}\right)-\left(\begin{array}{l}
+{x(0)} \\
+{y(0)} \\
+{z(0)}
+\end{array}\right)-\left(\begin{array}{l}
+{v_{x}(0) t} \\
+{v_{y}(0) t} \\
+{v_{z}(0) t}
+\end{array}\right)=\left(\begin{array}{c}
+{0} \\
+{0} \\
+{-\frac{1}{2} g t^{2}}
+\end{array}\right)
+$$
+Next, we need to determine the integration constants
+$$
+v_{x}(0), v_{y}(0), v_{z}(0), x(0), y(0), z(0)
+$$
+Let
+$$
+\left(\begin{array}{l}
+{v_{x}(0)} \\
+{v_{y}(0)} \\
+{v_{z}(0)}
+\end{array}\right)=\left(\begin{array}{l}
+{0} \\
+{0} \\
+{0}
+\end{array}\right)
+$$
+$$
+\left(\begin{array}{l}
+{x(0)} \\
+{y(0)} \\
+{z(0)}
+\end{array}\right)=\left(\begin{array}{l}
+{0} \\
+{0} \\
+{0}
+\end{array}\right)
+$$
+Finally
+$$
+\left(\begin{array}{c}
+{x(t)} \\
+{y(t)} \\
+{z(t)}
+\end{array}\right)=\left(\begin{array}{c}
+{0} \\
+{0} \\
+{-\frac{1}{2} g t^{2}}
+\end{array}\right)
+$$
+\section{Lagrangian Algorithm}
+\begin{mybox}
+We stand at the top of the Leaning Tower of Pisa and let a ball fall to the ground. How is the ball moving?
+\end{mybox}
+The Lagrangian reads
+$$
+\begin{aligned}
+L=T-V &=\frac{1}{2} m \vec{v}^{2}-m g z \\
+&=\frac{1}{2} m\left(v_{x}^{2}+v_{y}^{2}+v_{z}^{2}\right)-m g z
+\end{aligned}
+$$
+Since $\frac{\partial L}{\partial q}=\frac{d}{d t}\left(\frac{\partial L}{\partial v_{q}}\right)$,
+$$
+0=m \frac{d}{d t} v_{x}
+$$
+$$
+0=m \frac{d}{d t} v_{y}
+$$
+$$
+-m g=m \frac{d}{d t} v_{z}
+$$
+\textbf{Take note that in the derivations above, we didn’t have to think about vectors at all. This is one advantage of the Lagrangian formalism.} In addition, the Lagrangian formulation of classical mechanics is always a good choice whenever we are dealing with a system which is subject to constraints.
+
+\subsection{Constraints}
+In mathematical terms, a constraint is a relationship between coordinates. For example, for a mass attached to a circular loop with radius $l,$ we have the constraint
+$$
+x^{2}+y^{2}=l^{2}
+$$
+More generally, a \textbf{holonomic constraint} is a formula of the form
+$$
+f\left(q, 1, q_{2}, \ldots, t\right)=\text { const. }
+$$
+\begin{qt}
+\textbf{Non-holonomic constraints}
+$$
+f\left(q_{1}, 1, q_{2}, \ldots\right) \geq \text { const. }
+$$
+$$
+f(q, \dot{q}, t)=\text { const. }
+$$
+Additionally, take note that it is conventional to call a constraint which does not explicitly depend on $t$ scleronomic (Greek for "rigid") and a constraint with explicit dependence on $t$ rheonomic (Greek for "moving").
+\end{qt}
+The trick which allows us to incorporate constraints in the Lagrangian formalism is known as the method of \textbf{Lagrange multipliers} and works as follows.
+\begin{mybox}
+\begin{center}
+    How to use Lagrange multiplier to add a holonomic constraint?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+First, we rewrite the constraint as:
+$$
+g\left(q_{1}, 1, q_{2}, \ldots, t\right) \equiv f\left(q_{1}, 1, q_{2}, \ldots, t\right)-\text { const. }
+$$
+We then take the Lagrangian $L_{\text {free that we would use if the }}$ object could move around freely without constraints and add a new term $L_{\text {con}}$  which encodes the constraint 
+$$
+\begin{aligned}
+L_{\text {full }} &=L_{\text {free }}+L_{\text {con }} \\
+&=L_{\text {free }}+\lambda g(q, t)
+\end{aligned}
+$$
+If we treat $\lambda$ as a new coordinate, the Euler-Lagrange equation for $\lambda$ tells us
+$$
+\begin{array}{c}
+{\frac{\partial L}{\partial \lambda}=\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{\lambda}}\right)} \\
+{\frac{\partial\left(L_{\text {free }}+\lambda g(q, t)\right)}{\partial \lambda}=\frac{d}{d t}\left(\frac{\partial\left(L_{\text {free }}+\lambda g(q, t)\right)}{\partial \lambda}\right)} \\
+{\frac{\partial(\lambda g(q, t))}{\partial \lambda}=\frac{d}{d t}\left(\frac{\partial(\lambda g(q, t))}{\partial \dot{\lambda}}\right)} \\
+{\frac{\partial(\lambda g(q, t))}{\partial \lambda}=0} \\
+{g(q, t)=0}
+\end{array}
+$$
+In addition, by using the Euler-Lagrange equation for our ordinary coordinates $q,$ we find
+$$
+\begin{aligned}
+\frac{\partial L}{\partial q} &=\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}}\right) \\
+\frac{\partial\left(L_{\text {free }}+\lambda g(q, t)\right)}{\partial q} &=\frac{d}{d t}\left(\frac{\partial\left(L_{\text {free }}+\lambda g(q, t)\right)}{\partial \dot{q}}\right) \\
+\frac{\partial\left(L_{\text {free }}+\lambda g(q, t)\right)}{\partial q} &=\frac{d}{d t}\left(\frac{\partial L_{\text {free }}}{\partial \dot{q}}\right) \\
+\frac{\partial L_{\text {free }}}{\partial q}+\lambda \frac{\partial g(q, t)}{\partial q} &=\frac{d}{d t}\left(\frac{\partial L_{\text {free }}}{\partial \dot{q}}\right)
+\end{aligned}
+$$
+we've learned that the term on the right-hand side $\frac{d}{d t}\left(\frac{\partial L_{\text {free }}}{\partial q}\right)$ is analogous to $\frac{d p}{d t}$ in the Newtonian formalism. Moreover, the first term on the left-hand side $\frac{\partial L_{\text {free }}}{\partial q}$ describes the forces. In other words, $\lambda \frac{\partial g(q, t)}{\partial q}$ add new forces to the equation of motion.
+\end{mybox2}
+If there is more than one constraint
+$$
+L_{\text {full }}=L_{\text {free }}+\lambda_{1 g_{1}}(q, t)+\lambda_{2} g_{1}(q, t)+\ldots
+$$
+Moreover, using the Euler-Lagrange equation for the regular coordinate $q$ yields the equation of motion including all constraint forces:
+$$
+\frac{\partial L_{\text {free }}}{\partial q}+\lambda_{1} \frac{\partial g_{1}(q, t)}{\partial q}+\lambda_{2} \frac{\partial g_{2}(q, t)}{\partial q}+\ldots=\frac{d}{d t}\left(\frac{\partial L_{\text {free }}}{\partial \dot{q}}\right)
+$$
+
+\subsection{Point Transformations and Generalized Coordinates}
+In general, we call a transformation from one set of coordinates in configuration space $q=\left(q_{1}, q_{2}, \ldots\right)$ to a new set of coordinates $q^{\prime}=\left(q_{1}^{\prime}, q_{2}^{\prime}, \ldots\right)$ a\textbf{ point transformation.}

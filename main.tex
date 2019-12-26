@@ -1,4 +1,4 @@
-\documentclass[12pt,titlepage]{article}
+\documentclass[12pt,titlepage]{book}
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,graphicx,mathtools,tikz,hyperref}
 \usepackage{pgfplots}
@@ -6,6 +6,10 @@
 \newcommand{\redp}[1]{\textcolor{red}{#1}}
 \newcommand{\bluep}[1]{\textcolor{blue}{#1}}
 \newcommand{\tealp}[1]{\textcolor{teal}{#1}}
+\usepackage{tcolorbox}
+\newtcolorbox{mybox}{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Question}
+\newtcolorbox{mybox2}{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=Answer}
+\newtcolorbox{qt}{colback=orange!5!white,colframe=orange!75!white}
 \usetikzlibrary{patterns,hobby}
 \numberwithin{equation}{section}
 \usepackage{wrapfig}
@@ -54,15 +58,10 @@
 \begin{document}
 
 \maketitle
-\newpage
 \input{sections/classic_mechanics.tex}
-\newpage
 \input{sections/quantum_mechanics.tex}
-\newpage
 \input{sections/special_relativity.tex}
-\newpage
 \input{sections/electromagnetism.tex}
-\newpage
 \input{sections/math.tex}
 
 
