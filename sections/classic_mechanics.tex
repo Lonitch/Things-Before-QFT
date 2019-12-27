@@ -812,3 +812,308 @@ $$
 
 \subsection{Point Transformations and Generalized Coordinates}
 In general, we call a transformation from one set of coordinates in configuration space $q=\left(q_{1}, q_{2}, \ldots\right)$ to a new set of coordinates $q^{\prime}=\left(q_{1}^{\prime}, q_{2}^{\prime}, \ldots\right)$ a\textbf{ point transformation.}
+\begin{qt}
+\begin{center}
+    The Euler-Lagrange equation is valid for any choice of coordinates.
+\end{center}
+\end{qt}
+It is conventional to rephrase this by saying that in the Lagrangian formalism, we are free to use generalized coordinates. Formulated differently, if we find such coordinates for which the constraint term vanishes, we’ve found the most natural coordinates to describe our system.
+\begin{mybox}
+\begin{center}
+    Now, why does the Euler-Lagrange equation look exactly the same no matter which coordinates we choose?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+We want to show that no matter which transformation formulas we use
+$$
+\begin{aligned}
+&q^{\prime}=q^{\prime}(q, t)\\
+&\dot{q}^{\prime}=\dot{q}^{\prime}(q, \dot{q}, t)
+\end{aligned}
+$$
+the Euler-Lagrange equation in terms of the new coordinates
+$$
+\frac{\partial \tilde{L}}{\partial q^{\prime}}-\frac{d}{d t}\left(\frac{\partial \tilde{L}}{\partial \dot{q}^{\prime}}\right)=0
+$$
+where
+$$
+L\left(q^{\prime}, \dot{q}^{\prime}, t\right)=L\left(q\left(q^{\prime}, t\right), \dot{q}\left(q^{\prime}, \dot{q}^{\prime}, t\right), t\right)
+$$
+also
+$$
+\begin{aligned}
+\dot{q} &=\frac{d}{d t} q\left(q^{\prime}, t\right) \\
+&=\frac{\partial q}{\partial q^{\prime}} \frac{d q^{\prime}}{d t}+\frac{\partial q}{\partial t} \\
+&=\frac{\partial q}{\partial q^{\prime}} \dot{q}^{\prime}+\frac{\partial q}{\partial t}
+\end{aligned}
+$$
+which implies
+$$
+\begin{aligned}
+\frac{\partial}{\partial \dot{q}^{\prime}} \dot{q}= & \frac{\partial}{\partial \dot{q}^{\prime}}\left(\frac{\partial q}{\partial q^{\prime}} \dot{q}^{\prime}+\frac{\partial q}{\partial t}\right) \\
+&=\frac{\partial q}{\partial q^{\prime}}
+\end{aligned}
+$$
+Secondly
+$$
+\begin{aligned}
+\frac{\partial \tilde{L}}{\partial q^{\prime}} &=\frac{\partial L\left(q\left(q^{\prime}, t\right), \dot{q}\left(q^{\prime}, \dot{q}^{\prime}, t\right), t\right)}{\partial q^{\prime}} \\
+&=\frac{\partial L}{\partial q} \frac{\partial q}{\partial q^{\prime}}+\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial q^{\prime}}
+\end{aligned}
+$$
+Thirdly
+$$
+\begin{aligned}
+\frac{\partial \tilde{L}}{\partial \dot{q}^{\prime}} & = \frac{\partial L\left(q\left(q^{\prime}, t\right), \dot{q}\left(q^{\prime}, \dot{q}^{\prime}, t\right), t\right)}{\partial \dot{q}^{\prime}} \\
+&=\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}^{\prime}}{\partial \dot{q}^{\prime}} \\
+&=\frac{\partial L}{\partial \dot{q}} \frac{\partial q}{\partial q^{\prime}}
+\end{aligned}
+$$
+which implies
+$$
+\begin{aligned}
+\frac{d}{d t} \frac{\partial \tilde{L}}{\partial \dot{q}^{\prime}} &= \frac{d}{d t}\left(\frac{\partial L}{\partial \dot{q}} \frac{\partial q}{\partial q^{\prime}}\right) \\
+&=\left(\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) \frac{\partial q}{\partial q^{\prime}}+\frac{\partial L}{\partial \dot{q}}\left(\frac{d}{d t} \frac{\partial q}{\partial q^{\prime}}\right) \\
+&=\left(\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) \frac{\partial q}{\partial q^{\prime}}+\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial q^{\prime}}
+\end{aligned}
+$$
+\end{mybox2}
+\begin{mybox2}
+With these formulas at hand, let’s rewrite the "new" Euler-Lagrange equation
+$$
+0 \stackrel{!}{=} \frac{\partial \tilde{L}}{\partial q^{\prime}}-\frac{d}{d t}\left(\frac{\partial \tilde{L}}{\partial \dot{q}^{\prime}}\right)
+$$
+$$
+\begin{aligned}
+&=\left(\frac{\partial L}{\partial q} \frac{\partial q}{\partial q^{\prime}}+\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial q^{\prime}}\right)-\left(\left(\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) \frac{\partial q}{\partial q^{\prime}}+\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial q^{\prime}}\right)\\
+&=\frac{\partial L}{\partial q} \frac{\partial q}{\partial q^{\prime}}-\left(\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) \frac{\partial q}{\partial q^{\prime}}\\
+&=\left(\frac{\partial L}{\partial q}-\frac{d}{d t} \frac{\partial L}{\partial \dot{q}}\right) \frac{\partial q}{\partial q^{\prime}}=0
+\end{aligned}
+$$
+\end{mybox2}
+
+However, take note that we’ve only shown that the Euler-Lagrange equation has the same form no matter which coordinates we use. In technical terms,\textbf{ we say the Euler-Lagrange equation is only covariant but not invariant under general coordinate transformations.}
+
+
+\subsection{Gauge Transformation}
+We can not only change our configuration space coordinates $q,$ but we can also change the Lagrangian itself and consequently also the action itself without changing the Euler-Lagrange equations.This is possible because \textbf{the number which the action functional $S[q(t)]$ assigns to each path $q(t)$ is not really important. Instead, \bluep{the only thing we really care about is the relative difference between the numbers assigned to different paths}.}
+
+In particular, the Euler-Lagrange equation does not change when we add the total time derivative of any (differentiable) function $F$ which only depends on the location $q$ and possibly the time coordinate $t$ to the Lagrangian
+\begin{qt}
+\begin{equation}
+L \rightarrow L^{\prime}=L+\frac{d F(q, t)}{d t}
+\end{equation}
+\end{qt}
+We call this kind of transformation a \textbf{gauge transformation}.
+Now the "new" action can be calculated as:
+$$
+\begin{aligned}
+S^{\prime}[q(t)] &=\int_{t_{i}}^{t_{f}} d t L^{\prime}(q(t), \dot{q}(t), t) \\
+&=\int_{t_{i}}^{t_{f}} d t(L(q(t), \dot{q}(t), t)+F(q(t), t))
+\end{aligned}
+$$
+$$
+\begin{aligned}
+&=\left(\int_{t_{i}}^{t_{f}} d t L\right)+F\left(q\left(t_{f}\right), t_{f}\right)-F\left(q\left(t_{i}\right), t_{i}\right)\\
+&=S+F\left(q\left(t_{f}\right), t_{f}\right)-F\left(q\left(t_{i}\right), t_{i}\right)
+\end{aligned}
+$$
+Where $ F\left(q\left(t_{f}\right), t_{f}\right)-F\left(q\left(t_{i}\right), t_{i}\right)$ is a constant which only depends on $q\left(t_{f}\right), q\left(t_{i}\right), t_{f}$ and $t_{i} .37$ The initial and final points are fixed.
+
+Moreover, we cannot only add a constant to the action but also multiply it by a constant (non-zero) factor
+$$
+S \rightarrow k S
+$$
+This observation directly implies that we can also scale the Lagrangian by a constant factor
+$$
+L \rightarrow L^{\prime}=k L
+$$
+
+\section{Hamiltonian Algorithm}
+If we want to use the Hamiltonian formalism to describe a given system, our main task is to write down the correct Hamiltonian $H$. However, usually this requires a few intermediate steps.
+\begin{qt}
+\begin{itemize}
+    \item First of all, we write down the Lagrangian $L=T-V$
+    \item Then we calculate the corresponding generalized momenta $p=\frac{\partial L}{\partial q}$
+    \item Afterwards, we solve the formulas we found in the previous step for $\dot{q}$
+    \item This allows us to eliminate $\dot{q}$ from $L=L(q, \dot{q}, t)$ and to use the formula $H(q, p, t)=p \dot{q}-L(q, \dot{q}(q, p, t), t)$
+    \item Finally, use the Hamilton's equations $\frac{d p}{d t}=-\frac{\partial H}{\partial q}$,$\frac{d q}{d t}=\frac{\partial H}{\partial p}$.
+\end{itemize}
+\end{qt}
+However, the Hamiltonian way to derive them was far more cumbersome. So \textbf{the real advantage of the Hamiltonian method is not a practical but mostly a conceptual one}.
+
+\subsection{Canonical Transformation and Canonical Coordinates}
+\textbf{The Hamilton's equation and Hamiltonian formalism remains valid no matter which coordinates we choose.}
+
+Since there is a close connection between the $p$ and $q$($\dot{q}$ more precisely), there are important restrictions which our coordinate transformations $q \rightarrow Q(q, p)$ and $p \rightarrow P(q, p)$ must fulfill.\textbf{Transformations fulfilled the restrictions are called canonical transformations.} In other words, a canonical transformation is a switch in coordinates which does not "break" our Hamiltonian framework.
+
+We learned that \bluep{the time-evolution of any phase space function is described by Hamilton’s general equation of motion:}
+$$
+\frac{d}{d t} F=\{F, H\}
+$$
+since our new coordinates $(Q, P)$ are defined as functions of the old coordinates, we have
+\begin{equation}
+    \begin{array}{l}
+{\frac{d}{d t} Q=\{Q, H\}_{q, p}=\frac{\partial Q}{\partial q} \frac{\partial H}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial H}{\partial q}} \\
+{\frac{d}{d t} P=\{P, H\}_{q, p}=\frac{\partial P}{\partial q} \frac{\partial H}{\partial p}-\frac{\partial P}{\partial p} \frac{\partial H}{\partial q}}
+\label{poissonbracket}
+\end{array}
+\end{equation}
+
+Using the chain rule, we have
+$$
+\begin{aligned}
+\frac{\partial H(q(Q, P), p(Q, P))}{\partial q} & = \frac{\partial H(Q, P)}{\partial q} \\
+&=\frac{\partial \tilde{H}}{\partial Q} \frac{\partial Q}{\partial q}+\frac{\partial \tilde{H}}{\partial P} \frac{\partial P}{\partial q}
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{\partial H(q(Q, P), p(Q, P))}{\partial p} & = \frac{\partial H(Q, P)}{\partial p} \\
+&=\frac{\partial \bar{H}}{\partial Q} \frac{\partial Q}{\partial p}+\frac{\partial H}{\partial P} \frac{\partial P}{\partial p}
+\end{aligned}
+$$
+Substituting these expression into (\ref{poissonbracket}) yields
+$$
+\begin{aligned}
+\frac{d}{d t} Q &=\frac{\partial Q}{\partial q} \frac{\partial H}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial H}{\partial q} \\
+&=\frac{\partial Q}{\partial q}\left(\frac{\partial H}{\partial Q} \frac{\partial Q}{\partial p}+\frac{\partial H}{\partial P} \frac{\partial P}{\partial p}\right)-\frac{\partial Q}{\partial p}\left(\frac{\partial \hat{H}}{\partial Q} \frac{\partial Q}{\partial q}+\frac{\partial H}{\partial P} \frac{\partial P}{\partial q}\right)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+&=\frac{\partial Q}{\partial q} \frac{\partial \hat{H}}{\partial P} \frac{\partial P}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial \hat{H}}{\partial P} \frac{\partial P}{\partial q}\\
+&=\frac{\partial \hat{H}}{\partial P}\left(\frac{\partial Q}{\partial q} \frac{\partial P}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial P}{\partial q}\right)\\
+&=\frac{\partial \bar{H}}{\partial P}\{Q, P\}_{q, p}
+\end{aligned}
+$$
+Similarly,
+$$
+\frac{d}{d t} P==-\frac{\partial \tilde{H}}{\partial Q}\{Q, P\}_{q, p}
+$$
+In order not to break the Hamilton's formalism, we have
+\begin{qt}
+    \begin{equation}
+\{Q, P\}_{q, p}=1
+\end{equation}
+\end{qt}
+The equation above is the defining condition of canonical coordinates, and is call \redp{canonical Poisson bracket relation}.
+
+\subsection{Canonical Point and Gauge Transformations}
+A point transformation in configuration space reads
+\begin{equation}
+    q \rightarrow Q=Q(q)
+    \label{canonpoint1}
+\end{equation}
+
+And the velocities are modified as:
+$$
+\dot{q} \rightarrow \dot{Q}=\dot{Q}(q)=\frac{d}{d t} Q(q)=\frac{\partial Q(q)}{\partial q} \frac{d q}{d t}=\frac{\partial Q(q)}{\partial q} \dot{q}
+$$
+This indicates
+$$
+\frac{\partial \dot{Q}}{\partial \dot{q}} = \frac{\partial}{\dot{q}}\left(\frac{\partial Q(q)}{\partial q} \dot{q}\right)=\frac{\partial Q(q)}{\partial q}
+$$
+This, in turn, implies that the momentum $p$ is also directly modified whenever we perform a point transformation
+\begin{equation}
+    \begin{aligned}
+P &=\frac{\partial \tilde{L}(Q, Q))}{\partial \dot{Q}} \\
+&=\frac{\partial \tilde{L}(q(Q), \dot{q}(Q, Q))}{\partial Q} \\
+&=\frac{\partial \tilde{L}(q, \dot{q})}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{Q}} \\
+&=p \frac{\partial q}{\partial Q}
+\end{aligned}
+\label{canonpoint2}
+\end{equation}
+\textbf{To check that transformation in (\ref{canonpoint1}) and (\ref{canonpoint2}) really correspond to a canonical transformation in phase space, we calculate $\{Q, P\}_{q, p}$}:
+$$
+\begin{aligned}
+\{Q, P\}_{q, p} &=\frac{\partial Q}{\partial q} \frac{\partial P}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial P}{\partial q} \\
+&=\frac{\partial Q}{\partial q} \frac{\partial P}{\partial p} \\
+&=\frac{\partial Q}{\partial q} \frac{\partial}{\partial p}\left(p \frac{\partial q}{\partial Q}\right) \\
+&=\frac{\partial Q}{\partial q} \frac{\partial q}{\partial Q}=1
+\end{aligned}
+$$
+\redp{Therefore,the point transformations indeed correspond to canonical phase space transformations.}
+
+From Hamiltonian-Lagrangian transformation, we also found that:
+$$
+\begin{aligned}
+H(q, p) & \equiv p q-L(q, q) \\
+\tilde{H}(Q, P) &=p(Q, P) q(Q, \dot{Q}, P)-L(q(Q, P), q(Q, \dot{Q}, P)) \\
+&=P \frac{\partial Q}{\partial q} Q \frac{\partial q}{\partial Q}-L(q(Q, P), q(Q, Q, P))
+\end{aligned}
+$$
+$$
+=P \dot{Q}-L(q(Q, P), q(Q, \dot{Q}, P))
+$$
+\bluep{Now secondly, let’s check what gauge transformations look like in the Hamiltonian formalism.}
+\begin{equation}
+    \begin{aligned}
+P &=\frac{\partial L^{\prime}}{\partial \dot{q}} \\
+&=\frac{\partial\left(L+\frac{d F(q, t)}{d t}\right)}{\partial \dot{q}} \\
+&=\frac{\partial L}{\partial \dot{q}}+\frac{\partial}{\partial \dot{q}} \frac{d F(q, t)}{d t} \\
+&=\frac{\partial L}{\partial \dot{q}}+\frac{\partial F}{\partial q} \\
+&=p+\frac{\partial F}{\partial q}
+\end{aligned}
+\label{canongauge1}
+\end{equation}
+Moreover, the location coordinates remain completely unaffected by a gauge transformation.This is, after all, one of the defining features of a gauge transformation. 
+\begin{equation}
+q \rightarrow Q(q)=q
+\end{equation}
+\textbf{While a point transformation modifies the location coordinates (plus conjugate momentum coordinates), a gauge transformation only modifies the Lagrangian and, as a result, also the conjugate momenta.}
+
+The following diagram summarizes what we’ve discovered in this section:
+\begin{qt}
+    \begin{center}
+        
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+
+% Text Node
+\draw    (159.5,30.5) -- (320.5,30.5) -- (320.5,135.5) -- (159.5,135.5) -- cycle  ;
+\draw (240,83) node    {$ \begin{array}{l}
+Point\ Transformation\\
+\ \ \ \ \ q\rightarrow Q=Q( q)\\
+\ \ \ \ \ \dot{q}\rightarrow \dot{Q} =\frac{\partial Q}{\partial q}\dot{q}\\
+\ \ \ \ \ L\rightarrow \tilde{L}( Q,\dot{Q} ,t)
+\end{array}$};
+% Text Node
+\draw    (400,29) -- (568,29) -- (568,131) -- (400,131) -- cycle  ;
+\draw (484,80) node    {$ \begin{array}{l}
+Gauge\ Transformation\\
+\ \ \ \ \ q\rightarrow Q=Q( q)\\
+\ \ \ \ \ \dot{q}\rightarrow \dot{Q} =\dot{q}\\
+\ \ \ \ \ L\rightarrow L^{\prime } =L+\frac{\partial F( q,t)}{\partial t}
+\end{array}$};
+% Text Node
+\draw    (161.5,168.5) -- (322.5,168.5) -- (322.5,273.5) -- (161.5,273.5) -- cycle  ;
+\draw (242,221) node    {$ \begin{array}{l}
+Point\ Transformation\\
+\ \ \ \ \ q\rightarrow Q=Q( q)\\
+\ \ \ \ \ p\rightarrow P=\frac{\partial q}{\partial Q} p\\
+\ \ \ \ \ H\rightarrow \tilde{H}( Q,P ,t)
+\end{array}$};
+% Text Node
+\draw    (399.5,165) -- (570.5,165) -- (570.5,275) -- (399.5,275) -- cycle  ;
+\draw (485,220) node    {$ \begin{array}{l}
+Gauge\ Transformation\\
+\ \ \ \ \ q\rightarrow Q=q\\
+\ \ \ \ \ p\rightarrow P=p+\frac{\partial F( q,t)}{\partial q}\\
+\ \ \ \ \ L\rightarrow H^{\prime } =H-\frac{\partial F( q,t)}{\partial t}
+\end{array}$};
+% Text Node
+\draw (77,91) node   [align=left] {Configuration Space};
+% Text Node
+\draw (79,226) node   [align=left] {Phase Space};
+
+
+\end{tikzpicture}
+
+    \end{center}
+\end{qt}
