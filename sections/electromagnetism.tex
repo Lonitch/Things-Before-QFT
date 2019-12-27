@@ -1,1 +1,121 @@
 \chapter{Electromagnetism}
+\section{Fundamental Concepts}
+\subsection{Charge, Current, Flux}
+\begin{qt}
+    \begin{center}
+        Electric charge is conserved no matter how small our system is, even for elementary particle processes
+    \end{center}
+\end{qt}
+\begin{qt}
+    The total charge inside any volume $V$ is then given by the integral over the charge density:
+    \begin{equation}
+Q=\int_{V} d^{3} x \rho(\vec{x}, t)
+\end{equation}
+\end{qt}
+Of course, \textbf{we can also use the charge density if there is only one charged object in our system.} In this case, the charge density is zero everywhere except at one specific point. Any integral over a region which contains the location of the object, yields simply the charge of the object. 
+\begin{qt}
+    Specifically, the charge density of a system with just one charged object located at $\vec{x}_{0}$ is
+    \begin{equation}
+\rho(\vec{x})=q \delta\left(\vec{x}-\vec{x}_{0}\right)
+\end{equation}
+\end{qt}
+where $q$ is the charge of the object. Any integral over a region $V_{0}$ which contains $\vec{x}_{0}$ yields exactly $q,$ as it should be
+$$
+\begin{aligned}
+\int_{V_{0}} d^{3} x \rho(\vec{x}, t) &=\int_{V_{0}} d^{3} x q \delta\left(\vec{x}-\vec{x}_{0}\right) \\
+&=q \int_{V_{0}} d^{3} x \delta\left(\vec{x}-\vec{x}_{0}\right) \\
+&=q
+\end{aligned}
+$$
+\begin{qt}
+    In electrodynamics, the \redp{the electric current} is defined as:
+    \begin{equation}
+I=\frac{d Q}{d t}
+\end{equation}
+\end{qt}
+The correct tool to describe the flow of charges in three dimensions is called \textbf{\redp{current density}}. \bluep{A current density yields a vector at each point in space(i.e., vector space). The direction of the vector at a given point describes the direction of the flow. The length of the vector describes how much is flowing.}
+\begin{qt}
+    By introducing a vector $\vec{n}$ of unit length normal to a frame with area of $A$, we can calculate the current passing through the frame as:
+    \begin{equation}
+I \equiv \frac{\Delta Q}{\Delta t}=\rho_{0} A \vec{v}_{c} \cdot \vec{n}
+\end{equation}
+If we define \textbf{\redp{the electric current density}} as 
+\begin{equation}
+\vec{J} \equiv \rho_{0} \vec{v}_{c}
+\end{equation}
+we have
+\begin{equation}
+\vec{J} \cdot \vec{n} A=\rho_{0} \vec{v}_{c} \cdot \vec{n} A=I
+\end{equation}
+\end{qt}
+In general, \textbf{the magnitude of the current density $|\vec{J}|$ at one specific point describes the amount of electric charge which passes per unit time through an infinitesimal surface element which is at right angles to the direction of the flow.} The direction of the charge density vector $\vec{J}$ encodes where the charges are flowing.
+
+\begin{qt}
+    If we want to know how much electric charge is flowing through a more complicated surface $S$, we have to calculate the \textbf{\redp{surface integral}}:
+    \begin{equation}
+I=\int_{S} \vec{J} \cdot \overrightarrow{d S}
+\end{equation}
+The total amount of charge passing through the surface $S$ during some time interval $\Delta t$ is then given by
+\begin{equation}
+\Delta Q=\Delta t \int_{S} \vec{J} \cdot \overrightarrow{d S}
+\end{equation}
+\end{qt}
+
+\subsection{Electromagnetic Field}
+An important feature of the electromagnetic field is that even a vector field is not sufficient and we need instead a tensor field. \textbf{The electromagnetic field tensor is an antisymmetric $(4 \times 4)$ matrix}
+\begin{qt}
+    \begin{equation}
+F_{\mu \nu}(t, \vec{x})=\left(\begin{array}{cccc}
+{0} & {F_{01}(t, \vec{x})} & {F_{02}(t, \vec{x})} & {F_{03}(t, \vec{x})} \\
+{-F_{01}(t, \vec{x})} & {0} & {F_{12}(t, \vec{x})} & {F_{13}(t, \vec{x})} \\
+{-F_{02}(t, \vec{x})} & {-F_{12}(t, \vec{x})} & {0} & {F_{23}(t, \vec{x})} \\
+{-F_{03}(t, \vec{x})} & {-F_{13}(t, \vec{x})} & {-F_{23}(t, \vec{x})} & {0}
+\end{array}\right)
+\end{equation}
+\redp{This tensor field, in some sense, assigns exactly two vectors to each point in space $\vec{x}$ at each point in time $t .$ }
+\end{qt}
+The vectors at each location represent the strength and direction of the electromagnetic field. It is conventional to introduce the electric vector field $\vec{E}(t, \vec{x})$ and the magnetic vector field $\vec{B}(t, \vec{x})$ and work with them, instead of with the electromagnetic tensor field $F_{\mu \nu}(t, \vec{x})$.
+\begin{equation}
+F_{\mu \nu}(t, \vec{x})\equiv\left(\begin{array}{cccc}
+{0} & {-E_{1}(t, \vec{x}) / c} & {-E_{2}(t, \vec{x}) / c} & {-E_{3}(t, \vec{x}) / c} \\
+{E_{1}(t, \vec{x}) / c} & {0} & {-B_{3}(t, \vec{x})} & {B_{2}(t, \vec{x})} \\
+{E_{2}(t, \vec{x}) / c} & {B_{3}(t, \vec{x})} & {0} & {-B_{1}(t, \vec{x})} \\
+{E_{3}(t, \vec{x}) / c} & {-B_{2}(t, \vec{x})} & {B_{1}(t, \vec{x})} & {0}
+\end{array}\right)
+\end{equation}
+\bluep{Each of these two fields $\vec{E}(t, \vec{x})=\left(E_{1}(t, \vec{x}), E_{2}(t, \vec{x}), E_{3}(t, \vec{x})\right)^{T}$
+and $\vec{B}(t, \vec{x})=\left(B_{1}(t, \vec{x}), B_{2}(t, \vec{x}), B_{3}(t, \vec{x})\right)^{T}$ assigns a vector to each point in space $\vec{x}$ at each point in time $t$}.
+
+Unfortunately, the interpretation of the electric field $\vec{E}(t, \vec{x})$ and the magnetic field $\vec{B}(t, \vec{x})$ is not so simple. Instead, the little arrows encode information about the somewhat abstract "physical field", which we can understand as follows: \redp{The direction of the vector at a given location encodes in which direction a test charge would move if it were placed here. The magnitude of the vector encodes how fast the test charge would accelerate as a result of, for example, the electric field}. In this sense, these more abstract fields encode how something would
+flow if it were there.
+\begin{qt}
+    In practice the electric field strength at a point is measured by placing a small test charge at that point and measuring the force on it:
+    \begin{equation}
+\vec{E}(\vec{x}) \equiv \frac{\vec{F}(\vec{x})}{q}
+\end{equation}
+\end{qt}
+\subsection{Electromagnetic potential}
+For the moment, we only note that the electromagnetic potential is characterized by 4 numbers at each point in space and time $A_{\mu}(t, \vec{x})=\left(A_{0}(t, \vec{x}), A_{1}(t, \vec{x}), A_{2}(t, \vec{x}), A_{3}(t, \vec{x})\right)^{T}$ and that the electric and magnetic fields can be calculated immediately once the electromagnetic potential is specified:
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+&E_{i}=\left(-\partial_{i} A_{0}-\partial_{0} A_{i}\right) / c\\
+&B_{i}=\epsilon_{i j k} \partial_{j} A_{k}
+\end{aligned}
+\end{equation}
+where $i, j, k \in\{1,2,3\} .$ We can also write this as a vector equations
+\begin{equation}
+\begin{aligned}
+&\vec{E}=\left(-\nabla A_{0}-\partial_{t} \vec{A}\right) / c\\
+&\vec{B}=\nabla \times \vec{A}
+\end{aligned}
+\end{equation}
+\end{qt}
+We can also express the tensor field itself using the electromagnetic potential
+\begin{qt}
+    \begin{equation}
+F_{\mu v}=\partial_{\mu} A_{v}-\partial_{v} A_{\mu}
+\end{equation}
+\end{qt}
+
+\section{Fundamental Equations}
