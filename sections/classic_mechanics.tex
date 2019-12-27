@@ -1017,9 +1017,9 @@ $$
 This, in turn, implies that the momentum $p$ is also directly modified whenever we perform a point transformation
 \begin{equation}
     \begin{aligned}
-P &=\frac{\partial \tilde{L}(Q, Q))}{\partial \dot{Q}} \\
-&=\frac{\partial \tilde{L}(q(Q), \dot{q}(Q, Q))}{\partial Q} \\
-&=\frac{\partial \tilde{L}(q, \dot{q})}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{Q}} \\
+P &=\frac{\partial \tilde{L}(Q, \dot{Q}))}{\partial \dot{Q}} \\
+&=\frac{\partial L(q(Q), \dot{q}(Q, \dot{Q}))}{\partial \dot{Q}} \\
+&=\frac{\partial L(q, \dot{q})}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{Q}} \\
 &=p \frac{\partial q}{\partial Q}
 \end{aligned}
 \label{canonpoint2}
@@ -1038,13 +1038,13 @@ $$
 From Hamiltonian-Lagrangian transformation, we also found that:
 $$
 \begin{aligned}
-H(q, p) & \equiv p q-L(q, q) \\
-\tilde{H}(Q, P) &=p(Q, P) q(Q, \dot{Q}, P)-L(q(Q, P), q(Q, \dot{Q}, P)) \\
-&=P \frac{\partial Q}{\partial q} Q \frac{\partial q}{\partial Q}-L(q(Q, P), q(Q, Q, P))
+H(q, p) & \equiv p \dot{q}-L(q, p) \\
+\tilde{H}(Q, P) &=p(Q, P) \dot{q}(Q, \dot{Q}, P)-L(q(Q, P), \dot{q}(Q, \dot{Q}, P)) \\
+&=P \frac{\partial Q}{\partial q} \dot{Q} \frac{\partial q}{\partial Q}-L(q(Q, P), \dot{q}(Q, \dot{Q}, P))
 \end{aligned}
 $$
 $$
-=P \dot{Q}-L(q(Q, P), q(Q, \dot{Q}, P))
+=P \dot{Q}-L(q(Q, P), \dot{q}(Q, \dot{Q}, P))
 $$
 \bluep{Now secondly, let’s check what gauge transformations look like in the Hamiltonian formalism.}
 \begin{equation}
@@ -1117,3 +1117,161 @@ Gauge\ Transformation\\
 
     \end{center}
 \end{qt}
+
+\subsection{Infinitesimal Canonical Transformation}
+Mathematically, we can write a tiny transformation of our phase space coordinates as:
+\begin{equation}
+\begin{aligned}
+&q_{i} \rightarrow Q_{i}=q_{i}+\epsilon D_{i}\left(q_{i}, p_{i}\right)\\
+&p_{i} \rightarrow P_{i}=p_{i}+\epsilon E_{i}\left(q_{i}, p_{i}\right)
+\end{aligned}
+\label{infitrans}
+\end{equation}
+where $\epsilon$ is an infinitesimally small number. According to eqn.(\ref{poissonbracket}), we have
+$$
+\{Q, P\}_{q, p}=\frac{\partial Q}{\partial q} \frac{\partial P}{\partial p}-\frac{\partial Q}{\partial p} \frac{\partial P}{\partial q}
+$$
+$$
+\begin{aligned}
+&=1+\epsilon \frac{\partial D}{\partial q}+\epsilon \frac{\partial E}{\partial p}+\epsilon^{2} \frac{\partial D}{\partial q} \frac{\partial E}{\partial p}-\epsilon^{2} \frac{\partial D}{\partial p} \frac{\partial E}{\partial q}\\
+&=1+\epsilon \frac{\partial D}{\partial q}+\epsilon \frac{\partial E}{\partial p}
+\end{aligned}
+$$
+Thus,
+\begin{equation}
+    \frac{\partial D}{\partial q}+\frac{\partial E}{\partial p} \stackrel{!}{=} 0
+\end{equation}
+
+This implies that there must be a connection between $D$ and $E$. Specifically, we can conclude that the equation above is fulfilled if 
+\begin{equation}
+D=\frac{\partial G}{\partial p}, \quad \quad E=-\frac{\partial G}{\partial q}
+\end{equation}
+where $G=G(q, p)$ is some arbitrary function. Motivated by this observation, it is conventional to say that the new object $G$ generates the transformation. Moreover, \textbf{$G$ is called the generator of the canonical transformation.} The transformation in (\ref{infitrans}) therefore reads
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+&q_{i} \rightarrow Q_{i}=q_{i}+\epsilon \frac{\partial G}{\partial p}\\
+&p_{i} \rightarrow P_{i}=p_{i}-\epsilon \frac{\partial G}{\partial q}
+\end{aligned}
+\label{infitrans2}
+\end{equation}
+\end{qt}
+\bluep{The Poisson bracket is, in some sense, the natural product in phase space.} Therefore, if we consider an abstract phase space transformation:
+$$
+\begin{aligned}
+q \rightarrow Q &=T \circ q, \quad p \rightarrow P=T \circ p \\
+&=\{T, q\}, \quad=\{T, p\}
+\end{aligned}
+$$
+Now \textbf{we let our generator $G$ act on the coordinates $q,p$ via the Poisson bracket.} To that end, we define an infinitesimal transformation as a linear combination of the identity transformation $I\circ X=X$ and the generator action:
+$$
+T_{\text {inf }} \circ X \equiv(I+\epsilon G) \circ X=X+\epsilon G \circ X
+$$
+We can then calculate:
+$$
+\begin{aligned}
+q \rightarrow Q &=T_{\text {inf }} \circ q \\
+&=q+\epsilon G \circ q \\
+&=q+\epsilon\{q, G\}
+&==q+\epsilon \frac{\partial G}{\partial p}
+\end{aligned}
+$$
+Therefore, \textbf{our generator G really acts on the phase space coordinates via the Poisson bracket}. We can transform our phase space coordinates using any phase space function $G(q, p)$ We only have to make sure that $G$ acts on our coordinates via the appropriate phase space product, i.e., the Poisson bracket.
+
+\subsection{Generating Functions}
+In this section, we discover a new method to construct transformations between canonical coordinates systematically. We first write down the following transformation using a single function \redp{$F=F(q,Q,t)$} through the formulas:
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+&P=\frac{\partial F}{\partial Q}\\
+&p=-\frac{\partial F}{\partial q}
+\end{aligned}
+\label{generattrans}
+\end{equation}
+\end{qt}
+since $F$ is a function of $q, Q,$ and $t,$ we know that $\frac{\partial F}{\partial Q}$ will be a function of $q, Q,$ and $t$ too. Therefore, the second line in Eq. (\ref{generattrans}) is an equation of the form $p=p(q, Q, t) .$ We can then invert this equation to get an expression of the form \redp{$Q=Q(q, p, t) .$} So in other words, given some function $F,$ the second line tells us what our new location coordinates look like in terms of the original location and momentum coordinates. The first line yields a formula of the form $P=P(q, Q, t) .$ But we already know from the second line what $Q$ looks like in terms of the original coordinates. Therefore, we can use this expression to get a formula that specifies the new momentum coordinates $P$ solely in terms of the original phase space coordinates $P=P(q, p, t)$. Therefore, \redp{\textbf{Eq.(\ref{generattrans}) tells us everything that we need to know about how our old coordinates are related to the new ones.}}
+
+As a concrete example, let’s calculate the canonical transformation generated by
+\begin{equation}
+F(q, Q)=q Q
+\end{equation}
+Using Eq.\ref{generattrans}, we find
+\begin{equation}
+\begin{aligned}
+&P=\frac{\partial F}{\partial Q}=\frac{\partial(q Q)}{\partial Q}=q\\
+&p=-\frac{\partial F}{\partial q}=-\frac{\partial(q Q)}{\partial q}=-Q
+\end{aligned}
+\end{equation}
+This means that the canonical transformation generated by $F(q, Q)=q Q$ flips the roles of the momentum and location coordinates.
+
+Hamilton’s equations follow as a condition on the path of least action for the Hamiltonian action
+\begin{equation}
+S=\int_{t_{\mathrm{i}}}^{t_{f}} L d t=\int_{t_{\mathrm{i}}}^{t_{f}}(p \dot{q}-H) d t
+\end{equation}
+where $L \equiv p \dot{q}-H$ is the \redp{"Hamiltonian Lagrangian"}. After the transformation $q, p \rightarrow Q, P$, the least action principle with an analogous Hamiltonian action
+\begin{equation}
+\tilde{S}=\int_{t_{\mathrm{i}}}^{t_{f}} L^{\prime} d t=\int_{t_{\mathrm{i}}}^{t_{f}} d t\left(P \dot{Q}-H^{\prime}\right)
+\end{equation}
+must still be valid, where $L^{\prime} \equiv P \dot{Q}-H^{\prime}$ is the transformed "Hamiltonian Lagrangian".
+
+Because the transformation is based on a generating function, the original Lagrangian $L$ and the transformed Lagrangian differ by the total derivative of the generating function $F=F(q,Q,t)$:
+\begin{qt}
+    \begin{equation}
+        L^{\prime}-L=\frac{d F}{d t}
+    \end{equation}
+\end{qt}
+and
+$$
+\begin{aligned}
+\frac{d F(q, Q)}{d t} &=\frac{\partial F}{\partial q} \frac{\partial q}{\partial t}+\frac{\partial F}{\partial Q} \frac{\partial Q}{\partial t}+\frac{\partial F}{\partial t} \\
+&=\frac{\partial F}{\partial q} \dot{q}+\frac{\partial F}{\partial Q} Q+\frac{\partial F}{\partial t}
+\end{aligned}
+$$
+With these two equations, we have
+$$
+\begin{array}{c}
+{L^{\prime}-L=\frac{d F}{d t}} \\
+{\left(P \dot{Q}-H^{\prime}\right)-(p \dot{q}-H)=\frac{\partial F}{\partial q} \dot{q}+\frac{\partial F}{\partial Q} \dot{Q}+\frac{\partial F}{\partial t}} \\
+{\left(P-\frac{\partial F}{\partial Q}\right) \dot{Q}-\left(p+\frac{\partial F}{\partial q}\right) \dot{q}=H^{\prime}-H+\frac{\partial F}{\partial t}}
+\end{array}
+$$
+None of the functions in last line depend explicitly on $\dot{q}$. Therefore, if we calculate the partial derivative with respect to $\dot{q}$, we find:
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial \dot{q}}\left(P-\frac{\partial F}{\partial Q}\right) \dot{Q}-\frac{\partial}{\partial \dot{q}}\left(p+\frac{\partial F}{\partial q}\right) \dot{q} &=\frac{\partial}{\partial \dot{q}}\left(H^{\prime}-H+\frac{\partial F}{\partial t}\right) \\
+-\left(p+\frac{\partial F}{\partial q}\right) &=0
+\end{aligned}
+\end{equation}
+Similarly
+\begin{equation}
+\begin{aligned}
+\frac{\partial}{\partial \dot{Q}}\left(P-\frac{\partial F}{\partial Q}\right) \dot{Q}-\frac{\partial}{\partial \dot{Q}}\left(p+\frac{\partial F}{\partial q}\right) \dot{q} &=\frac{\partial}{\partial \dot{Q}}\left(H^{\prime}-H+\frac{\partial F}{\partial t}\right) \\
+\left(P-\frac{\partial F}{\partial Q}\right) &=0
+\end{aligned}
+\end{equation}
+Therefore, we conclude:
+$$
+\begin{aligned}
+&P=\frac{\partial F}{\partial Q}\\
+&p=-\frac{\partial F}{\partial q}
+\end{aligned}
+$$
+We can also calculate how the Hamiltonian gets modified by the canonical transformation generated by $F$ as:
+\begin{qt}
+    \begin{equation}
+        H^{\prime}=H-\frac{\partial F}{\partial t}
+        \label{generateHamil}
+    \end{equation}
+\end{qt}
+
+The algorithm to produce a canonical transformation goes like this:
+\begin{qt}
+    \begin{itemize}
+    \item Write down a specific generating function $F=F(q, Q, t)$
+    \item Use Eq.\ref{generattrans} to find the formulas which express the new coordinates $(Q, P)$ in terms of the old ones $(q, p)$
+    \item Use Eq.\ref{generateHamil} to caculate the new Hamiltonian $\tilde{H}(Q,P,t)$
+\end{itemize}
+\end{qt}
+
+\section{The Harmonic Oscillator}
+We call all systems with a potential of the form $V=c x^{2}$ where $c$ is some constant, a harmonic oscillator.
