@@ -1274,4 +1274,236 @@ The algorithm to produce a canonical transformation goes like this:
 \end{qt}
 
 \section{The Harmonic Oscillator}
-We call all systems with a potential of the form $V=c x^{2}$ where $c$ is some constant, a harmonic oscillator.
+We call all systems with a potential of the form $V=\frac{1}{2}k x^{2}$ where $k$ is some constant, a harmonic oscillator.
+\subsection{Solve the
+equations of motion}
+We first derive the equation of motion using Lagrangian and then solve it using physical coordinates and canonical coordinates. The Lagrangian of a harmonic oscillator
+\begin{equation}
+L=T-V=\frac{1}{2} m \dot{x}^{2}-\frac{1}{2} k x^{2}
+\end{equation}
+We can then calculate the correct equation of motion by putting this Lagrangian into the Euler-Lagrange equation:
+$$
+\frac{\partial L}{\partial x}=\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{x}}\right)
+$$
+\begin{equation}
+    -k x=m \frac{d^{2} x}{d t^{2}}
+    \label{harmoEM}
+\end{equation}
+
+In the Hamiltonian formalism, \textbf{our first task is always to determine the Hamiltonian $H$.}
+$$
+H=p \dot{x}-L
+$$
+where the generalized momentum $p=\frac{\partial L}{\partial \dot{x}}$. Using Hamilton's equations:
+
+$$\begin{aligned} \frac{d p}{d t} &=-\frac{\partial H}{\partial x} \\ &=-\frac{\partial\left(\frac{1}{2} \frac{p^{2}}{m}+\frac{1}{2} k x^{2}\right)}{\partial x} \\ &=-k x \end{aligned}$$
+
+$$\begin{aligned} \frac{d x}{d t} &=\frac{\partial H}{\partial p} \\ &=\frac{\partial\left(\frac{1}{2} \frac{p^{2}}{m}+\frac{1}{2} k x^{2}\right)}{\partial p} \\ &=\frac{p}{m} \end{aligned}$$
+
+To solve Eq.\ref{harmoEM}, we first multiply the equation of motion by the velocity $\dot{x}$:
+$$
+m \dot{x} \frac{d^{2} x}{d t^{2}}=-k \dot{x} x
+$$
+and
+$$
+\dot{x} \frac{d^{2} x}{d t^{2}}=\dot{x} \frac{d \dot{x}}{d t}=\frac{1}{2} \frac{d}{d t} \dot{x}^{2}
+$$
+$$
+x \dot{x}=x \frac{d x}{d t}=\frac{1}{2} \frac{d}{d t} x^{2}
+$$
+Thus,
+$$
+\begin{aligned}
+\frac{d}{d t}\left(\frac{1}{2} m \dot{x}^{2}\right) &=-\frac{d}{d t}\left(\frac{1}{2} k x^{2}\right) \\
+\frac{d}{d t}\left(\frac{1}{2} m \dot{x}^{2}+\frac{1}{2} k x^{2}\right) &=0
+\end{aligned}
+$$
+Let $E=\frac{1}{2} m \dot{x}^{2}+\frac{1}{2} k x^{2}$, we solve for $t$ as:
+$$\begin{aligned} \sqrt{\frac{2 E-k x^{2}}{m}} &=\frac{d x}{d t} \\ d t &=\sqrt{\frac{m}{2 E-k x^{2}} d x} \\ \int d t &=\int \sqrt{\frac{m}{2 E-k x^{2}}} d x \\ t &=\int \sqrt{\frac{m}{2 E-k x^{2}}} d x \end{aligned}$$
+To solve the integral above, we make the following substitution:
+$$
+x \equiv \sqrt{\frac{2 E}{k}} \sin (\phi)
+$$
+which implies:
+$$
+d x=\sqrt{\frac{2 E}{k}} \cos (\phi) d \phi
+$$
+and the integral now becomes:
+$$
+t=\sqrt{\frac{m}{k}}(\phi+\phi_0)
+$$
+$$
+\phi=\sqrt{\frac{k}{m}} t-\phi_{0}
+$$
+and
+$$
+\begin{aligned}
+x &=\sqrt{\frac{2 E}{k}} \sin \left(\sqrt{\frac{k}{m}} t-\phi_{0}\right) \\
+&=\sqrt{\frac{2 E}{k}}\left(\sin (\sqrt{\frac{k}{m}} t) \cos \left(\phi_{0}\right)-\cos (\sqrt{\frac{k}{m}} t) \sin \left(\phi_{0}\right)\right) \\
+& \equiv B \sin (\sqrt{\frac{k}{m}} t)+A \cos (\sqrt{\frac{k}{m}} t) \\
+& \equiv B \sin (\omega t)+A \cos (\omega t)
+\end{aligned}
+$$
+
+\bigskip
+
+\bigskip
+
+Let's solve the equation of motion using a Canonical transformation. First of all, we use the following generating function:
+\begin{qt}
+    \begin{equation}
+F(q, Q)=-\frac{1}{2} m \omega q^{2} \cot (Q)
+\label{harmoGF}
+\end{equation}
+\end{qt}
+where $\omega \equiv \sqrt{\frac{k}{m}}$ and $\cot (x)$ denotes the cotangent function:
+$\cot (x) \equiv \frac{1}{\tan (x)}=\frac{\cos (x)}{\sin (x)}$. Using Eq.\ref{generattrans}, we have:
+\begin{equation}
+\begin{aligned}
+P &=\frac{\partial F}{\partial Q} \\
+&=\frac{\partial\left(-\frac{1}{2} m \omega q^{2} \cot (Q)\right)}{\partial Q} \\
+&=\frac{m \omega q^{2}}{2 \sin ^{2}(Q)}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+p &=-\frac{\partial F}{\partial q} \\
+&=-\frac{\partial\left(-\frac{1}{2} m \omega q^{2} \cot (Q)\right)}{\partial q} \\
+&=m \omega q \cot (Q)
+\end{aligned}
+\end{equation}
+These two formulas implicitly define the new coordinates $Q, P$ in terms of the old ones $q, p .$ \textbf{Our next task is to use these formulas to rewrite the Hamiltonian.} From the equation above:
+\begin{equation}
+\sqrt{\frac{2}{m \omega}} P \sin (Q)=q
+\end{equation}
+\begin{equation}
+p=\sqrt{2 m \omega P} \cos (Q)
+\end{equation}
+and the Hamiltonian becomes:
+$$
+H=\frac{1}{2 m}\left(2 m \omega P \cos ^{2}(Q)+2 m \omega P \sin ^{2}(Q)\right)
+$$
+$$
+\begin{aligned}
+&=P \omega\left(\cos ^{2}(Q)+\sin ^{2}(Q)\right)\\
+&=P \omega \equiv H(Q, P)
+\end{aligned}
+$$
+Using Hamilton's equation with new coordinates, we have:
+$$
+\begin{aligned}
+\frac{d P}{d t} &=-\frac{\partial \hat{H}}{\partial Q} \\
+&=-\frac{\partial(P \omega)}{\partial Q} \\
+&=0
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{d Q}{d t} &=\frac{\partial \tilde{H}}{\partial P} \\
+&=\frac{\partial(P \omega)}{\partial P} \\
+&=\omega
+\end{aligned}
+$$
+Thus, $Q=\omega t+Q_{0}$.
+
+\section{The Pendulum}
+A pendulum consists of a bob of mass $m$ which is suspended from some fixed ceiling by a string of length $l$. We want to describe how the bob swings back and forth under the influence of the earth's gravitational field. For a pendulum, if we use Cartesian coordinates to describe the position of the bob, we have the following constraint:
+$$
+x^{2}+y^{2}=l^{2}
+$$
+\textbf{\bluep{In Newtonian formalism}}, we have the equation of motion as:
+$$\frac{d}{d t}\left(\begin{array}{l}{m \dot{x}} \\ {m \dot{y}}\end{array}\right)=\left(\begin{array}{c}{0} \\ {m g}\end{array}\right)+\left(\begin{array}{l}{-t \sin (\phi)} \\ {-t \cos (\phi)}\end{array}\right)$$
+$$
+\left(\begin{array}{c}
+{m \ddot{x}} \\
+{m \ddot{y}}
+\end{array}\right)=\left(\begin{array}{c}
+{0} \\
+{m g}
+\end{array}\right)+\left(\begin{array}{c}
+{-t \sin (\phi)} \\
+{-t \cos (\phi)}
+\end{array}\right)
+$$
+where $t$ is the magnitude of the tension force which we need to figure out. Let $x=l \sin (\phi)$ and $y=l \cos (\phi)$, we have the following two equations of motion:
+\begin{equation}
+\begin{aligned}
+\dot{\phi} &=-\frac{g}{l} \sin (\phi) \\
+t=m l \dot{\phi}^{2} &+m g \cos (\phi)
+\end{aligned}
+\end{equation}
+
+\textbf{\bluep{In Lagrangian formalism}}, we add the Lagrange multiplier term in the Lagrangian:
+\begin{equation}
+\begin{aligned}
+L_{\text {pendulum }} &=L_{\text {free }}+L_{\text {con }} \\
+&=\frac{1}{2} m\left(\dot{x}^{2}+\dot{y}^{2}\right)+m g y+\frac{1}{2} \lambda\left(x^{2}+y^{2}-l^{2}\right)
+\end{aligned}
+\end{equation}
+For $q=x$, we use the Euler-Lagrange equation and find:
+$$
+\frac{\partial L}{\partial x}=\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{x}}\right)
+$$
+$$
+\lambda x=m \ddot{x}
+$$
+For $q=y$, we find:
+$$
+m g+\lambda y=m\ddot{y}
+$$
+In fact, we've seen in the Newtonian formalism that when we switch from our Cartesian coordinates $(x, y)$ to a description in terms of the angle $\phi,$ the constraint becomes trivially true. In terms of $\phi$, the full pendulum Lagrangian therefore reads:
+$$
+L=\frac{1}{2} m l^{2} \phi^{2}+m g l \cos (\phi)
+$$
+Because Euler-Lagrange equation is always valid for any choice of coordinates, we have:
+$$
+\frac{\partial L}{\partial \phi}=\frac{d}{d t}\left(\frac{\partial L}{\partial \dot{\phi}}\right)
+$$
+$$
+-m g \sin (\phi)=m l  \ddot{\phi}
+$$
+
+\textbf{\bluep{In Hamiltonian formalism}}, we again first calculate the generalized momentum $p$ as:
+$$
+\begin{aligned}
+p &=\frac{\partial L}{\partial \dot{\phi}} \\
+&=\frac{\partial\left(\frac{1}{2} m l^{2} \dot{\phi}^{2}+m g l \cos (\phi)\right)}{\partial \dot{\phi}} \\
+&=m l^{2} \dot{\phi}
+\end{aligned}
+$$
+and the Hamiltonian:
+$$
+H=p\dot{\phi}-L=\frac{1}{2} \frac{p^{2}}{m l^{2}}-m g l \cos (\phi)
+$$
+Then, from Hamilton's equations:
+$$
+\begin{aligned}
+\frac{d p}{d t} &=-\frac{\partial H}{\partial \phi} \\
+&=-\frac{\partial\left(\frac{1}{2} \frac{p^{2}}{m l^{2}}-m g l \cos (\phi)\right)}{\partial \phi} \\
+&=-m g l \sin (\phi)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{d \phi}{d t} &=\frac{\partial H}{\partial p} \\
+&=\frac{\partial\left(\frac{1}{2} \frac{p^{2}}{m l^{2}}-m g l \cos (\phi)\right)}{\partial p} \\
+&=\frac{p}{m l^{2}}
+\end{aligned}
+$$
+Again, we arrive at the equation of motion:
+$$
+\frac{d^{2} \phi}{d t^{2}}=-\frac{g}{l} \sin (\phi)
+$$
+\section{Noether's Theorem}
+In a nutshell, \textbf{\redp{Noether’s theorem tells us that for each symmetry of a given system, there must be a conserved quantity}}
+
+In particular:
+\begin{qt}
+    \begin{itemize}
+        \item If the system possesses rotational symmetry, we know immediately that angular momentum is conserved. In other words, this means that if we can rotate our system without changing anything, angular momentum is conserved.
+        \item If the system is symmetric with respect to spatial translations
+$x \rightarrow x+\epsilon,$ we know immediately that momentum is conserved. This means that if we can change the position of the whole system and nothing changes, momentum is conserved.
+    \item If the system is symmetric with respect to temporal translations $t\rightarrow t+\epsilon$, we know immediately that energy is conserved. Formulated differently, if the system behaved yesterday exactly as it does today, energy is conserved.
+    \end{itemize}
+\end{qt}
+
