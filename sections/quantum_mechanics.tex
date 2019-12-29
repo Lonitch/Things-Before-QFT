@@ -1,1 +1,43 @@
 \chapter{Quantum Mechaaaaanics}
+\textit{This is a cheat sheet for QM. The focus here is not making comprehensive explanations but summarizing concise "quantum" bullet points.}
+
+\section{State vectors and Their Conjugates}
+1. \textbf{Quantum operators}: quantities we can measure.
+
+2. A state vector represents an eigenstate of a particular operator \textbf{if measuring the associated quantity always yields the same result}:
+
+3. operator $\times$ eigenstate $=$ eigenvalue $\times$ eigenstate
+
+4. \textbf{state vector} is usually a linear combination of eigenstates:
+$$
+|\Psi\rangle=\sum_{i} a_{i}\left|o_{i}\right\rangle= a_{1}\left|o_{1}\right\rangle+ a_{2}\left|o_{2}\right\rangle+\dots
+$$
+and probability to measure $o_{i}=\left|a_{i}\right|^{2}$.
+
+5. A \textbf{conjugated state vectors ("bra")} is a Hermitian conjugated ket:
+$$
+\langle\Psi|=| \Psi\rangle^{\dagger}=\left(|\Psi\rangle^{\star}\right)^{T}
+$$
+6. The \textbf{expectation value of an observable is then}
+\begin{equation}
+\text { expectation value }=\langle\Psi|\hat{O}| \Psi\rangle
+\label{expectation}
+\end{equation}
+7. \textbf{Wave function:} function $\psi(x)$ that we get by expanding a state vector in terms of position eigenstates:
+\begin{equation}
+|\Psi\rangle=\int d x \psi(x)|x\rangle
+\end{equation}
+8. \textbf{Schrödinger equation:}
+\begin{equation}
+i \hbar \partial_{t}|\Psi\rangle=-\frac{\hbar^{2} \partial_{i}^{2}}{2 m}|\Psi\rangle+ V(\hat{x})|\Psi\rangle
+\end{equation}
+9. The frequency of the wave associated with a given particle is directly related to its energy as:
+\begin{equation}
+v=\frac{E}{h}
+\end{equation}
+10. the wavelength is directly related to its momentum 
+\begin{equation}
+\lambda=\frac{h}{p}
+\end{equation}
+
+\section{Quantum Framework}
