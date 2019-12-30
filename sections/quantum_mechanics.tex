@@ -1,5 +1,5 @@
 \chapter{Quantum Mechaaaaanics}
-\textit{This is a cheat sheet for QM. The focus here is not making comprehensive explanations but summarizing concise "quantum" bullet points.}
+\textit{This is a cheat sheet for QM. The focus here is not giving comprehensive explanations but summarizing concise "quantum" bullet points.}
 
 \section{State vectors and Their Conjugates}
 1. \textbf{Quantum operators}: quantities we can measure.
@@ -41,3 +41,123 @@ v=\frac{E}{h}
 \end{equation}
 
 \section{Quantum Framework}
+\subsection{Wave Function}
+Use \textbf{location projector operators}, we formulate the \textbf{wave function} as:
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+|\Psi\rangle &=\int d x|x\rangle\langle x | \Psi\rangle \\
+& \equiv \int d x \Psi(x)|x\rangle
+\end{aligned}
+\end{equation}
+where $\Psi(x) \equiv\langle x | \Psi\rangle$
+\end{qt}
+\bluep{The physical interpretation of $\Psi(x)$ is again as a probability amplitude.} 
+
+Using momentum basis states, we obtain the \textbf{momentum representation} of the wave function:
+\begin{equation}
+\begin{aligned}
+|\Psi\rangle &=\int d p|p\rangle\langle p | \Psi\rangle \\
+& \equiv \int d p \Psi(p)|p\rangle
+\end{aligned}
+\end{equation}
+The operators $\int d x|x\rangle\langle x|$, $\int d p|p\rangle\langle p|$ are the \textbf{identity operator}, i.e., operators that do not change anything.
+
+An important idea is that by using a given wave function $\Psi(x)$ we can immediately calculate important quantities like the expectation value: 
+\begin{qt}
+    $$
+\begin{aligned}
+\langle\Psi|\hat{O}| \Psi\rangle &=\left\langle\Psi\left|\hat{O} \int d x \Psi(x)\right| x\right\rangle \\
+&=\int d x^{\prime}\left\langle x^{\prime}\left|\Psi^{+}\left(x^{\prime}\right) O \int d x \Psi(x)\right| x\right\rangle \\
+&=\int d x^{\prime} \int d x\left\langle x^{\prime}\left|\Psi^{\dagger}\left(x^{\prime}\right) \hat{O} \Psi(x)\right| x\right\rangle|x\rangle
+\end{aligned}
+$$
+$$
+\begin{aligned}
+&=\int d x^{\prime} \int d x \Psi^{\dagger}\left(x^{\prime}\right) O \Psi(x) \underbrace{\left\langle x^{\prime} | x\right\rangle}_{=\delta\left(x-x^{\prime}\right)}\\
+&=\int d x \Psi^{+}(x) O \Psi(x)
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\langle\Phi | \Psi\rangle &=\int d x^{\prime}\left\langle x^{\prime}\left|\Phi\left(x^{\prime}\right) \int d x \Psi(x)\right| x\right\rangle \\
+&=\int d x^{\prime} \int d x\left\langle x^{\prime}\left|\Phi^{\dagger}\left(x^{\prime}\right) \Psi(x)\right| x\right\rangle \\
+&=\int d x^{\prime} \int d x \Phi^{\dagger}\left(x^{\prime}\right) \Psi(x) \underbrace{\left\langle x^{\prime} | x\right\rangle}_{=\delta\left(x-x^{\prime}\right)} \\
+&=\int d x \Phi^{\dagger}(x) \Psi(x)
+\end{aligned}
+$$
+\end{qt}
+\subsection{Quantum Operators}
+We now talk more about the operators from a perspective of \textbf{symmetries}. The part of mathematics which deals with symmetries is called \textbf{group theory}. A group is a set of transformations which fulfill special rules plus an operation that tells us how to combine the transformations. Also, \textbf{we only need one special part of group theory, namely the part that deals with \redp{continuous symmetries}.}
+\begin{qt}
+    There is one property that makes continuous symmetries especially
+nice to deal with:
+\begin{center}
+    \textbf{they have elements which are arbitrarily close to the identity transformation.}
+\end{center}
+\end{qt}
+For example, think about the symmetries of a circle. Any rotation about the origin is a symmetry of a circle. Therefore, a rotation extremely close to the identity transformation, say a rotation by $0.000001^{\circ},$ is a symmetry of the circle.
+
+Mathematically, we write an element $g$ close to the identity $I$ as:
+\begin{equation}
+g(\epsilon)=I+\epsilon G
+\end{equation}
+where $\epsilon$ is a really, really small number and $G$ is an object, called a \redp{generator}. In the smallest possible case, such transformations are called \textbf{infinitesimal transformations}.
+
+Let’s return to our discussion about rotations. Many small rotations in one direction are equivalent to one big rotation in the same direction. Mathematically, we can write \bluep{the idea of repeating a small transformation many times} as follows:
+\begin{equation}
+h(\theta)=(I+\epsilon G)(I+\epsilon G)(I+\epsilon G) \ldots=(I+\epsilon G)^{k}
+\end{equation}
+If $\theta$ denotes some finite transformation parameter, e.q.,$50^o$ or so, and $N$ is some huge number that makes sure we are close to the identity. We write $g$ as:
+$$
+g(\theta)=I+\frac{\theta}{N} G
+$$
+At the limit of $N\rightarrow\infty$, we have 
+$$
+h(\theta)=\lim _{N \rightarrow \infty}\left(I+\frac{\theta}{N} G\right)^{N}=e^{\theta G}
+$$
+\begin{qt}
+    The bottom line is that the object $G$ generates the finite transformation $h .$ This is why we call objects like this \textbf{generators}.
+\end{qt}
+Let's consider a function $f(x, t)$ and assume that our goal is to generate a spatial translation such that $T f(x, t)=f(x+a, t)$ The following generator do the job:
+\begin{qt}
+    \begin{equation}
+G_{\mathrm{xtrans}}=\partial_{x}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+e^{a G_{\mathrm{xtrans}}} f(x, t) &=\left(1+a G_{\mathrm{xtrans}}+\frac{a^{2}}{2} G_{\mathrm{xtrans}}^{2}+\ldots\right) f(x, t) \\
+&=\left(1+a \partial_{x}+\frac{a^{2}}{2} \partial_{x}^{2}+\ldots\right) f(x, t) \\
+&=f(x+a, t)
+\end{aligned}
+\end{equation}
+\textbf{$G_{\mathrm{xtrans}}=\partial_{x}$ generates spatial translations.}
+\end{qt}
+Analogously, \redp{\textbf{$G_{\text {ttrans }}=\partial_{t}$ generates temporal translation}}.
+\begin{qt}
+    \begin{center}
+        The core of each continuous symmetry is the corresponding generator.
+        
+        \textit{\textbf{quantum operator $\leftrightarrow$ generator of symmetry}}
+    \end{center}
+\end{qt}
+\begin{qt}
+\begin{center}
+    1. momentum $\hat{p}_{i} \leftrightarrow$ g'nerator of spatial translations $\left(-i \hbar \partial_{i}\right)$
+    
+    2. energy $\hat{E} \leftrightarrow$ generator of temporal translations $\left(i \hbar \partial_{t}\right)$
+    
+    3. Since there is no symmetry connected to the conservation of position, the position operator stays as $\hat{x}$
+\end{center}
+\end{qt}
+\begin{qt}
+\textbf{Canonical commutation relation} reads:
+\begin{equation}
+\left[\hat{p}_{i}, \hat{x}_{j}\right]=-i \hbar \delta_{i j}
+\end{equation}
+\end{qt}
+In physical terms, we cannot measure the position and the momentum of a particle at the same time with arbitrary precision. We can now also understand how this comes about in our framework. We identified the momentum
+operator as the generator of spatial translations.\bluep{Thus, each time we measure the momentum, we perform a tiny
+spatial translation.}
