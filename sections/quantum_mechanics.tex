@@ -145,7 +145,7 @@ Analogously, \redp{\textbf{$G_{\text {ttrans }}=\partial_{t}$ generates temporal
 \end{qt}
 \begin{qt}
 \begin{center}
-    1. momentum $\hat{p}_{i} \leftrightarrow$ g'nerator of spatial translations $\left(-i \hbar \partial_{i}\right)$
+    1. momentum $\hat{p}_{i} \leftrightarrow$ generator of spatial translations $\left(-i \hbar \partial_{i}\right)$
     
     2. energy $\hat{E} \leftrightarrow$ generator of temporal translations $\left(i \hbar \partial_{t}\right)$
     
@@ -158,6 +158,66 @@ Analogously, \redp{\textbf{$G_{\text {ttrans }}=\partial_{t}$ generates temporal
 \left[\hat{p}_{i}, \hat{x}_{j}\right]=-i \hbar \delta_{i j}
 \end{equation}
 \end{qt}
-In physical terms, we cannot measure the position and the momentum of a particle at the same time with arbitrary precision. We can now also understand how this comes about in our framework. We identified the momentum
-operator as the generator of spatial translations.\bluep{Thus, each time we measure the momentum, we perform a tiny
-spatial translation.}
+In physical terms, we cannot measure the position and the momentum of a particle at the same time with arbitrary precision. We can now also understand how this comes about in our framework. We identified the momentum operator as the generator of spatial translations.\bluep{Thus, each time we measure the momentum, we perform a tiny spatial translation.}
+\begin{qt}
+Hamiltonian operator
+\begin{equation}
+\hat{H} \equiv\left(-\frac{\hbar^{2} \partial_{i}^{2}}{2 m}+V(\hat{x})\right)
+\end{equation}
+Which leads to more general form of the Schrödinger equation:
+\begin{equation}
+i \hbar \partial_{t}|\Psi\rangle=\hat{H}|\Psi\rangle
+\end{equation}
+which is valid even for relativistic systems and quantum field theories.
+\end{qt}
+A convenient alternative way to describe the time-evolution of quantum systems is with the so-called \textbf{\redp{time evolution operator $U(t)$}}:
+\begin{equation}
+|\Psi(x, t)\rangle= U(t)|\Psi(x, 0)\rangle
+\end{equation}
+Since
+$$
+\begin{aligned}
+i \hbar \partial_{t}|\Psi(x, t)\rangle &= H|\Psi(x, t)\rangle \\
+i \hbar \partial_{t} U(t)|\Psi(x, 0)\rangle &= H U(t)|\Psi(x, 0)\rangle
+\end{aligned}
+$$
+This equation holds for any $|\Psi(x, 0)\rangle$ and we can therefore write it without it:
+$$
+\begin{aligned}
+&\therefore \quad i \hbar \partial_{t} U(t)=H U(t)\\
+&\therefore \quad i \hbar \frac{\partial_{t} U(t)}{U(t)}=H
+\end{aligned}
+$$
+Hence
+\begin{qt}
+\begin{equation}
+U(t)=\mathrm{e}^{-\frac{i}{\hbar} \int_{0}^{t} d t^{\prime} H\left(t^{\prime}\right)}
+\end{equation}
+\end{qt}
+\begin{mybox}
+\begin{center}
+    Why Quantum Mechanics is About Waves?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+Let's consider an 1D case:
+$$
+\begin{aligned}
+i \hbar \partial_{t}|\Psi\rangle &=-\frac{\hbar^{2} \partial_{x}^{2}}{2 m}|\Psi\rangle \\
+i \hbar \partial_{t} \int d x \psi(x, t)|x\rangle &=-\frac{\hbar^{2} \partial_{x}^{2}}{2 m} \int d x \psi(x, t)|x\rangle \\
+\therefore \quad i \hbar \partial_{t} \psi(x, t) &=-\frac{\hbar^{2} \partial_{x}^{2}}{2 m} \psi(x, t)
+\end{aligned}
+$$
+we integrated over. One solution to this equation is
+\begin{equation}
+\psi(x, t)=\mathrm{e}^{-i(E t-p x) / \hbar}
+\end{equation}
+A function of the form above is known as a \textbf{plane wave}.
+\end{mybox2}
+An important observation: \textbf{the Schrödinger equation is linear in $\psi .$} This means that we can use the \textbf{superposition principle}.
+\begin{equation}
+\psi_{\mathrm{sup}}=a \psi_{1}+b \psi_{2}+\ldots
+\end{equation}
+This observation allow us to construct \textbf{wave packets} through suitable linear combinations of plane waves. \bluep{A wave packet is what we use to describe a particle which is localized within some region.}
+
+\subsection{Angular Momentum}
