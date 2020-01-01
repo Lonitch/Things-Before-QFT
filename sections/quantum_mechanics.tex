@@ -221,3 +221,632 @@ An important observation: \textbf{the Schrödinger equation is linear in $\psi .
 This observation allow us to construct \textbf{wave packets} through suitable linear combinations of plane waves. \bluep{A wave packet is what we use to describe a particle which is localized within some region.}
 
 \subsection{Angular Momentum}
+Using the explicit form of the angular momentum operators, we have:
+$$
+\begin{aligned}
+\hat{L}_{i} &=\epsilon_{i j k} \hat{x}_{j} \hat{p}_{k} \\
+&=\epsilon_{i j k} \hat{x}_{j}\left(-i \hbar \partial_{k}\right) \\
+&=-i \hbar \epsilon_{i j k} \hat{x}_{j} \partial_{k}
+\end{aligned}
+$$
+\begin{qt}
+\textbf{Angular momentum commutation relation}
+\begin{equation}
+\left[\hat{L}_{i}, \hat{L}_{j}\right]=i \hbar \epsilon_{i j k} \hat{L}_{k}
+\end{equation}
+The measurements of the angular momentum along different axis affect each other. In particular, a measurement of the angular momentum along the x-axis affects the angular momentum along the y- and z-axes.
+\end{qt}
+
+\subsection{Spin}
+Sometimes, we need to describe our quantum systems with objects that have more than one component:
+$$
+\Psi(x, t)=\left(\begin{array}{l}
+{\Psi_{1}(x, t)} \\
+{\Psi_{2}(x, t)}
+\end{array}\right)
+$$
+Acting on the object with symmetry generators will result in two things:
+\begin{qt}
+\begin{itemize}
+    \item Change of the spatial and temporal coordinates $x \rightarrow 1+G x,$ where $G$ denotes a generator.
+$\Psi(x) \rightarrow \Psi(x+\epsilon)$
+    \item mixing the components
+    $$
+\left(\begin{array}{l}
+{\Psi_{1}(x, t)} \\
+{\Psi_{2}(x, t)}
+\end{array}\right) \rightarrow\left(\begin{array}{l}
+{\Psi_{2}(x, t)} \\
+{\Psi_{1}(x, t)}
+\end{array}\right)
+$$
+\end{itemize}
+\end{qt}
+\begin{mybox}
+\begin{center}
+    Now we have a generator composed of two parts, how can we construct a general quantum operator that describes angular momentum?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+\redp{The generator that causes the rotation of the argument of a function is a \textbf{differential operator}.} The naive operator $\vec{L}=\vec{x} \times(-i \hbar \vec{\partial})$ correctly describe the first change. To avoid confusion, this type of angular momentum is referred to as \textbf{orbital angular momentum}.
+
+\redp{The generator that causes the mixing of the components is a\textbf{ matrix}.} And the operator identified with this generator describes \textbf{\redp{spin}} or \textbf{internal angular momentum}. Specifically, the correct generators of spin for two-component states are:
+\begin{equation}
+\hat{S}_{i}=\frac{\hbar}{2} \sigma_{i}
+\end{equation}
+where $\sigma_{i}$ are $(2 \times 2)$ matrices known as \textbf{Pauli matrices}:
+\begin{equation}
+\sigma_{1}=\left(\begin{array}{cc}
+{0} & {1} \\
+{1} & {0}
+\end{array}\right), \quad \sigma_{2}=\left(\begin{array}{cc}
+{0} & {-i} \\
+{i} & {0}
+\end{array}\right), \quad \sigma_{3}=\left(\begin{array}{cc}
+{1} & {0} \\
+{0} & {-1}
+\end{array}\right)
+\end{equation}
+Here we use the labels 1, 2, and 3 instead of x, y, and z.
+\end{mybox2}
+In contrast to the classical mechanics regime, under which angular momentum can assume any value, quantum mechanical spin can only take on one of two values. Either we measure the value $\hbar / 2,$ or we measure the value $-\hbar / 2$.
+\begin{qt}
+\begin{center}
+    Spin is quantized.
+\end{center}
+\end{qt}
+Using the explicit matrices for the spin operators, we can calculate the commutation relations as:
+\begin{qt}
+\begin{equation}
+\left[\hat{S}_{i}, \hat{S}_{j}\right]=i \hbar \epsilon_{i j k} \hat{S}_{k}
+\end{equation}
+\end{qt}
+\subsection{Quantum Numbers}
+We specify the angular momentum of a given quantum system using the z-component of the angular momentum $\hat{L}_{z},$ and the total angular momentum, $\hat{L}^{2}$.The quantum operator defined for total angular momentum is 
+\begin{equation}
+L^{2}=L_{x}^{2}+L_{y}^{2}+L_{z}^{2}
+\end{equation}
+and
+\begin{equation}
+\left[\hat{L}^{2}, \hat{L}_{i}\right]=0
+\end{equation}
+It is conventional to use the label m for the angular momentum in the z-direction:
+\begin{equation}
+\hat{L}_{z}|m\rangle=\hbar m|m\rangle
+\end{equation}
+and the label $l$ for the total angular momentum:
+\begin{equation}
+\hat{L}^{2}|l\rangle=\hbar^{2} l(l+1)|l\rangle
+\end{equation}
+In addition, the energy operator $\hat{H}$ often commutes with $\hat{L}_{z}$ and $L^{2},$ so we can use it as a third label. The conventional label for the energy eigenvalues is $n$.
+
+So in summary: We often label our states using the three labels $m, l$ and $n:|n, m, l\rangle .$ Labels like this are known as \textbf{quantum number}.
+
+\section{The Classical Limit}
+To connect QM to classical mechanics, we notice that \textbf{we can extend QM results to the classical mechanics through calculating the expectation values.}
+
+The following statement for the momentum expectation value is exactly Newton’s second law of classical mechanics:
+\begin{qt}
+Enrenfest's theorem
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d} t}\langle\Psi|\hat{p}| \Psi\rangle=-\left\langle\Psi\left|\partial_{x} V(\hat{x})\right| \Psi\right\rangle
+\end{equation}
+\end{qt}
+\begin{mybox}
+\begin{center}
+    How to derive Enrenfest's theorem from QM principles?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+We start with the expectation value for a general operator
+$$
+\langle\Psi|\hat{O}| \Psi\rangle=\int d^{3} x \Psi^{\star}\hat{O} \Psi
+$$
+and Schrödinger equation
+$$
+\frac{d}{d t} \Psi=\frac{1}{i \hbar} H \Psi
+$$
+and its conjugate
+$$
+\begin{aligned}
+\frac{d}{d t} \Psi^{+} &=-\frac{1}{i \hbar} \Psi^{+} \overbrace{H^{\dagger}}^{H=H^+} \\
+&=-\frac{1}{i \hbar} \Psi^{\dagger} H
+\end{aligned}
+$$
+Taking the time derivative of the expectation value then yields
+$$
+\begin{aligned}
+\frac{d}{d t}\langle \hat{O}\rangle &=\frac{d}{d t} \int d^{3} x \Psi^{+} \hat{O} \Psi \\
+&=\int d^{3} x\left(\left(\frac{d}{d t} \Psi^{+}\right) \hat{O} \Psi+\Psi^{+}\left(\frac{d}{d t} \hat{O}\right) \Psi+\Psi^{+} \hat{O}\left(\frac{d}{d t} \Psi\right)\right)
+\end{aligned}
+$$
+Next, \redp{we use $\frac{d}{d t} \hat{O}=0,$ which is correct for many operators.} For example, for $\hat{O}=\hat{\vec{p}}=-i \hbar \vec{\nabla} \neq \hat{O}(t) .$ This yields
+$$
+\begin{aligned}
+\frac{d}{d t}\langle \hat{O}\rangle &=\int d^{3} x\left(\left(\frac{d}{d t} \Psi^{+}\right) \hat{O} \Psi+\underbrace{\Psi^{+}\left(\frac{d}{d t} \hat{O}\right) \Psi}_{=0}+\Psi^{+} \hat{O}\left(\frac{d}{d t} \Psi\right)\right) \\
+&=\int d^{3} x\left(\left(-\frac{1}{i \hbar} \Psi^{+} H\right) \hat{O} \Psi+\Psi^{+} \hat{O}\left(\frac{1}{i \hbar} H \Psi\right)\right)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+&=\frac{1}{i \hbar} \int d^{3} x\left(-\Psi^{\dagger} H \hat{O} \Psi+\Psi^{\dagger} \hat{O} H \Psi\right)\\
+&=\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger}[\hat{O}, H] \Psi\\
+&=\frac{1}{i \hbar}\langle[\hat{O}, H]\rangle
+\end{aligned}
+$$
+\end{mybox2}
+\begin{mybox2}
+Now we can evaluate this equation specifically for the momentum operator and, in addition, use the explicit form of the Hamiltonian operator:
+$$
+\begin{aligned}
+\frac{d}{d t}\langle\hat{p}\rangle &=\frac{1}{i \hbar}\langle[\hat{p}, H]\rangle \\
+&=\frac{1}{i \hbar}\left\langle\left[\hat{p}, \frac{\hat{p}^{2}}{2 m}+V\right]\right\rangle \\
+&=\frac{1}{i \hbar}\langle\underbrace{\left[\hat{p}, \frac{\hat{p}^{2}}{2 m}\right]}_{=0}+[\hat{p}, V]\rangle
+\end{aligned}
+$$
+$$
+\begin{aligned}
+&=\frac{1}{i \hbar}\langle[\hat{p}, V]\rangle\\
+&=\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger}[\hat{p}, V] \Psi\\
+&=\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger} \hat{p} V \Psi-\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger} V \hat{p} \Psi\\
+&=\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger}(-i \hbar \nabla) V \Psi-\frac{1}{i \hbar} \int d^{3} x \Psi^{\dagger} V(-i \hbar \nabla) \Psi\\
+&=-\int d^{3} x \Psi^{\dagger}(\nabla V) \Psi-\int d^{3} x \Psi^{\dagger} V \nabla \Psi+\int d^{3} x \Psi^{\dagger} V \nabla \Psi\\
+&=-\int d^{3} x \Psi^{\dagger}(\nabla V) \Psi\\
+&=\langle-\nabla V\rangle=\langle F\rangle
+\end{aligned}
+$$
+\end{mybox2}
+\subsection{Classification of Solutions to QM systems}
+1. If the energy of the state is smaller than the potential in the system at infinity $(E<V(\infty) \text { and } E<V(-\infty)),$ we are dealing with a \textbf{bound state.} We label bound states using a discrete index n.
+
+2. If the energy of the state is larger than the potential at infinity:
+$E>V(\infty)$ or $E>V(-\infty),$ we are dealing with a \textbf{scattering state}. We label scattering states using a continuous index $k$. A general solution is an integral $\int d k$ over such solutions.
+
+\section{Harmonic Quantum Mechanics}
+The potential of the harmonic oscillator is usually written as
+$$
+V(x)=\frac{1}{2} m \omega^{2} x^{2}
+$$
+where $\omega=\sqrt{k / m}$ denotes the classical oscillation frequency and $m$ the mass at the end of the spring. The stationary Schrödinger equation therefore reads
+\begin{equation}
+-\hbar^{2} \frac{\partial_{x}^{2}}{2 m} \psi+\frac{1}{2} m \omega^{2} x^{2} \psi=E \psi
+\label{harmonicSDE}
+\end{equation}
+The solutions to the Eq. (\ref{harmonicSDE}) look like this:
+\begin{qt}
+\begin{equation}
+\psi_{n}(x)=\left(\frac{1}{2}\right)^{n / 2} H_{n}(\sqrt{\frac{m \omega}{\hbar}} x) e^{-\frac{m \omega}{2 \hbar} x^{2}}
+\end{equation}
+where $H_{n}$ denotes the so-called Hermite polynomials
+$$
+H_{n}(u)=(-1)^{n} e^{u^{2} / 2} \frac{d}{d u} e^{-u^{2} / 2}
+$$
+\end{qt}
+The corresponding energy eigenvalues are
+\begin{qt}
+\begin{equation}
+E_{n}=\hbar \omega\left(n+\frac{1}{2}\right)
+\end{equation}
+\end{qt}
+\subsection{Lowering and Raising Operator}
+To solve Eq.(\ref{harmonicSDE}) efficiently, we introduce the lowering and raising operators as:
+\begin{qt}
+\begin{equation}
+\begin{array}{l}
+{a \equiv \sqrt{\frac{m \omega}{2 \hbar}} x+i \frac{1}{\sqrt{2 m \omega \hbar}} p} \\
+{a^{\dagger} \equiv \sqrt{\frac{m \omega}{2 \hbar}} x-i \frac{1}{\sqrt{2 m \omega \hbar}} p}
+\end{array}
+\end{equation}
+and
+$$
+x=\sqrt{\frac{\hbar}{2 m \omega}}\left(a+a^{\dagger}\right)
+$$
+$$
+p=-i \sqrt{\frac{\hbar m \omega}{2}}\left(a-a^{\dagger}\right)
+$$
+\end{qt}
+The commutator is simply 1:
+\begin{qt}
+\begin{equation}
+\left[a, a^{\dagger}\right]=a a^{\dagger}-a^{\dagger} a=1
+\end{equation}
+\end{qt}
+The Eq.(\ref{harmonicSDE}) is then rewritten as:
+\begin{equation}
+E \Psi= \frac{1}{2 m}\left(i \sqrt{\frac{\hbar m \omega}{2}}\left(a^{\dagger}-a\right)\right)^{2} \Psi+\frac{m \omega^{2}}{2}\left(\sqrt{\frac{\hbar}{2 m \omega}}\left(a+a^{\dagger}\right)\right)^{2} \Psi=\frac{\hbar \omega}{2}\left(a^{\dagger} a+a a^{\dagger}\right)\Psi
+\end{equation}
+Using the commutator relation, we simply obtain that
+$$
+\begin{aligned}
+E \Psi &=\frac{\hbar \omega}{2}\left(a^{\dagger} a+a a^{\dagger}\right)\Psi \\
+&=\frac{\hbar \omega}{2}\left(a^{\dagger} a+a a^{\dagger}-a^{\dagger} a+a^{\dagger} a\right)\Psi \\
+&=\frac{\hbar \omega}{2}\left(2 a^{\dagger} a+\left[a, a^{\dagger}\right]\right)\Psi \\
+&=\frac{\hbar \omega}{2}\left(2 a^{\dagger} a+1\right)\Psi \\
+&=\hbar \omega\left(a^{\dagger} a+\frac{1}{2}\right)\Psi
+\end{aligned}
+$$
+\begin{mybox}
+\begin{center}
+      what $a$ and $a^{\dagger}$ do when they act on our system $a\left|E_{1}\right\rangle=$?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+First we calculate the commutator $[H,a]$:
+$$
+\begin{aligned}
+[H, a] &=H a-a H \\
+&=\left(\hbar \omega\left(a^{\dagger} a+\frac{1}{2}\right)\right) a-a\left(\hbar \omega\left(a^{\dagger} a+\frac{1}{2}\right)\right)\\
+&=-\hbar \omega\left[a, a^{\dagger}\right] a\\
+&=-\hbar \omega a
+\end{aligned}
+$$
+Similarly,
+$$
+\left[H, a^{\dagger}\right]=\hbar \omega a^{\dagger}
+$$
+With this information at hand, we are finally ready to calculate the energy of our new state $a\left|E_{1}\right\rangle:$
+$$
+\begin{aligned}
+\hat{H}\left(a\left|E_{1}\right\rangle\right) &=(H a-a \hat{H}+a \hat{H})\left|E_{1}\right\rangle \\
+&= a \hat{H}\left|E_{1}\right\rangle+[\hat{H}, a]\left|E_{1}\right\rangle \\
+&\left.=a E_{1}\left|E_{1}\right\rangle+[\hat{H}, a]\right) \\
+&=\left(a E_{1}-\hbar \omega a\right)\left|E_{1}\right\rangle \\
+&=\left(E_{1}-\hbar \omega\right)\left(a\left|E_{1}\right\rangle\right)
+\end{aligned}
+$$
+Analogously for $a^{\dagger}$ we find
+$$
+\hat{H a}^{\dagger}\left|E_{1}\right\rangle=\left(E_{1}+\hbar \omega\right) a^{\dagger}\left|E_{1}\right\rangle
+$$
+\end{mybox2}
+\begin{qt}
+\begin{center}
+     $a$ and $a^{\dagger}$ are known as \textbf{ladder operators}. They allow us to move between the energy eigenstates. Using $a^{\dagger}$ we can jump to the next higher eigenstate. Using $a$ we can jump to the next lower eigenstate.
+\end{center}
+\end{qt}
+\begin{mybox}
+\begin{center}
+    How to normalize the states after ladder operators?
+\end{center}
+\end{mybox}
+\begin{mybox2}
+In general, we have something of the form:
+$$
+a^{\dagger}|n\rangle= C|n+1\rangle
+$$
+Now we solve the following expression using commutation relation:
+$$
+\begin{aligned}
+\left\langle n\left|a a^{\dagger}\right| n\right\rangle &=\left\langle n\left|\left(a a^{\dagger}-a^{\dagger} a+a^{\dagger} a\right)\right| n\right\rangle \\
+&=\left\langle n\left|\left(\left[a, a^{\dagger}\right]+a^{\dagger} a\right)\right| n\right\rangle \\
+&=\left\langle n\left|\left(1+a^{\dagger} a\right)\right| n\right\rangle \\
+&=\langle n|(1+N)| n\rangle \\
+&=\langle n|(N|n\rangle+ 1|n\rangle)
+&=\langle n|(n|n\rangle+ 1|n\rangle)\\
+&=\langle n|(n+1)| n\rangle\\
+&=(n+1)\langle n | n\rangle\\
+&=n+1
+\end{aligned}
+$$
+Also, we can use the conjugate states to solve the same expression as:
+$$
+\begin{aligned}
+&\left.a^{\dagger}|n\rangle\right)^{\dagger}=(C|n+1\rangle)^{\dagger}\\
+&\left\langle n\left|a=\langle n+1| C^{\dagger}\right.\right.
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\left\langle n\left|a a^{\dagger}\right| n\right\rangle &=\left\langle n+1\left|C^{\dagger} C\right| n+1\right\rangle \\
+&= C^{\dagger} C\langle n+1 | n+1\rangle
+\end{aligned}
+$$
+Thus,
+$$
+\begin{aligned}
+C^{\dagger} C &=n+1 \\
+C &=\sqrt{n+1}
+\end{aligned}
+$$
+\end{mybox2}
+In summary,
+\begin{qt}
+\begin{equation}
+a|n\rangle=\sqrt{n}|n-1\rangle
+\end{equation}
+\begin{equation}
+a^{\dagger}|n\rangle =\sqrt{n+1}|n+1\rangle
+\end{equation}
+\end{qt}
+
+\section{Quantum Systems with Spin}
+\subsection{Spin Measurements}
+The eigenstates of the $S_{z}$ operator
+$$
+S_{z}=\frac{\hbar}{2} \sigma_{3}=\frac{\hbar}{2}\left(\begin{array}{cc}
+{1} & {0} \\
+{0} & {-1}
+\end{array}\right)
+$$
+are
+\begin{equation}
+|\hbar / 2\rangle_{z} \triangleq\left(\begin{array}{l}
+{1} \\
+{0}
+\end{array}\right) \quad \text { and } \quad|-\hbar / 2\rangle_{z} \triangleq\left(\begin{array}{l}
+{0} \\
+{1}
+\end{array}\right)
+\end{equation}
+To find the probability to get the result $-\hbar / 2$ for a spin measurement along the $z$ -axis of a system described by a general ket $|X\rangle= a|\hbar / 2\rangle_{z}+b|-\hbar / 2\rangle_{z},$ we have to calculate
+\begin{equation}
+_{z}\langle-\hbar / 2 | X\rangle= a \underbrace{\langle-\hbar / 2 | \hbar / 2\rangle}_{=0}+\underbrace{b_{z}\langle-\hbar / 2 |-\hbar / 2\rangle_{z}}_{=1}=b
+\end{equation}
+\bluep{If we want to measure the spin along another axis, say the x-axis, we first need to expand our state in terms of the eigenstates of $\hat{S}_x$}:
+$$
+S_{x}=\left(\begin{array}{cc}
+{0} & {\hbar / 2} \\
+{\hbar / 2} & {0}
+\end{array}\right)
+$$
+The corrsponding normalized eigenvectors are
+$$
+|\hbar / 2\rangle_{x} \triangleq \frac{1}{\sqrt{2}}\left(\begin{array}{l}
+{1} \\
+{1}
+\end{array}\right) \quad \text { and } \quad|-\hbar / 2\rangle_{x} \hat{=} \frac{1}{\sqrt{2}}\left(\begin{array}{c}
+{1} \\
+{-1}
+\end{array}\right)
+$$
+So if we want to calculate the probability to measure $-\hbar / 2$ for the spin in the $x$ -direction, we first need to rewrite $|\hbar / 2\rangle_{z}$ and $|-\hbar / 2\rangle_{z}$ in terms of $|\hbar / 2\rangle_{x}$ and $|-\hbar / 2\rangle_{x}:$
+$$
+|\hbar / 2\rangle_{z}=\frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}+|-\hbar / 2\rangle_{x}\right)
+$$
+and
+$$
+|-\hbar / 2\rangle_{z}=\frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}-|-\hbar / 2\rangle_{x}\right)
+$$
+Our general state reads in this new basis
+$$
+\begin{aligned}
+|X\rangle &= a|\hbar / 2\rangle_{z}+b|-\hbar / 2\rangle_{z} \\
+&=a \frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}+|-\hbar / 2\rangle_{x}\right)+b \frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}-|-\hbar / 2\rangle_{x}\right)
+\end{aligned}
+$$
+The probability amplitude to measure $-\hbar / 2$ for the spin along the $x$ -axis is therefore
+$$
+\begin{aligned}
+x\langle-\hbar / 2 | X\rangle=&_{x}\left\langle-\hbar / 2\left|\left(a \frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}+|-\hbar / 2\rangle_{x}\right)\right.\right.\right.\\
+&\left.+b \frac{1}{\sqrt{2}}\left(|\hbar / 2\rangle_{x}-|-\hbar / 2\rangle_{x}\right)\right) \\
+=& \frac{a}{\sqrt{2}}-\frac{b}{\sqrt{2}}
+\end{aligned}
+$$
+The probability is
+\[
+P_{x=-h / 2}=\left|\frac{a}{\sqrt{2}}-\frac{b}{\sqrt{2}}\right|^{2}
+\]
+\subsection{Spin Addition}
+For concreteness, let’s consider two particles with spin 1/2. For such spin 1/2 particles there are always only two possible spin alignments: spin up $|\uparrow\rangle$ and $| \downarrow\rangle$.\textbf{The total spin operator acting on this combined system to yield:}
+\begin{qt}
+\begin{equation}
+    \hat{S}\psi_{1} \psi_{2} = \sqrt{s(s+1)}\hbar\psi_{1} \psi_{2}
+\end{equation}
+where $s$ is the total spin number, which is $1/2+1/2=1$ in this case.
+
+Similarly,
+$$
+\begin{aligned}
+S_{z} \psi_{1} \psi_{2} &=\left(S_{z}^{(1)}+S_{z}^{(2)}\right) \psi_{1} \psi_{2}=\left(S_{z}^{(1)} \psi_{1}\right) \psi_{2}+\psi_{1}\left(S_{z}^{(2)} \psi_{2}\right) \\
+&=\left(\hbar m_{1} \psi_{1}\right) \psi_{2}+\psi_{1}\left(\hbar m_{2} \psi_{2}\right)=\hbar\left(m_{1}+m_{2}\right) \psi_{1} \psi_{2}
+\end{aligned}
+$$
+\end{qt}
+The possible values for the overall spin in the z-direction $m=(m_1+m_2)$ are therefore
+$$
+\begin{aligned}
+&\uparrow \uparrow: m=1\\
+&\uparrow \downarrow: m=0\\
+&\downarrow \uparrow: m=0\\
+&\downarrow \downarrow: m=-1
+\end{aligned}
+$$
+The physical interpretation of this observation is that the two spin $1 / 2$ particles can form together a system with a total spin of 1 or a total spin of 0. For the total spin 1 case, we can measure for the z-components the values $-1,0$ or $1 .$ We say the state is in a \textbf{\redp{triplet state}} and denote it by:
+$$
+\begin{aligned}
+&|11\rangle=\uparrow \uparrow\\
+&|10\rangle=\frac{1}{\sqrt{2}} \uparrow \downarrow+\frac{1}{\sqrt{2}} \downarrow \uparrow\\
+&|1-1\rangle=\downarrow \downarrow
+\end{aligned}
+$$
+The other possibility is that the complete system has a total spin of zero. In this case, we say the system is in a \textbf{\redp{singlet state}}. In terms of the individual spins this state reads:
+$$
+|00\rangle=\frac{1}{\sqrt{2}} \uparrow \downarrow-\frac{1}{\sqrt{2}} \downarrow \uparrow
+$$
+So the only difference to the $|10\rangle$ state is a minus sign, which however is crucial if we determine the energy levels, for example, in the Hydrogen atom. These numbers $\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}$ etc. are known as \textbf{Clebsch-Gordan coefficients}. They tell us how a system looks like in terms of the individual angular momentums that it consists of.
+
+\section{Perturbation Theory}
+In general, the situation we are now interested in looks like this
+$$
+H=H_{0}+\lambda V
+$$
+where $H$ is the Hamiltonian for the full system, $H_{0}$ the Hamiltonian of a system that we have already solved and $V$ is the difference between the two. Here, $\lambda$ is a parameter that we introduce to keep track of the order of perturbation theory.
+
+Our goal is to calculate the energy levels $E_{n}$ of this system which correspond to the eigenvalues of $H:$
+\[
+\begin{array}{c}
+{H|n\rangle= E_{n}|n\rangle} \\
+{\therefore \quad\left(H_{0}+\lambda V\right)|n\rangle= E_{n}|n\rangle}
+\end{array}
+\]
+We make the following ansatz for the states:
+\begin{qt}
+\begin{equation}
+|n\rangle=|n\rangle_{0}+\lambda|n\rangle_{1}+\lambda^{2}|n\rangle_{2}+\ldots
+\end{equation}
+\end{qt}
+Next, we simply put these ansätze into our Schrödinger equation:
+$$
+\begin{array}{l}
+{\left(H_{0}+\lambda V\right)\left(|n\rangle_{0}+\lambda|n\rangle_{1}+\ldots\right)=E_{n}\left(|n\rangle_{0}+\lambda|n\rangle_{1}+\ldots\right)} \\
+{\left(H_{0}+\lambda V\right)\left(|n\rangle_{0}+\lambda|n\rangle_{1}+\ldots\right)=\left(E_{n}^{(0)}+\lambda E_{n}^{(1)}+\ldots\right)\left(|n\rangle_{0}+\lambda|n\rangle_{1}+\ldots\right)}
+\end{array}
+$$
+$$
+H_{0}|n\rangle_{0}+\lambda V|n\rangle_{0}+\lambda H_{0}|n\rangle_{1}+\lambda^{2} V|n\rangle_{1}=E_{n}^{(0)}|n\rangle_{0}+\lambda E_{n}^{(1)}|n\rangle_{0}+\lambda E_{n}^{(0)}|n\rangle_{1}+\lambda^{2} E_{n}^{(1)}|n\rangle_{1}+\dots
+$$
+Then we collect all terms with $\lambda$ in front of them:
+\begin{equation}
+V|n\rangle_{0}+H_{0}|n\rangle_{1}=E_{n}^{(1)}|n\rangle_{0}+E_{n}^{(0)}|n\rangle_{1}
+\end{equation}
+Multiply the equation above by $_{0}\langle n|:$
+$$
+\begin{array}{c}
+{_{0}\langle n|V| n\rangle_{0}+_{0}\left\langle n\left|H_{0}\right| n\right\rangle_{1}=_{0}\left\langle n\left|E_{n}^{(1)}\right| n\right\rangle_{0}+_{0}\left\langle n\left|E_{n}^{(0)}\right| n\right\rangle_{1}} \\
+{_{0}\langle n|V| n\rangle_{0}+_{0}\left\langle n\left|E_{n}^{(0)}\right| n\right\rangle_{1}=_{0}\left\langle n\left|E_{n}^{(1)}\right| n\right\rangle_{0}+_{0}\left\langle n\left|E_{n}^{(0)}\right| n\right\rangle_{1}}\\
+\end{array}
+$$
+and
+\begin{qt}
+\begin{equation}
+    _{0}\langle n|V| n\rangle_{0}=E_{n}^{(1)}
+\end{equation}
+Following analogous steps
+\begin{equation}
+E_{n}^{(2)}=\sum_{m \neq n} \frac{|_{0}\langle m|V| n\rangle_{0}|^2}{E_{n}^{(0)}-E_{m}^{(0)}}
+\end{equation}
+\end{qt}
+Following similar steps we can also calculate how the kets $|n\rangle_{0}$ change in the presence of the perturbations $^{12},$ i.e., the corrections $|n\rangle_{16}|n\rangle_{\jmath \ell}$ etc.
+
+Again,we collect all terms with $\lambda$ in front of them:
+$$
+\begin{aligned}
+V|n\rangle_{0}+H_{0}|n\rangle_{1} &=E_{n}^{(1)}|n\rangle_{0}+E_{n}^{(0)}|n\rangle_{1} \\
+\left(V-E_{n}^{(1)}\right)|n\rangle_{0} &=-\left(H_{0}-E_{n}^{(0)}\right)|n\rangle_{1}
+\end{aligned}
+$$
+Using the following ansatz:
+$$
+|n\rangle_{1}=\sum_{m} c_{n m}|m\rangle_{0}
+$$
+we have
+$$
+\left(V-E_{n}^{(1)}\right)|n\rangle_{0}=-\sum_{m} c_{n m}\left(E_{m}^{(0)}|m\rangle_{0}-E_{n}^{(0)}|m\rangle_{0}\right)
+$$
+To isolate the coefficient $c_{n m}$ we multiply this equation by $_0\langle l|$ and get"
+\begin{qt}
+\begin{equation}
+\frac{_{0}\left\langle l\left|\left(V-E_{n}^{(1)}\right)\right| n\right\rangle_{0}}{\left(E_{n}^{(0)}-E_{l}^{(0)}\right)}=c_{n l}
+\end{equation}
+\end{qt}
+
+\section{Beyond Wave Equation}
+\subsection{Bohmian mechanics}
+The starting point is the following ansatz for a general wave function:
+\begin{equation}
+\Psi(\mathbf{r}, t)=\sqrt{\rho(\mathbf{r}, t)} e^{i S(\mathbf{r}, t) / \hbar}
+\end{equation}
+where $\rho=\Psi \Psi^{*}$ is the usual probability density and $S(\mathrm{r}, t)$ the phase of the wave function.
+
+putting this ansatz into the Schrödinger equation yields
+$$
+i \hbar \partial_{t} \Psi=\left(-\frac{\hbar^{2}}{2 m} \nabla^{2}+V\right) \Psi
+$$
+$$
+\begin{aligned}
+\frac{\partial \rho}{\partial t}+\nabla\left(\rho \frac{\nabla S}{m}\right) &=0 \\
+\frac{\partial S}{\partial t}+\frac{(\nabla S)^{2}}{2 m}+V+Q &=0
+\end{aligned}
+$$
+where
+\begin{equation}
+\begin{aligned}
+Q &=-\frac{\hbar^{2}}{8 m}\left[2\left(\frac{\nabla^{2} \rho}{\rho}\right)-\left(\frac{\nabla \rho}{\rho}\right)^{2}\right] \\
+&=-\frac{\hbar^{2}}{2 m}\left\{\operatorname{Re}\left(\frac{\nabla^{2} \Psi}{\Psi}\right)+\left[\operatorname{Im}\left(\frac{\nabla \Psi}{\Psi}\right)\right]^{2}\right\}
+\end{aligned}
+\end{equation}
+is known as the \textbf{quantum potential}.\redp{Now we can do the same thing as in classical mechanics but additionally take the quantum potential into account.} We can then calculate
+the trajectories of particles using Newton’s usual second law $m \vec{a}=\vec{F}=-\vec{\nabla}(V+Q)$.
+
+However, we never know $r\left(t_{0}\right)$ for any particle with absolute accuracy. The quantum potential is extremely sensitive to small changes in the initial conditions. Therefore, the best we can do is average over ensembles of particles. This way we again end up with probabilistic predictions just as in the wave function formulation. The motivation for the name pilot wave formulation comes from the observation that we have a wave-like potential Q that guides our particles as they move through space.
+
+\subsection{Again, Path Integral}
+What we are interested in is the probability that a particle that starts at a point A ends up after some time T at another point B. Using the standard quantum framework, we have:
+$$
+\langle B | \Psi(A, T)\rangle
+$$
+Using the time evolution operator:
+$$
+\begin{aligned}
+\langle B | \Psi(A, T)\rangle &=\langle B|U(T)| A\rangle \\
+&=\left\langle B\left|\mathrm{e}^{-i H T}\right| A\right\rangle
+\end{aligned}
+$$
+Let's consider one specific path where the particle travels from $A$ via some intermediate point $q_{1}$ to $B .$ The corresponding probability amplitude is
+\begin{qt}
+$$
+\left\langle B\left|\mathrm{e}^{-i H\left(T-t_{1}\right)}\right| q_{1}\right\rangle\left\langle q_{1}\left|\mathrm{e}^{-i H t_{1}}\right| A\right\rangle
+$$
+\end{qt}
+Of course we need to take into account the probability amplitudes that after $t_{1}$ seconds the particle is at any possible locations $q$. And mathematically this means that 
+\begin{equation}
+\int d q_{1}\left\langle B\left|\mathrm{e}^{-i H\left(T-t_{1}\right) / \hbar}\right| q_{1}\right\rangle\left\langle q_{1}\left|\mathrm{e}^{-i H t_{1}}\right| A\right\rangle
+\label{pathintegral1}
+\end{equation}
+However, \textbf{to consider all possible paths we have to do the same thing for all points in time between 0 and T.} For this purpose, we slice the interval [0, T] into N equally sized pieces: $\delta=T / N .$ The time evolution operator between two points in time is then $U(\delta)=\mathrm{e}^{-i H \delta / \hbar}$ and we have to sum after each time evolution step over all possible locations. Mathematically, we have completely analogous to Eq. (\ref{pathintegral1}) for the amplitude $\psi_{A \rightarrow B}$ that we want to calculate
+\begin{equation}
+\begin{aligned}
+=\psi_{A \rightarrow B}=& \int d q_{1} \cdots d q_{N-1}\left\langle B\left|e^{-i H \delta}\right| q_{N-1}\right\rangle\left\langle q_{N-1}\left|e^{-i H \delta}\right| q_{N-2}\right\rangle \cdots \\
+& \cdots\left\langle q_{1}\left|e^{-i H \delta}\right| A\right\rangle
+\end{aligned}
+\end{equation}
+Our task is therefore to calculate the products of the form
+\begin{qt}
+\begin{equation}
+\left\langle q_{N-1}\left|e^{-i H \delta}\right| q_{j}\right\rangle \equiv K_{q_{j+1}, q_{j}}
+\end{equation}
+which is usually called the\textbf{ propagator.} We expand the exponential function in a series since $\delta$ is tiny:
+\begin{equation}
+\begin{aligned}
+K_{q_{j+1}, q_{j}} &=\left\langle q_{j+1}\left|\left(1-i H \delta-\frac{1}{2} H^{2} \delta^{2}+\cdots\right)\right| q_{j}\right\rangle \\
+&=\left\langle q_{j+1} | q_{j}\right\rangle- i \delta\left\langle q_{j+1}|H| q_{j}\right\rangle+\ldots
+\end{aligned}
+\end{equation}
+It has been shown that 
+\begin{equation}
+K_{q_{j+1}, q_{j}}=\int \frac{d p_{j}}{2 \pi} e^{i p_{j}\left(q_{j+1}-q_{j}\right)} \exp \left(-i \delta H\left(p_{j}, q_{j+1}\right)\right)
+\end{equation}
+the amplitude $\psi_{A \rightarrow B}$ now becomes
+\begin{equation}
+\psi_{A \rightarrow B}=\int \prod_{j=1}^{N-1} d q_{j} \int \prod_{j=0}^{N-1} \frac{d p_{j}}{2 \pi} \exp \left(i \delta \sum_{j=0}^{N-1}\left(p_{j} \frac{\left(q_{j+1}-q_{j}\right)}{\delta}-H\left(p_{j}, \bar{q}_{j}\right)\right)\right)
+\end{equation}
+\end{qt}
+Now, in the limit $N \rightarrow \infty$ our interval $\delta$ becomes infinitesimal Therefore, in this limit the term $\frac{\left(q_{j+1}-q_{j}\right)}{\delta}$ becomes the velocity $\dot{q}^{19}$ So the term in the exponent reads $p \dot{q}-H=L.$ And the amplitude can be rewritten as:
+\begin{qt}
+\begin{equation}
+\psi_{A \rightarrow B}=\left(\frac{m}{2 \pi i \delta}\right)^{N / 2} \int \prod_{j=1}^{N-1} d q_{j} \exp \left(i \delta \sum_{j=0}^{N-1}\left(L\left(q_{j}\right)\right)\right)
+\end{equation}
+In a compact form:
+\begin{equation}
+\psi_{A \rightarrow B}=\int \mathcal{D} q(t) e^{i S[q(t)] / \hbar}
+\end{equation}
+where $S[q(t)]$ is the action that we always use in the Lagrangian formalism and $\mathcal{D} q(t)$ the so-called path integral measure.
+\end{qt}
+
+\subsection{Heisenberg Formulation}
+Let's say we want to calculate the expectation value of some operator $\hat{O}$ for a system in the state $|\Psi(x, t)\rangle:$
+$$
+\langle\Psi(x, t)|\hat{O}| \Psi(x, t)\rangle=\left\langle\Psi(x, 0)\left|U^{+}(t) \hat{O} U(t)\right| \Psi(x, 0)\right\rangle
+$$
+So far, we have always assumed that our states change over time. In particular, this means that our operator $U(t)$ acts on the ket $|\Psi(x, 0)\rangle .$ However, without changing any result, we can equally say that \bluep{\textbf{$U$ acts on the operator $\hat{O}$ instead and the kets remain unchanged.}} The time evolution of an operator is then given by
+\begin{equation}
+\mathcal{O}(t)=U^{\dagger}(t) O U(t)
+\end{equation}
+This change of perspective is known as the \textbf{Heisenberg picture.}
+
+In the Heisenberg picture, the Schrödinger equation (which describes the time evolution of states) gets replaced with the so-called \textbf{Heisenberg equation}.
+\begin{qt}
+\begin{equation}
+\frac{d}{d t} \mathcal{O}=\frac{i}{\hbar}[\hat{H}, \mathcal{O}]+\left(\partial_{t} \mathcal{O}\right)
+\end{equation}
+\end{qt}
