@@ -15,3 +15,24 @@ also depend on $t .$ Thus
 $$
 \frac{d \rho}{d t}=\frac{\partial \rho}{\partial x} \frac{d x}{d t}+\frac{\partial \rho}{\partial p} \frac{d p}{d t}+\frac{\partial \rho}{\partial t}
 $$
+\section{Taylor Expansion}
+In general, we want to estimate the value of some function $f(x)$ at some value of $x$ by using our knowledge of the function's value at some fixed point $a .$ The Taylor series then reads
+\begin{equation}
+\begin{aligned}
+f(x)=& \sum_{n=0}^{\infty} \frac{f^{(n)}(a)(x-a)^{n}}{n !} \\
+=& \frac{f^{(0)}(a)(x-a)^{0}}{0 !}+\frac{f^{(1)}(a)(x-a)^{1}}{1 !}+\frac{f^{(2)}(a)(x-a)^{2}}{2 !} \\
+&+\frac{f^{(3)}(a)(x-a)^{3}}{3 !}+\ldots
+\end{aligned}
+\end{equation}
+or
+\begin{equation}
+f(x+a)=f(x)+(a \cdot \partial) f(x)+\frac{1}{2}(a \cdot \partial)^{2} f(x)+\cdots
+\end{equation}
+Taylor expansion of a scalar field (function $f$ that maps $\mathbb{R}^{n}$ to $\mathbb{R}$).Now, identify $\partial f / \partial t$ as $\hat{\boldsymbol{n}} \cdot \nabla f .$ In addition, see that $t \hat{\boldsymbol{n}}=\boldsymbol{x}-\boldsymbol{x}_{0} .$ Some clever recombining of terms gives
+\begin{equation}
+f(x)=f\left(x_{0}\right)+\left.\left(x-x_{0}\right) \cdot \nabla f\right|_{x_{0}}+\left.\frac{1}{2}\left(\left[x-x_{0}\right] \cdot \nabla\right)^{2} f\right|_{x_{0}}+\ldots
+\end{equation}
+and
+\begin{equation}
+\hat{\boldsymbol{n}} \cdot \nabla=\partial_{t}
+\end{equation}
