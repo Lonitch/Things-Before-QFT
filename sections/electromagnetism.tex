@@ -591,4 +591,113 @@ Q_{i j} \equiv \int_{V} \rho\left(\vec{r}^{\prime}\right)\left(3 r_{i}^{\prime} 
 \end{qt}
 \redp{This method of collecting step-by-step information about complicated charge distributions is known as \textbf{multipole expansion}.}
 
+\subsection{Boundary Value Problem}
+Finding a description of electrostatic systems where the charge distribution is not fixed and known is usually called a boundary value problem. The main task in all these problems is to \textbf{solve the integral in Coulomb’s law}.
+
+In the context of boundary value problems it is often more convenient to use the electric potential instead of the electric field. The correct electrostatic equation for the electric potential can be derived using Maxwell's equations and the relation between the potential $\phi$ and the electric field $\vec{E}$:
+\begin{qt}
+\begin{equation}
+\begin{aligned}
+\nabla \cdot \vec{E} &=\frac{\rho}{\epsilon_{0}} \\
+-\nabla^{2} \phi &=\frac{\rho}{\epsilon_{0}}
+\end{aligned}
+\end{equation}
+\end{qt}
+There are clever methods for solving the Poisson equation. The main idea behind the most famous one is that \textbf{\bluep{we can calculate the solution for a general charge distribution by using the known solutions for individual charges}}. Hence, the basic building block for a general solution is the solution for a single point charge. The charge distribution of a single point charge at $\vec{r}^{\prime}$ is $\rho(\vec{r}) \sim \delta\left(\vec{r}-\vec{r}^{\prime}\right)$
+
+Therefore, our main task in constructing a general solution is to solve the equation:
+\begin{equation}
+\nabla^{2} G\left(\vec{r}, \vec{r}^{\prime}\right)=\delta\left(\vec{r}-\vec{r}^{\prime}\right)
+\end{equation}
+The solution $G\left(\vec{\tau}, \vec{r}^{\prime}\right)$ is known as the Green's function for the Laplacian operator $\nabla^{2} \equiv \Delta .$ The Green’s function for the Laplacian operator reads
+\begin{equation}
+G\left(\vec{r}, \vec{r}^{\prime}\right)=\frac{1}{4 \pi} \frac{1}{\left|\vec{r}-\vec{r}^{\prime}\right|}
+\end{equation}
+The main idea is that as soon as we have the solution $G\left(\vec{r}, \vec{r}^{\prime}\right)$ for a single point charge, \textbf{we can calculate directly the solution of the Poisson equation for a general charge distribution $\rho\left(\vec{r}^{\prime}\right)$ as follows:}
+\begin{qt}
+\begin{equation}
+\phi_{\mathrm{sol}}(\vec{r})=\frac{1}{\epsilon_{0}} \int \rho\left(\vec{r}^{\prime}\right) G\left(\vec{r}, \vec{r}^{\prime}\right) d^{3} r^{\prime}
+\end{equation}
+\end{qt}
+
 \subsection{Magnetic field of a wire}
+The Ampere-Maxwell law tells us:
+\begin{equation}
+\oint_{C} \vec{B} \cdot \overrightarrow{d l}=\mu_{0} \int_{S} \vec{J} \cdot \overrightarrow{d S}
+\end{equation}
+Since
+$$
+\begin{aligned}
+\oint_{C} \vec{B} \cdot \overrightarrow{d l} &=\int_{0}^{2 \pi}|\vec{B}| \vec{e}_{\varphi} \cdot \vec{e}_{\varphi^{r}} d \varphi \\
+&=|\vec{B}| r \int_{0}^{2 \pi} d \varphi \\
+&=|\vec{B}| r 2 \pi
+\end{aligned}
+$$
+and
+$$
+\mu_{0} \int_{S} \vec{J} \overrightarrow{d S}=\mu_{0} I_{\text {wire }}
+$$
+we obtain
+$$
+|\vec{B}|=\frac{\mu_{0} I_{\text {wire }}}{r 2 \pi}
+$$
+Therefore
+\begin{qt}
+\begin{equation}
+\vec{B}(\vec{r})=\frac{\mu_{0} q|\vec{v}|}{2 \pi r} \vec{e}_{\varphi}
+\end{equation}
+where $\vec{e}_{\varphi}$ is a unit vector always pointing tangential to the contour.
+\end{qt}
+The direction in which it circles can be determined by the so-called "right hand rule". If your thumb points in the direction of the current, the remaining fingers curl in the direction of the magnetic field.
+
+There is also a Poisson equation for the magnetic potential:
+\begin{equation}
+\nabla^{2} \vec{A}=-\mu_{0} \vec{J}
+\end{equation}
+The Poisson equation for the vector potential can then be derived by rewriting the magnetic field in terms of the potential: $\vec{B}=\nabla \times \vec{A}$. This yields $\mu_{0} \vec{J}=\nabla \times \vec{B}=\nabla \times \nabla \times \vec{A} .$ Then, we can rewrite this using the identity
+$$
+\nabla \times \nabla \vec{A}=\nabla(\nabla \vec{A})-\nabla^{2} \vec{A}
+$$
+To simplify this further, we can use the observation that potentials cannot be directly measured and only potential differences can. Hence, we can always add a constant to our potentials, and this so-called gauge freedom can be used to achieve \textbf{$\nabla\cdot\vec{A}=0$}.If we use the gauge freedom like this, we get the poisson equation above. The general solution can be derived again using the Green’s function method and reads
+\begin{equation}
+\vec{A}_{\mathrm{sol}}(\vec{r})=\frac{\mu_{0}}{4 \pi} \int \frac{\vec{J}\left(\vec{r}^{\prime}\right)}{\left|\vec{r}-\vec{r}^{\prime}\right|} d^{3} r^{\prime}
+\end{equation}
+\section{Electrodynamics}
+\subsection{General Solution of the Wave Function}
+The most basic solutions of the electric wave equations look like
+\begin{qt}
+\textbf{Plane wave solution}
+\begin{equation}
+\vec{E}=\vec{E}_{0} \cos (\vec{k} \cdot \vec{r} \pm \omega t+\delta)
+\end{equation}
+where $\vec{k}$ is a vector that determines in which direction the wave is traveling and $\delta$ encodes possible phase shifts.
+
+Moreover, $\vec{E}_{0}$ is a vector whose magnitude $\left|\vec{E}_{0}\right|$ describes the amplitude of the wave and its direction determines the direction in which the electric field oscillates. The choice of the $\operatorname{sign} \pm$ in the cosine function determines whether the wave travels in the positive direction or negative direction on the axis defined by $\vec{k}$.
+\end{qt}
+we can use sums of the basic plane wave solutions to create more complicated solutions. A simple example is a \textbf{standing wave}:
+\begin{qt}
+\begin{equation}
+\vec{E}=\overrightarrow{E_{0}}(\cos (\vec{k} \cdot \vec{r}-\omega t)+\cos (\vec{k} \cdot \vec{r}+\omega t))=\vec{E}_{0}(\cos (\vec{k} \cdot \vec{r}) \cos (\omega t))
+\end{equation}
+The crucial point is that the spatial dependence $\vec{k} \cdot \vec{r}$ of the wave is \redp{completely separated from the time dependence $\omega t$. This means that the spatial shape of the wave is fixed and does not change as time moves on.} However, since we are still multiplying this fixed form of the wave by $cos(\omega t)$, \textbf{the amplitude of the wave at each point still varies (but not the wave form).}
+\end{qt}
+
+\subsection{Basic properties of electromagnetic waves}
+1. The argument $\varphi \equiv(\vec{k} \cdot \vec{r} \pm \omega t)$ of our periodic function $\cos \varphi$ is called the \textbf{phase} of the wave.
+
+2. The vector $\vec{k}$ is usually called the wave vector. The direction of $\vec{k}$ tells us in which direction the wave is traveling. \textbf{\bluep{The length of the wave vector $|\vec{k}|$ describes how many oscillations there are per meter.}} To understand this, imagine that we could stop the time, i.e. keep $t$ fixed and then move through space. As we move along the axis defined by $\vec{k}$ we count how many full wave shapes we encounter per meter. This number is the wave number. One full oscillation is over as soon as the phase of the wave has increased by $2\pi$. Hence, we can say a bit more precisely that $|\vec{k}|$ measures how many $2\pi$ cycles there are per meter. For this reason, $|\vec{k}|$ is known as spatial angular frequency or \textbf{wave number}.
+
+For example, if we move 2 meters and observe that the phase changes by 20$\pi$, we know that the wave number is 10$\pi$ radians per meter. The wave number is directly related to the \textbf{wavelength}:
+\begin{equation}
+\lambda=\frac{2 \pi}{|\vec{k}|}
+\end{equation}
+
+3. The constant $\omega$ is known as temporal angular frequency or simply angular frequency. The angular frequency describes how many oscillations there are per second. 
+
+4. The direction in which the amplitude vector $\vec{E}_{0}$ points, \bluep{\textbf{specifies the geometrical orientation of the oscillation.}} Usually, the direction of $\vec{E}_{0}$ is called the \textbf{polarization} of the wave. The length of the amplitude vector $\left|\vec{E}_{0}\right|$ encodes the peak magnitude of the oscillation.An extremely important observation is that \redp{the amplitude vector cannot point in any arbitrary direction for electromagnetic waves}.According to Gauss's law, \bluep{\textbf{The electromagnetic waves cannot be polarized in the direction they are traveling.}}
+
+5. The sign between the two terms in the cosine function determines whether our wave moves up or down on the axis defined by $\vec{k}$.
+
+6.The absolute phase $\delta$ encodes the phase of the wave at $\vec{r}=0$ and $t=0$.
+
+\subsection{Advanced Properties of electromagnetic waves}
