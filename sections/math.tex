@@ -36,3 +36,36 @@ and
 \begin{equation}
 \hat{\boldsymbol{n}} \cdot \nabla=\partial_{t}
 \end{equation}
+
+\section{Vector Identities}
+\begin{equation}
+\begin{aligned}
+&\vec{\nabla} \cdot(\vec{\nabla} \times \vec{A}) \equiv \operatorname{div}(\operatorname{rot} \vec{A})=(\vec{\nabla} \times \vec{\nabla}) \cdot \vec{A} \equiv 0\\
+&\vec{\nabla} \times(\vec{\nabla} \varphi) \equiv \operatorname{rot} \operatorname{grad} \varphi=(\vec{\nabla} \times \vec{\nabla}) \varphi \equiv 0
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+&\vec{\nabla} \cdot(\vec{A} \varphi)=\varphi \vec{\nabla} \cdot \vec{A}+\vec{A} \cdot \vec{\nabla} \varphi \quad \Longleftrightarrow \quad \operatorname{div}(\vec{A} \varphi)=\varphi \operatorname{div} \vec{A}+\vec{A} \cdot \operatorname{grad} \varphi\\
+&\vec{\nabla} \times(\vec{A} \varphi)=\varphi \vec{\nabla} \times \vec{A}-\vec{A} \times \vec{\nabla} \varphi \quad \Longleftrightarrow \quad \operatorname{rot}(\vec{A} \varphi)=\varphi \operatorname{rot} \vec{A}-\vec{A} \times \operatorname{grad} \varphi\\
+&\vec{\nabla} \cdot(\vec{A} \times \vec{B})=\vec{B} \cdot(\vec{\nabla} \times \vec{A})-\vec{A} \cdot(\vec{\nabla} \times \vec{B}) \quad \Longleftrightarrow \quad \operatorname{div}(\vec{A} \times \vec{B})=\vec{B} \cdot \operatorname{rot} \vec{A}-\vec{A} \cdot \operatorname{rot} \vec{B}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\vec{\nabla} \times(\vec{A} \times \vec{B}) &=(\vec{B} \cdot \vec{\nabla}) \vec{A}-(\vec{A} \cdot \vec{\nabla}) \vec{B}+\vec{A}(\vec{\nabla} \cdot \vec{B})-\vec{B}(\vec{\nabla} \cdot \vec{A}) \\
+& \Longleftrightarrow \operatorname{rot}(\vec{A} \times \vec{B})=(\vec{B} \operatorname{grad}) \vec{A}-(\vec{A} \operatorname{grad}) \vec{B}+\vec{A}(\operatorname{div} \vec{B})-\vec{B}(\operatorname{div} \vec{A})
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\vec{\nabla}(\vec{A} \cdot \vec{B})=&(\vec{B} \cdot \vec{\nabla}) \vec{A}+(\vec{A} \cdot \vec{\nabla}) \vec{B}+\vec{A} \times(\vec{\nabla} \times \vec{B})+\vec{B} \times(\vec{\nabla} \times \vec{A}) \\
+& \Longleftrightarrow \operatorname{grad}(\vec{A} \cdot \vec{B})=(\vec{B} \cdot \operatorname{grad}) \vec{A}+(\vec{A} \cdot \operatorname{grad}) \vec{B}+\vec{A} \times \operatorname{rot} \vec{B}+\vec{B} \times \operatorname{rot} \vec{A}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+&\vec{\nabla} \cdot(\vec{\nabla} \varphi) \equiv \operatorname{div}(\operatorname{grad} \varphi) \equiv \Delta \varphi=\frac{\partial^{2} \varphi}{\partial x^{2}}+\frac{\partial^{2} \varphi}{\partial y^{2}}+\frac{\partial^{2} \varphi}{\partial z^{2}}, \quad \Delta=\text { Laplace Operator }\\
+&\vec{\nabla} \times(\vec{\nabla} \times \vec{A}) \equiv \operatorname{rot}(\operatorname{rot} \vec{A})=\vec{\nabla}(\vec{\nabla} \cdot \vec{A})-(\vec{\nabla} \cdot \vec{\nabla}) \vec{A} \equiv \operatorname{grad} \operatorname{div} \vec{A}-\Delta \vec{A}
+\end{aligned}
+\end{equation}

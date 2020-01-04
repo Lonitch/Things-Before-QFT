@@ -405,6 +405,7 @@ And finally, we obtain \textbf{the wave equation for the electric field}
 \begin{qt}
 \begin{equation}
 \nabla^{2} \vec{E}=\mu_{0} \epsilon_{0} \frac{\partial^{2}}{\partial t^{2}} \vec{E}
+\label{waveEqElectric}
 \end{equation}
 \end{qt}
 By following completely analogues steps, we have
@@ -682,6 +683,13 @@ we can use sums of the basic plane wave solutions to create more complicated sol
 The crucial point is that the spatial dependence $\vec{k} \cdot \vec{r}$ of the wave is \redp{completely separated from the time dependence $\omega t$. This means that the spatial shape of the wave is fixed and does not change as time moves on.} However, since we are still multiplying this fixed form of the wave by $cos(\omega t)$, \textbf{the amplitude of the wave at each point still varies (but not the wave form).}
 \end{qt}
 
+In particular, the most general solution of the wave equation is linear combination of all possible plane waves:
+\begin{qt}
+\begin{equation}
+\vec{E}(\vec{r}, t)=\int_{-\infty}^{\infty} \frac{d^{3} k}{2 \pi^{3}} \vec{E}(\vec{k}) \cos (\vec{k} \cdot \vec{r}-\omega t)
+\end{equation}
+\end{qt}
+
 \subsection{Basic properties of electromagnetic waves}
 1. The argument $\varphi \equiv(\vec{k} \cdot \vec{r} \pm \omega t)$ of our periodic function $\cos \varphi$ is called the \textbf{phase} of the wave.
 
@@ -701,3 +709,247 @@ For example, if we move 2 meters and observe that the phase changes by 20$\pi$, 
 6.The absolute phase $\delta$ encodes the phase of the wave at $\vec{r}=0$ and $t=0$.
 
 \subsection{Advanced Properties of electromagnetic waves}
+\begin{mybox}
+\textbf{1. How fast are electromagnetic waves traveling?}
+\end{mybox}
+\begin{mybox2}
+\begin{center}
+    
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp7025483613163162] 
+\draw [line width=1.5]  (14.55,141.78) -- (449.55,141.78)(63.13,73.87) -- (63.13,204.13) (442.55,136.78) -- (449.55,141.78) -- (442.55,146.78) (58.13,80.87) -- (63.13,73.87) -- (68.13,80.87)  ;
+%Shape: Wave [id:dp27048813912735015] 
+\draw  [line width=1.5]  (63,142.57) .. controls (67.16,168.92) and (71.14,194) .. (75.67,194) .. controls (80.19,194) and (84.01,168.92) .. (88,142.57) .. controls (91.99,116.22) and (95.81,91.13) .. (100.33,91.13) .. controls (104.86,91.13) and (108.84,116.22) .. (113,142.57) .. controls (117.16,168.92) and (121.14,194) .. (125.67,194) .. controls (129.14,194) and (132.19,179.25) .. (135.22,160.49) ;
+%Shape: Circle [id:dp34174852772474684] 
+\draw  [color={rgb, 255:red, 227; green, 26; blue, 26 }  ,draw opacity=1 ][fill={rgb, 255:red, 235; green, 20; blue, 20 }  ,fill opacity=1 ] (105,111.7) .. controls (105,109.66) and (106.66,108) .. (108.7,108) .. controls (110.74,108) and (112.4,109.66) .. (112.4,111.7) .. controls (112.4,113.74) and (110.74,115.4) .. (108.7,115.4) .. controls (106.66,115.4) and (105,113.74) .. (105,111.7) -- cycle ;
+%Shape: Wave [id:dp9863105582782391] 
+\draw  [line width=1.5]  (314,141.57) .. controls (318.16,167.92) and (322.14,193) .. (326.67,193) .. controls (331.19,193) and (335.01,167.92) .. (339,141.57) .. controls (342.99,115.22) and (346.81,90.13) .. (351.33,90.13) .. controls (355.86,90.13) and (359.84,115.22) .. (364,141.57) .. controls (368.16,167.92) and (372.14,193) .. (376.67,193) .. controls (380.14,193) and (383.19,178.25) .. (386.22,159.49) ;
+%Shape: Circle [id:dp568020489264297] 
+\draw  [color={rgb, 255:red, 227; green, 26; blue, 26 }  ,draw opacity=1 ][fill={rgb, 255:red, 235; green, 20; blue, 20 }  ,fill opacity=1 ] (356,111.7) .. controls (356,109.66) and (357.66,108) .. (359.7,108) .. controls (361.74,108) and (363.4,109.66) .. (363.4,111.7) .. controls (363.4,113.74) and (361.74,115.4) .. (359.7,115.4) .. controls (357.66,115.4) and (356,113.74) .. (356,111.7) -- cycle ;
+%Straight Lines [id:da5601183359970614] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (112.4,111.7) -- (356,111.7) ;
+
+
+%Right Arrow [id:dp8134346999842936] 
+\draw   (187,67.37) -- (232.55,67.37) -- (232.55,54.2) -- (257,74.2) -- (232.55,94.2) -- (232.55,81.03) -- (187,81.03) -- cycle ;
+%Right Arrow [id:dp6775378250281021] 
+\draw   (264.55,262.37) -- (289.55,262.37) -- (289.55,254.37) -- (310,268.28) -- (289.55,282.2) -- (289.55,274.2) -- (264.55,274.2) -- cycle ;
+
+% Text Node
+\draw (125,123) node    {$x_{1}$};
+% Text Node
+\draw (376,122) node    {$x_{2}$};
+% Text Node
+\draw (417,158) node    {$X$};
+% Text Node
+\draw (167,73.2) node    {$t_{1}$};
+% Text Node
+\draw (278,73.2) node    {$t_{2}$};
+% Text Node
+\draw (252,223.2) node   [align=left] {Following a specific point on wave, \\the phase of the point remains the same:};
+% Text Node
+\draw (177,267.2) node    {$kx_{1} -wt_{1} =kx_{2} -wt2$};
+% Text Node
+\draw    (314.5,245.2) -- (419.5,245.2) -- (419.5,285.2) -- (314.5,285.2) -- cycle  ;
+\draw (367,265.2) node    {$v=\frac{x_{2} -x_{1}}{t_{2} -t_{1}} =\frac{w}{k}$};
+
+
+\end{tikzpicture}
+
+\end{center}
+\end{mybox2}
+\bluep{In words, the velocity of each point in our wave form is given by the ratio of the angular frequency $\omega$ and the wave number $k$}. From a different perspective, a velocity has units meter per second. The only combination of our basic wave quantities gives such unit is 
+$$
+v=\frac{\lambda}{\tau}
+$$
+In words, this equation tells us that a wave travels one wavelength $\lambda$ per period $\tau .$ We can rewrite the velocity of the wave in terms of the angular frequency $\omega$ and wave number $k\equiv|\vec{k}|$ as follows:
+\begin{qt}
+\begin{equation}
+v=\frac{\lambda}{\tau}=\frac{2 \pi / k}{2 \pi / \omega}=\frac{\omega}{k}
+\end{equation}
+\end{qt}
+
+2. If we put the general form of the solution in (\ref{waveEqElectric}), we obtain:
+\begin{qt}
+\textbf{the dispersion relation}
+\begin{equation}
+k^{2}=\mu_{0} \epsilon_{0} \omega^{2}
+\label{dispersion}
+\end{equation}
+And we have
+\begin{equation}
+\frac{\omega}{k}=\sqrt{\frac{1}{\mu_{0} \epsilon_{0}}}
+\end{equation}
+Putting the experimental values, we find the \textbf{speed of light}:
+\begin{equation}
+c \equiv 2.9979 \times 10^{8} \mathrm{m} / \mathrm{s}
+\end{equation}
+\end{qt}
+
+3. Let's now derive \redp{\textbf{Poynting theorem}}, which is analogous to the continuity equation. And Poynting theorem proves that \textbf{\redp{electromagnetic wave carries energy.}}
+
+Using the Lorentz force law, we can calculate the work done by the electromagnetic field on a single charge $q$ is:
+$$
+\vec{F} \cdot d \vec{l}=q(\vec{E}+\vec{v} \times \vec{B}) \cdot \vec{v} d t=q \vec{E} \cdot \vec{v} d t
+$$
+To calculate the work done on all charges, we use $q=\rho d V$ and $\vec{J}=\rho \vec{v} .$ The rate at which work is done on all charges is therefore
+\begin{equation}
+    \frac{d W}{d t}=\int_{V}(\vec{E} \cdot \vec{J}) d V
+    \label{powerPerVol}
+\end{equation}
+
+
+So, $\vec{E} \cdot \vec{J}$ is \textbf{the power per unit volume.} If we use Maxwell's equation to rewrite this power, we have:
+$$
+\vec{E} \cdot \vec{J}=\frac{1}{\mu_{0}} \vec{E} \cdot(\vec{\nabla} \times \vec{B})-\epsilon_{0} \vec{E} \cdot \frac{\partial \vec{E}}{\partial t}
+$$
+Since
+\begin{qt}
+\begin{equation}
+\nabla \cdot(\vec{E} \times \vec{B})=\vec{B} \cdot(\vec{\nabla} \times \vec{E})-\vec{E} \cdot(\vec{\nabla} \times \vec{B})
+\end{equation}
+and
+\begin{equation}
+\frac{\partial}{\partial t} \vec{B}^{2}=\left(\frac{\partial}{\partial t} \vec{B}\right) \vec{B}+\vec{B}\left(\frac{\partial}{\partial t} \vec{B}\right)= 2 \vec{B} \frac{\partial}{\partial t} \vec{B}
+\end{equation}
+\end{qt}
+we have
+\begin{equation}
+\begin{aligned}
+\vec{E} \cdot \vec{J}&=\frac{1}{\mu_{0}}(\vec{B} \cdot(\vec{\nabla} \times \vec{E})-\nabla \cdot(\vec{E} \times \vec{B}))-\epsilon_{0} \vec{E} \cdot \frac{\partial \vec{E}}{\partial t}\\
+&=\frac{1}{\mu_{0}} \vec{B} \cdot\left(-\frac{\partial}{\partial t} \vec{B}\right)-\frac{1}{\mu_{0}} \nabla \cdot(\vec{E} \times \vec{B})-\epsilon_{0} \vec{E} \cdot \frac{\partial \vec{E}}{\partial t}\\
+&=-\frac{1}{2 \mu_{0}} \frac{\partial}{\partial t} \vec{B}^{2}-\frac{1}{\mu_{0}} \nabla \cdot(\vec{E} \times \vec{B})-\epsilon_{0} \frac{1}{2} \frac{\partial}{\partial t} \vec{E}^{2}
+\end{aligned}
+\end{equation}
+Putting this into Eq.\ref{powerPerVol} yields
+\begin{equation}
+\begin{aligned}
+\frac{d W}{d t} &=\int_{V}(\vec{E} \cdot \vec{J}) d V \\
+&=\int_{V}\left(-\frac{1}{2 \mu_{0}} \frac{\partial}{\partial t} \vec{B}^{2}-\frac{1}{\mu_{0}} \nabla \cdot(\vec{E} \times \vec{B})-\epsilon_{0} \frac{1}{2} \frac{\partial}{\partial t} \vec{E}^{2}\right) d V \\
+&\left.=-\frac{1}{2} \frac{\partial}{\partial t} \int_{V}\left(\frac{1}{\mu_{0}} \vec{B}^{2}+\epsilon_{0} \vec{E}^{2}\right)\right) d V-\int_{V} \frac{1}{\mu_{0}} \nabla \cdot(\vec{E} \times \vec{B}) d V \\
+&=-\frac{1}{2} \frac{\partial}{\partial t} \int_{V}\left(\frac{1}{\mu_{0}} \vec{B}^{2}+\epsilon_{0} \vec{E}^{2}\right) d V-\oint_{S} \frac{1}{\mu_{0}}(\vec{E} \times \vec{B}) \cdot d \vec{a} \\
+& \equiv-\frac{d U_{\mathrm{em}}}{d t}-\oint_{S} \vec{S} \cdot d \vec{a}
+\end{aligned}
+\end{equation}
+\begin{qt}
+Thus, the Poynting theorem reads:
+\begin{equation}
+    \frac{d W}{d t}=-\frac{d U_{\mathrm{em}}}{d t}-\oint_{S} \vec{S} \cdot d \vec{a}
+\end{equation}
+Where
+\begin{equation}
+\vec{S} \equiv \frac{1}{\mu_{0}}(\vec{E} \times \vec{B})
+\end{equation}
+is usually called the \textbf{\redp{Poynting vector}}. Moreover, $U_{\mathrm{em}}$ is the total energy stored in the electromagnetic field configuration.
+\end{qt}
+The Poynting theorem tells us that the work done on charges by the Lorentz force is equal to the decrease in energy stored in the field $\frac{d U_{\mathrm{em}}}{d t}$ minus the energy which has flowed through the surface $S .$ In other words, \textbf{if the energy stored in the electromagnetic field gets smaller, it must have either been used to move charges around $\left(\frac{d W}{d t}\right)$ or has flown out of the volume we are considering $\left(\oint_{S} \vec{S} \cdot d \vec{a}\right) .$}
+
+We can make the analogy between Poynting theorem and continuity equation more concrete by introduce the mechanical energy density:
+$$
+\frac{d W}{d t} \equiv \frac{d}{d t} \int_{V} u_{\mathrm{mech}} d V
+$$
+where
+$$
+u_{\mathrm{em}} \equiv \frac{1}{2}\left(\epsilon_{0} \vec{E}^{2}+\frac{1}{\mu_{0}} \vec{B}^{2}\right)
+$$
+Thus,
+$$
+\begin{aligned}
+\frac{d W}{d t} &=-\frac{d U_{\mathrm{em}}}{d t}-\oint_{S} \vec{S} \cdot d \vec{a} \\
+\frac{d}{d t} \int_{V} u_{\mathrm{mech}} d V &=-\frac{d}{d t} \int_{V} u_{\mathrm{em}} d V-\oint_{S} \vec{S} \cdot d \vec{a}
+\end{aligned}
+$$
+and \textbf{the differential form of Poynting theorem is}
+$$
+\frac{d}{d t}\left(u_{\mathrm{mech}}+u_{\mathrm{em}}\right)=-\nabla \cdot \vec{S}
+$$
+\begin{mybox}
+\textbf{4. How can we produce changing field configuration?}
+\end{mybox}
+\begin{mybox2}
+\textbf{Through accelerating charges}
+\end{mybox2}
+
+\section{Gauge Symmetry}
+Gauge symmetry refers to the observation that we can't measure potentials like the electric potential $A_{0}$ or the magnetic potential $\vec{A}$ directly.\textbf{ The electric and magnetic field strengths remain completely unchanged if we shift our potentials by a constant amount}:
+$$
+\begin{array}{l}
+{A_{0} \rightarrow A_{0}+\eta} \\
+{A_{i} \rightarrow A_{i}+\xi_{i}}
+\end{array}
+$$
+Thus,
+\begin{qt}
+\begin{equation}
+\begin{aligned}
+E_{i}=-\partial_{i} A_{0}-\partial_{0} A_{i} \rightarrow \tilde{E}_{i} &=-\partial_{i}\left(A_{0}+\eta\right)-\partial_{0}\left(A_{i}+\xi_{i}\right) \\
+&=-\partial_{i} A_{0}-\underbrace{\partial_{i} \eta}_{=0}-\partial_{0} A_{i}-\underbrace{\partial_{0} \xi}_{=0} \\
+&=-\partial_{i} A_{0}-\partial_{0} A_{i} \\
+&=E_{i} 
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+B_{i}=\epsilon_{i j k} \partial_{j} A_{k} \rightarrow B_{i} &=\epsilon_{i j k} \partial_{j}\left(A_{k}+\xi_{k}\right) \\
+&=\epsilon_{i j k} \partial_{j} A_{k}+\epsilon_{i j k} \partial_{j} \xi_{k} \\
+&=\epsilon_{i j k} \partial_{j} A_{k} \\
+&=B_{i} 
+\end{aligned}
+\end{equation}
+\end{qt}
+\redp{More importantly, We can not only add constants to the potentials but also derivatives of an arbitrary scalar function \textbf{$\eta(t,\vec{x})$}}:
+\begin{qt}
+\textbf{Gauge Freedom/gauge symmetry}
+\begin{equation}
+\begin{array}{l}
+{A_{0} \rightarrow A_{0}+\partial_{0} \eta(t, \vec{x})} \\
+{A_{i} \rightarrow A_{i}+\partial_{i} \eta(t, \vec{x})}
+\end{array}
+\end{equation}
+\end{qt}
+We can check this as:
+$$
+\begin{aligned}
+E_{i}=-\partial_{i} A_{0}-\partial_{0} A_{i} \rightarrow \tilde{E}_{i} &=-\partial_{i}\left(A_{0}+\partial_{0} \eta(t, \vec{x})\right)-\partial_{0}\left(A_{i}+\partial_{i} \eta(t, \vec{x})\right) \\
+&=-\partial_{i} A_{0}-\partial_{i} \partial_{0} \eta(t, \vec{x})-\partial_{0} A_{i}-\partial_{0} \partial_{i} \eta(t, \vec{x}) \\
+&=-\partial_{i} A_{0}-\frac{\partial_{0} \partial_{i} \eta(t, \vec{x})}{\partial}-\partial_{0} A_{i}-\partial_{0} \partial_{i} \eta(t, \vec{x}) \\
+&=-\partial_{i} A_{0}-\partial_{0} A_{i}=E_i
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\tilde{B}_{i} &=\epsilon_{i j k} \partial_{j}\left(A_{k}+\partial_{k} \eta(t, \vec{x})\right) \\
+&=\epsilon_{i j k} \partial_{j} A_{k}+\underbrace{\epsilon_{i j k} \partial_{j} \partial_{k} \eta(t, \vec{x})}_{=0} \\
+&=\epsilon_{i j k} \partial_{j} A_{k}=B_i
+\end{aligned}
+$$
+where we used that \bluep{$\epsilon_{i j k}$ is antisymmetric but $\partial_{j} \partial_{k}$ is symmetric under the switching of the indices $j \leftrightarrow k .$}
+\begin{mybox}
+\textbf{How to choose a gauge so that $\nabla \cdot \vec{A}=0$ (Coulomb Gauge)}?
+\end{mybox}
+\begin{mybox2}
+The modified potential reads:
+$$
+\vec{A}^{\prime}=\vec{A}+\nabla \eta(t, \vec{x})
+$$
+The divergence of this reads
+$$
+\begin{aligned}
+\nabla \cdot \vec{A}^{\prime}(t, \vec{x}) &=\nabla \cdot \vec{A}(t, \vec{x})+\nabla \cdot \nabla \eta(t, \vec{x}) \\
+&=f(t, \vec{x})+\nabla \cdot \nabla \eta(t, \vec{x})
+\end{aligned}
+$$
+By solving the following equation:
+$$
+\nabla \cdot \nabla \eta_{\mathrm{sol}}(t, \vec{x})=-\nabla \cdot f(t, \vec{x})
+$$
+we can find our Coulomb gauge. In practice, we don't have to find the function explicitly, but instead can simply use the knowledge that a function with the required properties exists and set $\nabla \cdot \vec{A}=0$.
+\end{mybox2}
