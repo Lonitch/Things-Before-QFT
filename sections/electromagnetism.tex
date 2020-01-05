@@ -919,7 +919,7 @@ $$
 \begin{aligned}
 E_{i}=-\partial_{i} A_{0}-\partial_{0} A_{i} \rightarrow \tilde{E}_{i} &=-\partial_{i}\left(A_{0}+\partial_{0} \eta(t, \vec{x})\right)-\partial_{0}\left(A_{i}+\partial_{i} \eta(t, \vec{x})\right) \\
 &=-\partial_{i} A_{0}-\partial_{i} \partial_{0} \eta(t, \vec{x})-\partial_{0} A_{i}-\partial_{0} \partial_{i} \eta(t, \vec{x}) \\
-&=-\partial_{i} A_{0}-\frac{\partial_{0} \partial_{i} \eta(t, \vec{x})}{\partial}-\partial_{0} A_{i}-\partial_{0} \partial_{i} \eta(t, \vec{x}) \\
+&=-\partial_{i} A_{0}-\partial_{0} \partial_{i} \eta(t, \vec{x})-\partial_{0} A_{i}-\partial_{0} \partial_{i} \eta(t, \vec{x}) \\
 &=-\partial_{i} A_{0}-\partial_{0} A_{i}=E_i
 \end{aligned}
 $$
@@ -953,3 +953,176 @@ $$
 $$
 we can find our Coulomb gauge. In practice, we don't have to find the function explicitly, but instead can simply use the knowledge that a function with the required properties exists and set $\nabla \cdot \vec{A}=0$.
 \end{mybox2}
+
+\subsection{Electrodynamics as a gauge theory}
+\subsubsection{Financial toy system}
+Here we use a simple financial toy system to show the definition of gauge redundancy and symmetry. And the difference that active/passive transformation made to the toy system. 
+
+we now introduce independent local currencies in, say Germany, which we call Deutsche Mark (DM). Moreover, we introduce Francs (F) in France, in England Pounds (P) and Lira (L) in Italy. The exchange rates are
+$$
+\begin{aligned}
+D M / P &=1 \\
+P / F &=2 \\
+F / L &=10 \\
+D M / L &=20
+\end{aligned}
+$$
+When a local currency changes, the bookkeepers simply adjust their exchange rates accordingly and the situation remains the same. Thanks to these bookkeepers, we can see that such passive transformations really make no difference as it should be.\bluep{Our bookkeeper aren't dynamical actors which start actions on their own. They do not have any physical influence on the dynamics of the system.}
+
+The change in the local currency is an example of \redp{invariance under passive transformations}. It is called as a \textbf{\redp{redundancy}}. An invariance under active transformations is called a \textbf{\redp{symmetry}}. The redundancy that exists in our description of the financial toy example after the introduction of the bookkeepers is an example of a \textbf{\redp{local gauge symmetry.}}
+\subsubsection{Gauge dynamics}
+So far, our bookkeepers are purely mathematical ingredients which we introduced to make our description invariant under local passive transformations. Let's now imagine the exchange rates set by the bank as:
+$$
+\begin{aligned}
+D M / P &=1 \\
+P / F &=2 \\
+F / L &=10 \\
+D M / L &=10
+\end{aligned}
+$$
+Now our trader is able to earn money simply by exchanging money. If he starts with 1DM, he can trade it for 1P, then use the pound to trade it for 2F, then trade these for 20L and finally trade these for 2DM. In the financial world this is known as an \textbf{arbitrage opportunity}
+
+\bluep{If there is a change in the local money coordinate system, for examole $L \rightarrow \tilde{L}=L / 10$}, we have to adjust the exchange rates accordingly as:
+$$
+\begin{aligned}
+&F / \tilde{L}=F /(L / 10)=1\\
+&D M / \tilde{L}=D M /(L / 10)=1
+\end{aligned}
+$$
+\bluep{However, the amount of money our trader earns is unchanged by such a re-scaling}. If he starts again with 1DM, he can still trade it for 1P, which he can trade for 2F, then trade these for 2L and finally trade these for 2DM. The final result is the same as before.
+
+\redp{Here we show a crucial aspect of gauge theory: an important task is to find quantities which do not depend on local conventions.}
+
+There is another way to make risk-free money which involves interest rates. Let's assume that the interest rate is $2 \%$ per year for the Deutsche Mark. Moreover, we assume that the exchange rate changes over time and is now
+$$
+D M / L=10
+$$
+and in one year
+$$
+D M / L=5
+$$
+Our trader can borrow 1DM and after 1 year he has to pay 1.02DM back. Moreover, he can now exchange his 1DM for 10L. After one year he can then exchange his 10L for 2DM. Therefore, after paying back the 1.02DM he has made 0.98DM in profit.
+
+\bluep{Promoting bookkeepers to dynamical objects which follow their own rules is a crucial step to make our toy model more realistic.}
+
+\subsubsection{Mathematical description of the toy model}
+Mathematically, we imagine that some countries live on a lattice. Each point on the lattice is labelled by $d$ -numbers: $\vec{n}=$ $\left(n_{1}, n_{2}, \cdots, n_{d}\right) .$ In other words, each country can be identified by a vector $\vec{n}$ which points to its location. We can move from one country to a neighboring country by using a basis vector $\vec{e}_{i},$ where $i$ denotes the direction we are moving. For example, $\vec{e}_{2}=(0,1,0 \cdots, 0)$
+
+We denote the \textbf{currency exchange rates} between the country labelled by the vector $\vec{n}$ and its neighbor in the $i$ -direction by $R_{\vec{n}, i}$. For example, if the country at the location labelled by $\vec{n}$ uses Deutsche Marks and its neighbor in the 2 -direction uses Francs, $R_{\bar{n}, 2}$ tells us how many Francs we get for each Deutsche Mark. 
+
+In physics, we usually introduce the corresponding logarithms
+$$
+R_{\vec{n}, i} \equiv e^{A_{i}(\vec{n})}
+$$
+where $A_{i}(\vec{n}) \equiv \ln \left(R_{\vec{n}, i}\right)$.
+
+We use the notation $f(\vec{n})$ to denote a change of the currency in the country at $\vec{n}$ by a factor of $f(\vec{n}) .$ In addition, we again introduce the corresponding logarithm
+$$
+f(\vec{n}) \equiv e^{\varepsilon(\vec{n})}
+$$
+In general, when we perform such a gauge transformation in the country labelled by $\vec{n}$ and also in the neighboring country in the $i$ -direction, the corresponding exchange rate changes as follows:
+$$
+\begin{aligned}
+R_{\vec{n}, i}=e^{A_{i}(\vec{n})} \rightarrow & \frac{f_{\vec{n}}+\vec{e}_{i}}{f_{\vec{n}}} R_{\vec{n}, i} \\
+&=\frac{e^{\epsilon\left(\vec{n}+\vec{e}_{i}\right)}}{e^{\epsilon(\vec{n})}} e^{A_{i}(\vec{n})} \\
+&=e^{A_{i}(\vec{n})+\epsilon\left(\vec{n}+\vec{e}_{i}\right)-\epsilon(\vec{n})}
+\end{aligned}
+$$
+Thus, we conclude
+$$
+A_{i}(\vec{n}) \rightarrow A_{i}(\vec{n})+\epsilon\left(\vec{n}+\vec{e}_{i}\right)-\epsilon(\vec{n})
+$$
+An arbitrage opportunity exists when we can trade currencies in such a way that we end up with more money than we started with. But we can only make such a statement when the starting currency and the final currency are the same. \textbf{The total gain we can earn by following a specific loop can be quantified by the \bluep{gain factor}}
+$$
+G=R_{\vec{n}, i} R_{\vec{n}+\vec{e}_{i}, j} \frac{1}{R_{\vec{n}+\vec{e}_{j}, i}} \frac{1}{R_{\vec{n}, j}}
+$$
+When this gain factor is larger than one, we can earn money by trading money following the loop. Once more we introduce the corresponding logarithm
+$$
+G \equiv e^{F_{i j}(\vec{n})}
+$$
+and
+$$
+F_{i j}(\vec{n})=A_{j}\left(\vec{n}+\vec{e}_{i}\right)-A_{j}(\vec{n})-\left[A_{i}\left(\vec{n}+\vec{e}_{j}\right)-A_{i}(\vec{n})\right]
+$$
+A crucial consistency check is that $G$ and $F_{i j}$ are unchanged by gauge transformations. Quantities like this are usually called \textbf{gauge invariant}. Moreover, an important technical observation is that $F_{i j}(\vec{n})$ is antisymmetric: $F_{i j}(\vec{n})=-F_{j i}(\vec{n}),$ which follows directly from thdefinition.
+
+Now let's introduce \bluep{temporal exchange rate} by specifying a point on the lattice using $d+1$ coordinates $\vec{n}=(n_0,n_1,....)$, where the zeroth component indicates the point in time. Thus,
+\begin{equation}
+F_{\mu \nu}(\vec{n})=A_{\mu}\left(\vec{n}+\vec{e}_{\mu}\right)-A_{v}(\vec{n})-\left[A_{\mu}\left(\vec{n}+\vec{e}_{v}\right)-A_{\mu}(\vec{n})\right]
+\end{equation}
+In the continuum limit,
+\begin{qt}
+\begin{equation}
+\begin{aligned}
+&A_{\mu}\left(x_{\mu}\right) \rightarrow A_{\mu}\left(x_{\mu}\right)+\frac{\partial \epsilon}{\partial x^{\mu}}\\
+&F_{\mu \nu}\left(x_{\mu}\right) \equiv \frac{\partial A_{\nu}}{\partial x^{\mu}}-\frac{\partial A_{\mu}}{\partial x^{\nu}}
+\end{aligned}
+\end{equation}
+\end{qt}
+\bluep{We can not only earn money by trading money itself, but also by trading goods like, for example, copper.} Depending on the local prices it can be lucrative to buy copper in one country and sell it in another country. The gain factor for such process is given by:
+\begin{equation}
+g=\frac{p\left(\vec{n}+\vec{e}_{i}\right)}{p(\vec{n}) R_{\vec{n}, i}}
+\end{equation}
+where $p(\vec{n})$ is the price of copper at $\vec{n}$. Again, we introduce the corresponding logarithm
+\begin{equation}
+g \equiv e^{J_{i}(\bar{n})}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+&e^{J_{i}(\vec{n})}=\frac{e^{\varphi\left(\vec{n}+\vec{e}_{i}\right)}}{e^{\varphi(\vec{n})} e^{A_{i}(\vec{n})}}\\
+&J_{i}(\vec{n})=\varphi\left(\vec{n}+\vec{e}_{i}\right)-\varphi(\vec{n})-A_{i}(\vec{n})
+\end{aligned}
+\end{equation}
+The amount of money we earn depends on the amount of copper $q$ we carry around. Thus,
+\begin{equation}
+J_{\mu}(\vec{n})=q\left(\varphi\left(\vec{n}+\vec{e}_{\mu}\right)-\varphi(\vec{n})-A_{\mu}(\vec{n})\right)
+\end{equation}
+\bluep{In the trade described by $J_{i}(\vec{n}),(i=1,2,3)$ copper is transported from the country at $\vec{n}$ to the neighboring country at $\vec{n}+\vec{e}_{i} .$ Hence, $J_{i}(\vec{n})$ is a measure of the amount of copper that flows between the two countries. $J_{0}(\vec{n})$ tells us how much money we can earn by buying copper and selling it at a later point in time in the \textbf{same country}.} 
+\subsubsection{Gauge rules}
+we start with the crucial assumption that copper is conserved (i.e. no copper is destroyed or produced). And it must be true that:\redp{change of amount of copper in country $\vec{n}=$ total net flow}:
+\begin{equation}
+J_{0}\left(\vec{n}+\vec{e}_{0}\right)-J_{0}(\vec{n})=-\left(\sum_{i=1}^{d} J_{i}(\vec{n})-\sum_{i=1}^{d} J_{i}\left(\vec{n}-\vec{e}_{i}\right)\right)
+\end{equation}
+In the continuum limit, we get continuity equation:
+\begin{qt}
+\begin{equation}
+\sum_{\mu=0}^{3} \partial_{\mu} J_{\mu}=0
+\end{equation}
+\end{qt}
+Moreover, we already know that the good quantities to describe our system are $J_{\mu}$ and $F_{\mu \nu}$ since these do not depend on local conventions. The quantities $J_{\mu}$ contain information about the positions and flow of copper, while $F_{\mu \nu}$ represent arbitrage opportunities. $F_{\mu\nu}$ is \redp{anti-symmetric} and $\partial_{\mu} \partial_{\nu}=\partial_{\nu} \partial_{\mu}$,so 
+\begin{equation}
+\sum_{\mu=0}^{3} \sum_{v=0}^{3} \partial_{v} \partial_{\mu} F_{\mu v}=0
+\end{equation}
+From here, we obtain the famous \redp{\textbf{inhomogeneous Maxwell equation}} as:
+\begin{equation}
+    \sum_{v=0}^{3} \partial_{v} F_{\mu v}=\mu_{0} J_{\mu}
+\end{equation}
+and
+\begin{equation}
+\sum_{v=0}^{3} \sum_{v=0}^{3} \partial_{\mu} \partial_{v} F_{\mu v}=\mu_{0} \sum_{v=0}^{3} \partial_{\mu} J_{\mu}
+\end{equation}
+\textbf{\redp{Gauss's law}} can be written as:
+\begin{equation}
+\sum_{i=0}^{3} \partial_{i} F_{0 i}=\mu_{0} J_{0}
+\end{equation}
+
+\bluep{To summarize: quantum mechanics and electrodynamics are invariant under active global gauge transformations. Hence, the global gauge symmetry is a real symmetry. However, only our description is invariant under passive local transformations. Therefore, local gauge symmetry is a redundancy.}
+
+In particular, this means that whenever we perform a local passive transformation, we have to accompany:
+\begin{equation}
+\Psi \rightarrow \mathrm{e}^{i \varepsilon(x)} \Psi
+\end{equation}
+always with
+\begin{equation}
+A_{\mu} \rightarrow A_{\mu}+\partial_{\mu} \epsilon(x)
+\end{equation}
+When we perform a passive transformation these two transformations always go hand in hand. In contrast, there is no need to change $A_{\mu}$ if we only have global gauge transformation:
+$$
+A_{\mu}(x) \rightarrow A_{\mu}(x)+a_{\mu}
+$$
+in electrodynamics, and
+$$
+\Psi(x) \rightarrow \mathrm{e}^{i \varepsilon} \Psi(x)
+$$
+in quantum mechanics.
