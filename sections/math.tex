@@ -215,5 +215,117 @@ Since $\varphi(x)=\varphi^{\prime}\left(x^{\prime}\right)$, we have
 $$
 \varphi^{\prime}(x)=\varphi(x)-\xi^{i} \partial_{i} \varphi
 $$
-where we have introduced a useful notation $\partial_{i}=\partial / \partial x^{i}$.
+\textbf{where we have introduced a useful notation $\partial_{i}=\partial / \partial x^{i}$.}
+\end{example}
+\textbf{For the vector field, we have the following rule for the coordinate transformation}. The set of three functions $\left\{a^{i}(x)\right\}=\left\{a^{1}(x), a^{2}(x), a^{3}(x)\right\}$ forms contravariant vector field (or simply vector field) if they transform, under the change of coordinates $\left\{x^{i}\right\} \rightarrow\left\{x^{\prime} j\right\},$ as
+\begin{qt}
+\begin{equation}
+a^{j^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime}}}{\partial x^{i}} \cdot a^{i}(x)
+\end{equation}
+\end{qt}
+\bluep{The components of the vector in a given geometrical point of space modify under the coordinate transformation, while the scalar field does not.}The scalar and vector fields can be considered as examples of the more general objects called tensors. Tensors are also defined through their transformation rules.
+\begin{qt}
+The set of $3^n$ functions $\left\{a^{i_{1} \ldots i_{n}}(x)\right\}$ is called a contravariant tensor of rank $n,$ if these functions transform, under $x^{i} \rightarrow x^{i},$ as
+\begin{equation}
+a^{i_{1}^{i} \ldots i_{n}^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i_{1}^{\prime}}}{\partial x^{j_{1}}} \ldots \frac{\partial x^{i_{n}^{\prime}}}{\partial x^{j_{n}}} a^{j_{1} \ldots j_{n}}(x)
+\end{equation}
+\end{qt}
+
+\subsection{Orthonormal Basis and Cartesian Coordiantes}
+The scalar product of two vectors $\mathbf{a}$ and $\mathbf{b}$ in 3D is defined in a ususal way,
+\begin{equation}
+(\mathbf{a}, \mathbf{b})=\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}| \cdot|\mathbf{b}| \cdot \cos \theta
+\end{equation}
+Special orthonormal basis $\left\{\hat{\mathbf{n}}_{a}\right\}$ is the one with
+\begin{equation}
+\left(\hat{\mathbf{n}}_{a}, \hat{\mathbf{n}}_{b}\right)=\delta_{a b}=\left\{\begin{array}{l}
+{1 \text { if } a=b} \\
+{0 \text { if } a \neq b}
+\end{array}\right.
+\end{equation}
+\begin{example}
+Making transformations of the basis vectors, verify that the change of coordinates
+$$
+x^{\prime}=\frac{x+y}{\sqrt{2}}+3, \quad y^{\prime}=\frac{x-y}{\sqrt{2}}-5
+$$
+does not modify the type of coordinates $x^{\prime}, y^{\prime},$ which remains Cartesian.
+\textbf{Solution}:
+$$
+x^{\prime}=\frac{x+y}{\sqrt{2}}+3, \quad y^{\prime}=\frac{x-y}{\sqrt{2}}-5
+$$
+The change of initial point $(0,0) \rightarrow(3,-5)$ does not have relation to the change of basis. Then
+$$
+\begin{aligned}
+x^{\prime} \hat{i}^{\prime}+y^{\prime} \hat{j}^{\prime} &=\left(\frac{x+y}{\sqrt{2}}\right) \hat{i}^{\prime}+\left(\frac{x-y}{\sqrt{2}}\right) \hat{j}^{\prime} \\
+&=\frac{x}{\sqrt{2}}\left(\hat{i}^{\prime}+\hat{j}^{\prime}\right)+\frac{y}{\sqrt{2}}\left(\hat{i}^{\prime}-\hat{j}^{\prime}\right)=x \hat{i}+y \hat{j}
+\end{aligned}
+$$
+Thus, $\hat{i}=\frac{1}{\sqrt{2}}\left(\hat{i}^{\prime}+\hat{j}^{\prime}\right), \hat{j}=\frac{1}{\sqrt{2}}\left(\hat{i}^{\prime}-\hat{j}^{\prime}\right) .$ Obviously, $\hat{i}^{2}=\hat{j}^{2}=1$ and $\hat{i} \cdot \hat{j}=0$
+\end{example}
+Now we can introduce a conjugated covariant basis.
+\begin{qt}
+Consider basis $\left\{\mathbf{e}_{i}\right\} .$ The conjugated basis is defined as a set of vectors $\left\{\mathbf{e}^{j}\right\}$ which satisfy the relations
+\begin{equation}
+\mathbf{e}_{i} \cdot \mathbf{e}^{j}=\delta_{i}^{j}
+\end{equation}
+The special property of the orthonormal basis is that $\hat{\mathbf{n}}^{a}=\hat{\mathbf{n}}_{a}$.
+
+Any vector a can be expanded using the conjugated basis $\mathbf{a}=a_{i} \mathbf{e}^{i} .$ \redp{The coefficients $a_{i}$ are called covariant components of the vector $\mathbf{a}$}.
+\end{qt}
+In the case of covariant vector components, the transformation is done by means of the matrix inverse to the one for the contravariant components.
+\begin{thm}
+If we change the basis of the coordinate system from $\mathbf{e}_{i}$ to $\mathbf{e}_{i}^{\prime},$ then the covariant components of the vector a transform as
+\begin{equation}
+a_{i}^{\prime}=\frac{\partial x^{j}}{\partial x^{i}} a_{j}
+\end{equation}
+\end{thm}
+
+ The set of three functions $\left\{A_{i}(x)\right\}$ forms a covariant vector field, if they transform from one coordinate system to another one as
+ \begin{equation}
+A_{i}^{\prime}\left(x^{\prime}\right)=\frac{\partial x^{j}}{\partial x^{i}} A_{j}(x)
+\end{equation}
+The set of $3^{n}$ functions $\left\{A_{i_{1} i_{2} \ldots i_{n}}(x)\right\}$ form a covariant tensor of rank $n$ if they transform from one coordinate system to another as
+\begin{equation}
+A_{i_{1} i_{2} \ldots i_{n}}^{\prime}\left(x^{\prime}\right)=\frac{\partial x^{j_{1}}}{\partial x^{i_{1}}} \frac{\partial x^{j_{2}}}{\partial x^{i_{2}}} \cdots \frac{\partial x^{j_{n}}}{\partial x^{n_{n}}} A_{j_{1} j_{2} \ldots j_{n}}(x)
+\end{equation}
+In general
+\begin{qt}
+The set of $3^{n+m}$ functions $\left\{B_{i_{1} \ldots i_{n}} j_{1 \ldots j_{n}}(x)\right\}$ forms the tensor of the type $(m, n),$ if these functions transform, under the change of coordinate basis, as
+\begin{equation}
+B_{i_{1}^{\prime} \ldots i_{n}^{\prime}} ^{j_{1}^{\prime} \ldots j_{m}^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime} 1}}{\partial x^{l_{1}}} \cdots \frac{\partial x^{j_{m}^{\prime} m}}{\partial x^{l_{m}}} \frac{\partial x^{k_{1}}}{\partial x^{\prime i_{1}}} \cdots \frac{\partial x^{k_{n}}}{\partial x^{\prime i_{n}}} B_{k_{1} \ldots k_{n}}^{l_{1} \ldots l_{m}}(x)
+\end{equation}
+Other possible names are the mixed tensor of covariant rank $n$ and contravariant rank $m,$ or simply $(m, n)$ -tensor.
+\end{qt}
+\textbf{Tensors are important due to the fact that they offer the coordinate-independent description of geometrical and physical laws.} The following example shows this observation:
+\begin{example}
+For an arbitrary $\mathbf{a}(x)=a^{i}(x) \mathbf{e}_{i}$ we have
+$$
+a^{j^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime}}}{\partial x^{i}} a^{i}(x), \quad \mathbf{e}_{j^{\prime}}\left(x^{\prime}\right)=\mathbf{e}_{k}(x) \frac{\partial x^{k}}{\partial x^{j^{\prime}}}
+$$
+Then
+$$
+a^{j^{\prime}}\left(x^{\prime}\right) \mathbf{e}_{j^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime}}}{\partial x^{i}} a^{i}(x) \mathbf{e}_{k}(x) \frac{\partial x^{k}}{\partial x^{j^{\prime}}}=\delta_{l}^{k} a^{i}(x) \mathbf{e}_{k}(x)=a^{i}(x) \mathbf{e}_{i}(x)
+$$
+\end{example}
+
+If the Kronecker symbol transforms as a mixed $(1,1)$ tensor,
+\begin{qt}
+\begin{equation}
+\delta_{j^{\prime}}^{i^{\prime}}=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} \frac{\partial x^{l}}{\partial x^{j^{\prime}}} \delta_{l}^{k}=\frac{\partial x^{i^{\prime}}}{\partial x^{j^{\prime}}}
+\end{equation}
+\end{qt}
+then in any coordinates $x^i$ it has the same form 
+$$
+\delta_{j}^{i}=\left\{\begin{array}{l}
+{1 \text { if } i=j} \\
+{0 \text { if } i \neq j}
+\end{array}\right.
+$$
+\textbf{This property is very important, as it enables us to use the Kronecker symbol in any coordinates}
+
+\begin{example}
+Show that the product $A^{i}(x) B_{j}(x)$ of covariant and contravariant vectors transforms as a $(1,1)$ -type mixed tensor.
+$$
+A^{i^{\prime}}\left(x^{\prime}\right) A_{j^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} A^{k}(x) \frac{\partial x^{l}}{\partial x^{j^{\prime}}} B_{l}(x)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} \frac{\partial x^{l}}{\partial x^{j^{\prime}}} A^{k}(x) B_{l}(x)
+$$
 \end{example}
