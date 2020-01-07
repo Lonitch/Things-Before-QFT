@@ -72,9 +72,148 @@ and
 
 \section{Tensor Algebra and Analysis}
 \subsection{Linear Spaces, Vectors, and Tensors}
+The linear space, say $L$, consists of the elements (vectors) that \textbf{permit linear operations with the properties described below}:
+\begin{itemize}
+    \item Summing up the vectors
+    \item Multiplication by a number
+\end{itemize}
 \begin{qt}
-    The linear space, say L, consists of the elements (vectors) that permit linear operations with the properties described below.
-    \begin{itemize}
-        \item Summing up the vectors. This means that if a and b are elements of $L,$ then their $\operatorname{sum} \mathbf{a}+\mathbf{b}$ is also an element of $L$
-    \end{itemize}
+    Consider the set of vectors, elements of the linear space L
+    $$
+\left\{\mathbf{a}_{1}, \mathbf{a}_{2}, \ldots, \mathbf{a}_{n}\right\}=\left\{\mathbf{a}_{i} | i=1, \ldots, n\right\}
+$$
+and the set of real numbers $k_{1}, k_{2}, \ldots k_{n} .$ Vector
+$$
+\mathbf{k}=\sum_{i=1}^{n} k^{i} \mathbf{a}_{i}=\mathbf{k}^{i} \mathbf{a}_{i}=0\Longrightarrow \sum_{i=1}^{n}\left(k^{i}\right)^{2}=0
+$$
+then vectors $\left\{\mathbf{a}_{\mathbf{i}}, i=1, \ldots, n\right\}$ are called \textbf{linearly independent}. The last condition means that no one of the coefficients $k_{i}$ can be different from zero.
 \end{qt}
+For example, in 2D, two vectors are linearly dependent if and only if they are parallel; in 3D, three vectors are linearly dependent if and only if they belong to the same plane, etc.
+\begin{defi}
+        The maximal number of linearly independent elements of the linear space $L$ is called its dimension. It proves useful to denote $L_{D}$ a linear space of dimension $D .$
+\end{defi}
+\begin{thm}
+Consider a $D$-dimensional linear space $L_{D}$ and the set of linearly independent vectors $\mathbf{e}_{i}=\left(\mathbf{e}_{1}, \mathbf{e}_{2}, \ldots, \mathbf{e}_{D}\right) .$ Then, for any vector a one can write
+\begin{equation}
+    \mathbf{a}=\sum_{i=1}^{D} a^{i} \mathbf{e}_{i}=a^{i} \mathbf{e}_{i}
+    \label{vector-basis}
+\end{equation}
+where the coefficients $a^{i}$ are defined in a unique way.
+\end{thm}
+\bluep{The coefficients $a^{i}$ are called components or \textbf{contravariant components of the vector $\mathbf{a}$}}.The word “contravariant” here means that the components $a^i$ have upper indices.
+
+\subsection{Direct product of the two linear spaces}
+Let's consider the example of phase space in the classic mechanics. The coordinate system in the linear space $L_{D}$ consists of the initial point $O$ and the basis $\mathbf{e}_{i} .$ The position of a point $P$ can be characterized by \textbf{its position vector or radius vector $\mathbf{r}=\overrightarrow{O P}=x^{i} \mathbf{e}_{i}$}.
+
+If the phase space is describing one particle, the space is composed of the radius vectors $\mathbf{r}$ and velocities $\mathbf{v}$ of the particle:
+$$
+\mathbf{r}=x^{i} \mathbf{e}_{i}, \quad \mathbf{v}=v^{j} \mathbf{f}_{j}
+$$
+The two set of bases can be related and independent. This example is a particular case of the linear space which is called \redp{a direct product
+of the two linear spaces}. The element of the direct product of the two linear spaces $L_{D_{1}}$ and $L_{D_{2}}$ (\textbf{they can have different dimensions}) is the ordered set of the elements of each of the two spaces $L_{D_{1}}$ and $L_{D_{2}} .$
+\begin{qt}
+    The notation for the basis in the case of configuration space is $\mathbf{e}_{i} \otimes \mathbf{f}_{j}$. Hence, the state of the point-like particle in the phase space is characterized by the element of this linear space, which can be presented as:
+    $$
+x^{i} v^{j} \mathbf{e}_{i} \otimes \mathbf{f}_{j}
+$$
+In general, one can define the space that is a direct product of several linear spaces with different individual basis sets $\mathbf{e}_{i}$ each. In this case, we will have $\mathbf{e}_{i}^{(1)}, \mathbf{e}_{i}^{(2)}, \ldots$ $\mathbf{e}_{i}^{(N)} .$ The basis in the direct product space will be
+$$
+\mathbf{e}_{i_{1}}^{(1)} \otimes \mathbf{e}_{i_{2}}^{(2)} \otimes \ldots \otimes \mathbf{e}_{i_{N}}^{(N)}
+$$
+and the element becomes
+$$
+T^{i_{1} i_{2} \ldots i_{N}} \mathbf{e}_{i_{1}}^{(1)} \otimes \mathbf{e}_{i_{2}}^{(2)} \otimes \ldots \otimes \mathbf{e}_{i_{N}}^{(N)}
+$$
+\end{qt}
+\subsection{Vector basis and its transformation}
+Let us start from the components of the vector, which were defined in (\ref{vector-basis}). Consider, along with the original basis $\mathbf{e}_{i},$ another basis $\mathbf{e}_{i}^{\prime} .$ since each vector of the new basis belongs to the same space, it can be expanded using the original basis as
+\begin{equation}
+\mathbf{e}_{i}^{\prime}=\wedge_{i^{\prime}}^{j} \mathbf{e}_{j}
+\label{basis-transform}
+\end{equation}
+and
+$$
+\mathbf{a}=a^{i} \mathbf{e}_{i}=a^{j^{\prime}} \mathbf{e}_{j^{\prime}}=a^{j^{\prime}} \wedge_{j^{\prime}}^{i} \mathbf{e}_{i}
+$$
+\begin{qt}
+\begin{equation}
+    a^{i}=a^{j^{\prime}} \wedge_{j^{\prime}}^{i}
+    \label{cotravariant-coord-transform}
+\end{equation}
+\end{qt}
+
+Similarly, we can make inverse transformation:
+$$
+a^{k^{\prime}}=\left(\wedge^{-1}\right)_{l}^{k^{\prime}} a^{l}
+$$
+and
+\[
+\left(\wedge^{-1}\right)_{l}^{k^{\prime}} \cdot \wedge_{i^{\prime}}^{l}=\delta_{i^{\prime}}^{k^{\prime}} \quad \text { and } \quad \wedge_{i^{\prime}}^{l} \cdot\left(\wedge^{-1}\right)_{k}^{i^{\prime}}=\delta_{k}^{l}
+\]
+\begin{qt}
+Taking the partial derivatives, we arrive at the relations
+\[
+\wedge_{j^{\prime}}^{i}=\frac{\partial x^{i}}{\partial x^{j^{\prime}}} \quad \text { and } \quad\left(\wedge^{-1}\right)_{l}^{k^{\prime}}=\frac{\partial x^{k^{\prime}}}{\partial x^{l}}
+\]
+and
+$$
+\left(\wedge^{-1}\right)_{l}^{k^{\prime}} \cdot \wedge_{k^{\prime}}^{i}=\frac{\partial x^{k^{\prime}}}{\partial x^{l}} \frac{\partial x^{i}}{\partial x^{k^{\prime}}}=\frac{\partial x^{i}}{\partial x^{l}}=\delta_{l}^{i}
+$$
+is nothing but the chain rule for partial derivatives.
+\end{qt}
+
+\subsection{Scalar, vector, and tensor fields}
+\begin{defi}
+        Function $\varphi(x)$ is called scalar field or simply scalar if it does not transform under the change of coordinates
+        \begin{equation}
+\varphi(x)=\varphi^{\prime}\left(x^{\prime}\right)
+\end{equation}
+\end{defi}
+Let us give a clarifying example in 1D. Consider a function
+$$
+y=x^2
+$$
+Now, let us change the variables 
+$$
+x^{\prime}=x+1
+$$
+The function $y=\left(x^{\prime}\right)^{2},$ obviously, represents another parabola. \bluep{In order to preserve the plot intact, we need to modify the form of the function, that is, to go from $\varphi$ to $\varphi^{\prime}$.} The new function $y^{\prime}=\left(x^{\prime}-1\right)^{2}$ will represent the original parabola,because the change of the variable is completely compensated by the change of the form of the function.
+\begin{mybox}
+\begin{center}
+    Discuss whether the three numbers temperature $T(x)$, pressure $p(x)$ and density $\rho(x)$ form a contravariant vector
+\end{center}
+\end{mybox}
+\begin{mybox2}
+We can only form contravariant vector if the numbers transform by following the rule (\ref{cotravariant-coord-transform}). Since these numbers are scalar fields, it transforms like $T(\mathbf{r})=T^{\prime}(\mathbf{r}^{\prime})$. Thus, these three parameters can not form a contravariant vector.
+\end{mybox2}
+\begin{example}
+From the definition above we know $\varphi^{\prime}(x) \neq \varphi(x)$ and $\varphi\left(x^{\prime}\right) \neq \varphi(x)$. Let us calculate these quantities explicitly for the special case of infinitesimal transformation $x^{\prime i}=x^{i}+\xi^{i}$ where $\xi$ are constant coefficients. Now we have
+$$
+\varphi\left(x^{\prime}\right)=\varphi\left(x+\xi\right)\overset{Taylor}{=}\varphi(x)+\frac{\partial \varphi}{\partial x^{i}} \xi^{i}
+$$
+and,
+$$
+\varphi^{\prime}\left(x^{i}\right)=\varphi^{\prime}\left(x^{i}-\xi^{i}\right)=\varphi^{\prime}\left(x^{\prime}\right)-\frac{\partial \varphi^{\prime}}{\partial x^{i^{\prime}}} \cdot \xi^{i}
+$$
+rewrite the two equations above, we find:
+$$
+\frac{\partial \varphi^{\prime}}{\partial x^{\prime i}}=\frac{\varphi^{\prime}\left(x^{\prime i}\right)-\varphi^{\prime}\left(x^{i}-\xi^{i}\right)}{\xi^i}
+$$
+$$
+\frac{\partial \varphi}{\partial x^{i}}=\frac{\varphi(x^{\prime i})-\varphi(x^i)}{\xi^i}
+$$
+At the limit of $\xi\rightarrow0$, we have
+$$
+\frac{\partial \varphi^{\prime}}{\partial x^{\prime i}}=\frac{\partial \varphi(x)}{\partial x^{i}}+\mathcal{O}(\xi)
+$$
+As mentioned above, 
+$$
+\varphi^{\prime}\left(x^{i}\right)=\varphi^{\prime}\left(x^{\prime}\right)-\frac{\partial \varphi^{\prime}}{\partial x^{\prime i}} \cdot \xi^{i}\\
+=\varphi^{\prime}\left(x^{\prime}\right)-\frac{\partial \varphi(x)}{\partial x^{i}}\cdot\xi^i
+$$
+Since $\varphi(x)=\varphi^{\prime}\left(x^{\prime}\right)$, we have
+$$
+\varphi^{\prime}(x)=\varphi(x)-\xi^{i} \partial_{i} \varphi
+$$
+where we have introduced a useful notation $\partial_{i}=\partial / \partial x^{i}$.
+\end{example}
