@@ -1,4 +1,4 @@
-\chapter{Some Not-so-crazy Math}
+\chapter{Tensor Calculus}
 
 \section{Total and Partial Derivatives}
 To understand the different kinds of derivatives, let's say we have a function $\rho(t, x(t), p(t))$ which, in general, depends on the location $x(t)$ and momentum $p(t)$ plus the time $t.$ A key observation is that the location $x(t)$ and momentum $p(t)$ are functions of $t$ too. Therefore, we need to be extremely careful what we mean when we calculate the derivative with respect to the time $t .$
@@ -70,8 +70,7 @@ and
 \end{aligned}
 \end{equation}
 
-\section{Tensor Algebra and Analysis}
-\subsection{Linear Spaces, Vectors, and Tensors}
+\section{Linear Spaces, Vectors, and Tensors}
 The linear space, say $L$, consists of the elements (vectors) that \textbf{permit linear operations with the properties described below}:
 \begin{itemize}
     \item Summing up the vectors
@@ -102,7 +101,7 @@ where the coefficients $a^{i}$ are defined in a unique way.
 \end{thm}
 \bluep{The coefficients $a^{i}$ are called components or \textbf{contravariant components of the vector $\mathbf{a}$}}.The word “contravariant” here means that the components $a^i$ have upper indices.
 
-\subsection{Direct product of the two linear spaces}
+\section{Direct product of the two linear spaces}
 Let's consider the example of phase space in the classic mechanics. The coordinate system in the linear space $L_{D}$ consists of the initial point $O$ and the basis $\mathbf{e}_{i} .$ The position of a point $P$ can be characterized by \textbf{its position vector or radius vector $\mathbf{r}=\overrightarrow{O P}=x^{i} \mathbf{e}_{i}$}.
 
 If the phase space is describing one particle, the space is composed of the radius vectors $\mathbf{r}$ and velocities $\mathbf{v}$ of the particle:
@@ -125,7 +124,7 @@ $$
 T^{i_{1} i_{2} \ldots i_{N}} \mathbf{e}_{i_{1}}^{(1)} \otimes \mathbf{e}_{i_{2}}^{(2)} \otimes \ldots \otimes \mathbf{e}_{i_{N}}^{(N)}
 $$
 \end{qt}
-\subsection{Vector basis and its transformation}
+\section{Vector basis and its transformation}
 Let us start from the components of the vector, which were defined in (\ref{vector-basis}). Consider, along with the original basis $\mathbf{e}_{i},$ another basis $\mathbf{e}_{i}^{\prime} .$ since each vector of the new basis belongs to the same space, it can be expanded using the original basis as
 \begin{equation}
 \mathbf{e}_{i}^{\prime}=\wedge_{i^{\prime}}^{j} \mathbf{e}_{j}
@@ -162,7 +161,7 @@ $$
 is nothing but the chain rule for partial derivatives.
 \end{qt}
 
-\subsection{Scalar, vector, and tensor fields}
+\section{Scalar, vector, and tensor fields}
 \begin{defi}
         Function $\varphi(x)$ is called scalar field or simply scalar if it does not transform under the change of coordinates
         \begin{equation}
@@ -231,7 +230,7 @@ a^{i_{1}^{i} \ldots i_{n}^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i_{
 \end{equation}
 \end{qt}
 
-\subsection{Orthonormal Basis and Cartesian Coordiantes}
+\section{Orthonormal Basis and Cartesian Coordiantes}
 The scalar product of two vectors $\mathbf{a}$ and $\mathbf{b}$ in 3D is defined in a ususal way,
 \begin{equation}
 (\mathbf{a}, \mathbf{b})=\mathbf{a}\cdot\mathbf{b}=|\mathbf{a}| \cdot|\mathbf{b}| \cdot \cos \theta
@@ -292,7 +291,7 @@ In general
 \begin{qt}
 The set of $3^{n+m}$ functions $\left\{B_{i_{1} \ldots i_{n}} j_{1 \ldots j_{n}}(x)\right\}$ forms the tensor of the type $(m, n),$ if these functions transform, under the change of coordinate basis, as
 \begin{equation}
-B_{i_{1}^{\prime} \ldots i_{n}^{\prime}} ^{j_{1}^{\prime} \ldots j_{m}^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime} 1}}{\partial x^{l_{1}}} \cdots \frac{\partial x^{j_{m}^{\prime} m}}{\partial x^{l_{m}}} \frac{\partial x^{k_{1}}}{\partial x^{\prime i_{1}}} \cdots \frac{\partial x^{k_{n}}}{\partial x^{\prime i_{n}}} B_{k_{1} \ldots k_{n}}^{l_{1} \ldots l_{m}}(x)
+B_{i_{1}^{\prime} \ldots i_{n}^{\prime}} ^{j_{1}^{\prime} \ldots j_{m}^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{j^{\prime}_1}}{\partial x^{l_{1}}} \cdots \frac{\partial x^{j_{m}^{\prime}}}{\partial x^{l_{m}}} \frac{\partial x^{k_{1}}}{\partial x^{\prime i_{1}}} \cdots \frac{\partial x^{k_{n}}}{\partial x^{\prime i_{n}}} B_{k_{1} \ldots k_{n}}^{l_{1} \ldots l_{m}}(x)
 \end{equation}
 Other possible names are the mixed tensor of covariant rank $n$ and contravariant rank $m,$ or simply $(m, n)$ -tensor.
 \end{qt}
@@ -329,3 +328,230 @@ $$
 A^{i^{\prime}}\left(x^{\prime}\right) A_{j^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} A^{k}(x) \frac{\partial x^{l}}{\partial x^{j^{\prime}}} B_{l}(x)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} \frac{\partial x^{l}}{\partial x^{j^{\prime}}} A^{k}(x) B_{l}(x)
 $$
 \end{example}
+
+\section{Orthogonal transformation}
+The rotation transformation around $\hat{\mathbf{z}}-$axis is given by the following relation:
+\begin{qt}
+\begin{equation}
+\left(\begin{array}{l}
+{x} \\
+{y} \\
+{z}
+\end{array}\right)=\hat{\wedge}_{z}\left(\begin{array}{l}
+{x^{\prime}} \\
+{y^{\prime}} \\
+{z^{\prime}}
+\end{array}\right), \quad \text { where } \quad \hat{\wedge}_{z}=\hat{\wedge}_{z}(\alpha)=\left(\begin{array}{ccc}
+{\cos \alpha} & {-\sin \alpha} & {0} \\
+{\sin \alpha} & {\cos \alpha} & {0} \\
+{0} & {0} & {1}
+\end{array}\right)
+\end{equation}
+the matrix above has the following property:
+\begin{equation}
+\hat{\wedge}_{z}^{T}=\hat{\wedge}_{z}^{-1}
+\end{equation}
+\end{qt}
+\begin{defi}
+        The matrix $\hat{\wedge}_{z}$ which satisfies $\hat{\wedge}_{z}^{-1}=\hat{\wedge}_{z}^{T}$ and the corresponding coordinate transformation is called \textbf{orthogonal}.
+\end{defi}
+Similarly, we can write the rotation matrix around other axis:
+\begin{equation}
+\hat{\wedge}_{x}(\gamma)=\left(\begin{array}{ccc}
+{1} & {0} & {0}\\
+{0} & {\cos \gamma} & {-\sin \gamma} \\
+{0} & {\sin \gamma} & {\cos \gamma}
+\end{array}\right)
+\end{equation}
+\begin{equation}
+\hat{\wedge}_{y}(\beta)=\left(\begin{array}{ccc}
+{\cos \beta} & {0} & {-\sin \beta} \\
+{0} & {1} & {0}\\
+{\sin \beta} & {0} &  {\cos \beta}
+\end{array}\right)
+\end{equation}
+In 3D space, any rotation of the rigid body may be represented as a combination of the rotation around the axes $\hat{\mathbf{z}}, \hat{\mathbf{y}},$ and $\hat{\mathbf{x}}$ to the angles $ \alpha, \beta,$ and $\gamma$:
+$$
+\hat{\wedge}=\hat{\wedge}_{z}(\alpha) \hat{\wedge}_{y}(\beta) \hat{\wedge}_{x}(\gamma)
+$$
+Since $(A \cdot B)^{T}=B^{T} \cdot A^{T} \quad \text { and } \quad(A \cdot B)^{-1}=B^{-1} \cdot A^{-1}$, we can easily obtain that \bluep{the general 3D rotation matrix satisfies the orthogonal relation.}
+\begin{qt}
+For the orthogonal matrix, one can take the determinant and arrive at $det\hat{\wedge}=det\hat{\wedge}^{-1}$. Therefore, 
+$$
+det\hat{\wedge}=\pm1
+$$
+As far as any rotation matrix has a determinant equal to one, there must be some other orthogonal matrices with the determinant equal to −1.
+\end{qt}
+In case where the matrix elements are allowed to be complex, the matrix that satisfies the property $U^{\dagger}=U^{-1}$ is called unitary. The operation $U^{\dagger}$ is called \textbf{Hermitian conjugation} and consists of complex conjugation plus transposition $U^{\dagger}=\left(U^{*}\right)^{T}$.
+\begin{example}
+Consider the transformation from one orthonormal basis $\hat{\mathbf{n}}_{i}$ to another such basis $\hat{\mathbf{n}}_{k}^{\prime},$ namely, $\hat{\mathbf{n}}_{k}^{\prime}=R_{k}^{i} \hat{\mathbf{n}}_{i} .$ Prove that the matrix $\left\|R_{k}^{i}\right\|$ is orthogonal.
+
+ $\hat{\mathbf{n}}_{k}^{\prime}=R_{k}^{i} \hat{\mathbf{n}}_{i}$ and also $\hat{\mathbf{n}}^{\prime \prime}=\left(R^{-1}\right)_{j}^{l} \hat{\mathbf{n}}^{j} .$ since $\hat{\mathbf{n}}_{k}^{\prime}=\hat{\mathbf{n}}^{k^{\prime}}$ and $\hat{\mathbf{n}}_{i}=\hat{\mathbf{n}}^{i}$
+also have $\left(R^{-1}\right)_{j}^{l}=\left(R^{T}\right)_{j}^{l}$
+\end{example}
+
+\section{Operations over Tensors, Metric Tensor}
+\textbf{Multiplication of a tensor by a number produces a tensor of the same type.} This operation is equivalent to the multiplication of all tensor components to the same number $\alpha$, namely:
+\begin{equation}
+(\alpha A)_{i_{1} \ldots i_{n}}=\alpha \cdot A_{i_{1} \ldots i_{n}}^{j_{1} \ldots j_{m}}
+\end{equation}
+\textbf{Multiplication of two tensors is defined for a couple of tensors of any type.} The product of a (m, n)-tensor and a (t, s)-tensor results in the (m + t, n + s)- tensor, e.g.,
+\begin{equation}
+A_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} \cdot C_{l_{1} \ldots j_{s}} {}^{k_1 \ldots l_{i}}=D_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} {}_{l_1 \ldots l_{s}}{}^{k_1 \ldots k_{l}}
+\end{equation}
+\textbf{The order of indices is important here, because $a_{i j}$ may be different from $a_{j i}$.}
+\begin{example}
+ Prove, by checking the transformation law, that the product of the contravariant vector $a^{i}$ and mixed tensor $b_{i}^{k}$ is a mixed $(2,1)$ -type tensor.
+ 
+$$
+a^{i^{\prime}}\left(x^{\prime}\right) b_{j^{\prime}}^{k^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{m}} a^{m}(x) \frac{\partial x^{k^{\prime}}}{\partial x^{l}} \frac{\partial x^{n}}{\partial x^{j^{\prime}}} b_{n}^{l}(x)
+$$
+\end{example}
+\textbf{Contraction reduces the (n,m)-tensor to the (n-1,m-1)-tensor through the summation over two (always upper and lower, of course) indices.} For example,
+\begin{equation}
+A_{i j k}^{l n} \longrightarrow A_{i j k}^{l k}=\sum_{k=1}^{3} A_{i j k}^{l k}
+\end{equation}
+
+The internal product of the two tensors consists in their multiplication with the consequent contraction over some couple of indices. \textbf{Internal product of (m, n) and (r, s)-type tensors results in the (m+r-1, n+s-1)-type tensor.}
+\begin{equation}
+A_{i j k} \cdot B^{l j}=\sum_{j=1}^{3} A_{i j k} B^{l j}
+\end{equation}
+\begin{example}
+Prove that the internal product $a_{i} \cdot b^{i}$ is a scalar if $a_{i}(x)$ and $b^{i}(x)$ are co- and contravariant vectors.
+
+$$
+b^{i^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{l}} b^{l}(x), \quad a_{i^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{k}}{\partial x^{i^{\prime}}} a_{k}(x)
+$$
+Then
+$$
+a_{i^{\prime}}\left(x^{\prime}\right) b^{i^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{l}} \frac{\partial x^{k}}{\partial x^{i^{\prime}}} b^{l}(x) a_{k}(x)=\delta_{l}^{k} b^{l}(x) a_{k}(x)=b^{k}(x) a_{k}(x)
+$$
+\end{example}
+\begin{defi}
+        Consider a basis $\left\{\mathbf{e}_{i}\right\} .$ The \textbf{scalar product} of the two basis vectors,
+        \begin{equation}
+g_{i j}=\left(\mathbf{e}_{i}, \mathbf{e}_{j}\right)
+\end{equation}
+is called \textbf{metric}. Here \textbf{the scalar product is not always inner product.}
+\end{defi}
+\begin{qt}
+\textbf{Properties of metric}:
+
+1. Symmetry of the metric $g_{i j}=g_{j i}$ follows from the symmetry of a scalar product $\left(\mathbf{e}_{i}, \mathbf{e}_{j}\right)=\left(\mathbf{e}_{j}, \mathbf{e}_{i}\right)$
+
+2. For the orthonormal basis $\hat{\mathbf{n}}_{a}$, the metric is nothing but the Kronecker symbol $g_{a b}=\left(\hat{\mathbf{n}}_{a}, \hat{\mathbf{n}}_{b}\right)=\delta_{a b}$
+
+3. Metric is a (0, 2) - tensor, as
+$$
+\begin{aligned}
+g_{i^{\prime} j^{\prime}} &=\left(\mathbf{e}_{i}^{\prime}, \mathbf{e}_{j}^{\prime}\right)=\left(\frac{\partial x^{l}}{\partial x^{i^{\prime}}} \mathbf{e}_{l}, \frac{\partial x^{k}}{\partial x^{\prime j}} \mathbf{e}_{k}\right) \\
+&=\frac{\partial x^{l}}{\partial x^{\prime i}} \frac{\partial x^{k}}{\partial x^{\prime j}}\left(\mathbf{e}_{l}, \mathbf{e}_{k}\right)=\frac{\partial x^{l}}{\partial x^{\prime i}} \frac{\partial x^{k}}{\partial x^{\prime j}} \cdot g_{k l}
+\end{aligned}
+$$
+
+4. The distance between two points: $M_{1}\left(x^{i}\right)$ and $M_{2}\left(y^{i}\right)$ is defined by the inner product:
+$$
+S_{12}^{2}=g_{i j}\left(x^{i}-y^{i}\right)\left(x^{j}-y^{j}\right)
+$$
+\end{qt}
+\bluep{Since $g_{i j}$ is $(0,2)$ - tensor and $\left(x^{i}-y^{i}\right)$ is $(1,0)$ -tensor (contravariant vector) $-S_{12}^{2}$ is a scalar. Therefore, $S_{12}^{2}$ is the same in any coordinate system.}
+
+\textbf{The conjugated metric} is defined as
+\begin{equation}
+g^{i j}=\left(\mathbf{e}^{i}, \mathbf{e}^{j}\right) \quad \text { where } \quad\left(\mathbf{e}^{i}, \mathbf{e}_{k}\right)=\delta_{k}^{i}
+\end{equation}
+\begin{qt}
+\begin{equation}
+g^{i k} g_{k j}=\delta_{j}^{i}
+\end{equation}
+\end{qt}
+
+We can\textbf{ Raise and lower indices of a tensor} by taking an appropriate internal product of a given tensor and the corresponding metric tensor.
+\begin{equation}
+\begin{aligned}
+&\text { Lowering the index, } A_{i}(x)=g_{i j} A^{j}(x), \quad B_{i k}(x)=g_{i j} B_{ k}^{j}(x)\\
+&\text { Raising the index, } \quad C^{l}(x)=g^{l j} C_{j}(x), \quad D^{i k}(x)=g^{i j} D_{j}^{k}(x)
+\end{aligned}
+\end{equation}
+\begin{equation}
+    \mathbf{e}_{i} g^{i j}=\mathbf{e}^{j}, \quad \mathbf{e}^{k} g_{k l}=\mathbf{e}_{l}
+\end{equation}
+\begin{qt}
+Let the metric $g_{ij}$ correspond to the basis ek and to the coordinates $x^{k} .$ The determinants of the metric tensors and of the matrices of the transformations to Cartesian coordinates $X^{a}$ satisfy the following relations:
+\begin{equation}
+g=\operatorname{det}\left(g_{i j}\right)=\operatorname{det}\left(\frac{\partial X^{a}}{\partial x^{k}}\right)^{2}, \quad g^{-1}=\operatorname{det}\left(g^{k l}\right)=\operatorname{det}\left(\frac{\partial x^{l}}{\partial X^{b}}\right)^{2}
+\end{equation}
+\end{qt}
+The possibility of lowering and raising the indices may help us in contracting two contravariant or two covariant indices of a tensor. 
+\begin{example}
+Suppose we need to contract the two first indices of the $(3,0)$ -tensor $B^{i j k} .$ After we lower the second index, we arrive at the tensor
+$$
+B^i{}_{l}{}^{k}=B^{i j k} g_{j l}
+$$
+And now we can contract the indices $i,j$. But, if we forget to indicate the order of indices, we obtain:$B_{l}^{i k}$, and it is not immediately clear which index was lowered and in which couple of indices one has to perform the contraction.
+\end{example}
+
+\section{Symmetric, Skew(Anti) Symmetric Tensors, and Determinants}
+\subsection{Definitions and general considerations}
+Tensor $A^{i j k \ldots}$ is called \textbf{symmetric} in the indices $i$ and $j,$ if
+\begin{equation}
+A^{i j k \ldots}=A^{j i k \ldots}
+\end{equation}
+Tensor $A^{i_{1} i_{2} \ldots i_{n}}$ is called \textbf{completely (or absolutely) symmetric} in the indices $\left(i_{1}, i_{2}, \ldots, i_{n}\right),$ if it is symmetric in any couple of these indices. 
+
+Tensor $A^{i j}$ is called skew-symmetric or antisymmetric, if
+\begin{equation}
+A^{i j}=-A^{j i}
+\end{equation}
+\bluep{The advantage of tensors is that their (anti)symmetry holds under the transformation from one basis to another.}
+\begin{example}
+Consider the basis in 2D,
+$$
+\mathbf{e}_{1}=\hat{\mathbf{i}}+\hat{\mathbf{j}}, \quad \mathbf{e}_{2}=\hat{\mathbf{i}}-\hat{\mathbf{j}}
+$$
+(i) Derive all components of the absolutely antisymmetric tensor $\varepsilon^{i j}$ in the new basis, taking into account that $\varepsilon^{a b}=\epsilon^{a b},$ where $\epsilon^{12}=1$ in the orthonormal basis $\hat{\mathbf{n}}_{1}=\hat{\mathbf{i}}, \quad \hat{\mathbf{n}}_{2}=\hat{\mathbf{j}} .$ The calculation should be performed directly and also by using the formula for antisymmetric tensor. Explain the difference between the two results. 
+
+(ii) Repeat the calculation for $\varepsilon_{i j} .$ Calculate the metric components and verify that $\varepsilon_{i j}=g_{i k} g_{j l} \varepsilon^{k l}$ and that $\varepsilon^{i j}=g^{i k} g^{j l} \varepsilon_{k l}$
+
+\end{example}
+\textbf{Solution:}
+From the basis relation, we have:
+$$
+x^{\prime}=x+y
+$$
+$$
+y^{\prime}=x-y
+$$
+Thus, 
+$$
+\frac{\partial x^{j^{\prime}}}{\partial x^i}=\left(\begin{array}{cc}
+{1} & {1}\\
+{1} & {-1}
+\end{array}\right)
+$$
+and $\varepsilon^{12}=\frac{\partial x^{\prime 1}}{\partial x^k}\frac{\partial x^{\prime 2}}{\partial x^l}\epsilon^{kl}=\epsilon^{21}-\epsilon^{12}=-2$. Since \textbf{the metric tensor of the orthonormal basis is}
+$$
+g_{ab}=\left(\begin{array}{cc}
+{1} & {0}\\
+{0} & {1}
+\end{array}\right)
+$$
+we have $\epsilon_{ab}=\epsilon^{ab}$. Thus, $\varepsilon_{12}=\frac{\partial x^k}{\partial x^{\prime 1}}\frac{\partial x^l}{\partial x^{\prime 2}}\epsilon_{kl}=-1/2$. Also, the metric tensor for our new basis is
+$$
+g_{ij}=\frac{\partial x^{a}}{\partial x^i}\frac{\partial x^{b}}{\partial x^j}g_{ab}=\left(\begin{array}{cc}
+{1/2} & {0}\\
+{0} & {1/2}
+\end{array}\right)
+$$
+Using $g^{i k} g_{k j}=\delta_{j}^{i}$, we also have $g^{ij}=\left(\begin{array}{cc}
+{2} & {0}\\{0} & {2}\end{array}\right)$. Obviously, we have:
+\begin{qt}
+$$
+\varepsilon_{i j}=g_{i k} g_{j l} \varepsilon^{k l}
+$$
+$$
+\varepsilon^{i j}=g^{i k} g^{j l} \varepsilon_{k l}
+$$
+\end{qt}
+
+\subsection{Completely Antisymmetric Tensors}
