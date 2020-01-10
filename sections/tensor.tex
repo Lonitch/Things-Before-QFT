@@ -397,7 +397,7 @@ also have $\left(R^{-1}\right)_{j}^{l}=\left(R^{T}\right)_{j}^{l}$
 \end{equation}
 \textbf{Multiplication of two tensors is defined for a couple of tensors of any type.} The product of a (m, n)-tensor and a (t, s)-tensor results in the (m + t, n + s)- tensor, e.g.,
 \begin{equation}
-A_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} \cdot C_{l_{1} \ldots j_{s}} {}^{k_1 \ldots l_{i}}=D_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} {}_{l_1 \ldots l_{s}}{}^{k_1 \ldots k_{l}}
+A_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} \cdot C_{l_{1} \ldots l_{s}} {}^{k_1 \ldots k_{i}}=D_{i_{1} \ldots i_{n}} {}^{j_1 \cdots j_{m}} {}_{l_1 \ldots l_{s}}{}^{k_1 \ldots k_{l}}
 \end{equation}
 \textbf{The order of indices is important here, because $a_{i j}$ may be different from $a_{j i}$.}
 \begin{example}
@@ -555,3 +555,157 @@ $$
 \end{qt}
 
 \subsection{Completely Antisymmetric Tensors}
+$(n, 0)$ -tensor $A^{i_{1} \ldots i_{n}}$ is called completely (or absolutely) antisymmetric, if it is antisymmetric in any couple of its indices
+\[
+\forall(k, l), \quad A^{i_{1} \ldots i_{l} \ldots i_{k} \ldots i_{n}}=-A^{i_{1} \ldots i_{k} \ldots i_{l} \ldots i_{n}}
+\]
+In the case of an absolutely antisymmetric tensor, the sign changes when we perform permutation of any two indices.
+\begin{qt}
+\begin{itemize}
+    \item In a D-dimensional space, all completely antisymmetric tensors of rank $n>D$ are equal to zero.
+
+    \item Theorem 2 An absolutely antisymmetric tensor $A^{i_{1} \ldots i_{D}}$ in a D-dimensional space has only one independent component.
+    
+    \item \bluep{Prove that for symmetric $a^{i j}$ and antisymmetric $b_{i j}$ tensors the scalar internal product is zero $a^{i j} \cdot b_{i j}=0$}
+\end{itemize}
+\end{qt}
+For the last point, we can use the following argument to prove it:
+$$
+a^{j i} b_{j i}=\left(+a^{i j}\right)\left(-b_{i j}\right)\substack{i\rightarrow j,j\rightarrow i\\=}-a^{i j} b_{i j}
+$$
+The quantity that equals itself with an opposite sign is zero.
+\begin{example}
+(i) Prove that if $b^{i j}(x)$ is a tensor and $a_{l}(x)$ and $c_{k}(x)$ are covariant vector fields, then $f(x)=b^{i j}(x) \cdot a_{i}(x) \cdot c_{j}(x)$ is a scalar field.
+
+(ii) In case $a_{i}(x) \equiv c_{i}(x),$ formulate the sufficient condition for $b^{i j}(x),$ such that the product $f(x) \equiv 0$
+\end{example}
+\textbf{Solution:}
+
+(i) $b^{i j}(x) \cdot a_{i}(x) \cdot c_{j}(x)=d^{ij}{}_{ij}(x)$, which is a scalar.
+
+(ii) when $b$ is anti-symmetric: $b^{i j}=b^{[i j]}$
+
+\subsubsection{Determinants}
+Consider first $2 D$ and special coordinates $X^{1}$ and $X^{2}$ corresponding to the orthonormal basis $\hat{\mathbf{n}}_{1}$ and $\hat{\mathbf{n}}_{2}$. We first define a special maximal absolutely antisymmetric object in 2D using the relations:
+$$
+E_{a b}=-E_{b a} \quad \text { and } \quad E_{12}=1
+$$
+\begin{qt}
+For and matrix $\left\|C_{b}^{a}\right\|$ we can write its determinant as
+\begin{equation}
+\operatorname{det}\left\|C_{b}^{a}\right\|=E_{a b} C_{1}^{a} C_{2}^{b}
+\end{equation}
+and
+\begin{equation}
+\operatorname{det}\left(C_{b}^{a}\right)=\frac{1}{2} E_{a b} E^{d e} C_{d}^{a} C_{e}^{b}
+\end{equation}
+The difference between these two equations is that the latter admits two expressions $C_{1}^{a} C_{2}^{b}$ and $C_{2}^{a} C_{1}^{b}$. Thus, we have the $1/2$ factor in the second equation.
+\end{qt}
+Because $E_{ab}$ is maximal absolutely anti-symmetric, we also have:
+\begin{equation}
+E_{a b} C_{e}^{a} C_{d}^{b}=-E_{a b} C_{e}^{b} C_{d}^{a}
+\end{equation}
+\textit{Proof}
+$$
+E_{a b} C_{e}^{a} C_{d}^{b}=E_{b a} C_{e}^{b} C_{d}^{a}=-E_{a b} C_{d}^{a} C_{e}^{b}
+$$
+Here in the first equality, we have exchanged the names of the umbral(dummy) indices $a \leftrightarrow b$ and in the second one used antisymmetry $E_{a b}=-E_{b a}$. \bluep{Now we consider an arbitrary dimension of space D.}
+\begin{qt}
+Consider $a, b=1,2,3, \ldots, D . \quad \forall$ matrix $\left\|C_{b}^{a}\right\|,$ the determinant is
+\begin{equation}
+\operatorname{det}\left\|C_{b}^{a}\right\|=E_{a_{1} a_{2} \dots a_{D}} \cdot C_{1}^{a_{1}} C_{2}^{a_{2}} \cdots C_{D}^{a_{D}}
+\end{equation}
+where $E_{a_1a_2\dots a_D}$ is absolutely antisymmetric and $E_{123\dots D}=1$. \redp{The determinant in the equation above is a sum of D! terms, each of which is a product of elements from different lines and columns, taken with the positive sign for even and with the negative sign for odd parity of permutations.}
+\end{qt}
+In general, the repression
+\begin{equation}
+\mathcal{A}_{a_{1} \ldots a_{D}}=E_{b_{1} \ldots b_{D}} A_{a_{1}}^{b_{1}} A_{a_{2}}^{b_{2}} \ldots A_{a_{D}}^{b_{D}}
+\end{equation}
+\bluep{is absolutely antisymmetric in the indices $\left\{a_{1}, \ldots, a_{D}\right\}$ and therefore is proportional to $E_{a_{1} \ldots a_{D}}$}.
+\begin{qt}
+In an arbitrary dimension D
+\begin{equation}
+\operatorname{det}\left\|C_{b}^{a}\right\|=\frac{1}{D !} E_{a_{1} a_{2} \ldots a_{D}} E^{b_{1} b_{2} \ldots b_{D}} \cdot C_{b_{1}}^{a_{1}} C_{b_{2}}^{a_{2}} \ldots C_{b_{D}}^{a_{D}}
+\end{equation}
+and
+\begin{equation}
+E^{a_{1} a_{2} \ldots a_{D}} \cdot E_{b_{1} b_{2} \ldots b_{D}}=\left|\begin{array}{cccc}
+{\delta_{b_{1}}^{a_{1}}} & {\delta_{b_{2}}^{a_{1}}} & {\ldots}&{ \delta_{b_{D}}^{a_{1}}} \\
+{\delta_{b_{1}}^{a_{2}}} & {\delta_{b_{2}}^{a_{2}}} & {\ldots} & {\delta_{b_{D}}^{a_{2}}} \\
+{\ldots} & {\cdots} & {\cdots} & {\ldots} \\
+{\delta_{b_{1}}^{a_{D}}} & {\ldots} & {\cdots} & {\delta_{b_{D}}^{a_{D}}}
+\end{array}\right|
+\end{equation}
+\end{qt}
+Following the theorem above, we have for the special dimension 3D:
+$$
+E^{a b c} E_{d e f}=\left|\begin{array}{ccc}
+{\delta_{d}^{a}} & {\delta_{e}^{a}} & {\delta_{f}^{a}} \\
+{\delta_{d}^{b}} & {\delta_{e}^{b}} & {\delta_{f}^{b}} \\
+{\delta_{d}^{c}} & {\delta_{e}^{c}} & {\delta_{f}^{c}}
+\end{array}\right|
+$$
+Now, let's contract the indices $c,f$:
+\begin{qt}
+\begin{equation}
+E^{a b c} E_{d e c}=\left|\begin{array}{ccc}
+{\delta_{d}^{a}} & {\delta_{e}^{a}} & {\delta_{c}^{a}} \\
+{\delta_{d}^{b}} & {\delta_{e}^{b}} & {\delta_{c}^{b}} \\
+{\delta_{d}^{c}} & {\delta_{e}^{c}} & {3}
+\end{array}\right|=\delta_{d}^{a} \delta_{e}^{b}-\delta_{e}^{a} \delta_{d}^{b}
+\end{equation}
+\end{qt}
+The last formula is sometimes called magic, as it is an extremely useful tool for the calculations in analytic geometry and vector calculus. Let us proceed and contract indices b and e. We obtain
+$$
+E^{a b c} E_{d b c}=3 \delta_{d}^{a}-\delta_{d}^{a}=2 \delta_{d}^{a}
+$$
+Finally, contracting the last remaining couple of indices, we arrive at
+$$
+E^{a b c} E_{a b c}=6
+$$
+In general
+\begin{qt}
+\begin{equation}
+E^{a_{1} a_{2} \ldots a_{D}} E_{a_{1} a_{2} \ldots a_{D}}=D !
+\end{equation}
+Because for the first index, we have $D$ choices, for the second $D-1$ choices, for the third $D-2$ choices, etc. 
+\end{qt}
+\begin{example}
+Using definition of the maximal antisymmetric symbol $E^{a_{1} a_{2} \ldots a_{D}}$ prove the rule for the product of matrix determinants:
+$$
+\operatorname{det}(A \cdot B)=\operatorname{det} A \cdot \operatorname{det} B
+$$
+Here both $A=\left\|a_{k}^{i}\right\|$ and $B=\left\|b_{k}^{i}\right\|$ are $n \times n$ matrices.
+\end{example}
+\textbf{Solution:}
+$$
+\operatorname{det}(A \cdot B)=E_{i_{1} i_{2} \ldots i_{D}}(A \cdot B)_{1}^{i_{1}}(A \cdot B)_{2}^{i_{2}} \ldots(A \cdot B)_{D}^{i_{D}}
+$$
+expand, we have
+$$
+\operatorname{det}(A \cdot B)=E_{i_{1} i_{2} \ldots i_{D}} a_{k_{1}}^{i_{1}} a_{k_{2}}^{i_{2}} \ldots a_{k_{D}}^{i_{D}} b_{1}^{k_{1}} b_{2}^{k_{2}} \ldots b_{D}^{k_{D}}
+$$
+According to (5.11.8), we have
+$$
+E_{i_{1} i_{2} \ldots i_{D}} a_{k_{1}}^{i_{1}} a_{k_{2}}^{i_{2}} \ldots a_{k_{D}}^{i_{D}}=E_{k_{1} k_{2} \ldots k_{D}} \cdot \operatorname{det} A
+$$
+Therefore,
+$$
+\operatorname{det}(A \cdot B)=\operatorname{det} A E_{k_{1} k_{2} \ldots k_{D}} b_{1}^{k_{1}} b_{2}^{k_{2}} \ldots b_{D}^{k_{D}}
+$$
+Finally, let's consider two more statements
+\begin{lemma}
+For any nondegenerate $D \times D$ matrix $M_{b}^{a}$ with the determinant $M,$ the elements of the inverse matrix $\left(M^{-1}\right)_{c}^{b}$ are given by the expressions
+\begin{equation}
+\left(M^{-1}\right)_{a}^{b}=\frac{1}{M(D-1) !} E_{a a_{2} \ldots a_{D}} E^{b b_{2} \ldots b_{D}} M_{b_{2}}^{a_{2}} M_{b_{3}}^{a_{3}} \ldots M_{b_{D}}^{a_{D}}
+\end{equation}
+\end{lemma}
+Consider the nondegenerate $D \times D$ matrix $\left\|M_{b}^{a}\right\|$ with the elements $M_{b}^{a}=M_{b}^{a}(\kappa)$ being functions of some parameter $\kappa .$In general, the determinant of this matrix $M=\operatorname{det}\left\|M_{b}^{a}\right\|$ also depends on $\kappa .$ Suppose all functions $M_{b}^{a}(\kappa)$ are differentiable. Then the derivative of the determinant equals
+\begin{qt}
+\begin{equation}
+\dot{M}=\frac{d M}{d \kappa}=M\left(M^{-1}\right)_{a}^{b} \frac{d M_{b}^{a}}{d \kappa}
+\end{equation}
+\end{qt}
+where $\left(M^{-1}\right)_{a}^{b}$ are the elements of the matrix imverse to $\left(M_{b}^{a}\right)$ and the dot over $a$ function indicates its derivative with respect to $\kappa$.
+
+\subsection{Applications to Vector Algebra}
