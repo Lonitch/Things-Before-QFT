@@ -709,3 +709,152 @@ Consider the nondegenerate $D \times D$ matrix $\left\|M_{b}^{a}\right\|$ with t
 where $\left(M^{-1}\right)_{a}^{b}$ are the elements of the matrix imverse to $\left(M_{b}^{a}\right)$ and the dot over $a$ function indicates its derivative with respect to $\kappa$.
 
 \subsection{Applications to Vector Algebra}
+Let's come back to the following definition for a \textbf{special object}:
+$$
+E^{a b c} E_{d e c}=\left|\begin{array}{ccc}
+{\delta_{d}^{a}} & {\delta_{e}^{a}} & {\delta_{c}^{a}} \\
+{\delta_{d}^{b}} & {\delta_{e}^{b}} & {\delta_{c}^{b}} \\
+{\delta_{d}^{c}} & {\delta_{e}^{c}} & {3}
+\end{array}\right|=\delta_{d}^{a} \delta_{e}^{b}-\delta_{e}^{a} \delta_{d}^{b}
+$$
+We first working on a special orthonormal basis $\hat{\mathbf{n}}_{a}=(\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}})$, corresponding to the Cartesian coordinates $X^a$. In a vector product notations, we have
+$$
+\begin{aligned}
+&\left[\hat{\mathbf{n}}_{1}, \hat{\mathbf{n}}_{2}\right]=\hat{\mathbf{n}}_{1} \times \hat{\mathbf{n}}_{2}=\hat{\mathbf{n}}_{3}\\
+&\left[\hat{\mathbf{n}}_{2}, \hat{\mathbf{n}}_{3}\right]=\hat{\mathbf{n}}_{2} \times \hat{\mathbf{n}}_{3}=\hat{\mathbf{n}}_{1}\\
+&\left[\hat{\mathbf{n}}_{3}, \hat{\mathbf{n}}_{1}\right]=\hat{\mathbf{n}}_{3} \times \hat{\mathbf{n}}_{1}=\hat{\mathbf{n}}_{2}
+\end{aligned}
+$$
+Using the previously defined $E^{abc}$, we can write this in a more compact way:
+\begin{equation}
+\left[\hat{\mathbf{n}}_{a}, \hat{\mathbf{n}}_{b}\right]=E_{a b c} \cdot \hat{\mathbf{n}}^{c}
+\end{equation}
+For orthonormal basis, $\hat{\mathbf{n}}_{a}=\hat{\mathbf{n}}^{a}$ and $E^{a b c}=E_{a b c}$. In general, if we consider two vectors $\mathbf{V}=V^{a} \hat{\mathbf{n}}_{a}$ and $\mathbf{W}=W^{a} \hat{\mathbf{n}}_{a}$, then
+\redp{$$
+[\mathbf{V}, \mathbf{W}]=E_{a b c} \cdot V^{a} \cdot W^{b} \cdot \hat{\mathbf{n}}^{c}
+$$}
+Using this object, we can solve many problems of vector algebra:
+\begin{example}
+Consider the mixed product of the three vectors
+$$
+(\mathbf{U}, \mathbf{V}, \mathbf{W})=(\mathbf{U},[\mathbf{V}, \mathbf{W}])=U^{a} \cdot[\mathbf{V}, \mathbf{W}]_{a}
+$$
+$$
+=U^{a} \cdot E_{a b c} V^{b} W^{c}=E_{a b c} U^{a} V^{b} W^{c}=\left|\begin{array}{ccc}
+{U^{1}} & {U^{2}} & {U^{3}} \\
+{V^{1}} & {V^{2}} & {V^{3}} \\
+{W^{1}} & {W^{2}} & {W^{3}}
+\end{array}\right|
+$$
+\end{example}
+The similar arguments can be made to prove the following properties of the \textbf{mixed product}:
+\begin{qt}
+(i) Cyclic identity: $(\mathbf{U}, \mathbf{V}, \mathbf{W})=(\mathbf{W}, \mathbf{U}, \mathbf{V})=(\mathbf{V}, \mathbf{W}, \mathbf{U})$
+
+(ii) Antisymmetry: $(\mathbf{U}, \mathbf{V}, \mathbf{W})=-(\mathbf{V}, \mathbf{U}, \mathbf{W})=-(\mathbf{U}, \mathbf{W}, \mathbf{V})$
+\end{qt}
+\begin{example}
+Prove $[\mathbf{U}, \mathbf{V}] \times[\mathbf{W}, \mathbf{Y}]=\mathbf{V} \cdot(\mathbf{U}, \mathbf{W}, \mathbf{Y})-\mathbf{U} \cdot(\mathbf{V}, \mathbf{W}, \mathbf{Y})$
+$$
+([\mathbf{U}, \mathbf{V}] \times[\mathbf{W}, \mathbf{Y}])_{a}=E_{a b c}[\mathbf{U}, \mathbf{V}]^{b}[\mathbf{W}, \mathbf{Y}]^{c}=E_{a b c} E^{b d e} U_{d} V_{e} E^{c f g} W_{f} Y_{g}
+$$
+$$
+=-E_{b a c} E^{b d e} E^{c f g} U_{d} V_{e} W_{f} Y_{g}=-\left(\delta_{a}^{d} \delta_{c}^{e}-\delta_{a}^{e} \delta_{c}^{d}\right) E^{c f g} U_{d} V_{e} W_{f} Y_{g}
+$$
+$$
+=E^{c f g}\left(U_{c} V_{a} W_{f} Y_{g}-U_{a} V_{c} W_{f} Y_{g}\right)=V_{a}(\mathbf{U}, \mathbf{W}, \mathbf{Y})-U_{a}(\mathbf{V}, \mathbf{W}, \mathbf{Y})
+$$
+\end{example}
+Some more identities
+\begin{qt}
+$$
+[[\mathbf{U}, \mathbf{V}],[\mathbf{W}, \mathbf{Y}]]=\mathbf{W} \cdot(\mathbf{Y}, \mathbf{U}, \mathbf{V})-\mathbf{Y} \cdot(\mathbf{W}, \mathbf{U}, \mathbf{V})
+$$
+$$
+\mathbf{V}(\mathbf{W}, \mathbf{Y}, \mathbf{U})-\mathbf{U}(\mathbf{W}, \mathbf{Y}, \mathbf{V})=\mathbf{W}(\mathbf{U}, \mathbf{V}, \mathbf{Y})-\mathbf{Y}(\mathbf{U}, \mathbf{V}, \mathbf{W})
+$$
+$$
+[\mathbf{U} \times \mathbf{V}] \cdot[\mathbf{W} \times \mathbf{Y}]=(\mathbf{U} \cdot \mathbf{W})(\mathbf{V} \cdot \mathbf{Y})-(\mathbf{U} \cdot \mathbf{Y})(\mathbf{V} \cdot \mathbf{W})
+$$
+$$
+[\mathbf{A},[\mathbf{B}, \mathbf{C}]]=\mathbf{B}(\mathbf{A}, \mathbf{C})-\mathbf{C}(\mathbf{A}, \mathbf{B})
+$$
+$$
+[\mathbf{U},[\mathbf{V}, \mathbf{W}]]+[\mathbf{W},[\mathbf{U}, \mathbf{V}]]+[\mathbf{V},[\mathbf{W}, \mathbf{U}]]=0
+$$
+\end{qt}
+Now, let's construct a tensor version of the object $E_{abc}$. To do so, one has to use the \textbf{transformation rule for the covariant tensor of the third rank,starting from the special Cartesian coordinates $X^a$}:
+\begin{equation}
+\varepsilon_{i j k}=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} \frac{\partial X^{c}}{\partial x^{k}} E_{a b c}
+\end{equation}
+\begin{qt}
+The component $\varepsilon_{123}$ is a square root of the metric determinant,
+\begin{equation}
+    \varepsilon_{123}=g^{1 / 2}, \quad \text { where } g=\operatorname{det}\left\|g_{i j}\right\|
+    \label{eps123-!}
+\end{equation}
+or
+\begin{equation}
+    \varepsilon_{123}=\operatorname{det}\left\|\frac{\partial X^{a}}{\partial x^{i}}\right\|
+    \label{eps123}
+\end{equation}
+while we can use (\ref{eps123}) without much thought, we need to be careful using (\ref{eps123-!}). The reason is that \redp{the coordinate transformations that break parity can change the sign in the r.h.s. in Eq.(\ref{eps123-!})}
+\end{qt}
+Despite $E_{i j k}$ is not being a tensor, we can easily control its transformation from one coordinate system to another:
+$$
+E_{i j k}=\frac{1}{\sqrt{g}} \varepsilon_{i j k}
+$$
+$E_{i j k}$ is a particular example of objects which are called \textbf{tensor densities}.
+\begin{defi}
+        The quantity $A_{i_{1} \ldots i_{n}}{}^{j_{1} \ldots j_{n}}$ is a tensor density of the $(m, n)$ -type with the weight $r,$ if the quantity
+        $$
+g^{-r / 2} \cdot A_{i_{1} \ldots i_{n}}{}^{j_{1} \ldots j_{m}}
+$$
+is a tensor.
+\end{defi}
+In general,
+\begin{equation}
+\varepsilon_{i_{1} i_{2} \cdots i_{D}}=\frac{\partial x^{a_{1}}}{\partial x^{i_{1}}} \frac{\partial x^{a_{2}}}{\partial x^{i_{2}}} \cdots \frac{\partial x^{a_{D}}}{\partial x^{i_{D}}} E_{a_{1} a_{2} \cdots a_{D}}
+\end{equation}
+Since
+\begin{equation}
+g_{i j}=\frac{\partial x^{a}}{\partial x^{i}} \frac{\partial x^{b}}{\partial x^{j}} \delta_{b}^{a}
+\end{equation}
+assuming that the orientation of axes is such that $\operatorname{det}\left(\frac{\partial x^{a}}{\partial x^{i}}\right)>0,$ we get
+\begin{equation}
+\operatorname{det}\left\|\frac{\partial x^{a}}{\partial x^{i}}\right\|=\sqrt{g}
+\end{equation}
+Then
+\begin{qt}
+\begin{equation}
+\varepsilon_{123 \dots D}=\frac{\partial x^{a_{1}}}{\partial x^{1}} \frac{\partial x^{a_{2}}}{\partial x^{2}} \cdots \frac{\partial x^{a_{D}}}{\partial x^{D}} E_{a_{1} a_{2} \cdots a_{D}}=\operatorname{det}\left(\frac{\partial x^{a}}{\partial x^{i}}\right)=\sqrt{g}
+\end{equation}
+Similarly, $\varepsilon^{12 \cdots D}=\frac{1}{\sqrt{g}}$.
+\end{qt}
+
+\section{Curvilinear Coordinates, Local Coordinate Transformations}
+So far, we have learned the following transformation rule for scalar field, vector, and tensor:
+$$
+\varphi^{\prime}\left(x^{\prime}\right)=\varphi(x)
+$$
+$$
+a^{\prime i}\left(x^{\prime}\right)=\frac{\partial x^{i}}{\partial x^{j}} a^{j}(x)
+$$
+$$
+b_{l}^{\prime}\left(x^{\prime}\right)=\frac{\partial x^{k}}{\partial x^{\prime l}} b_{k}(x)
+$$
+$$
+A_{j^{\prime}}^{i^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} \frac{\partial x^{l}}{\partial x^{\prime j}} A_{l}^{k}(x)
+$$
+and for metric tensor:
+$$
+g_{i j}(x)=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} g_{a b}
+$$
+$$
+g^{i j}=\frac{\partial x^{i}}{\partial X^{a}} \frac{\partial x^{j}}{\partial X^{b}} \delta^{a b}
+$$
+where $g_{a b}=\delta_{a b}$ is a metric in Cartesian coordinates.
+
+It is so easy to generalize the notion of tensor and algebraic operations over tensors, \textbf{because all these operations are defined in the same point of the space.} Thus, the main difference between general coordinate transformation $x^{\prime \alpha}=x^{\prime \alpha}(x)$ and the special one $x^{\prime \alpha}=\wedge_{\beta}^{\alpha^{\prime}} x^{\beta}+B^{\alpha^{\prime}}$ with $\wedge_{\beta}^{\alpha^{\prime}}=$ const and $B^{\alpha^{\prime}}=$ const is that \textbf{in the general case, the transition coefficients $\partial x^{i} / \partial x^{\prime j}$ are not necessary constants.}
+
+One of important consequences is that \bluep{the metric tensor $g_{i j}$ also depends on the point. Additionally, the antisymmetric tensor $\varepsilon^{i j k}$ also depends on the coordinates}.
