@@ -536,7 +536,7 @@ g_{ab}=\left(\begin{array}{cc}
 {0} & {1}
 \end{array}\right)
 $$
-we have $\epsilon_{ab}=\epsilon^{ab}$. Thus, $\varepsilon_{12}=\frac{\partial x^k}{\partial x^{\prime 1}}\frac{\partial x^l}{\partial x^{\prime 2}}\epsilon_{kl}=-1/2$. Also, the metric tensor for our new basis is
+we have $\epsilon_{ab}=\epsilon^{ab}$. Thus, $\varepsilon_{12}=\frac{\partial x^k}{\partial x^{\prime 1}}\frac{\partial x^l}{\partial x^{\prime 2}}\epsilon_{kl}=-1/2$. Also, the metric tensor for our new basis (\textbf{w.r.t. the orthonormalized vector basis}) is
 $$
 g_{ij}=\frac{\partial x^{a}}{\partial x^i}\frac{\partial x^{b}}{\partial x^j}g_{ab}=\left(\begin{array}{cc}
 {1/2} & {0}\\
@@ -847,14 +847,251 @@ $$
 A_{j^{\prime}}^{i^{\prime}}\left(x^{\prime}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{k}} \frac{\partial x^{l}}{\partial x^{\prime j}} A_{l}^{k}(x)
 $$
 and for metric tensor:
-$$
-g_{i j}(x)=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} g_{a b}
-$$
-$$
-g^{i j}=\frac{\partial x^{i}}{\partial X^{a}} \frac{\partial x^{j}}{\partial X^{b}} \delta^{a b}
-$$
+\begin{equation}
+    g_{i j}(x)=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} g_{a b}
+    \label{metric-orthonormal}
+\end{equation}
+\begin{equation}
+    g^{i j}=\frac{\partial x^{i}}{\partial X^{a}} \frac{\partial x^{j}}{\partial X^{b}} \delta^{a b}
+\end{equation}
+
+
 where $g_{a b}=\delta_{a b}$ is a metric in Cartesian coordinates.
 
 It is so easy to generalize the notion of tensor and algebraic operations over tensors, \textbf{because all these operations are defined in the same point of the space.} Thus, the main difference between general coordinate transformation $x^{\prime \alpha}=x^{\prime \alpha}(x)$ and the special one $x^{\prime \alpha}=\wedge_{\beta}^{\alpha^{\prime}} x^{\beta}+B^{\alpha^{\prime}}$ with $\wedge_{\beta}^{\alpha^{\prime}}=$ const and $B^{\alpha^{\prime}}=$ const is that \textbf{in the general case, the transition coefficients $\partial x^{i} / \partial x^{\prime j}$ are not necessary constants.}
 
 One of important consequences is that \bluep{the metric tensor $g_{i j}$ also depends on the point. Additionally, the antisymmetric tensor $\varepsilon^{i j k}$ also depends on the coordinates}.
+
+\subsection{Polar coordinates on the plane}
+Our purpose in this section is to learn how to transform an arbitrary tensor to polar coordinates. From $(x,y)$ to $(r,\varphi)$, we have
+$$
+\begin{array}{l}
+{\mathbf{e}_{r}=\frac{\partial x}{\partial r} \hat{\mathbf{n}}_{x}+\frac{\partial y}{\partial r} \hat{\mathbf{n}}_{y}=\hat{\mathbf{i}} \cos \varphi+\hat{\mathbf{j}} \sin \varphi} \\
+{\mathbf{e}_{\varphi}=\frac{\partial x}{\partial \varphi} \hat{\mathbf{n}}_{x}+\frac{\partial y}{\partial \varphi} \hat{\mathbf{n}}_{y}=r(-\hat{\mathbf{i}} \sin \varphi+\hat{\mathbf{j}} \cos \varphi)}
+\end{array}
+$$
+\textbf{Because these basis vectors are orthogonal,} the metric in polar coordinates is diagonal
+\begin{equation}
+g_{i j}=\left(\begin{array}{ll}
+{g_{r r}} & {g_{r \varphi}} \\
+{g_{\varphi r}} & {g_{\varphi \varphi}}
+\end{array}\right)=\left(\begin{array}{cc}
+{\mathbf{e}_{r} \cdot \mathbf{e}_{r}} & {\mathbf{e}_{r} \cdot \mathbf{e}_{\varphi}} \\
+{\mathbf{e}_{\varphi} \cdot \mathbf{e}_{r}} & {\mathbf{e}_{\varphi} \cdot \mathbf{e}_{\varphi}}
+\end{array}\right)=\left(\begin{array}{cc}
+{1} & {0} \\
+{0} & {r^{2}}
+\end{array}\right)
+\end{equation}
+The first observation is that the basic vectors $\mathbf{e}_{r}$ and $\mathbf{e}_{\varphi}$ are orthogonal $\mathbf{e}_{r} \cdot \mathbf{e}_{\varphi}=0 .$ As a result, the metric in polar coordinates is diagonal. Again, \redp{this metric tensor is w.r.t. the coordinate basis, not w.r.t. orthonormalized vector basis}. To get metrix tensor w.r.t. orthonormalized vector, we can simply use Eq.(\ref{metric-orthonormal}).
+
+In what follows we shall mark the components of the vector in this basis by tilde. The simpler notations without tilde are always reserved for the components of the vector in the normalized basis. Generally, \bluep{using the normalized basis means that all components of the vector have the same dimension.}
+
+\begin{example}
+For the polar coordinates on the 2D plane, find the metric by performing transformation of the metric in Cartesian coordinates
+\end{example}
+\textbf{Solution}:
+$$
+g_{a b}=\delta_{a b}, \quad \text { that is } \quad g_{x x}=1=g_{y y}, \quad g_{x y}=g_{y x}=0
+$$
+$$
+\begin{aligned}
+g_{\varphi \varphi} &=\frac{\partial x}{\partial \varphi} \frac{\partial x}{\partial \varphi} g_{x x}+\frac{\partial x}{\partial \varphi} \frac{\partial y}{\partial \varphi} g_{x y}+\frac{\partial y}{\partial \varphi} \frac{\partial x}{\partial \varphi} g_{y x}+\frac{\partial y}{\partial \varphi} \frac{\partial y}{\partial \varphi} g_{y y}=\\
+&=\left(\frac{\partial x}{\partial \varphi}\right)^{2}+\left(\frac{\partial y}{\partial \varphi}\right)^{2}=r^{2} \sin ^{2} \varphi+r^{2} \cos ^{2} \varphi=r^{2}
+\end{aligned}
+$$
+and
+$$
+g_{r r}=\frac{\partial x}{\partial r} \frac{\partial x}{\partial r} g_{x x}+\frac{\partial y}{\partial r} \frac{\partial y}{\partial r} g_{y y}=\left(\frac{\partial x}{\partial r}\right)^{2}+\left(\frac{\partial y}{\partial r}\right)^{2}=\cos ^{2} \varphi+\sin ^{2} \varphi=1
+$$
+Thus, the metric is
+$$
+\left(\begin{array}{l}
+{g_{r r} g_{r \varphi}} \\
+{g_{\varphi r} g_{\varphi \varphi}}
+\end{array}\right)=\left(\begin{array}{ll}
+{1} & {0} \\
+{0} & {r^{2}}
+\end{array}\right)
+$$
+\bluep{This derivation of the metric has a simple geometric interpretation. Consider two points that have infinitesimally close $\varphi \text { and } r.$ The distance between a these two points $d s$ is defined by the relation}
+$$
+\begin{aligned}
+d s^{2} &=d x^{2}+d y^{2}=g_{a b} d X^{a} d X^{b}=g_{i j} d x^{i} d x^{j}=d r^{2}+r^{2} d \varphi^{2} \\
+&=g_{r r} d r d r+g_{\varphi \varphi} d \varphi d \varphi+2 g_{\varphi r} d \varphi d r
+\end{aligned}
+$$
+\begin{qt}
+\redp{The tensor form of the transformation of the metric corresponds to the
+coordinate-independent distance between two infinitesimally close points}
+\end{qt}
+
+\subsection{Cylindrical and Spherical Coordinates}
+ Cylindrical coordinates in 3D are defined by the relations:
+ $$
+\begin{aligned}
+x=r \cos \varphi, & y=r \sin \varphi, \quad z=z \\
+\text { where } \quad 0 \leq r<\infty, & 0 \leq \varphi<2 \pi \quad \text { and } \quad-\infty<z<\infty
+\end{aligned}
+$$
+The basic vectors are
+$$
+\mathbf{e}_{r}=\hat{\mathbf{i}} \cos \varphi+\hat{\mathbf{j}} \sin \varphi, \quad \mathbf{e}_{\varphi}=-\hat{\mathbf{i}} r \sin \varphi+\hat{\mathbf{j}} r \cos \varphi, \quad \mathbf{e}_{z}=\hat{\mathbf{k}}
+$$
+and the metric tensor is
+\begin{equation}
+g_{i j}=\left(\begin{array}{l}
+{g_{r r} g_{r \varphi} g_{r z}} \\
+{g_{\varphi r} g_{\varphi \varphi} g_{\varphi z}} \\
+{g_{z r} g_{z \varphi} g_{z z}}
+\end{array}\right)=\left(\begin{array}{ccc}
+{1} & {0} & {0} \\
+{0} & {r^{2}} & {0} \\
+{0} & {0} & {1}
+\end{array}\right)
+\end{equation}
+
+For spherical coordinates, we have
+the following relation with Cartesian coordiantes
+$$
+\begin{aligned}
+x=r \cos \varphi \sin \chi, & y=r \sin \varphi \sin \chi, \quad z=r \cos \chi \\
+\text { where } \quad 0 \leq r<\infty, & 0 \leq \varphi<2 \pi \quad \text { and } \quad 0 \leq \chi \leq \pi
+\end{aligned}
+$$
+The basic vector is then
+$$
+\begin{aligned}
+&\mathbf{e}_{r}=\hat{\mathbf{i}} \cos \varphi \sin \chi+\hat{\mathbf{j}} \sin \varphi \sin \chi+\hat{\mathbf{k}} \cos \chi\\
+&\mathbf{e}_{x}=\hat{\mathbf{i}} r \cos \varphi \cos \chi+\hat{\mathbf{j}} r \sin \varphi \cos \chi-\hat{\mathbf{k}} r \sin \chi\\
+&\mathbf{e}_{\varphi}=-\hat{\mathbf{i}} r \sin \varphi \sin \chi+\hat{\mathbf{j}} r \cos \varphi \sin \chi
+\end{aligned}
+$$
+with the metric tensor as
+$$
+g_{i j}=\left(\begin{array}{lll}
+{g_{r r}} & {g_{r x}} & {g_{r \varphi}} \\
+{g_{\chi r}} & {g_{\chi x}} & {g_{x \varphi}} \\
+{g_{\varphi r}} & {g_{\varphi x}} & {g_{\varphi \varphi}}
+\end{array}\right)=\left(\begin{array}{ccc}
+{1} & {0} & {0} \\
+{0} & {r^{2}} & {0} \\
+{0} & {0} & {r^{2} \sin ^{2} x}
+\end{array}\right)
+$$
+And the normalized basis is
+\begin{equation}
+    \begin{aligned}
+&\hat{\mathbf{n}}_{r}=\hat{\mathbf{i}} \cos \varphi \sin \chi+\hat{\mathbf{j}} \sin \varphi \sin \chi+\hat{\mathbf{k}} \cos \chi\\
+&\hat{\mathbf{n}}_{\varphi}=-\hat{\mathbf{i}} \sin \varphi+\hat{\mathbf{j}} \cos \varphi\\
+&\hat{\mathbf{n}}_{\chi}=\hat{\mathbf{i}} \cos \varphi \cos \chi+\hat{\mathbf{j}} \sin \varphi \cos \chi-\hat{\mathbf{k}} \sin \chi
+\end{aligned}
+\label{unitvec-spherical}
+\end{equation}
+Now let us derive the expression for the velocity and acceleration in 3D for the case of the spherical coordinates. The starting point is Eq.(\ref{unitvec-spherical}). A simple calculus gives the following result for the first derivatives:
+$$
+\begin{aligned}
+\dot{\mathbf{n}}_{r} &=\dot{\varphi} \sin \chi(-\hat{\mathbf{i}} \sin \varphi+\hat{\mathbf{j}} \cos \varphi) \\
+&+\dot{\chi}(\hat{\mathbf{i}} \cos \varphi \cos \chi+\hat{\mathbf{j}} \sin \varphi \cos \chi-\hat{\mathbf{k}} \sin \chi) \\
+\dot{\mathbf{n}}_{\varphi} &=-\dot{\varphi}(\hat{\mathbf{i}} \cos \varphi+\hat{\mathbf{j}} \sin \varphi) \\
+\dot{\mathbf{n}}_{\chi} &=\dot{\varphi} \cos \chi(-\hat{\mathbf{i}} \sin \varphi+\hat{\mathbf{j}} \cos \varphi) \\
+&-\dot{\chi}(\hat{\mathbf{i}} \sin \chi \cos \varphi+\hat{\mathbf{j}} \sin \chi \sin \varphi+\hat{\mathbf{k}} \cos \chi)
+\end{aligned}
+$$
+Next, we need to perform an inverse transformation from the Cartesian basis to the new basis:
+$$
+\begin{aligned}
+&\hat{\mathbf{i}}=\frac{\partial r}{\partial x} \mathbf{e}_{r}+\frac{\partial \varphi}{\partial x} \mathbf{e}_{\varphi}+\frac{\partial \chi}{\partial x} \mathbf{e}_{x}\\
+&\hat{\mathbf{j}}=\frac{\partial r}{\partial y} \mathbf{e}_{r}+\frac{\partial \varphi}{\partial y} \mathbf{e}_{\varphi}+\frac{\partial \chi}{\partial y} \mathbf{e}_{\chi}\\
+&\mathbf{k}=\frac{\partial r}{\partial z} \mathbf{e}_{r}+\frac{\partial \varphi}{\partial z} \mathbf{e}_{\varphi}+\frac{\partial \chi}{\partial z} \mathbf{e}_{\chi}
+\end{aligned}
+$$
+Using these relations, one can derive the first derivatives of the vector $\hat{\mathbf{n}}_{r}, \hat{\mathbf{n}}_{\varphi}, \hat{\mathbf{n}}_{\chi}$ in the final form:
+$$
+\begin{aligned}
+&\dot{\mathbf{n}}_{r}=\dot{\varphi} \sin \chi \hat{\mathbf{n}}_{\varphi}+\dot{\chi} \hat{\mathbf{n}}_{\chi}\\
+&\dot{\mathbf{n}}_{\varphi}=-\dot{\varphi}\left(\sin \chi \hat{\mathbf{n}}_{r}+\cos \chi \hat{\mathbf{n}}_{\chi}\right)\\
+&\dot{\mathbf{n}}_{\chi}=\dot{\varphi} \cos \chi \hat{\mathbf{n}}_{\varphi}-\dot{\chi} \hat{\mathbf{n}}_{r}
+\end{aligned}
+$$
+Now the particle's velocity and acceleration are
+\begin{equation}
+\mathbf{v}=\dot{\mathbf{r}}=\frac{d}{d t}\left(r \hat{\mathbf{n}}_{r}\right)=\dot{r} \hat{\mathbf{n}}_{r}+r \dot{\chi} \hat{\mathbf{n}}_{\chi}+r \dot{\varphi} \sin \chi \hat{\mathbf{n}}_{\varphi}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\mathbf{a} &=\ddot{\mathbf{r}}=\left(\ddot{r}-r \dot{\chi}^{2}-r \dot{\varphi}^{2} \sin ^{2} \chi\right) \hat{\mathbf{n}}_{r}+(2 r \dot{\varphi} \dot{\chi} \cos \chi+2 \dot{\varphi} \dot{r} \sin \chi+r \ddot{\varphi} \sin \chi) \hat{\mathbf{n}}_{\varphi} \\
+&+\left(2 \dot{r} \dot{\chi}+r \ddot{\chi}-r \dot{\varphi}^{2} \sin \chi \cos \chi\right) \hat{\mathbf{n}}_{\chi}
+\end{aligned}
+\end{equation}
+
+One can also find the components of Levi-Civita tensor $\epsilon_{123}$ and $\epsilon^{123}$ for cylindric and spherical coordinates using the following relations:
+\begin{equation}
+g=\operatorname{det}\left\|g_{i j}\right\| \quad \text { and } \quad \operatorname{det}\left\|g^{i j}\right\|=\frac{1}{g}
+\end{equation}
+$$
+\varepsilon^{123}=\frac{1}{\sqrt{g}}
+$$
+$$
+\varepsilon_{123}=g^{1 / 2}
+$$
+For the \bluep{hyperbolic coordinates,} we have
+$$
+x=r \cdot \cosh \varphi, \quad y=r \cdot \sinh \varphi
+$$
+Since
+$$
+\cosh ^{2} \varphi-\sinh ^{2} \varphi=1 ; \quad \cosh ^{\prime} \varphi=\sinh \varphi ; \quad \sinh ^{\prime} \varphi=\cosh \varphi
+$$
+we find
+$$
+g_{r r}=\cosh 2 \varphi, \quad g_{\varphi \varphi}=r^{2} \cosh 2 \varphi, \quad g_{r \varphi}=r \sinh 2 \varphi
+$$
+\textbf{in this case the basis is not orthogonal.}
+\section{Deivatives of Tensors,Covariant Derivatives}
+Let us start from a scalar field $\varphi$. Consider its partial derivative
+\begin{equation}
+\partial_{i} \varphi=\varphi_{, i}=\frac{\partial \varphi}{\partial x^{i}}
+\end{equation}
+\redp{In the transformed coordinates $x^{i}=x^{i i}\left(x^{j}\right)$ we obtain, using the chain rule and $\varphi^{\prime}\left(x^{\prime}\right)=\varphi(x)$}
+$$
+\partial_{i^{\prime}} \varphi^{\prime}=\frac{\partial \varphi^{\prime}}{\partial x^{i^{\prime}}}=\frac{\partial x^{j}}{\partial x^{\prime i}} \frac{\partial \varphi}{\partial x^{j}}=\frac{\partial x^{j}}{\partial x^{i}} \partial_{j} \varphi
+$$
+\textbf{The last formula shows that the partial derivative of a scalar field $\varphi_{, i}=\partial_{i} \varphi$ transforms as a covariant vector field. Certainly, there is no need to modify a partial derivative in this case.}
+
+Now we introduce \redp{vector differential operator $\nabla$}. 
+\begin{qt}
+When acting on a scalar, $\nabla$ produces a covariant vector which is called gradient.
+\end{qt}
+
+\textbf{The next step is to consider a partial derivative of a covariant vector $b_i(x)$}.Let us make a corresponding transformation
+\begin{qt}
+\begin{equation}
+\partial_{j^{\prime}} b_{i^{\prime}}=\frac{\partial}{\partial x^{\prime j}} b_{i^{\prime}}=\frac{\partial}{\partial x^{\prime j}}\left(\frac{\partial x^{k}}{\partial x^{\prime i}} b_{k}\right)=\frac{\partial x^{k}}{\partial x^{i^{\prime}}} \frac{\partial x^{l}}{\partial x^{\prime j}} \partial_{l} b_{k}+\frac{\partial^{2} x^{k}}{\partial x^{\prime j} \partial x^{\prime i}} b_{k}
+\label{vector-grad}
+\end{equation}
+\end{qt}
+The parenthesis contains a product of the two expressions that are functions of different coordinates $x^{\prime j}$ and $x^j$. \bluep{When the partial derivative $\partial / \partial x^{\prime j}$  acts on the function of the coordinates  $x^{i}$, it must be applied following the chain rule}
+\begin{equation}
+\frac{\partial}{\partial x^{\prime j}}=\frac{\partial x^{l}}{\partial x^{\prime j}} \frac{\partial}{\partial x^{l}}
+\label{chain-rule}
+\end{equation}
+The last term in Eq.(\ref{vector-grad}) can be zero when $\partial x^{k} / \partial x^{\prime i}$ is constant. Then its derivatives are zeros and the gradient of a covariant vector is a tensor. But, \textbf{for a general case of curvilinear coordinates (e.g., polar in 2D or spherical
+in 3D), the formula (\ref{vector-grad}) shows the non-tensor nature of the transformation.}
+
+For contravariant vector $a^i(x)$ we have similar relations to (\ref{vector-grad}):
+\begin{qt}
+\begin{equation}
+\partial_{k^{\prime}} a^{i^{\prime}}=\frac{\partial}{\partial x^{k^{\prime}}}\left(\frac{\partial x^{i^{\prime}}}{\partial x^{j}} a^{j}\right)=\frac{\partial x^{i^{\prime}}}{\partial x^{j}} \frac{\partial x^{l}}{\partial x^{k^{\prime}}} \partial_{l} a^{j}+\frac{\partial^{2} x^{i^{\prime}}}{\partial x^{j} \partial x^{l}} \frac{\partial x^{l}}{\partial x^{k^{\prime}}} a^{j}
+\end{equation}
+\textbf{Remember, $\frac{\partial x^{i^{\prime}}}{\partial x^{j}}$ is a function of $x^j$ and chain rule (\ref{chain-rule}) must apply here.}
+\end{qt}
+Similarly, for mixed tensor $T_i^j(x)$
+\begin{qt}
+\begin{equation}
+\begin{aligned}
+\partial_{k^{\prime}} T_{j^{\prime}}^{i^{\prime}} &=\frac{\partial}{\partial x^{k^{\prime}}}\left(\frac{\partial x^{i^{\prime}}}{\partial x^{l}} \frac{\partial x^{m}}{\partial x^{j^{\prime}}} T_{m}^{l}\right) \\
+&=\frac{\partial x^{n}}{\partial x^{k^{\prime}}} \frac{\partial x^{i^{\prime}}}{\partial x^{l}} \frac{\partial x^{m}}{\partial x^{j^{\prime}}} \partial_{n} T_{m}^{l}+\frac{\partial^{2} x^{i^{\prime}}}{\partial x^{n} \partial x^{l}} \frac{\partial x^{n}}{\partial x^{k^{\prime}}} \frac{\partial x^{m}}{\partial x^{j^{\prime}}} T_{m}^{l}+\frac{\partial x^{i^{\prime}}}{\partial x^{l}} \frac{\partial^{2} x^{m}}{\partial x^{k^{\prime}} \partial x^{j^{\prime}}} T_{m}^{l}
+\end{aligned}
+\end{equation}
+\end{qt}
