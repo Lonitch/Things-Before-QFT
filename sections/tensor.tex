@@ -1055,7 +1055,7 @@ Let us start from a scalar field $\varphi$. Consider its partial derivative
 \end{equation}
 \redp{In the transformed coordinates $x^{i}=x^{i i}\left(x^{j}\right)$ we obtain, using the chain rule and $\varphi^{\prime}\left(x^{\prime}\right)=\varphi(x)$}
 $$
-\partial_{i^{\prime}} \varphi^{\prime}=\frac{\partial \varphi^{\prime}}{\partial x^{i^{\prime}}}=\frac{\partial x^{j}}{\partial x^{\prime i}} \frac{\partial \varphi}{\partial x^{j}}=\frac{\partial x^{j}}{\partial x^{i}} \partial_{j} \varphi
+\partial_{i^{\prime}} \varphi^{\prime}=\frac{\partial \varphi^{\prime}}{\partial x^{i^{\prime}}}=\frac{\partial x^{j}}{\partial x^{\prime i}} \frac{\partial \varphi}{\partial x^{j}}=\frac{\partial x^{j}}{\partial x^{\prime i}} \partial_{j} \varphi
 $$
 \textbf{The last formula shows that the partial derivative of a scalar field $\varphi_{, i}=\partial_{i} \varphi$ transforms as a covariant vector field. Certainly, there is no need to modify a partial derivative in this case.}
 
@@ -1177,6 +1177,7 @@ Use the equation above, we find another expression for $\Gamma_{ki}^j$:
 \begin{qt}
 \begin{equation}
 \Gamma_{k i}^{j}=\frac{\partial x^{j}}{\partial X^{b}} \frac{\partial^{2} X^{b}}{\partial x^{i} \partial x^{k}}=-\frac{\partial^{2} x^{j}}{\partial X^{b} \partial X^{a}} \frac{\partial X^{a}}{\partial x^{k}} \frac{\partial X^{b}}{\partial x^{i}}
+\label{gamma-defi}
 \end{equation}
 \end{qt}
 By making direct calculation and using the equation above, we have:
@@ -1186,3 +1187,222 @@ By making direct calculation and using the equation above, we have:
 \begin{equation}
 \nabla_{i} W_{k}^{j}=\partial_{i} W_{k}^{j}+\Gamma_{l i}^{j} W_{k}^{l}-\Gamma_{k i}^{l} W_{l}^{j}
 \end{equation}
+Using the definition of $\Gamma_{ij}^k$, we can \textbf{formulate the general rule for constructing a covariant derivative of an arbitrary tensor,}
+\begin{qt}
+\begin{equation}
+    \begin{split}
+    \nabla_iT^{j_1j_2\dots}{}_{k_1k_2\dots}&=\partial_iT^{j_1j_2\dots}{}_{k_1k_2\dots}+\Gamma^{j_1}_{li}T^{lj_2\dots}{}_{k_1k_2\dots}+\Gamma^{j_2}_{li}T^{j_1l\dots}{}_{k_1k_2\dots}\\
+    &-\Gamma^{l}_{k_1i}T^{j_1j_2\dots}{}_{k_1l\dots}-\Gamma^{l}_{k_2i}T^{j_1j_2\dots}{}_{lk_2\dots}-\dots
+\end{split}
+\end{equation}
+\end{qt}
+According to the definition of \redp{affine connection} (\ref{gamma-defi}), we can derive the transformation rule for $\Gamma^i_{kj}$ as:
+$$
+\Gamma_{m^{\prime} n^{\prime}}^{l^{\prime}}=\frac{\partial x^{l^{\prime}}}{\partial X^{a}} \frac{\partial^{2} X^{a}}{\partial x^{m^{\prime}} \partial x^{n^{\prime}}}=\frac{\partial x^{l^{\prime}}}{\partial x^{i}} \frac{\partial x^{i}}{\partial X^{a}} \frac{\partial}{\partial x^{m^{\prime}}}\left[\frac{\partial X^{a}}{\partial x^{j}} \frac{\partial x^{j}}{\partial x^{n^{\prime}}}\right]
+$$
+$$
+=\Gamma_{k j}^{i} \frac{\partial x^{l^{\prime}}}{\partial x^{i}} \frac{\partial x^{k}}{\partial x^{m^{\prime}}} \frac{\partial x^{j}}{\partial x^{n^{\prime}}}+\frac{\partial x^{l^{\prime}}}{\partial x^{i}} \frac{\partial^{2} x^{i}}{\partial x^{m^{\prime}} \partial x^{n^{\prime}}}
+$$
+Thus,
+\begin{qt}
+\begin{equation}
+\Gamma_{j^{\prime} k^{\prime}}^{i^{\prime}}=\frac{\partial x^{i^{\prime}}}{\partial x^{l}} \frac{\partial x^{m}}{\partial x^{j^{\prime}}} \frac{\partial x^{n}}{\partial x^{k^{\prime}}} \Gamma_{m n}^{l}+\frac{\partial x^{i^{\prime}}}{\partial x^{r}} \frac{\partial^{2} x^{r}}{\partial x^{j^{\prime}} \partial x^{k^{\prime}}}
+\end{equation}
+\end{qt}
+\textbf{The most useful form of the affine connection is expressed via the metric tensor.} In any coordinate system
+\begin{equation}
+\nabla_{i} g_{j k}=\frac{\partial X^{c}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} \frac{\partial X^{a}}{\partial x^{k}} \partial_{c} g_{a b}=0
+\end{equation}
+where $g_{a b} \equiv \delta_{a b}, \quad$ and hence $\quad \partial_{c} g_{a b} \equiv \nabla_{c} g_{a b} \equiv 0$. If we apply to the above equation, the explicit form of the covariant derivative, we arrive at the equation:
+$$
+\nabla_{i} g_{j k}=\partial_{i} g_{j k}-\Gamma_{j i}^{1} g_{l k}-\Gamma_{k i}^{l} g_{l j}=0
+$$
+Making permutations of indices, we get:
+$$
+\begin{array}{l}
+{\partial_{i} g_{j k}=\Gamma_{j i}^{l} g_{l k}+\Gamma_{k i}^{l} g_{l j}} (i)\\
+{\partial_{j} g_{i k}=\Gamma_{i j}^{l} g_{l k}+\Gamma_{k j}^{l} g_{i l}} (ii)\\
+{\partial_{k} g_{i j}=\Gamma_{i k}^{l} g_{l j}+\Gamma_{j k}^{l} g_{l i}}(iii)
+\end{array}
+$$
+Taking $(i)+(ii)-(iii)$, we arrive at the relationship:
+$$
+2 \Gamma_{i j}^{l} g_{l k}=\partial_{i} g_{j k}+\partial_{j} g_{i k}-\partial_{k} g_{i j}
+$$
+Contracting both parts with $\left.g^{k m} \text { (remember that } g^{k m} g_{m l}=\delta_{l}^{k}\right),$ we arrive at
+\begin{qt}
+\begin{equation}
+\Gamma_{i j}^{m}=\frac{1}{2} g^{k m}\left(\partial_{i} g_{j k}+\partial_{j} g_{i k}-\partial_{k} g_{i j}\right)
+\end{equation}
+\end{qt}
+As an application of these formulas, we can consider the derivation of the Laplace operator acting on scalar and vector fields. For any kind of field, the Laplace operator can be defined as
+\begin{equation}
+\Delta=g^{i j} \nabla_{i} \nabla_{j}
+\end{equation}
+In the case of a scalar field $\Psi,$ we have
+\begin{equation}
+\Delta \Psi=g^{i j} \nabla_{i} \nabla_{j} \Psi=g^{i j} \nabla_{i} \partial_{j} \Psi
+\end{equation}
+The second covariant derivative acts on the vector $\partial_i\Psi$, hence
+\begin{equation}
+\Delta \Psi=g^{i j}\left(\partial_{i} \partial_{j}-\Gamma_{i j}^{k} \partial_{k}\right) \Psi=\left(g^{i j} \partial_{i} \partial_{j}-g^{i j} \Gamma_{i j}^{k} \partial_{k}\right) \Psi
+\end{equation}
+Similarly, for the vector field $A^i(x)$, we obtain
+\begin{equation}
+\begin{split}
+    \Delta A^{i}&=g^{j k} \nabla_{j} \nabla_{k} A^{i}=g^{j k}\left[\partial_{j}\left(\nabla_{k} A^{i}\right)-\Gamma_{k j}^{l} \nabla_{l} A^{i}+\Gamma_{l j}^{i} \nabla_{k} A^{l}\right]\\
+    &=g^{j k}[\partial_{j}\left(\partial_{k} A^{i}+\Gamma_{i k}^{i} A^{l}\right)-\Gamma_{k j}^{l}\left(\partial_{l} A^{i}+\Gamma_{m l}^{i} A^{m}\right)+\Gamma_{l j}^{i}\left(\partial_{k} A^{l}+\Gamma_{m k}^{l} A^{m}\right)]\\
+    &=g^{j k}(\partial_{j} \partial_{k} A^{i}+\Gamma_{i k}^{i} \partial_{j} A^{l}+A^{l} \partial_{j} \Gamma_{l k}^{i}-\Gamma_{k j}^{l} \partial_{l} A^{i}+\Gamma_{l j}^{i} \partial_{k} A^{l}\\
+    &-\Gamma_{k j}^{l} \Gamma_{m l}^{i} A^{m}+\Gamma_{l j}^{i} \Gamma_{m k}^{l} A^{m})
+\end{split}
+\end{equation}
+The formulas in the equations above for scalar and vector fields hold for any dimension $D$ and for an arbitrary choice of coordinates.
+\begin{example}
+Verify that for the scalar field $\Psi$, the following relation takes place:
+$$
+\Delta \Psi=div(grad\Psi)
+$$
+\textbf{Solution}:
+$$
+\operatorname{div} \operatorname{grad} \Psi=\nabla_{i}(\operatorname{grad} \Psi)^{i}=\nabla_{i}\left(g^{i j} \nabla_{j} \Psi\right)=\Delta \Psi
+$$
+The second equivalence is the result of raising subscript. And we also have $\nabla_{i}g^{i j}$.
+\end{example}
+\begin{example}
+Prove the following relation between the contraction of the affine connection and the derivative of the metric determinant $g=det||g_{\mu\nu}||$:
+\begin{equation}
+\Gamma_{i j}^{j}=\frac{1}{2 g} \frac{\partial g}{\partial x^{i}}=\partial_{i} \ln \sqrt{g}
+\end{equation}
+\end{example}
+\textbf{Solution:}
+$$
+\Gamma_{i j}^{j}=\frac{1}{2} \delta_{k}^{j} \Gamma_{i j}^{k}=\frac{1}{2} \delta_{k}^{j}g^{kl}\left(\partial_{i} g_{j l}+\partial_{j} g_{i l}-\partial_{l} g_{i j}\right)=\frac{1}{2} g^{j l} \partial_{i} g_{j l}=\frac{1}{2 g} \partial_{i} g
+$$
+The last equivalence holds because the derivative of the determinant $g$ equals:
+$$
+\dot{g}=\partial_i g=g g^{lj} \partial_i g_{jl}=g g^{jl} \partial_i g_{jl}
+$$
+
+\section{Grad,div and rot}
+Here, we consider some important operations over vector and scalar fields. All the consideration here will be restricted to the Cartesian coordinates, but the results can be easily generalized to any other coordinates by using the transformation rule. \bluep{When transforming the relations into curvilinear coordinates, one has to take care to use only the Levi-Civita tensor $\epsilon_{ijk}$ and not the maximal antisymmetric symbol $E_{ijk}$}. The two objects are related as \redp{$\epsilon_{ijk}=\sqrt{g}E{ijk}$ and $E_{123}=1$.}
+
+We already know
+$$
+\begin{array}{rl}
+{\operatorname{div} \mathbf{V}=\partial_{\mathrm{a}}} & {\mathrm{V}^{\mathrm{a}}=\nabla \mathbf{V}} \\
+{\operatorname{grad} \Psi=\hat{\mathbf{n}}^{a} \partial_{a} \Psi} & {=\nabla \Psi} \\
+{\Delta} & {=g^{a b} \partial_{a} \partial_{b}}
+\end{array}
+$$
+$$
+\nabla=\mathbf{e}^{i} \nabla_{i}=g^{i j} \mathbf{e}_{j} \nabla_{i}
+$$
+$$
+\operatorname{rot} \mathbf{V}=\left|\begin{array}{ccc}
+{\mathbf{i}} & {\mathbf{j}} & {\mathbf{k}} \\
+{\partial_{x}} & {\partial_{y}} & {\partial_{z}} \\
+{V_{x}} & {V_{y}} & {V_{z}}
+\end{array}\right|=\left|\begin{array}{ccc}
+{\hat{\mathbf{n}}_{1}} & {\hat{\mathbf{n}}_{2}} & {\hat{\mathbf{n}}_{3}} \\
+{\partial_{1}} & {\partial_{2}} & {\partial_{3}} \\
+{V_{1}} & {V_{2}} & {V_{3}}
+\end{array}\right|=\quad E^{a b c} \hat{\mathbf{n}}_{a} \partial_{b} V_{c}
+$$
+One can easily prove the following important relations using antisymmetry of $E^{abc}$:
+\begin{qt}
+\begin{equation}
+\text { rot grad } \Psi \equiv 0
+\end{equation}
+\begin{equation}
+\operatorname{div}(\operatorname{rot} \mathbf{V}) \equiv 0
+\end{equation}
+\end{qt}
+\subsection{Some important definitions}
+\begin{defi}
+        Consider a differentiable vector $\mathbf{C}(\mathbf{r}) .$ It is called \textbf{potential vector field}, if it can be presented as a gradient of some scalar field $\Psi(\mathbf{r})$ (called potential)
+        \begin{equation}
+\mathbf{C}(\mathbf{r})=\operatorname{grad} \Psi(\mathbf{r})
+\end{equation}
+\end{defi}
+\begin{defi}
+        A differentiable vector field $\mathbf{B}(\mathbf{r})$ is called \textbf{solenoidal}, if it can be presented as a rotor of some vector field $\mathbf{A}(\mathbf{r})$
+        \begin{equation}
+\mathbf{B}(\mathbf{r})=\operatorname{rot} \mathbf{A}(\mathbf{r})
+\end{equation}
+\end{defi}
+The most known physical example of the solenoidal vector field is the magnetic field B, which is derived from the vector potential $A$ exactly through the equation above.
+\begin{thm}
+Suppose $\mathbf{V}(\mathbf{r})$ is a smooth vector field, defined in the whole $3 D$ space, which falls sufficiently fast at infinity. Then $\mathbf{V}(\mathbf{r})$ has unique (up to a gauge transformation) representation as a sum
+$$
+\mathbf{V}=\mathbf{C}+\mathbf{B}
+$$
+where C and B are potential and solenoidal fields correspondingly.
+\end{thm}
+
+\section{Grad, div, rot in other coordinates}
+In cylindrical coordinates, we have a scalar field $\Psi$ and vector field $\mathbf{V}$:
+$$
+(\operatorname{grad} \Psi)_{r}=\frac{\partial \Psi}{\partial r}, \quad(\operatorname{grad} \Psi)_{\varphi}=\frac{1}{r} \frac{\partial \Psi}{\partial \varphi}, \quad(\operatorname{grad} \Psi)_{z}=\frac{\partial \Psi}{\partial z}
+$$
+$$
+\operatorname{div} \mathbf{V}=\frac{1}{r} \frac{\partial}{\partial r}\left(r V^{r}\right)+\frac{1}{r} \frac{\partial V^{\varphi}}{\partial \varphi}+\frac{\partial V^{z}}{\partial z}
+$$
+$$
+(\operatorname{rot} \mathbf{V})^{z}=\frac{1}{r} \frac{\partial\left(r V^{\varphi}\right)}{\partial r}-\frac{1}{r} \frac{\partial V^{r}}{\partial_{\varphi}}, \quad(\operatorname{rot} \mathbf{V})^{r}=\frac{1}{r} \frac{\partial V^{z}}{\partial \varphi}-\frac{\partial V^{\varphi}}{\partial z}
+$$
+$$
+\begin{aligned}
+&(\operatorname{rot} \mathbf{V})^{\varphi}=\frac{\partial V^{r}}{\partial z}-\frac{\partial V^{z}}{\partial r}\\
+&\Delta \Psi=\frac{1}{r} \frac{\partial}{\partial r}\left(r \frac{\partial \Psi}{\partial r}\right)+\frac{1}{r^{2}} \frac{\partial^{2} \Psi}{\partial \varphi^{2}}+\frac{\partial^{2} \Psi}{\partial z^{2}}
+\end{aligned}
+$$
+In spherical coordinates
+$$
+(\operatorname{grad} \Psi)_{r}=\frac{\partial \Psi}{\partial r}, \quad(\operatorname{grad} \Psi)_{\varphi}=\frac{1}{r \sin \theta} \frac{\partial \Psi}{\partial \varphi}, \quad(\operatorname{grad} \Psi)_{\theta}=\frac{1}{r} \frac{\partial \Psi}{\partial \theta}
+$$
+$$
+\operatorname{div} \mathbf{V}=\frac{1}{r^{2}} \frac{\partial}{\partial r}\left(r^{2} V^{r}\right)+\frac{1}{r \sin \theta} \frac{\partial V^{\varphi}}{\partial \varphi}+\frac{1}{r \sin \theta} \frac{\partial}{\partial \theta}\left(V^{\theta} \sin \theta\right)
+$$
+$$
+\Delta \Psi=\frac{1}{r^{2}} \frac{\partial}{\partial r}\left(r^{2} \frac{\partial \Psi}{\partial r}\right)+\frac{1}{r^{2} \sin \theta} \frac{\partial}{\partial \theta}\left(\sin \theta \cdot \frac{\partial \Psi}{\partial \theta}\right)+\frac{1}{r^{2} \sin ^{2} \theta} \frac{\partial^{2} \Psi}{\partial \varphi^{2}}
+$$
+$$
+(\operatorname{rot} \mathbf{V})^{r}=\frac{1}{r \sin \theta}\left[\frac{\partial}{\partial \theta}\left(V^{\varphi} \cdot \sin \theta\right)-\frac{\partial V^{\theta}}{\partial \varphi}\right]
+$$
+$$
+(\operatorname{rot} \mathbf{V})^{\varphi}=\frac{1}{r} \frac{\partial}{\partial r}\left(r V^{\theta}\right)-\frac{1}{r} \frac{\partial V^{r}}{\partial \theta}, \quad(\operatorname{rot} \mathbf{V})^{\theta}=\frac{1}{r \sin \theta} \frac{\partial V^{r}}{\partial \varphi}-\frac{1}{r} \frac{\partial}{\partial r}\left(r V^{\varphi}\right)
+$$
+
+\section{D-dimensional Integrals}
+The first integral we will formulate is the $D$ -dimensional volume integral in curvilinear coordinates $x^{i}=x^{i}\left(X^{a}\right) .$ For such a formulation, we shall use the metric tensor and Levi-Civita tensor in the curvilinear coordinates. The square of the distance between the two points $X^{a}$ and $Y^{a}$ in Cartesian and arbitrary global coordinates is given by
+$$
+s_{x y}^{2}=\sum_{a=1}^{D}\left(X^{a}-Y^{a}\right)^{2}=g_{i j}\left(x^{i}-y^{i}\right)\left(x^{j}-y^{j}\right)
+$$
+the similar formula holds for the infinitesimal distances
+\begin{qt}
+\begin{equation}
+d l^{2}=g_{i j} d x^{i} d x^{j}
+\end{equation}
+\end{qt}
+Therefore, if we have a curve in $D$ -dimensional space $x^{i}=x^{i}(\tau)$ (here $\tau$ is an arbitrary monotonic parameter along the curve), then the length of the curve between the points $A$ with the coordinates $x^{i}(a)$ and $B$ with the coordinates $x^{i}(b)$ is
+\begin{qt}
+\begin{equation}
+l_{A B}=\int_{(A B)} d l=\int_{a}^{b} d \tau \sqrt{g_{i j} \frac{d x^{i}}{d \tau} \frac{d x^{j}}{d \tau}}
+\end{equation}
+\end{qt}
+\bluep{The direct geometric sense of the metric is that it defines a distance between two infinitesimally close points and also the length of the finite curve in the D-dimensional space, in arbitrary curvilinear coordinates}.
+
+For the infinitesimal volume in D-dimensional space, we have
+\begin{qt}
+\begin{equation}
+d V=\frac{1}{D !}\left|\varepsilon_{i_{1} i_{2} . . i_{p}}\right| d x^{i_{1}} \ldots d x^{i_{D}}=\sqrt{g} \cdot d x^{1} d x^{2} \ldots d x^{D}
+\end{equation}
+The quantity
+\begin{equation}
+J=\sqrt{g}=\sqrt{\operatorname{det}\left\|g_{i j}\right\|}=\left|\operatorname{det}\left(\frac{\partial X^{a}}{\partial x^{i}}\right)\right|=\left|\frac{D\left(X^{a}\right)}{D\left(x^{i}\right)}\right|
+\end{equation}
+is nothing but the well-known \textbf{Jacobian of the coordinate transformation.}
+\end{qt}
+
+\subsection{Curvilinear Integrals}
+We now start to consider integrals over curves and curved surfaces.
