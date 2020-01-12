@@ -1095,3 +1095,94 @@ Similarly, for mixed tensor $T_i^j(x)$
 \end{aligned}
 \end{equation}
 \end{qt}
+
+We now construct a covariant derivative of a tensor.
+\begin{defi}
+        The covariant derivative $\nabla_i$ satisfies the following two conditions:
+        \begin{itemize}
+            \item Tensor transformation rule when the new derivative is applied to a tensor
+            \item In the cartesian coordiantes, $\{X^a\}$ the covariant derivative coincides with the usual partial derivative
+            $$
+\nabla_{a}=\partial_{a}=\frac{\partial}{\partial X^{a}}
+$$
+        \end{itemize}
+\end{defi}
+
+Let's now consider an arbitrary tensor, say mixed (1,1)-type one $W_i^j$. In order to define its covariant derivative, we perform the following steps:
+1. Transform it to Cartesian coordinates
+$$
+W_{b}^{a}=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial x^{j}}{\partial X^{b}} W_{j}^{i}
+$$
+2. Take the partial derivative w.r.t. the Cartesian coordinates $X^c$
+$$
+\partial_{c} W_{b}^{a}=\frac{\partial}{\partial X^{c}}\left(\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial x^{j}}{\partial X^{b}} W_{j}^{i}\right)
+$$
+3. Transform this derivative back to the original coordinates $x^i$
+$$
+\nabla_{k} W_{m}^{l}=\frac{\partial X^{c}}{\partial x^{k}} \frac{\partial x^{l}}{\partial X^{a}} \frac{\partial X^{b}}{\partial x^{m}} \partial_{c} W_{b}^{a}
+$$
+By construction, \textbf{the covariant derivative follows the Leibnitz rule for the product of two tensor A and B}:
+\begin{equation}
+\nabla_{i}(A \cdot B)=\nabla_{i} A \cdot B+A \cdot \nabla_{i} B
+\label{leibnitz-rule}
+\end{equation}
+\begin{example}
+Let us make an explicit calculation for the covariant vector $T_i$:
+$$
+\begin{aligned}
+\nabla_{i} T_{j} &=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}}\left(\partial_{a} T_{b}\right)=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} \cdot \frac{\partial}{\partial X^{a}}\left(\frac{\partial x^{k}}{\partial X^{b}} T_{k}\right) \\
+&=\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} \frac{\partial x^{k}}{\partial X^{b}} \frac{\partial x^{l}}{\partial X^{a}} \frac{\partial T_{k}}{\partial x^{l}}+\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} T_{k} \frac{\partial^{2} x^{k}}{\partial X^{a} \partial X^{b}} \\
+&=\partial_{i} T_{j}-\Gamma_{j i}^{k} T_{k}
+\end{aligned}
+$$
+The last equivalence holds because we have the following relation for Kronecker symbol
+$$
+\frac{\partial X^{a}}{\partial x^{i}}\frac{\partial x^{l}}{\partial X^{a}}=\delta^l_i
+$$
+\end{example}
+\begin{qt}
+\begin{equation}
+\Gamma_{j i}^{k}=-\frac{\partial X^{a}}{\partial x^{i}} \frac{\partial X^{b}}{\partial x^{j}} \frac{\partial^{2} x^{k}}{\partial X^{a} \partial X^{b}}
+\end{equation}
+\end{qt}
+\begin{thm}
+\textbf{Suppose the elements of the matrix $\wedge$ depend on the parameter $\kappa$ and $\wedge(\kappa)$ is a differentiable and invertible matrix for $\kappa\in(a, b) .$ Within the region $(a, b)$ the inverse matrix $\wedge^{-1}(\kappa)$ is also differentiable and its derivative is}
+\begin{equation}
+\frac{d \wedge^{-1}}{d \kappa}=-\wedge^{-1} \frac{\partial \wedge}{\partial \kappa} \wedge^{-1}
+\label{wedge-theorem}
+\end{equation}
+\end{thm}
+\textbf{Proof:} from $\wedge \cdot \wedge^{-1}=I$ we obtain
+$$
+\frac{d \wedge}{d \kappa} \wedge^{-1}+\wedge \frac{\partial \wedge^{-1}}{\partial \kappa}=0
+$$
+After multiplying this equation by $\wedge^{-1}$ from the left, we arrive at the theorem above. 
+
+Consider now that
+$$
+\wedge_{k}^{b}=\frac{\partial X^{b}}{\partial x^{k}}
+$$
+and its inverse matrix is
+$$
+\left(\wedge^{-1}\right)_{a}^{k}=\frac{\partial x^{k}}{\partial X^{a}}
+$$
+Using (\ref{wedge-theorem}) with $x^{i}$ playing the role of parameter $\kappa,$ we arrive at
+\begin{equation}
+\begin{aligned}
+&\frac{\partial^{2} X^{b}}{\partial x^{i} \partial x^{k}}=\frac{\partial}{\partial x^{i}} \wedge_{k}^{b}=-\wedge_{l}^{b} \frac{\partial\left(\wedge^{-1}\right)_{a}^{l}}{\partial x^{i}} \wedge_{k}^{a}\\
+&=-\frac{\partial X^{b}}{\partial x^{l}}\left(\frac{\partial X^{c}}{\partial x^{i}} \frac{\partial}{\partial X^{c}} \frac{\partial x^{l}}{\partial X^{a}}\right) \frac{\partial X^{a}}{\partial x^{k}}=-\frac{\partial X^{b}}{\partial x^{l}} \frac{\partial X^{a}}{\partial x^{k}} \frac{\partial X^{c}}{\partial x^{i}} \frac{\partial^{2} x^{l}}{\partial X^{c} \partial X^{a}}
+\end{aligned}
+\end{equation}
+Use the equation above, we find another expression for $\Gamma_{ki}^j$:
+\begin{qt}
+\begin{equation}
+\Gamma_{k i}^{j}=\frac{\partial x^{j}}{\partial X^{b}} \frac{\partial^{2} X^{b}}{\partial x^{i} \partial x^{k}}=-\frac{\partial^{2} x^{j}}{\partial X^{b} \partial X^{a}} \frac{\partial X^{a}}{\partial x^{k}} \frac{\partial X^{b}}{\partial x^{i}}
+\end{equation}
+\end{qt}
+By making direct calculation and using the equation above, we have:
+\begin{equation}
+\nabla_{i} S^{j}=\partial_{i} S^{j}+\Gamma_{k i}^{j} S^{k}
+\end{equation}
+\begin{equation}
+\nabla_{i} W_{k}^{j}=\partial_{i} W_{k}^{j}+\Gamma_{l i}^{j} W_{k}^{l}-\Gamma_{k i}^{l} W_{l}^{j}
+\end{equation}
