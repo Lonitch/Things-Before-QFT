@@ -1406,3 +1406,255 @@ is nothing but the well-known \textbf{Jacobian of the coordinate transformation.
 
 \subsection{Curvilinear Integrals}
 We now start to consider integrals over curves and curved surfaces.
+
+\begin{defi}
+        \textbf{curvilinear integral of the first type}
+        
+        Consider the continuous function $f(\mathbf{r})=f\left(x^{i}\right),$ where $x^{i}$ are the coordinates in $D$ -dimensional space, $x^{i}=\left\{x^{1}, x^{2}, \ldots, x^{D}\right\}$ defined along the curve $L=\int_{(L)} d l=\int_{a}^{b} \sqrt{g_{i j} \dot{x}^{i} \dot{x}^{j}} d t$. One can define the curvilinear integral of the first type
+        \begin{equation}
+I_{1}=\int_{(L)} f(\mathbf{r}) d l
+\end{equation}
+It is easy to see that this sum is also an integral sum for the Riemann integral.
+\begin{equation}
+\int_{a}^{b} \sqrt{g_{i j} \dot{x}^{i} \dot{x}^{j}} f\left(x^{i}(t)\right) d t
+\end{equation}
+\end{defi}
+\begin{defi}
+        \textbf{curvilinear integral of the second type}
+        
+ Consider a vector field $\mathbf{A}(\mathbf{r})$ defined along the curve $(L) .$ Let us consider the $3 D$ case, one can construct the following infinitesimal scalar:
+\begin{equation}
+\mathbf{A} \cdot d \mathbf{r}=A_{x} d_{x}+A_{y} d_{y}+A_{z} d_{z}=A_{i} d x^{i}
+\end{equation}
+This expression can be integrated along the curve (L) to give
+\begin{equation}
+\int_{(L)} \mathbf{A} \cdot d \mathbf{r}=\int_{(L)} A_{x} d x+A_{y} d y+A_{z} d z=\int_{(L)} A_{i} d x^{i}
+\end{equation}
+\end{defi}
+If the curve is parametrized by the continuous monotonic parameter t, the last expression
+can be presented as
+\begin{equation}
+A_{i} d x^{i}=\mathbf{A} \cdot d \mathbf{r}=\left(A_{x} \dot{x}+A_{y} \dot{y}+A_{z} \dot{z}\right) d t=A_{i} \dot{x}^{i} d t
+\end{equation}
+It is easy to establish the following relation between the curvilinear integral of the second type, the curvilinear integral of the first type, and the Riemann integral:
+\begin{equation}
+\int_{(L)} A_{x} d x+A_{y} d y+A_{z} d z=\int_{(L)} A_{i} \frac{d x^{i}}{d l} d l=\int_{a}^{b} A_{i} \frac{d x^{i}}{d t} d t
+\end{equation}
+where $l$ is a natural parameter along the curve
+$$
+l=\int_{a}^{t} \sqrt{g_{i j} \dot{x}^{i} \dot{x}^{j}} d t, \quad 0 \leq l \leq L
+$$
+In Cartesian coordinates, we have
+\begin{equation}
+\begin{aligned}
+&\int_{(L)} \mathbf{A} \cdot d \mathbf{r}=\int_{0}^{L}\left(A_{x} \cos \alpha+A_{y} \cos \beta+A_{z} \cos \gamma\right) d l\\
+&=\int_{a}^{b}\left(A_{x} \cos \alpha+A_{y} \cos \beta+A_{z} \cos \gamma\right) \sqrt{\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}} d t
+\end{aligned}
+\end{equation}
+where we used $d l^{2}=g_{a b} \dot{X}^{a} \dot{X}^{b} d t^{2}=\left(\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}\right) d t^{2}$.
+The main properties of the curvilinear integral of the first type are
+\begin{qt}
+\[
+\text { additivity } \int_{A B}+\int_{B C}=\int_{A C} \text { and symmetry } \int_{A B}=\int_{B A}
+\]
+\end{qt}
+The main properties of the curvilinear integral of the second type are
+\begin{qt}
+\[
+\text { additivity } \int_{A B}+\int_{B C}=\int_{A C} \text { and antisymmetry } \int_{A B}=-\int_{B A}
+\]
+\end{qt}
+
+\subsection{2D surfaces Integrals in a 3D Space}
+Consider the integrals over the $2 D$ surface, $(S)$ in the $3 D$ space $(S) \subset \mathbb{R}^{3} .$ Suppose the surface is defined by the three smooth functions
+$$
+x=x(u, v), \quad y=y(u, v), \quad z=z(u, v)
+$$
+where $u$ and $v$ are independent variables which are called internal coordinates on the surface. One can regard the relations above as a mapping of a figure $(G)$ on the plane with coordinates $u$ and $v$ into the $3 D$ space with the coordinates $x, y, z$. 
+
+Let us start by considering the infinitesimal line element $dl$ linking two points of the surface. We can suppose that these two infinitesimally close points belong to the same smooth curve $u=u(t),v=v(t)$, situated on the surface. Then the line element is
+$$
+d l^{2}=d x^{2}+d y^{2}+d z^{2}
+$$
+where
+$$
+\begin{aligned}
+&d x=\left(\frac{\partial x}{\partial u} \frac{\partial u}{\partial t}+\frac{\partial x}{\partial v} \frac{\partial v}{\partial t}\right) d t=x_{u}^{\prime} d u+x_{v}^{\prime} d v\\
+&d y=\left(\frac{\partial y}{\partial u} \frac{\partial u}{\partial t}+\frac{\partial y}{\partial v} \frac{\partial v}{\partial t}\right) d t=y_{u}^{\prime} d u+y_{v}^{\prime} d v\\
+&d z=\left(\frac{\partial z}{\partial u} \frac{\partial u}{\partial t}+\frac{\partial z}{\partial v} \frac{\partial v}{\partial t}\right) d t=z_{u}^{\prime} d u+z_{v}^{\prime} d v
+\end{aligned}
+$$
+Thus, 
+\begin{equation}
+dl^2=g_{u u} d u^{2}+2 g_{u v} d u d v+g_{v d} d v^{2}
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+&g_{u u}=x_{u}^{\prime 2}+y_{u}^{\prime 2}+z_{u}^{\prime 2}\\
+&g_{u v}=x_{u}^{\prime} x_{v}^{\prime}+y_{u}^{\prime} y_{v}^{\prime}+z_{u}^{\prime} z_{v}^{\prime}\\
+&g_{vv}=x_{v}^{\prime 2}+y_{v}^{\prime 2}+z_{v}^{\prime 2}
+\end{aligned}
+\end{equation}
+are the elements of the matrix which is called \textbf{induced metric on the surface}.
+
+We now calculate the infinitesimal element of \textbf{the area of the surface}. Here, we introduce two basis vectors on the surface in such a way that the scalar products of these vectors are equal to the corresponding metric components:
+\begin{equation}
+\mathbf{r}_{u}=\frac{\partial \mathbf{r}}{\partial u} \quad \text { and } \quad \mathbf{r}_{v}=\frac{\partial \mathbf{r}}{\partial v}
+\end{equation}
+Below we suppose that at any point of the surface $\mathbf{r}_{u} \times \mathbf{r}_{v} \neq 0 .$ This means that \bluep{the lines of constant coordinates $u$ and $v$ are not parallel or, equivalently, that the internal coordinates are not degenerate.}
+\begin{equation}
+g_{u u}=\mathbf{r}_{u} \cdot \mathbf{r}_{u}, \quad g_{u v}=\mathbf{r}_{u} \cdot \mathbf{r}_{v}, \quad g_{v v}=\mathbf{r}_{v} \cdot \mathbf{r}_{v}
+\end{equation}
+After we map the infinitesimal surface element $dudv$ on (G) to a curve surface (S), we have a parallelogram spanned on the vectors $\mathbf{r}_{u} d u$ and $\mathbf{r}_{v} d v$.The area of this parallelogram equals to the absolute value of the vector product of the two vectors,
+\begin{equation}
+\begin{aligned}
+d S &=(d \mathbf{A})^{2}=\left|\mathbf{r}_{u} \times \mathbf{r}_{v}\right|^{2} d u^{2} d v^{2}=r_{u}^{2} r_{v}^{2} \sin ^{2} \alpha \cdot d u^{2} d v^{2} \\
+&=d u^{2} d v^{2}\left\{r_{u}^{2} r_{v}^{2}\left(1-\cos ^{2} \alpha\right)\right\}=d u^{2} d v^{2}\left\{\mathbf{r}^{2} \cdot \mathbf{r}^{2}-\left(\mathbf{r}_{u} \cdot \mathbf{r}_{v}\right)^{2}\right\} \\
+&=\left(g_{u u} \cdot g_{w}-g_{u v}^{2}\right) d u^{2} d v^{2}=g \cdot d u^{2} d v^{2}
+\end{aligned}
+\end{equation}
+where $g$ is the determinant of the induced metric. Finally, the area $S$ of the whole surface (S) may be defined as an integral 
+\begin{qt}
+\begin{equation}
+S=\iint_{(G)} \sqrt{g} d u d v
+\end{equation}
+\end{qt}
+\begin{defi}
+        Suppose we have a surface (S) defined as a mapping of the closed finite figure (G) in a $uv$-plane, and a function $f(u,v)$ on this surface. The surface integral of the first type is defined as:
+        \begin{equation}
+\mathcal{I}_{1}=\iint_{(S)} f(u, v) d S=\iint_{(G)} f(u, v) \sqrt{g} d u d v
+\end{equation}
+\end{defi}
+This surface integral is a scalar, if the function $f(u,v)$ is a scalar. when we change the internal coordinates on the surface to $(u^{\prime},v^{\prime})$, the following aspects must change:
+\begin{qt}
+\begin{itemize}
+    \item The form of the area $(G) \rightarrow\left(G^{\prime}\right)$
+    \item the surface element $\sqrt{g} \rightarrow \sqrt{g^{\prime}}$
+    \item the form of the integrand $f^{\prime}\left(u^{\prime}, v^{\prime}\right)=f\left(u\left(u^{\prime}, v^{\prime}\right), v\left(u^{\prime}, v^{\prime}\right)\right)$
+\end{itemize}
+\end{qt}
+Below we define \textbf{the surface integral of the second type on smooth two-sided oriented surfaces}, for non-oriented (one-sided) surface, like the Möbius band does not have the property of
+$$
+\left|\mathbf{r}_{u} \times \mathbf{r}_{v}\right| \neq 0
+$$
+where $\mathbf{r}_{u}=\frac{\partial \mathbf{r}}{\partial u} \quad$ and $\quad \mathbf{r}_{v}=\frac{\partial \mathbf{r}}{\partial v}$. The area of the corresponding parallelogram on $(S)$ is $d S=\left|\mathbf{r}_{u} \times \mathbf{r}_{v}\right| d u d v$, and $d\mathbf{S}=\vec{\mathbf{n}}\cdot dS$. For calculational purposes, it is useful to introduce the components of $\hat{\mathbf{n}} ;$ using the same cosines, we already considered for the curvilinear second-type integral,
+\begin{equation}
+\cos \alpha=\hat{\mathbf{n}} \cdot \hat{\mathbf{i}}, \quad \cos \beta=\hat{\mathbf{n}} \cdot \hat{\mathbf{j}}, \quad \cos \gamma=\hat{\mathbf{n}} \cdot \hat{\mathbf{k}}
+\end{equation}
+\begin{defi}
+         Consider a continuous vector field $\mathbf{A}(\mathbf{r})$ defined on the surface $(S) .$ The surface integral of the second type is
+         \begin{equation}
+\iint_{(S)} \mathbf{A} \cdot d \mathbf{S}=\iint_{S} \mathbf{A} \cdot \mathbf{n} d S
+\end{equation}
+By construction, the surface integral of the second type equals to the following double integral over the figure $(G)$ in the $u v$ -plane:
+\begin{equation}
+\iint_{(S)} \mathbf{A} \cdot d \mathbf{S}=\iint_{(G)}\left(A_{x} \cos \alpha+A_{y} \cos \beta+A_{z} \cos \gamma\right) \sqrt{g} d u d v
+\end{equation}
+\end{defi}
+
+In a more general situation, we have an $n-$dimensional surface embedded into $D-$dimensional space $R^D$, with $D>n$. Introducing internal coordinates $u^i$ on the surface, we obtain its parametric equation of the surface in the form
+\begin{equation}
+x^{\mu}=x^{\mu}\left(u^{i}\right)
+\end{equation}
+where
+$$
+\left\{\begin{array}{c}
+{i=1, \ldots, n} \\
+{\mu=1, \ldots, D}
+\end{array}\right.
+$$
+The expression for the distance between the two infinitesimally close points is then
+\begin{equation}
+d s^{2}=g_{\mu v} d x^{\mu} d x^{v}=\frac{\partial x^{\mu}}{\partial u^{i}} \frac{\partial x^{v}}{\partial u^{j}} g_{\mu v} d u^{i} d u^{j}
+\end{equation}
+Therefore, in this general case, we meet the same relation as for the usual coordinate transformation
+\begin{equation}
+g_{i j}(u)=\frac{\partial x^{\mu}}{\partial u^{i}} \frac{\partial x^{v}}{\partial u^{j}} g_{\mu v}(x)
+\end{equation}
+\bluep{The main difference between this relation and the usual tensor law of transforming metric is that the matrix $\frac{\partial x^{\mu}}{\partial u^{i}}$ has dimension $n \times D$ and hence it cannot be inverted.} The volume element of the area (surface element) in the n-dimensional case also looks as
+\begin{equation}
+d S=J d u^{1} d u^{2} \ldots d u^{n}, \quad \text { where } \quad J=\sqrt{g}
+\end{equation}
+
+\section{Theorems of Green, Stokes, and Gauss}
+\begin{thm}
+For the surface (S) dividable to a finite number of pieces $(S_i)$ of the form:
+$$
+\left\{\begin{array}{l}
+{x=a} \\
+{x=b}
+\end{array} \quad \text { and } \quad\left\{\begin{array}{l}
+{y=\alpha(x)} \\
+{y=\beta(x)}
+\end{array}\right.\right.
+$$
+and for the functions $P(x, y), \quad Q(x, y)$ that are continuous on (S) together with their first derivatives $P_{x}^{\prime}, \quad P_{y}^{\prime}, \quad Q_{x}^{\prime}, \quad Q_{y}^{\prime}$, the following relation holds:
+\begin{equation}
+\iint_{(S)}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) d x d y=\oint_{(\partial S+)} P d x+Q d y
+\end{equation}
+\end{thm}
+One can use the Green's formula to calculate the area of the surface. To this end, one can take $Q=x, P=0$ or $Q=0, P=-y,$ or $Q=x / 2, P=-y / 2$ etc. Then
+\begin{equation}
+S=\oint_{\left(\partial S^{+}\right)} x d y=-\oint_{\left(\partial S^{+}\right)} y d x=\frac{1}{2} \oint_{\left(\partial S^{+}\right)} x d y-y d x
+\end{equation}
+\begin{thm}
+\textbf{Stoke's Theorem}
+
+For any continuous vector function $\mathbf{F}$ (r) with continuous partial derivatives $\partial_{i} F_{j},$ the following relation holds:
+\begin{equation}
+\iint_{(S)} \operatorname{rot} \mathbf{F} \cdot d \mathbf{S}=\oint_{(\partial S+)} \mathbf{F} \cdot d \mathbf{r}
+\end{equation}
+The last integral is called circulation of the vector field.
+\end{thm}
+At any point of the space
+$$
+\mathbf{F}=\mathbf{F}(u, v, w)=F^{u} \hat{\mathbf{n}}_{u}+F^{v} \hat{\mathbf{n}}_{v}+F^{w} \hat{\mathbf{n}}_{w}
+$$
+The components of the vectors $\mathbf{F},$ rot $\mathbf{F}, d \mathbf{S},$ and $d \mathbf{r}$ transform in a standard way, such that the products
+$$
+\operatorname{rot} \mathbf{F} \cdot d \mathbf{S}=\varepsilon^{i j k}\left(d S_{i}\right) \partial_{j} F_{k} \quad \text { and } \quad \mathbf{F} \cdot d \mathbf{r}=F_{i} d x^{i}
+$$
+$$
+\oint_{(\partial S+)} \mathbf{F} \cdot d \mathbf{r}=\oint_{\left(\partial G^{+}\right)} \mathbf{F} \cdot d \mathbf{r}=\oint_{\left(\partial G^{+}\right)} F_{u} d u+F_{v} d v
+$$
+because the contour $\left(\partial G^{+}\right)$ lies in the $(u, v)$ plane. Further, since the figure $(G)$ belongs to the $(u, v)$ plane, the oriented area vector $d \mathbf{G}$ is parallel to the $\hat{\mathbf{n}}_{w}$ axis. Therefore, 
+$$
+(d \mathbf{G})_{u}=\left(d \mathbf{G}\right)_{v}=0
+$$
+Then
+\begin{equation}
+\begin{aligned}
+\iint_{(S)} \operatorname{rot} \mathbf{F} \cdot d \mathbf{S} &=\iint_{(G)} \operatorname{rot} \mathbf{F} \cdot d \mathbf{G}=\int_{(G)}(\operatorname{rot} \mathbf{F})_{w} d G^{w} \\
+&=\iint_{(G)}\left(\frac{\partial F_{v}}{\partial u}-\frac{\partial F_{u}}{\partial v}\right) d u d v
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\oint_{\left(\partial G^{+}\right)} F_{u} d u+F_{v} d v=\iint_{(G)}\left(\frac{\partial F_{v}}{\partial u}-\frac{\partial F_{u}}{\partial v}\right) d u d v
+\end{equation}
+\begin{thm}
+ For the $\mathbf{F}(\mathbf{r})=\operatorname{grad} U(\mathbf{r}),$ where $U(\mathbf{r})$ is a smooth function of coordinates, the curvilinear integral between two points $A$ and $B$ doesn't depend on the path $(A B)$ and is equal to the difference
+ \begin{equation}
+\int_{(A B)} \mathbf{F} \cdot d \mathbf{r}=U(B)-U(A)
+\end{equation}
+\end{thm}
+A useful criterion of $\mathbf{F}$ being $\operatorname{grad} U$ is
+\begin{qt}
+\begin{equation}
+\frac{\partial F_{x}}{\partial z}=\frac{\partial F_{z}}{\partial x}
+\end{equation}
+and the same for any couple of partial derivatives.
+\end{qt}
+\begin{thm}
+ \textbf{Gauss–Ostrogradsky Theorem}
+ 
+ Consider a $3 D$ figure $(V) \subset R^{3}$ and also define $\left(\partial V^{+}\right)$ to be the externally oriented boundary of $(V) .$ Consider a vector field $\mathbf{E}(\mathbf{r})$ defined on $(V)$ and on its boundary $\left(\partial V^{+}\right)$ and suppose that the components of this vector field are continuous, as are their partial derivatives
+ $$
+\frac{\partial E^{x}}{\partial x}, \quad \frac{\partial E^{y}}{\partial y}, \quad \frac{\partial E^{z}}{\partial z}
+$$
+Then these components satisfy the following integral relation:
+\begin{equation}
+\oiint_{(\partial V+)} \mathbf{E} \cdot d \mathbf{S}=\iiint_{(V)} \operatorname{div} \mathbf{E} d V
+\end{equation}
+\end{thm}
