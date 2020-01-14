@@ -1,2 +1,81 @@
 \chapter{Special Relativity}
 \section{Maxwell Equations and Lorentz Transformations}
+Our purpose in this section is to use tensor methods to clarify the relation between electrodynamics and relativity. Let's first write Lorentz law and Maxwell equations in the Gaussian system of units, where electric and magnetic fields have the same dimension. The quantity $c$ is the speed of light:
+\begin{qt}
+    \begin{equation}
+\mathbf{F}=q \mathbf{E}+\frac{q}{c} \mathbf{v} \times \mathbf{H}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\operatorname{div} \mathbf{E} &=4 \pi \rho, & & \operatorname{rot} \mathbf{H}=\frac{1}{c} \frac{\partial \mathbf{E}}{\partial t}+\frac{4 \pi}{c} \mathbf{j} \\
+\operatorname{div} \mathbf{H} &=0, & \operatorname{rot} \mathbf{E} &=-\frac{1}{c} \frac{\partial \mathbf{H}}{\partial t}
+\end{aligned}
+\end{equation}
+where $\mathbf{j}=\mathbf{v} \cdot \rho(t, \mathbf{r})$ is the current density.
+\end{qt}
+\redp{The equations above contradict the laws of Newtonian mechanics.} To see this, consider a pair of point-like charges $q_1$,$q_2$ that interact by means of Coulomb force. Now if the same two charges in another inertial frame that moves with the constant speed $-\mathbf{v}$ in the direction orthogonal to the line between the two charges.
+
+According to the standard logic of classical mechanics, the electric Coulomb force should not change because of the choice of inertial frame. At the same time, in the new frame, each of the charges will move with a constant speed $+\mathbf{v}$. But now the two charges \bluep{become currents and hence each of them creates a magnetic field.} This magnetic field will act on another charge according to Lorentz's law; therefore, there will be an increase in the force acting on each of the charges. On the other hand, according to the Galilean principle, the force cannot change when we switch from one inertial frame to another such frame—hence
+this example shows that there is a contradiction. Thus, \textbf{this sytem of equations is not invariant under the Galilean transformations between inertial references frames}:
+\begin{equation}
+\mathbf{r}^{\prime}=\mathbf{r}+\mathbf{v} t, \quad \mathbf{t}^{\prime}=\mathbf{t}
+\label{Galilean-trans}
+\end{equation}
+The successful solution the conflict between mechanics and electromagnetism lies in the generalization of the transformation(\ref{Galilean-trans}). \bluep{The new transformation should be performed in such a way that the tranformed laws are compatible with the Maxwell equations.} \textbf{\redp{Being compatible here means that changing from one inertial frame to another one does not change the form of these equations, while the quantities such as $\mathbf{H}, \mathbf{E}, \rho, \mathbf{j},$ and $\mathbf{v}$ do transform in a controllable tensorical way.}}
+
+Consider Maxwell equations without sources:
+\begin{equation}
+\begin{aligned}
+\operatorname{div} \mathbf{E} &=0, & & \operatorname{rot} \mathbf{H}=\frac{1}{c} \frac{\partial \mathbf{E}}{\partial t} \\
+\operatorname{div} \mathbf{H} &=0, & \operatorname{rot} \mathbf{E} &=-\frac{1}{c} \frac{\partial \mathbf{H}}{\partial t}
+\end{aligned}
+\label{Maxwell-noSource}
+\end{equation}
+In order to obtain the wave equation, we remember the formula:
+$$
+\operatorname{rot}(\operatorname{rot} \mathbf{E})=\operatorname{grad}(\operatorname{div} \mathbf{E})-\Delta \mathbf{E}
+$$
+Apply the $rot$ operator to both side of the second equation in (\ref{Maxwell-noSource}). Using the fact of $div\mathbf{E}=0$, we arrive at the equation:
+\begin{equation}
+-\Delta \mathbf{E}=-\frac{1}{c} \operatorname{rot} \frac{\partial \mathbf{H}}{\partial t}=-\frac{1}{c} \frac{\partial \operatorname{rot} \mathbf{H}}{\partial t}=-\frac{1}{c^{2}} \frac{\partial^{2} \mathbf{E}}{\partial t^{2}}
+\end{equation}
+or
+\begin{equation}
+\square \mathbf{E}=0, \quad \square=\frac{1}{c} \frac{\partial^{2}}{\partial t^{2}}-\Delta
+\end{equation}
+where we introduce the d'Alembert operator $\square$. Similarly, we have $\square \mathbf{H}=0$.
+
+\textbf{Another important observation is that} the lines of the magnetic field $\mathbf{H}$ are always closed and do not have their ends on some sources. This feature can be provided by assuming that there is a \textbf{vector potential field $\mathbf{A}$} such that
+\begin{equation}
+\mathbf{H}=\operatorname{rot} \mathbf{A}
+\end{equation}
+Contrary to this, in the presence of sources the lines of electric field $\mathbf{E}$ always have their ends on the point-like sources or at the infinity. This feature corresponds to the definition
+\begin{equation}
+\mathbf{E}=-\frac{1}{c} \frac{\partial \mathbf{A}}{\partial t}-\operatorname{grad} \varphi
+\end{equation}
+where $\varphi$ is an additional scalar potential.
+\subsection{Invariant Interval and Minkowski Space}
+Let us start by defining the Minkowski space, which has the coordinates
+\begin{equation}
+x^{0}=c t, \quad x^{1}=x, \quad x^{2}=y, \quad x^{3}=z
+\end{equation}
+The standard abbreviations for Minkowski space are $M_{1,3}$ or $M_4$. In what follows we shall use Greek indices for the four-dimensional notations in Minkowski space, e.g., $\alpha, \beta, \ldots, \mu$
+$0,1,2,3$ and Latin indices for the space variables, e.g., $a, b, \ldots, i j, \cdots=1,2,3$ One can write, for instance, $x^{\mu}=\left(x^{0}, x^{i}\right)$ or $x^{\mu}=\left(x^{0}, \mathbf{r}\right)$.
+
+The point in Minkowski space is frequently called the \textbf{event}. The event is defined by time and space coordinates. Correspondingly, the interval between two infinitesimally separated events has the form
+\begin{equation}
+d s^{2}=\left(d x^{0}\right)^{2}-\left(d x^{1}\right)^{2}-\left(d x^{2}\right)^{2}-\left(d x^{3}\right)^{2}=c^{2} d t^{2}-d l^{2}
+\end{equation}
+where $d l^{2}=d x^{2}+d y^{2}+d z^{2}$ is the space interval between the two close events. The last formula can be also written in the form
+\begin{equation}
+d s^{2}=\eta_{\mu v} d x^{\mu} d x^{v}, \quad \text { where } \quad \eta_{\mu v}=\operatorname{diag}(1,-1,-1,-1)
+\end{equation}
+is the metric of the $p$seudo-Euclidean Minkowski space, which is also called space-
+time. 
+
+\redp{The nonlinear changes of coordinates that involve both space and time variables can be consistently considered in general relativity, but better avoided in special relativity.} The reason is that this type of the change in the space–time coordinates means that we go to the non-inertial reference frame. Under the change of inertial frame, we can use the definition of $ds^2$ above arrive at the \textbf{invariance of the interval}:
+\begin{qt}
+    \begin{equation}
+d s^{\prime 2}=d s^{2}
+\end{equation}
+\end{qt}
