@@ -95,7 +95,7 @@ $$
 $$
 \cos (i z)=\cosh z
 $$
-we have the hyoerbolic rotation:
+we have the hyperbolic rotation:
 \begin{equation}
 \left(\begin{array}{c}
 {c t^{\prime}} \\
@@ -120,12 +120,14 @@ Now we are in a position to write the Lorentz transformations in terms of $v$ or
 \begin{qt}
     \begin{equation}
 c t^{\prime}=\frac{c t-\beta x}{\sqrt{1-\beta^{2}}}, \quad x^{\prime}=\frac{x-\beta c t}{\sqrt{1-\beta^{2}}}, \quad y^{\prime}=y, \quad z^{\prime}=z
+\label{lorentz-trans}
 \end{equation}
 \end{qt}
 The inverse transformation is:
 \begin{qt}
     \begin{equation}
 c t=\frac{c t^{\prime}+\beta x^{\prime}}{\sqrt{1-\beta^{2}}}, \quad x=\frac{x^{\prime}+\beta c t^{\prime}}{\sqrt{1-\beta^{2}}}, \quad y=y^{\prime}, \quad z=z^{\prime}
+\label{inverse-lorentz}
 \end{equation}
 \end{qt}
 
@@ -152,10 +154,12 @@ It is interesting to find the relation between four-velocity and usual 3D veloci
 the particle, $\mathbf{v}=d\mathbf{r}/dt$:
 \begin{equation}
 u^{i}=\frac{d x^{i}}{d s}=\frac{d x^{i}}{c d \tau}=\frac{1}{c \sqrt{1-\beta^{2}}} \frac{d x^{i}}{d t}=\frac{v^{i}}{c \sqrt{1-\beta^{2}}}
+\label{relativistic-ui}
 \end{equation}
 and 
 \begin{equation}
 u^{0}=\frac{d x^{0}}{d s}=\frac{1}{\sqrt{1-\beta^{2}}}
+\label{relativistic-u0}
 \end{equation}
 The next relevant quantity is \redp{four-acceleration,}
 \begin{qt}
@@ -171,5 +175,253 @@ Thus,
 \begin{qt}
     \begin{equation}
 u_{\mu} \omega^{\mu} \equiv 0
+\end{equation}
+\end{qt}
+The last thing about kinematics is to obtain the formula for \textbf{\redp{summing velocities}}.Let us suppose that the inertial reference frame $K^{\prime}$ moves with velocity $\mathbf{V}$ with respect to the static inertial frame $K .$ Consider the particle that moves with the constant velocity $\mathbf{v}^{\prime}$ with respect to $K^{\prime} .$ What is its velocity with respect to $K ?$ In classical mechanics, we have
+$$
+\mathbf{v}=\mathbf{V}+\mathbf{v}^{\prime}
+$$
+In the frame $K'$, we have the relations:
+\begin{equation}
+    d x^{\prime}=v_{x}^{\prime} d t^{\prime}, \quad d y^{\prime}=v_{y}^{\prime} d t^{\prime}, \quad d z^{\prime}=v_{z}^{\prime} d t^{\prime}
+    \label{k-k'}
+\end{equation}
+Without loss of generality one can assume that the velocity $V$ has only $X$ component, $\mathbf{V}=V \hat{\mathbf{i}} .$ Then, according to the differential version of (\ref{inverse-lorentz}),
+\begin{equation}
+    c d t=\frac{c d t^{\prime}+\beta d x^{\prime}}{\sqrt{1-\beta^{2}}}, \quad d x=\frac{d x^{\prime}+\beta c d t^{\prime}}{\sqrt{1-\beta^{2}}}, \quad d y=d y^{\prime}, \quad d z=d z^{\prime}
+    \label{k-k'2}
+\end{equation}
+where $\beta=V/c$. Combining (\ref{k-k'}) and (\ref{k-k'2}), we arrive at the result:
+\begin{qt}
+    \begin{equation}
+v_{x}=\frac{v_{x}^{\prime}+V}{1+V v_{x}^{\prime} / c^{2}}, \quad v_{y}=\frac{\sqrt{1-\beta^{2}} v_{y}^{\prime}}{1+V v_{x}^{\prime} / c^{2}}, \quad v_{z}=\frac{\sqrt{1-\beta^{2}} v_{z}^{\prime}}{1+V v_{x}^{\prime} / c^{2}}
+\end{equation}
+\end{qt}
+\begin{example}
+ Consider the pure space transformations (e.g., rotations and parity transformation, that is, the simultaneous inversion of all space coordinates) of $F_{\mu v}=-F_{v \mu} .$ Show that with respect to these particular transformations, the components of $F_{\mu\nu}$ transform as the components of usual $V_i$ and axial $A_i$ vectors, such that
+ \begin{equation}
+F_{\mu v}=\left(\begin{array}{cccc}
+{0} & {V_{1}} & {V_{2}} & {V_{3}} \\
+{-V_{1}} & {0} & {A_{3}} & {-A_{2}} \\
+{-V_{2}}&{-A_{3}} & {0} & {A_{1}} \\
+{-V_{3}} & {A_{2}} & {-A_{1}} & {0}
+\end{array}\right)
+\end{equation}
+or 
+\begin{equation}
+ F_{0 i}=V_{i} \text { and } F_{i j}=\epsilon_{i j k} A_{k}
+\end{equation}
+\end{example}
+\textbf{Solution:}
+Consider the transformation of the desired type, with $x^{0}=x^{0} .$ Then
+$$
+F_{0 i}^{\prime}\left(x^{\prime}\right)=\frac{\partial x^{\alpha}}{\partial x^{0}} \frac{\partial x^{\beta}}{\partial x^{i^{\prime}}} F_{\alpha \beta}(x)
+$$
+The first factor is nonzero only when $\alpha=0,$ and the second only when $\beta=j$ therefore
+$$
+F_{0 i}^{\prime}=\frac{\partial x^{j}}{\partial x^{i^{\prime}}} F_{0 j}
+$$
+The last formula means that the components $F_{0 i}$ form a vector under continuous transformations, such as rotations. Under the parity transformation, the matrix of derivatives is
+$$
+P=\frac{\partial x^{j}}{\partial x^{i^{\prime}}}=\operatorname{diag}(-1,-1,-1)
+$$
+and it is easy to see that $F_{0 i}$ behaves like a normal vector $V_{i}^{\prime}=-V_{i} .$ The second part of the exercise can be most easily solved by noting that $A_{k}=\frac{1}{2} \epsilon_{i j k} F^{i j} .$ As we know from the first part of the book, in this case, the components of $A_{k}$ do not change under parity, and hence they form an axial vector. Sometimes the notation $F_{\mu v}=(\mathbf{V}, \mathbf{A})$ is used.
+
+\subsection{Relativistic dynamics of a free particle}
+Consider the particle moving between the instants of time $t_{1}$ and $t_{2} .$ \bluep{In order to have Lorentz-covariant equations of motion, the action of the particle should be a constant scalar with respect to the Lorentz rotations (boosts), and also with respect to orthogonal transformations of space coordinates}. The simplest scalar expression that satisfies this condition has the form
+\begin{equation}
+S=-\alpha \int_{t_{1}}^{t_{2}} d s
+\label{relativistic-action}
+\end{equation}
+where $\alpha$ is an unknown constant and one can find it by requiring that the nonrelativistic limit of the expression coincides with the action of a free particle in classical mechanics
+\begin{equation}
+S_{c l}=\int_{t_{1}}^{t_{2}} d t L_{c l}, \quad L_{c l}=T_{c l}=\frac{m v^{2}}{2}
+\label{nonrelativistic-action}
+\end{equation}
+Let us first assume that $\beta\ll1$ and make a series expansion:
+\begin{equation}
+d s=c \sqrt{1-\beta^{2}} d t=c\left(1-\frac{\beta^{2}}{2}-\frac{\beta^{4}}{8}+\ldots\right) d t
+\end{equation}
+Replacing this expression into (\ref{relativistic-action}) and using $\beta=v/c$, we arrive at the nonrelativistic limit,
+\begin{equation}
+S_{n r}=\int_{t_{1}}^{t_{2}}\left(-\alpha c+\frac{\alpha v^{2}}{2 c}+\frac{\alpha v^{4}}{8 c^{3}} \cdot+\ldots\right) d t
+\end{equation}
+The first term in the parentheses is an irrelevant constant. The second term becomes exactly the desired expression (\ref{nonrelativistic-action}) if we assume that 
+$$
+\alpha=mc
+$$
+The later terms become small $\mathcal{O}\left(\beta^{4}\right)$ corrections. Since the value of $\alpha$ is now fixed, we can write down the final form of the action (\ref{relativistic-action}):
+\begin{qt}
+    \begin{equation}
+S=-m c \int_{t_{1}}^{t_{2}} d s=\int_{t_{1}}^{t_{2}} d t L
+\end{equation}
+where
+\begin{equation}
+L=-m c^{2} \sqrt{1-\beta^{2}}
+\label{lagrange-function}
+\end{equation}
+\end{qt}
+The next steps will be to derive the expressions for canonical momenta and energy, and construct the Lagrange equations. In 4D formalism, remember that $d s=\sqrt{\eta_{\mu \nu} d x^{\mu} d x^{\nu}}$,$ds^{\prime}=\sqrt{\eta_{\mu \nu} d (x^{\mu}+\delta x^{\mu}) d (x^{\nu}+\delta x^{\nu})}$ and consider an arbitrary variation of four-coordinate $\delta x^{\mu}(t),$ such that
+\begin{equation}
+\delta x^{\mu}\left(t_{1}\right)=\delta x^{\mu}\left(t_{2}\right)=0
+\end{equation}
+Notice that $ds^{\prime 2}-ds^{2}=\delta s^2$,$\delta s=\frac{d(\delta s^2)}{2ds}$, the variation of the action is
+\begin{equation}
+\begin{aligned}
+\delta S=-mc\int_{t1}^{t2}\delta s &=-m c \int_{t_{1}}^{t_{2}} \frac{1}{2 d s} \cdot\left(2 \eta_{\mu v} d x^{\mu} \delta d x^{v}\right)=-m c \int_{t_{1}}^{t_{2}} d s \eta_{\mu v} \frac{d x^{\mu}}{d s} \frac{\delta d x^{v}}{d s} \\
+&=-\left.m c \eta_{\mu v} u^{\mu} \delta x^{v}\right|_{t_{1}} ^{t_{2}}+m c \int_{t_{1}}^{t_{2}} d s \omega_{\mu} \delta x^{\mu}
+\end{aligned}
+\end{equation}
+In the last expression, we integrated by parts, used the standard relation $\delta d x^{v}=d \delta x^{v}$. The first term in the last expression vanishes. \bluep{As far as $\delta S$ should be zero for an arbitrary $\delta x^{\mu},$ the equations of motion for a free relativistic particle have the form}
+\begin{qt}
+    \begin{equation}
+\omega^{\mu}=\frac{d u^{\mu}}{d s}=\frac{d^{2} x^{\mu}}{d s^{2}}=0
+\end{equation}
+\end{qt}
+Now we can compare this result with the usual 3D treatment. Starting from the Lagrange function(\ref{lagrange-function}), one can take the derivative w.r.t. velocity,
+\begin{equation}
+p_{i}=\frac{\partial L}{\partial v^{i}}=\frac{m v^{i}}{\sqrt{1-\beta^{2}}} \Longrightarrow \mathbf{p}=\frac{m \mathbf{v}}{\sqrt{1-\beta^{2}}}
+\label{relativisitic-momentum}
+\end{equation}
+which is the relativistic expression for the momentum of the particle. According to classical mechanics, the energy of the particle is
+\begin{equation}
+\varepsilon=\mathbf{p} \cdot \mathbf{v}-L=\frac{m c^{2}}{\sqrt{1-\beta^{2}}}
+\label{relativistic-hamiltonian}
+\end{equation}
+\redp{The Lagrange equation $\frac{\partial L}{\partial q_{i}}(t, \boldsymbol{q}(t), \dot{\boldsymbol{q}}(t))-\frac{\mathrm{d}}{\mathrm{d} t} \frac{\partial L}{\partial \dot{q}_{i}}(t, \boldsymbol{q}(t), \dot{\boldsymbol{q}}(t))=0$ for the particle and energy conservation provide us with the relations}
+\begin{equation}
+\frac{d \mathbf{p}}{d t}=0, \quad \frac{d \varepsilon}{d t}=0
+\end{equation}
+Both expression (\ref{relativisitic-momentum}) and (\ref{relativistic-hamiltonian}) are very interesting and tell us a lot about relativity. First of all, the nonrelativistic $(\beta \ll 1)$ limits for momentum and energy are compatible with classical mechanics, plus small corrections,
+\begin{equation}
+\mathbf{p}=m \mathbf{v}+\frac{1}{2} m \beta^{2} \mathbf{v}+\mathcal{O}\left(\beta^{4}\right), \quad \varepsilon=m c^{2}+\frac{m v^{2}}{2}+\mathcal{O}\left(\beta^{4}\right)
+\end{equation}
+where
+\begin{qt}
+    $$\varepsilon_0=mc^2$$
+\end{qt}
+is called the rest energy of the particle. This formula is
+indeed very important, because in relativistic quantum theory one can consistently describe how to transform the rest energy of the composite or even elementary particle into other forms of energy.
+
+Finally, if we compare the Eq.(\ref{relativistic-u0}) and (\ref{relativistic-ui}) with (\ref{relativisitic-momentum}) and (\ref{relativistic-hamiltonian}), we arrive at the following identification for the four-momentum:
+\begin{qt}
+    \begin{equation}
+p^{\mu}=m c u^{\mu}=\left(\frac{\varepsilon}{c}, \mathbf{p}\right)
+\end{equation}
+Using the identity $u^{\mu} u_{\mu}=1$ for the four-velocity, we also have the following \textbf{dispersion relation}:
+\begin{equation}
+p^{2}=p^{\mu} p^{v} \eta_{\mu v}=\frac{\varepsilon^{2}}{c^{2}}-\mathbf{p}^{2}=m^{2} c^{2}
+\label{relativistic-dispersion}
+\end{equation}
+\end{qt}
+An interesting feature of (\ref{relativistic-dispersion}) is that it applies not only to normal massive particles but also to massless particles and even to tachyons (assuming their masses
+are complex).
+
+\subsection{Charged Particle in Electromagnetic Field}
+It proves useful to introduce a four-vector of electromagnetic potential $A^{\mu}(t, \mathbf{r})=(\varphi, \mathbf{A})$. And define:
+$$
+\mathbf{H}=\operatorname{rot} \mathbf{A}
+$$
+$$
+\mathbf{E}=-\frac{1}{c} \frac{\partial \mathbf{A}}{\partial t}-\operatorname{grad} \varphi
+$$
+\bluep{$\mathbf{E}$ and $\mathbf{H}$ have six degrees of freedom (that means the number of independent functions), while $A^{\mu}(t, \mathbf{r})$ has only four of them. This reduction is one manifestation of the fact that the electric and magnetic fields are not independent, but form the unique electromagnetic field.}
+
+The fact that scalar $\varphi$ and vector $A$ potentials form the four-vector $A^{\mu}$ is important, as it enables one to construct a covariant form of the interacting term for the charged particle in the form
+\begin{equation}
+S_{\mathrm{int}}=-\frac{e}{c} \int_{t_{1}}^{t_{2}} A_{\mu} d x^{\mu}
+\end{equation}
+Let us note that $A_{\mu}=(\varphi,-\mathbf{A})$ and hence $A_{\mu} d x^{\mu}=-\mathbf{A} \cdot d \mathbf{r}+\varphi c d t .$ Therefore,
+in the $3 D$ notations the total action of the particle together with the interaction term can be written as follows:
+\begin{qt}
+    \begin{equation}
+\begin{aligned}
+&S=-\int_{s_{1}}^{s_{2}}\left\{m c+\frac{e}{c} A_{\mu} \frac{d x^{\mu}}{d s}\right\} d s=\int_{t_{1}}^{t_{2}} d t L\\
+&L=-m c^{2} \sqrt{1-\beta^{2}}+\frac{e}{c} \mathbf{A} \cdot \mathbf{v}-e \varphi
+\end{aligned}
+\end{equation}
+The canonically conjugated momentum is then
+\begin{equation}
+\mathbf{P}=\frac{\partial L}{\partial \mathbf{v}}=\frac{m \mathbf{v}}{\sqrt{1-\beta^{2}}}+\frac{e}{c} \mathbf{A}=\mathbf{p}+\frac{e}{c} \mathbf{A}
+\end{equation}
+the energy of the particle is
+\begin{equation}
+\varepsilon=\mathbf{P} \cdot \mathbf{v}-L=\frac{m c^{2}}{\sqrt{1-\beta^{2}}}+e \varphi
+\end{equation}
+\end{qt}
+If we make the Legendre transformation and express $\varepsilon$ in terms of momentum as:
+\begin{qt}
+    \begin{equation}
+H=\sqrt{m^{2} c^{4}+c^{2}\left(\mathbf{P}-\frac{e}{c} \mathbf{A}\right)^{2}}+e \varphi
+\end{equation}
+\end{qt}
+Using Hamilton's equation $\mathbf{P} \rightarrow-\frac{\partial S}{\partial \mathbf{r}}$, we arrive at the Hamilton-Jacobi equation in the form
+\begin{equation}
+\left(\nabla S-\frac{e}{c} \mathbf{A}\right)^{2}-\frac{1}{c^{2}}\left(\frac{\partial S}{\partial t}+e \varphi\right)^{2}+m^{2} c^{2}=0
+\end{equation}
+Let us now use the variational principle to obtain the equations of motion. To this end consider an arbitrary variation of the coordinates of the particle $\delta x^{\mu}(t),$ which is frozen at the ends of the interval of integration, $\delta x^{\mu}\left(t_{1}\right)=\delta x^{\mu}\left(t_{2}\right)=0 .$ Then, as before,
+\begin{equation}
+\delta s=u_{\mu} \frac{d \delta x^{\mu}}{d s}
+\end{equation}
+hence the first variation of the action is:
+\begin{equation}
+\delta S=-\int_{s_{1}}^{s_{2}} d s\left\{m c u_{\mu} \frac{d \delta x^{\mu}}{d s}+\frac{e}{c} u^{\mu} \left(\partial_{\alpha} A_{\mu}\right) \delta x^{\alpha}+\frac{e}{c} A_{\mu} \frac{d \delta x^{\mu}}{d s} d s\right\}
+\end{equation}
+Integrating by parts and changing the names of indices, we arrive at
+\begin{equation}
+\delta S=\int_{s_{1}}^{s_{2}} d s\left\{m c \frac{d u_{\mu}}{d s}+\frac{e}{c} u^{\alpha}\left(\partial_{\alpha} A_{\mu}\right)-\frac{e}{c}\left(\partial_{\mu} A_{\alpha}\right) u^{\alpha}\right\} \delta x^{\mu}
+\end{equation}
+which provides the following equation of motion:
+\begin{qt}
+    \begin{equation}
+m c \frac{d u_{\mu}}{d s}-\frac{e}{c} u^{\alpha} F_{\mu \alpha}=0
+\end{equation}
+In the last formula, we introduced a very important object
+\begin{equation}
+F_{\mu v}=\partial_{\mu} A_{v}-\partial_{v} A_{\mu}
+\end{equation}
+which is called as \textbf{tensor of electromagnetic field}.
+\end{qt}
+The explicit calculation shows that
+\begin{equation}
+F_{\mu v}=\left(\begin{array}{cccc}
+{0} & {E_{x}} & {E_{y}} & {E_{z}} \\
+{-E_{x}} & {0} & {H_{z}} & {-H_{y}} \\
+{-E_{y}-H_{z}} & {0} & {H_{x}} \\
+{-E_{z}} & {H_{y}} & {-H_{x}} & {0}
+\end{array}\right)=(\mathrm{E}, \mathrm{H})
+\label{electromagnetic-tensor}
+\end{equation}
+$H_{1,2,3}=-H^{1,2,3},$ and $E_{1,2,3}=-E^{1,2,3}$ are regarded as components of $4 D$ vector in Minkowski space. The first index $\mu$ in the $l . h . s .$ of (\ref{electromagnetic-tensor}) indicates the number of lines, while $v$ numbers the columns. It is clear from (\ref{electromagnetic-tensor}) that the tensor under discussion is antisymmetric $F_{\mu v}=-F_{v \mu} .$ For the space components $F_{i k},$ there is the following useful relation:
+\begin{equation}
+F_{i k}=\sum_{l=1,2,3} \varepsilon_{i k l} H_{l}, \quad \text { where } \quad H_{l}=H_{x}, H_{y}, H_{z}
+\end{equation}
+The example in the previous section shows that $\mathbf{H}$ is axial vector while $\mathbf{E}$ is the usual vector, which changes the sign of its components under parity transformation. By raising indices, we have
+\begin{equation}
+F^{\mu v}=\left(\begin{array}{cccc}
+{0} & {-E_{x}} & {-E_{y}} & {-E_{z}} \\
+{E_{x}} & {0} & {H_{z}} & {-H_{y}} \\
+{E_{y}} & {-H_{z}} & {0} & {H_{x}} \\
+{E_{z}} & {H_{y}} & {-H_{x}} & {0}
+\end{array}\right)=(-\mathbf{E}, \mathbf{H})
+\end{equation}
+The dispersion relation between energy and momentum of a particle
+interacting with electromagnetic potential becomes
+\begin{equation}
+\left(\frac{\varepsilon-e \varphi}{c}\right)^{2}=m^{2} c^{2}+\left(\mathbf{P}-\frac{e}{c} \mathbf{A}\right)^{2}
+\end{equation}
+Let's now introduce an absolutely antisymmetric Levi-Civita symbol $\varepsilon_{\alpha \beta \mu \nu}$ in Minkowski space. It is customary to define $\varepsilon^{\mathrm{0123}}=1$. With $\varepsilon_{\alpha \beta \mu \nu}$, we can prove that
+\begin{qt}
+    \begin{equation}
+\tilde{F}^{\alpha \beta}=\frac{1}{2} \varepsilon^{\alpha \beta \mu \nu} F_{\mu \nu}
+\end{equation}
+where
+\begin{equation}
+\tilde{F}_{\alpha \beta}=\left(\begin{array}{cccc}
+{0} & {H_{1}} & {H_{2}} & {H_{3}} \\
+{-H_{1}} & {0} & {E_{3}} & {-E_{2}} \\
+{-H_{2}} & {-E_{3}} & {0} & {E_{1}} \\
+{-H_{3}} & {E_{2}} & {-E_{1}} & {0}
+\end{array}\right)=(\mathbf{-H}, \mathbf{E})
 \end{equation}
 \end{qt}
