@@ -77,5 +77,99 @@ time.
 \begin{qt}
     \begin{equation}
 d s^{\prime 2}=d s^{2}
+\label{ds-invariance}
+\end{equation}
+\end{qt}
+There is a clear classification of the intervals between the two events into three distinct groups: The events of the first type have a positive square of the interval, $s^2_{12}>0$, and are called \textbf{time-like}. Themotion from one event to another one in this case can be done with the constant velocity $v<c$. In particular, the two events that occur at the same space point are separated by a time-like interval. The second type of separation is the \textbf{light-like interval}, $s^2_{12}=0$. The motion with constant velocity between the two intervals can be performed only with the speed of light $v=c$. The third type of separation is by the \textbf{space-like interval}, $s^2_{12}=0$. This case only happens when $v>c$.
+\subsection{Lorentz Transformations}
+Consider the two inertial reference frames, the static one $K$ and another $K^{\prime}$, which are moving with the constant velocity $\mathbf{v}$ with respect to $K$. Since the space is isotropic, without loss of generality it is possible to assume that the direction of the velocity is along the axis X.
+
+Now we resolve Eq.(\ref{ds-invariance}) in the two-dimensional case:
+$$
+c^{2} d t^{\prime 2}-d x^{2}=c^{2} d t^{2}-d x^{2}
+$$
+The solution can be easily found by analogy with the Euclidean rotations. We know that the continuous transformation that preserves the length. One can make an analytic continuation of time $ct=ix^4$ and remember that 
+$$
+\sin i x=-\frac{\sinh x}{i}=(-1) \cdot \frac{\sinh x}{i}=\left(i^{2}\right) \cdot \frac{\sinh x}{i}=i \sinh x
+$$
+$$
+\cos (i z)=\cosh z
+$$
+we have the hyoerbolic rotation:
+\begin{equation}
+\left(\begin{array}{c}
+{c t^{\prime}} \\
+{x^{\prime}}
+\end{array}\right)=\left(\begin{array}{c}
+{\cosh \psi \sinh \psi} \\
+{\sinh \psi \cosh \psi}
+\end{array}\right)\left(\begin{array}{l}
+{c t} \\
+{x}
+\end{array}\right)
+\end{equation}
+Since $dx=0$, we have
+$$
+v=c \beta=\frac{d x^{\prime}}{d t^{\prime}}=-c \tanh \psi
+$$
+Thus,
+$$
+\cosh \psi=\frac{1}{\sqrt{1-\beta^{2}}}, \quad \sinh \psi=-\frac{\beta}{\sqrt{1-\beta^{2}}}, \quad \text { where } \quad \beta=\frac{v}{c}
+$$
+Now we are in a position to write the Lorentz transformations in terms of $v$ or $\beta$,
+\begin{qt}
+    \begin{equation}
+c t^{\prime}=\frac{c t-\beta x}{\sqrt{1-\beta^{2}}}, \quad x^{\prime}=\frac{x-\beta c t}{\sqrt{1-\beta^{2}}}, \quad y^{\prime}=y, \quad z^{\prime}=z
+\end{equation}
+\end{qt}
+The inverse transformation is:
+\begin{qt}
+    \begin{equation}
+c t=\frac{c t^{\prime}+\beta x^{\prime}}{\sqrt{1-\beta^{2}}}, \quad x=\frac{x^{\prime}+\beta c t^{\prime}}{\sqrt{1-\beta^{2}}}, \quad y=y^{\prime}, \quad z=z^{\prime}
+\end{equation}
+\end{qt}
+
+\section{Laws of Relativistic Mechanics}
+The Lorentz transformations (also called boosts) and orthogonal space transformations (rotations and inversion of coordinates) \textbf{do not change the form of the metric.} An important relation concerning $ds$ for a massive particle that moves with the speed $v=\beta c\leq c$ is as follows:
+\begin{equation}
+d s=\sqrt{c^{2} d t^{2}-d l^{2}}=\sqrt{c^{2} d t^{2}-v^{2} d t^{2}}=c \sqrt{1-\beta^{2}} d t
+\end{equation}
+Along with the interval, one can introduce a \textbf{\redp{proper time}} of the particle, which is defined as $d \tau=d s / c=\sqrt{1-\beta^{2}} d t$.
+
+The evolution of a particle in the Minkowski space $M_{4}$ is described by \redp{the world line $x^{\mu}(\lambda)$ where $\lambda$ is a parameter along the curve}. The tangent vector along the curve is defined as $k^{\mu}=d x^{\mu} / d \lambda .$ One can choose $\lambda$ in different ways, for example, take $d \lambda=d x^{0} .$ However, in many cases, it is most useful to choose $d \lambda=d s .$ Indeed, this choice works well only for the time-like curves, where the tangent vector $k^{\mu}$ to the world line of a particle is time-like, $k^{\mu} k_{\mu} \geq 0 .$ Certainly, \textbf{the interval is not the best choice in the case of a light-like tangent vector}, because in this case $d s^{2}=0 .$ One of the possibilities for this case is to use \bluep{the time variable, $t$ or $x^{0} .$}
+
+Consider the world line of a massive particle, which (as we shall see in what follows) has a time-like tangent vector. Taking $d \lambda=d s,$ we arrive at the \redp{four-velocity of the particle},
+\begin{qt}
+    \begin{equation}
+u^{\mu}=\frac{d x^{\mu}}{d s}
+\end{equation}
+and
+\begin{equation}
+u_{\mu} u^{\mu}=\eta_{\mu \nu} u^{\mu} u^{\nu}=\frac{d s^{2}}{d s^{2}} \equiv 1
+\end{equation}
+\end{qt}
+It is interesting to find the relation between four-velocity and usual 3D velocity of
+the particle, $\mathbf{v}=d\mathbf{r}/dt$:
+\begin{equation}
+u^{i}=\frac{d x^{i}}{d s}=\frac{d x^{i}}{c d \tau}=\frac{1}{c \sqrt{1-\beta^{2}}} \frac{d x^{i}}{d t}=\frac{v^{i}}{c \sqrt{1-\beta^{2}}}
+\end{equation}
+and 
+\begin{equation}
+u^{0}=\frac{d x^{0}}{d s}=\frac{1}{\sqrt{1-\beta^{2}}}
+\end{equation}
+The next relevant quantity is \redp{four-acceleration,}
+\begin{qt}
+    \begin{equation}
+\omega^{\mu}=\frac{d u^{\mu}}{d s}=\frac{d^{2} x^{\mu}}{d s^{2}}
+\end{equation}
+\end{qt}
+Since $u_{\mu} u^{\mu}=\eta_{\mu \nu} u^{\mu} u^{\nu}=\frac{d s^{2}}{d s^{2}} \equiv 1$, we have
+$$
+\frac{d(u_{\mu} u^{\mu})}{ds}=2\eta_{\mu\nu}u^{\mu}\frac{du^{\nu}}{ds}=0
+$$
+Thus,
+\begin{qt}
+    \begin{equation}
+u_{\mu} \omega^{\mu} \equiv 0
 \end{equation}
 \end{qt}
