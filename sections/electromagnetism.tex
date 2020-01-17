@@ -60,21 +60,10 @@ The total amount of charge passing through the surface $S$ during some time inte
 \Delta Q=\Delta t \int_{S} \vec{J} \cdot \overrightarrow{d S}
 \end{equation}
 \end{qt}
-
 \subsection{Electromagnetic Field}
-An important feature of the electromagnetic field is that even a vector field is not sufficient and we need instead a tensor field. \textbf{The electromagnetic field tensor is an antisymmetric $(4 \times 4)$ matrix}
-\begin{qt}
-    \begin{equation}
-F_{\mu \nu}(t, \vec{x})=\left(\begin{array}{cccc}
-{0} & {F_{01}(t, \vec{x})} & {F_{02}(t, \vec{x})} & {F_{03}(t, \vec{x})} \\
-{-F_{01}(t, \vec{x})} & {0} & {F_{12}(t, \vec{x})} & {F_{13}(t, \vec{x})} \\
-{-F_{02}(t, \vec{x})} & {-F_{12}(t, \vec{x})} & {0} & {F_{23}(t, \vec{x})} \\
-{-F_{03}(t, \vec{x})} & {-F_{13}(t, \vec{x})} & {-F_{23}(t, \vec{x})} & {0}
-\end{array}\right)
-\end{equation}
-\redp{This tensor field, in some sense, assigns exactly two vectors to each point in space $\vec{x}$ at each point in time $t .$ }
-\end{qt}
-The vectors at each location represent the strength and direction of the electromagnetic field. It is conventional to introduce the electric vector field $\vec{E}(t, \vec{x})$ and the magnetic vector field $\vec{B}(t, \vec{x})$ and work with them, instead of with the electromagnetic tensor field $F_{\mu \nu}(t, \vec{x})$.
+An important feature of the electromagnetic field is that even a vector field is not sufficient and we need instead a tensor field. \textbf{The electromagnetic field tensor is an antisymmetric $(4 \times 4)$ matrix}. \redp{This tensor field, in some sense, assigns exactly two vectors to each point in space $\vec{x}$ at each point in time $t .$ }
+
+It is conventional to introduce the electric vector field $\vec{E}(t, \vec{x})$ and the magnetic vector field $\vec{B}(t, \vec{x})$ and work with them, instead of with the electromagnetic tensor field $F_{\mu \nu}(t, \vec{x})$.
 \begin{equation}
 F_{\mu \nu}(t, \vec{x})\equiv\left(\begin{array}{cccc}
 {0} & {-E_{1}(t, \vec{x}) / c} & {-E_{2}(t, \vec{x}) / c} & {-E_{3}(t, \vec{x}) / c} \\
@@ -83,17 +72,8 @@ F_{\mu \nu}(t, \vec{x})\equiv\left(\begin{array}{cccc}
 {E_{3}(t, \vec{x}) / c} & {-B_{2}(t, \vec{x})} & {B_{1}(t, \vec{x})} & {0}
 \end{array}\right)
 \end{equation}
-\bluep{Each of these two fields $\vec{E}(t, \vec{x})=\left(E_{1}(t, \vec{x}), E_{2}(t, \vec{x}), E_{3}(t, \vec{x})\right)^{T}$
-and $\vec{B}(t, \vec{x})=\left(B_{1}(t, \vec{x}), B_{2}(t, \vec{x}), B_{3}(t, \vec{x})\right)^{T}$ assigns a vector to each point in space $\vec{x}$ at each point in time $t$}.
 
-Unfortunately, the interpretation of the electric field $\vec{E}(t, \vec{x})$ and the magnetic field $\vec{B}(t, \vec{x})$ is not so simple. Instead, the little arrows encode information about the somewhat abstract "physical field", which we can understand as follows: \redp{The direction of the vector at a given location encodes in which direction a test charge would move if it were placed here. The magnitude of the vector encodes how fast the test charge would accelerate as a result of, for example, the electric field}. In this sense, these more abstract fields encode how something would
-flow if it were there.
-\begin{qt}
-    In practice the electric field strength at a point is measured by placing a small test charge at that point and measuring the force on it:
-    \begin{equation}
-\vec{E}(\vec{x}) \equiv \frac{\vec{F}(\vec{x})}{q}
-\end{equation}
-\end{qt}
+Unfortunately, the interpretation of the electric field $\vec{E}(t, \vec{x})$ and the magnetic field $\vec{B}(t, \vec{x})$ is not so simple. Instead, the little arrows encode information about the somewhat abstract "physical field", which we can understand as follows: \redp{The direction of the vector at a given location encodes in which direction a test charge would move if it were placed here. The magnitude of the vector encodes how fast the test charge would accelerate as a result of, for example, the electric field}. In this sense, these more abstract fields encode how something would flow if it were there.
 \subsection{Electromagnetic potential}
 For the moment, we only note that the electromagnetic potential is characterized by 4 numbers at each point in space and time $A_{\mu}(t, \vec{x})=\left(A_{0}(t, \vec{x}), A_{1}(t, \vec{x}), A_{2}(t, \vec{x}), A_{3}(t, \vec{x})\right)^{T}$ and that the electric and magnetic fields can be calculated immediately once the electromagnetic potential is specified:
 \begin{qt}

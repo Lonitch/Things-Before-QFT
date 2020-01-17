@@ -130,6 +130,16 @@ c t=\frac{c t^{\prime}+\beta x^{\prime}}{\sqrt{1-\beta^{2}}}, \quad x=\frac{x^{\
 \label{inverse-lorentz}
 \end{equation}
 \end{qt}
+Using Lorentz transformation, we can also show that the apparent length of the object is contracting in the direction of motion according to the formula:
+\begin{equation}
+l=l_{0} \sqrt{1-\beta^{2}}
+\label{relativistic-length}
+\end{equation}
+Similarly, the space volume contracts too:
+\begin{equation}
+V=V_{0} \sqrt{1-\beta^{2}}
+\label{relactivistic-volume}
+\end{equation}
 
 \section{Laws of Relativistic Mechanics}
 The Lorentz transformations (also called boosts) and orthogonal space transformations (rotations and inversion of coordinates) \textbf{do not change the form of the metric.} An important relation concerning $ds$ for a massive particle that moves with the speed $v=\beta c\leq c$ is as follows:
@@ -375,10 +385,12 @@ which provides the following equation of motion:
 \begin{qt}
     \begin{equation}
 m c \frac{d u_{\mu}}{d s}-\frac{e}{c} u^{\alpha} F_{\mu \alpha}=0
+\label{eqofmotion-electromeg-tensor}
 \end{equation}
 In the last formula, we introduced a very important object
 \begin{equation}
 F_{\mu v}=\partial_{\mu} A_{v}-\partial_{v} A_{\mu}
+\label{electromagnetic-potential}
 \end{equation}
 which is called as \textbf{tensor of electromagnetic field}.
 \end{qt}
@@ -425,3 +437,306 @@ where
 \end{array}\right)=(\mathbf{-H}, \mathbf{E})
 \end{equation}
 \end{qt}
+\subsubsection{Gauge Invariance of the Particle Action}
+The most important feature of Eq.(\ref{eqofmotion-electromeg-tensor}) is that it possesses a symmetry called gauge invariance. To see this, we note that the electromagnetic potential $A_{\mu}$ enters these equations only through the relation (\ref{electromagnetic-potential}). And \redp{this combination does not change under gauge transformation}:
+\begin{qt}
+    \begin{equation}
+A_{\mu} \rightarrow A_{\mu}^{\prime}=A_{\mu}+\partial_{\mu} f, \quad f=f(x)=f(\mathbf{r}, t)
+\end{equation}
+\end{qt}
+since
+$$
+\begin{aligned}
+F_{\mu v}^{\prime} &=\partial_{\mu} A_{v}^{\prime}-\partial_{v} A_{\mu}^{\prime}=\partial_{\mu} A_{v}+\partial_{\mu} \partial_{v} f-\partial_{v} A_{\mu}-\partial_{v} \partial_{\mu} f \\
+&=\partial_{\mu} A_{v}-\partial_{v} A_{\mu}=F_{\mu v}
+\end{aligned}
+$$
+\bluep{Hence, the motion of a charged particle cannot distinguish between the potentials $A^{\prime}_{\mu}$ and $A_{\mu}$. In other words, at least one out of the four degree of freedom of $A_{\mu}$ is not physical, as it does not affect the motion of a test particle.}
+
+\textbf{The gauge transformation does not represent an essential change of the action of the particle, either.} Obviously, after the transformation we only need to worry about the interaction term since the free action off the partickes does not depend on $A_{\mu}$:
+$$
+\begin{aligned}
+S_{\mathrm{int}} & \rightarrow S_{\mathrm{int}}^{\prime}=-\frac{e}{c} \int_{s_{1}}^{s_{2}} A_{\mu}^{\prime} d x^{\mu}=-\frac{e}{c} \int_{s_{1}}^{s_{2}}\left(A_{\mu}+\partial_{\mu} f\right) d x^{\mu} \\
+&=S_{\mathrm{int}}-\frac{e}{c} \int_{s_{1}}^{s_{2}} d s \frac{\partial f}{\partial x^{\mu}} \frac{d x^{\mu}}{d s}=S_{\mathrm{int}}-\frac{e}{c} \int_{s_{1}}^{s_{2}} d s \frac{d f}{d s}
+\end{aligned}
+$$
+The last term is the integral of the total derivative and hence does not represent an
+essential change of the action.
+
+\subsubsection{Continuous description and electric current}
+Let's now introduce the notion of electric current. To this end, we consider many point-like charges $e_a$. We assume that these particles create electric $\mathbf{E}$ and magnetic H fields, also there may be external electric and magnetic fields. Then each of the particles interacts with the field created by all the particles and by an external field, if the last is present. The interaction part of the action has the form
+\begin{equation}
+S_{\text {int }}=-\sum_{a} \frac{e_{a}}{c} \int A_{\mu}\left(x_{a}\right) d x_{a}^{\mu}
+\end{equation}
+Let us now use \textbf{continuous description} and introduce the notation \redp{$\rho(t, \mathbf{r})$ for the density of charge}. The average density in the volume $V$ is defined as $\rho=Q / V$ where $Q=\sum_{b} e_{b}$ is the total charge since the last sum is taken over all the charges inside the volume $V .$ It is important to note that \redp{$\rho(t, \mathbf{r})$ is not a scalar}. In order to understand this, consider the same volume at rest, $V_{0},$ and in the inertial reference frame that moves with the constant speed $\mathbf{v}$. The volume in this frame is $V=V_0\sqrt{1-\beta^2}$. Thus, the charge density transforms as
+\begin{equation}
+\rho=\frac{\rho_{0}}{\sqrt{1-\beta^{2}}}
+\end{equation}
+which is not the scalar rule. As a result, one can define the \redp{four-current}
+\begin{qt}
+    \begin{equation}
+j^{\mu}=\rho \frac{d x^{\mu}}{d t}=\rho \frac{d s}{d t} \frac{d x^{\mu}}{d s}=c \rho \sqrt{1-\beta^{2}} \frac{d x^{\mu}}{d s}
+\end{equation}
+\end{qt}
+The time and space components of $j^{\mu}$ form scalar and $3 D$ vector with respect to the purely spacial change of coordinates,
+$$
+j^{\mu}=(c \rho, \mathbf{j}), \quad \mathbf{j}(t, \mathbf{r})=\rho(t, \mathbf{r}) \mathbf{v}
+$$
+With the definition of $j^{\mu}$, we can rewrite $S_{int}$ in the continuous notation as:
+\begin{equation}
+S_{\mathrm{int}}=-\int_{t_{1}}^{t_{2}} d^{3} x d t A_{\mu} \frac{d x^{\mu}}{c d t} \rho(t, \mathbf{r})=\frac{1}{c^{2}} \int d^{4} x A_{\mu} j^{\mu}
+\label{em-interaction-S}
+\end{equation}
+and the total action is now
+\begin{equation}
+S=-\sum \int m c d s-\frac{1}{c^{2}} \int d^{4} x A_{\mu} j^{\mu}
+\end{equation}
+Now we are in a position to understand the fundamental role of the gauge symmetry. Let us perform the gauge transformation in the action above. The variation of the action is
+\begin{equation}
+\delta S=-\frac{1}{c^{2}} \int d^{4} x j^{\mu} \partial_{\mu} f
+\label{charge-action}
+\end{equation}
+Integrating by parts, \textbf{we can ignore the surface term just assuming that the current $j^{\mu}$ vanishes on the boundary of the volume where the charges are moving}. Then the requirement of vanishing $\delta S$ for any choice of the gauge parameter $f$ leads to the identity:
+\begin{qt}
+    \begin{equation}
+\partial_{\mu} j^{\mu}=0 \quad \Longrightarrow \quad \frac{\partial \rho}{\partial t}+\operatorname{div} \mathbf{j}=0
+\end{equation}
+And this relation is the continuity equation for the charge.
+\end{qt}
+
+\section{Maxwell Equations in Relativistic Form}
+\subsection{Minimal action principle for fields}
+Consider the field $\varphi(x),$ where $x=x^{\mu}=\left(x^{0}, x^{1}, x^{2}, x^{3}\right) .$ This field $\varphi(x)$ can multicomponent, $\varphi=\varphi_{i},$ it can be scalar, vector, tensor, or have another nature. since these details are not relevant in what follows, for the sake of simplicity we use the condensed notation $\varphi(x)$. The action of the field $\varphi=\varphi(x)$ has the form of the $4 D$ integral 
+\begin{equation}
+S=\int_{\mathcal{M}} d^{4} x \mathcal{L}\left(\varphi, \partial_{\mu} \varphi\right)
+\end{equation}
+Let's take an arbitrary variation of the field $\delta \varphi(x)$ in the bulk $\mathcal{M},$ but require that it vanish on the boundary,
+\begin{equation}
+\left.\delta \varphi(x)\right|_{\partial \mathcal{M}} \equiv 0
+\label{field-boundary}
+\end{equation}
+The variation $\delta \varphi(x)$ is not related to the variation of independent coordinates $x$ hence
+\begin{equation}
+\delta\left(\frac{\partial \varphi}{\partial x^{\mu}}\right)=\delta \partial_{\mu} \varphi(x)=\partial_{\mu} \delta \varphi(x)=\frac{\partial(\delta \varphi)}{\partial x^{\mu}}
+\end{equation}
+As usual in the variational principle, we require that the first variation of S vanishes, hence
+\begin{equation}
+\delta S=\int_{\mathcal{M}} d^{4} x\left\{\frac{\partial \mathcal{L}}{\partial \varphi} \delta \varphi+\frac{\partial \mathcal{L}}{\partial_{\mu} \varphi} \delta\left(\partial_{\mu} \varphi\right)\right\}
+\end{equation}
+Starting from the above equation, the requirement of $\delta S=0$ for an arbitrary variation $\delta \varphi(x)$ provides the \redp{Lagrange equation for the field,}
+\begin{qt}
+    \begin{equation}
+\frac{\partial \mathcal{L}}{\partial \varphi}=\frac{\partial}{\partial x^{\mu}}\left[\frac{\partial \mathcal{L}}{\partial\left(\partial_{\mu} \varphi\right)}\right]
+\end{equation}
+\end{qt}
+\subsection{Maxwell Equations in Relativistic Form}
+Now we shall see whether it is possible to achieve the same invariance for the action
+of the electromagnetic field itself. As far aswe demand Lorentz invariance, the action
+should be written in terms of the 4D vector $A^{\mu}=(\mathbf{A},\varphi)$. Since our goal is to reproduce the following equations:
+\begin{qt}
+    $$\operatorname{div} \mathbf{E}=4 \pi \rho, \quad \operatorname{rot} \mathbf{H}=\frac{1}{c} \frac{\partial \mathbf{E}}{\partial t}+\frac{4 \pi}{c} \mathbf{j}$$
+\[
+\operatorname{div} \mathbf{H}=0, \quad \operatorname{rot} \mathbf{E}=-\frac{1}{c} \frac{\partial \mathbf{H}}{\partial t}
+\]
+\end{qt}
+And those are of the \bluep{second order in derivatives of the potentials $A$ and $\varphi .$ Furthermore, the desired equations are linear in $\mathbf{E}$ and $\mathbf{H}$ and therefore linear in $\mathrm{A}$ and $\varphi .$ Thus, we can expect that the action of $A^{\mu}$ should be \textbf{quadratic (bilinear) in the potential}.} The standard definition leads to the action
+\begin{qt}
+    \begin{equation}
+S_{\mathrm{em}}=-\frac{1}{16 \pi c} \int d^{4} x F_{\mu \nu} F^{\mu \nu}
+\label{em-field-action}
+\end{equation}
+\end{qt}
+\bluep{In quantum field theory, it is more common to use the coefficient $-1 / 4$ instead of $-1 /(16 \pi c)$ and the units with $c=1$}
+
+Before using the least action principle to derive the equations of motion, let us explore the definition of the electromagnetic field tensor $F_{\mu\nu}$. It is easy to check that this antisymmetric tensor satisfies the identity
+\begin{equation}
+\partial_{\alpha} F_{\mu \nu}+\partial_{\nu} F_{\alpha \mu}+\partial_{\mu} F_{\nu \alpha}=0
+\end{equation}
+and
+\begin{equation}
+\varepsilon^{\alpha \beta \mu v}\left(\partial_{\alpha} F_{\mu v}+\partial_{v} F_{\alpha \mu}+\partial_{\mu} F_{v \alpha}\right)=0 \quad \Longrightarrow \quad \partial_{\alpha} \tilde{F}^{\alpha \beta}=0
+\label{tildeF}
+\end{equation}
+Let us consider the $3 D$ representation of Eq. (\ref{tildeF}) Consider the case $\beta=0$ Taking into account that the terms with $\alpha=\beta$ vanish, we arrive at the equation:
+\begin{equation}
+\partial_{k} \tilde{F}^{k 0}=0 \Longrightarrow \operatorname{div} \mathbf{H}=0
+\end{equation}
+In the case $\beta=i$, the equation that results from (\ref{tildeF}) can be elaborated as:
+\begin{equation}
+\partial_{o} \tilde{F}^{k o}+\partial_{k} \tilde{F}^{k i}=0 \Longrightarrow \frac{1}{c} \frac{\partial \mathbf{H}}{\partial t}=-\operatorname{rot} \mathbf{E}
+\end{equation}
+In order to arrive at the last couple of Maxwell equations, consider the action of electromagnetic field (\ref{em-field-action}) together with the term that corresponds to the interaction with current from (\ref{em-interaction-S}). The relevant part of the total action is
+\begin{equation}
+S_{\mathrm{t}}=\int d^{4} x\left\{-\frac{1}{16 \pi c} F_{\mu v} F^{\mu v}-\frac{1}{c^{2}} A_{\mu} j^{\mu}\right\}
+\end{equation}
+To obtain the dynamical equations we use variational principle. Let us perform an arbitrary variation $\delta A_{\mu}(x)$ of the potential and require that $\left.\delta A_{\mu}(x)\right|_{(\partial M)}=0,$ where $(\partial M)$ is the boundary of the volume $(M),$ where the dynamics of the fields occurs. 
+
+The variation of the action can be easily elaborated by using antisymmetry of $F_{\mu v}$ and integrating by parts,
+\begin{equation}
+\begin{aligned}
+\delta S_{\mathrm{t}} &=\int d^{4} x\left\{\frac{1}{4 \pi c} F^{\mu v} \cdot \partial_{v} \delta A_{\mu}-\frac{1}{c^{2}} j^{\mu} \cdot \delta A_{\mu}\right\} \\
+&=\int d^{4} x \delta A_{\mu}\left\{-\frac{1}{4 \pi c} \partial_{v} F^{\mu v}-\frac{1}{c^{2}} j^{\mu}\right\}
+\end{aligned}
+\end{equation}
+Thus, using antisymmetry of $F_{\mu\nu}$, we arrive at \textbf{the nonhomogeneous equations}
+\begin{equation}
+\partial_{\mu} F^{\mu v}=\frac{4 \pi}{c} j^{v}
+\end{equation}
+For $\nu=0$:
+\begin{equation}
+\partial_{k} F^{k 0}=\operatorname{div} \mathbf{E}=\frac{4 \pi}{c} j^{0}=4 \pi \rho
+\end{equation}
+And for $\nu=i$,
+\begin{equation}
+-\frac{1}{c} \frac{\partial \mathbf{E}}{\partial t}+\operatorname{rot} \mathbf{H}=\frac{4 \pi}{c} \mathbf{j}
+\end{equation}
+\subsection{Lorentz Transformation of EM Field}
+Assuming that the reference frame $K^{\prime}$ moves with the velocity $v=\beta c$ in the direction $O X$ with respect to the static frame $K,$ we get
+\begin{equation}
+\begin{aligned}
+&c t^{\prime}=x^{0^{\prime}}=\frac{x^{0}-\beta x^{1}}{\sqrt{1-\beta^{2}}}, \quad x^{\prime}=x^{1^{\prime}}=\frac{x^{1}-\beta x^{0}}{\sqrt{1-\beta^{2}}}\\
+&y^{\prime}=x^{2^{\prime}}=x^{2}, \quad z^{\prime}=x^{3^{\prime}}=x^{3}
+\end{aligned}
+\end{equation}
+and the inverse transformation
+\begin{equation}
+x^{0}=\frac{x^{\sigma}+\beta x^{1^{\prime}}}{\sqrt{1-\beta^{2}}}, \quad x^{1}=\frac{x^{1^{\prime}}+\beta x^{0}}{\sqrt{1-\beta^{2}}}, \quad x^{2}=x^{2}, \quad x^{3}=x^{3^{\prime}}
+\end{equation}
+Let us show in detail the calculation of only the two coefficients:
+\begin{equation}
+E_{x}^{\prime}=F_{01}^{\prime}=\frac{\partial x^{\alpha}}{\partial x^{0}} \frac{\partial x^{\beta}}{\partial x^{1^{\prime}}} F_{\alpha \beta}=\frac{\partial x^{0}}{\partial x^{0}} \frac{\partial x^{1}}{\partial x^{1^{\prime}}} F_{01}+\frac{\partial x^{1}}{\partial x^{0^{\prime}}} \frac{\partial x^{0}}{\partial x^{1^{\prime}}} F_{10}=
+\end{equation}
+Using the Lorentz transformation listed above, we get
+\begin{equation}
+E_{x}^{\prime}=F_{01}^{\prime}=\frac{1}{\sqrt{1-\beta^{2}}} \frac{1}{\sqrt{1-\beta^{2}}} E_{x}+\frac{\beta}{\sqrt{1-\beta^{2}}} \frac{\beta}{\sqrt{1-\beta^{2}}}\left(-E_{x}\right)=E_{x}
+\end{equation}
+Similarly
+\begin{equation}
+\begin{aligned}
+E_{y}^{\prime}=F_{02}^{\prime} &=\frac{\partial x^{\alpha}}{\partial x^{0}} \frac{\partial x^{\beta}}{\partial x^{2}} F_{\alpha \beta}=\frac{\partial x^{0}}{\partial x^{0}} \frac{\partial x^{2}}{\partial x^{2 \prime}} F_{02}+\frac{\partial x^{1}}{\partial x^{0}} \frac{\partial x^{2}}{\partial x^{2 \prime}} F_{12} \\
+&=\frac{E_{y}-\beta H_{z}}{\sqrt{1-\beta^{2}}}
+\end{aligned}
+\end{equation}
+\begin{equation}
+E_{z}^{\prime}=\frac{E_{z}+\beta H_{y}}{\sqrt{1-\beta^{2}}}, \quad H_{x}^{\prime}=H_{x}, \quad H_{y}^{\prime}=\frac{H_{y}+\beta E_{z}}{\sqrt{1-\beta^{2}}}, \quad H_{z}^{\prime}=\frac{H_{z}-\beta E_{y}}{\sqrt{1-\beta^{2}}}
+\end{equation}
+
+\subsection{Energy-Momentum Tensor}
+If we consider the dynamics of the closed system, which includes both particles and field, we need to formulate the notion of energy and momentum for the field itself and then understand how the exchange of energy and momentum occurs between particles and fields.
+
+\bluep{Indeed, the approach of the modern physics assumes that charged particles do not interact directly between themselves. \textbf{Each of them exchanges energy and momentum with the field, and thus field plays the role of intermediator in the interaction between particles.} From this perspective, the formulation of energy and momentum of the field
+has fundamental importance.}
+
+Let us take the two of the Maxwell equations and combine them as
+\begin{equation}
+\frac{1}{c}\left(\mathbf{E} \cdot \frac{\partial \mathbf{E}}{\partial t}+\mathbf{H} \cdot \frac{\partial \mathbf{H}}{\partial t}\right)=-\frac{4 \pi}{c} \mathbf{j} \cdot \mathbf{E} -(\mathbf{H} \cdot \operatorname{rot} \mathbf{E}-\mathbf{E} \cdot \operatorname{rot} \mathbf{H})
+\end{equation}
+where
+$$
+\mathbf{H} \cdot \operatorname{rot} \mathbf{E}-\mathbf{E} \cdot \operatorname{rot} \mathbf{H}=\operatorname{div}[\mathbf{E}, \mathbf{H}]
+$$
+Now, we have
+$$
+\frac{1}{2 c} \frac{\partial}{\partial t}\left(E^{2}+H^{2}\right)=-\frac{4 \pi}{c} \mathbf{j} \cdot \mathbf{E}-\operatorname{div}[\mathbf{E}, \mathbf{H}]
+$$
+or
+\begin{qt}
+\begin{equation}
+\frac{\partial}{\partial t}\left(\frac{E^{2}+H^{2}}{8 \pi}\right)=-\mathbf{j} \cdot \mathbf{E}-\operatorname{div} \mathbf{S}
+\label{incorporate-Poynting}
+\end{equation}
+where
+    \begin{equation}
+\mathbf{S}=\frac{c}{4 \pi} \mathbf{E} \times \mathbf{H}
+\end{equation}
+is called \textbf{Poynting vector}.
+\end{qt}
+Consider a simple space volume (V) with the boundary ($\partial V$) and write down the integrated form of (\ref{incorporate-Poynting}), we arrive at
+\begin{qt}
+\begin{equation}
+\frac{d}{d t}\left\{\iiint_{(V)} \frac{E^{2}+H^{2}}{8 \pi}+\sum \varepsilon_{\mathrm{kin}}\right\}=\oiint_{(\partial V)} \mathbf{S} \cdot d \Sigma
+\end{equation}
+where
+$$
+-\mathbf{j} \cdot \mathbf{E}=-\sum e \mathbf{v} \cdot \mathbf{E}=-\frac{d}{d t} \sum \varepsilon_{\mathrm{kin}}
+$$
+and 
+$$
+\rho_{\mathrm{r}}=\frac{E^{2}+H^{2}}{8 \pi}
+$$
+is the energy density of the EM field.The physical interpretation of the Poynting vector is that it is \textbf{the space density of the vector flux of energy}. One can guess that this vector is related to the density of momentum of the field.
+\end{qt}
+\subsection{Conservation of the Energy-Momentum Tensor}
+Consider a closed system of fields $\varphi,$ without the action of external forces. This means that the density of the Lagrange function cannot depend on $x^{\mu}$ explicitly, but only through the fields and their partial derivatives, $\mathcal{L}=\mathcal{L}(\varphi, \partial \varphi) .$ Then
+\begin{equation}
+\frac{\partial \mathcal{L}}{\partial x^{\mu}}=\frac{\partial \mathcal{L}}{\partial \varphi} \frac{\partial \varphi}{\partial x^{\mu}}+\frac{\partial \mathcal{L}}{\partial\left(\partial_{\alpha} \varphi\right)} \frac{\partial\left(\partial_{\alpha} \varphi\right)}{\partial x^{\mu}}
+\end{equation}
+Using $\frac{\partial \mathcal{L}}{\partial \varphi}=\frac{\partial}{\partial x^{\mu}}\left[\frac{\partial \mathcal{L}}{\partial\left(\partial_{\mu} \varphi\right)}\right]$, we have 
+$$
+\begin{aligned}
+\frac{\partial \mathcal{L}}{\partial x^{\mu}} &=\frac{\partial}{\partial x^{\alpha}}\left(\frac{\partial \mathcal{L}}{\partial\left(\partial_{\alpha} \varphi\right)}\right) \frac{\partial \varphi}{\partial x^{\mu}}+\frac{\partial \mathcal{L}}{\partial\left(\partial_{\alpha} \varphi\right)} \frac{\partial}{\partial x^{\alpha}}\left(\frac{\partial \varphi}{\partial x^{\mu}}\right) \\
+&=\frac{\partial}{\partial x^{\alpha}}\left(\frac{\partial \mathcal{L}}{\partial\left(\partial_{\alpha} \varphi\right)} \frac{\partial \varphi}{\partial x^{\mu}}\right)
+\end{aligned}
+$$
+Using Kronecker delta symbol, we cast this relation into the form
+\begin{qt}
+\begin{equation}
+\partial_{\alpha} \theta^{\alpha}{}_{\mu}=0
+\label{energy-momentum-tensor-conservation-law}
+\end{equation}
+where
+\begin{equation}
+\theta^{\alpha}{}_{\mu}=\frac{\partial \mathcal{L}}{\partial\left(\partial_{\alpha} \varphi\right)} \partial_{\mu} \varphi-\delta_{\mu}^{\alpha} \mathcal{L}
+\end{equation}
+is called \textbf{energy momentum tensor of the field $\varphi$}. The relation (\ref{energy-momentum-tensor-conservation-law}) is called conservation law.
+\end{qt}
+Now we further write
+\begin{equation}
+\theta^{\alpha \beta}=\theta^{\alpha}{}_{\mu} \eta^{\mu \beta}
+\end{equation}
+In general, tensor $\theta^{\alpha \beta}$ may not be symmetric, but one can modify it by adding a new term
+\begin{equation}
+\theta^{\alpha \beta} \longrightarrow T^{\alpha \beta}=\theta^{\alpha \beta}+\partial_{\gamma} \Psi^{\alpha \beta \gamma}, \quad \text { where } \quad \Psi^{\alpha \beta \gamma}=-\Psi^{\gamma \beta \alpha}
+\end{equation}
+It is easy to see that $T^{\alpha \beta}$ satisfies the same conservation law, because $\partial_{\alpha} \partial_{\gamma} \Psi^{\alpha \beta \gamma}=$
+0. Thus, we arrive at the new version of the energy-momentum tensor, which is symmetric $T^{\beta \alpha}=T^{\alpha \beta}$ and satisfies the conservation law
+\begin{equation}
+\partial_{\alpha} T^{\alpha \beta}=0
+\end{equation}
+which \redp{reflects the same fundamental symmetry, that is, homogeneity of the space–time.} An important example of the energy–momentum tensor for the of electromagnetic field with the action (\ref{em-field-action}) and Lagrangian
+$$
+\mathcal{L}=-\frac{1}{16 \pi} F_{\mu v}^{2}=-\frac{1}{8 \pi} \partial_{\mu} A_{v}\left(\partial^{\mu} A^{v}-\partial^{v} A^{\mu}\right)
+$$
+In this formula, we used condensed notations $F_{\mu \nu}^{2}=F_{\mu \nu} F^{\mu \nu}$ and $\partial^{\mu}=\eta^{\mu \lambda} \partial_{\lambda}$. Taking the required derivatives, we get
+$$
+\begin{aligned}
+&\frac{\partial \mathcal{L}}{\partial\left(\partial_{\rho} A_{\sigma}\right)}=-\frac{1}{4 \pi} \delta_{\mu}^{\rho} \delta_{v}^{\sigma}\left(\partial^{\mu} A^{v}-\partial^{v} A^{\mu}\right)=-\frac{1}{4 \pi} F^{\rho \sigma}\\
+&\text { and } \quad \frac{\partial \mathcal{L}}{\partial A_{\rho}}=0
+\end{aligned}
+$$
+then
+\begin{equation}
+\theta^{\rho}{}_{ \mu}=\frac{\partial \mathcal{L}}{\partial\left(\partial_{\rho} A_{\sigma}\right)} \cdot \partial_{\mu} A_{\sigma}-\delta_{\mu}^{\rho} \mathcal{L}=\frac{1}{4 \pi}\left(-F^{\rho \sigma} \partial_{\mu} A_{\sigma}+\frac{1}{4} \delta_{\mu}^{\rho} F_{\alpha \beta}^{2}\right)
+\end{equation}
+It is easy to note that $\theta^{\rho \sigma}$ is not symmetric, and the symmetric version of the tensor for EM field is
+\begin{equation}
+T_{\alpha \beta}=\frac{1}{4 \pi}\left(-F_{\alpha}^{\rho} \cdot F_{\beta \rho}+\frac{1}{4} g_{\alpha \beta} F_{\rho \sigma}^{2}\right)
+\end{equation}
+where
+\begin{equation}
+\begin{aligned}
+&T_{00}=\frac{E^{2}+H^{2}}{8 \pi}\\
+&T_{0 k}=-\frac{1}{c} S^{k}\\
+&T_{i k}=\sigma_{i k}=\frac{1}{4 \pi}\left\{-E_{i} E_{k}-H_{i} H_{k}+\frac{1}{2} \delta_{i k}\left(E^{2}+H^{2}\right)\right\}
+\end{aligned}
+\end{equation}
+
+\section{Summary: Symmetries of Maxwell Equations}
+Maxwell equations are Lorentz invariant. This invariance can be seen in that the action of both the electromagnetic field (\ref{em-field-action}) and the massive charged particles (\ref{charge-action}) is scalars under Lorentz transformations, space rotations, and inversion of coordinates (parity transformation). Taken together, Lorentz symmetry, gauge invariance, absence of higher derivatives, and the linearity of dynamical equations (superposition principle) enable one to establish the action of the electromagnetic field in a unique way. Thus, the two fundamental symmetries form the basis of electromagnetic theory, including the possibility of the Lorentz mixing of electric and magnetic fields.
+
+Another important sysmmetry of the actions (\ref{em-field-action}) and (\ref{charge-action}) is the gauge symmetry, \textbf{which implies the conservation of electric charge.} Another symmetry of the action of a free electromagnetic field (\ref{em-field-action}) is the \textbf{global rescaling of coordinates and potentials}
+\begin{equation}
+x^{\mu} \longrightarrow x^{\prime \prime}=x^{\mu} e^{-\lambda}, \quad A^{\mu} \longrightarrow A^{\mu}=A^{\mu} e^{\lambda}
+\end{equation}
+where $\lambda$ is an arbitrary constant. It is easy to see that this transformation leaves the action invariant. As we shall see, this symmetry is related to the local (or global) conformal symmetry that takes place in curved space–time, typical for general relativity.
+
